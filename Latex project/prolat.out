@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section*.2}{Resum}{}
+\BOOKMARK [1][-]{section.1}{Prefaci}{}
+\BOOKMARK [2][-]{subsection.1.1}{Motivaci\363}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Requeriments previs}{section.1}
+\BOOKMARK [1][-]{section.2}{Introducci\363}{}
+\BOOKMARK [2][-]{subsection.2.1}{Estudi de l'art}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Objectius del projecte}{section.2}
+\BOOKMARK [1][-]{section.3}{Definicio del model}{}
+\BOOKMARK [2][-]{subsection.3.1}{Definici\363 de les variables}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Obtenci\363 del model}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Representaci\363 del model amb Matlab}{section.3}
+\BOOKMARK [1][-]{section.4}{Disseny del controlador}{}
+\BOOKMARK [1][-]{section.5}{Implementaci\363 del control}{}
+\BOOKMARK [1][-]{section.6}{Construcci\363 del Quadcopter}{}
+\BOOKMARK [2][-]{subsection.6.1}{Descripci\363 dels components}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Muntatge}{section.6}
+\BOOKMARK [1][-]{section.7}{An\340lisi econ\362mic}{}
