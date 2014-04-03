@@ -433,7 +433,11 @@ El conjunt de peces que formen aquest aparell estan conectades entre sí segons 
 % Descripción y explicación de cada componente del Quadcopter, con imágenes de cada
 Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplicat.
 \subsubsection*{Raspberry Pi} 
+<<<<<<< HEAD
 Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
+=======
+Es un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
+>>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 
 S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
  
@@ -450,11 +454,16 @@ Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix n
 \subsubsection*{GY-521 MPU-6050}
 \begin{table}[!h]
 \begin{tabular}{m{1.5cm}m{12cm}}
+<<<<<<< HEAD
 \hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
+=======
+\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C.\\
+>>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 \end{tabular}
 \end{table}
 Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V.
 
+<<<<<<< HEAD
 \subsubsection*{Transmissor-Receptor}
 Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i 
 \\
@@ -475,6 +484,9 @@ Amb aquest parell de components es transmet la consigna generada des del transmi
 • Adjustable stick length
 • Folding Antenna
 
+=======
+\subsubsection*{Emissor Receptor}
+>>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 \subsubsection*{Bateria LiPo}
 
 \subsubsection*{Regulador Step-Down}
@@ -595,7 +607,71 @@ Peso 190g
 \section*{ANNEXES}
 \subsection*{Annex 1: Obtenció vector de forces}
 asdfasdf 
+<<<<<<< HEAD
 \subsection*{Annex 2:}
+=======
+\subsection*{Annex 2:Preparació de la Raspberry Pi}
+Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal que es pugui comunicar amb la placa MPU-6050.
+\subsubsection*{Instalació Raspbian}
+Havent introduït la targeta SD en un lector adeqüat, es detecta en una terminal mitjançant l'ordre \textit{df -h}. Suposant que hagués estat gravada anteriorment:
+\begin{center}
+\includegraphics[scale=0.7]{InstalRasp1.jpeg}
+\end{center}
+S'han de desmontar les dos particions, tant la \textit{/dev/sdb1} com la \textit{/dev/sdb2}:
+\begin{verbatim}
+           umount /dev/sdb1
+           umount /dev/sdb2
+\end{verbatim}
+Havent descarregat la imatge a instalar per exemple a l'Escriptori, es procedeix amb:
+\begin{verbatim}
+    sudo dd bs=4M if=~/Escritorio/2013-07-26-wheezy-raspbian.img of=/dev/sdb
+\end{verbatim}
+Passats uns minuts ja es té la SD grabada amb el sistema operatiu Raspbian.
+\subsubsection*{Configuració de la Raspberry}
+Per tal de poder comunicar la RPi amb la IMU MPU-6050 per I2C és necessari configurar el sistema. Primer és necessari instal·lar els drivers més rellevants. De l'arxiu
+\begin{verbatim}
+           sudo nano /etc/modules
+\end{verbatim}
+s'han d'afegir les següents dues línies al final de l'arxiu:
+\begin{verbatim}
+           i2c-bcm2708
+           i2c-dev
+\end{verbatim}
+En l'arxiu blacklist:
+\begin{verbatim}
+           sudo vi /etc/modprobe.d/raspi-blacklist.conf
+\end{verbatim}
+les següents dues línies han de començar amb un signe \# (de comentari):
+\begin{verbatim}
+           #blacklist spi-bcm2708
+           #blacklist i2c-bcm2708
+\end{verbatim}
+Per provar de connectar el sensor, és necessari seguir primer el connexionat:
+\begin{center}
+\includegraphics[scale=0.2,viewport=0 200 800 720,clip]{ConSens.jpg}
+\end{center}
+És a dir:
+\begin{itemize}
+\item Pin1-3.3V es connecta VCC.
+\item Pin3-SDA es connecta a SDA
+\item Pin5-SCL es connecta a SCL
+\item Pin6-Ground es connecta a GND
+\end{itemize} 
+S'ha d'instal·lar el paquet $i2c-tools$:
+\begin{verbatim}
+           sudo apt-get install i2c-tools
+\end{verbatim}
+Per a veure el sensor s'escriu:
+\begin{verbatim}
+           sudo i2cdetect -y 1
+\end{verbatim}
+El resultat és 
+\begin{center}
+%\includegraphics[scale=0.5]{i2cdetect.jpg}
+\end{center}
+que és el dispositiu que correspon al MPU-6050.
+
+>>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 
 \newpage
 \begin{thebibliography}{99}
