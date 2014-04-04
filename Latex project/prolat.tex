@@ -433,11 +433,9 @@ El conjunt de peces que formen aquest aparell estan conectades entre sí segons 
 % Descripción y explicación de cada componente del Quadcopter, con imágenes de cada
 Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplicat.
 \subsubsection*{Raspberry Pi} 
-<<<<<<< HEAD
 Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
-=======
+
 Es un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
->>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 
 S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
  
@@ -453,26 +451,23 @@ Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix n
 
 \subsubsection*{GY-521 MPU-6050}
 \begin{table}[!h]
-\begin{tabular}{m{1.5cm}m{12cm}}
-<<<<<<< HEAD
-\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
-=======
-\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C.\\
->>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
+\begin{tabular}{m{1.5cm}m{12.5cm}}
+\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C a $400kHz$. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
 \end{tabular}
 \end{table}
 Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V.
 
-<<<<<<< HEAD
 \subsubsection*{Transmissor-Receptor}
 Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i 
 \\
 \begin{table}[!h]
-\begin{tabular}{m{4cm}m{12cm}}
-
+\begin{tabular}{m{7cm}m{12cm}}
+\includegraphics[scale=0.4]{E_R.jpg} & \begin{itemize}
+\item asdf 
+\end{itemize}
 \end{tabular}
 \end{table}
-\includegraphics[scale=0.4]{E_R.jpg}
+
 5 Channel radio control
 • Secure 2.4GHz FHSS
 • Dual rates
@@ -484,9 +479,9 @@ Amb aquest parell de components es transmet la consigna generada des del transmi
 • Adjustable stick length
 • Folding Antenna
 
-=======
+
 \subsubsection*{Emissor Receptor}
->>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
+
 \subsubsection*{Bateria LiPo}
 
 \subsubsection*{Regulador Step-Down}
@@ -607,9 +602,9 @@ Peso 190g
 \section*{ANNEXES}
 \subsection*{Annex 1: Obtenció vector de forces}
 asdfasdf 
-<<<<<<< HEAD
+
 \subsection*{Annex 2:}
-=======
+
 \subsection*{Annex 2:Preparació de la Raspberry Pi}
 Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal que es pugui comunicar amb la placa MPU-6050.
 \subsubsection*{Instalació Raspbian}
@@ -667,17 +662,16 @@ Per a veure el sensor s'escriu:
 \end{verbatim}
 El resultat és 
 \begin{center}
-%\includegraphics[scale=0.5]{i2cdetect.jpg}
+\includegraphics[scale=0.7]{i2cdetect.jpg}
 \end{center}
 que és el dispositiu que correspon al MPU-6050.
-
->>>>>>> 5b1f474223c80d8117df662dbb5661617b7e5c94
 
 \newpage
 \begin{thebibliography}{99}
 \bibitem{QuadPaper} Teppo Luukkonen (August 22,2011). \textit{Modelling and control of quadcopter}
 \bibitem{RPiWiki} Wikipedia de la Raspberry Pi: \url{http://en.wikipedia.org/wiki/Raspberry_Pi}
 \bibitem{IMUArduino} Accel·leròmetre i Giròscop MPU-6050 per a Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
-\bibitem{IMUData} MPU-6050 Product Specification (Datasheet): \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf} 
+\bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
+\bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
 \end{thebibliography}{}
 \end{document}
