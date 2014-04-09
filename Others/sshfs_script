@@ -1,0 +1,4 @@
+sudo apt-get install sshfs
+mkdir Raspberry_pi_files
+sshfs pi@147.83.26.161:/home/pi ./Raspberry_pi_files
+cd Raspberry_pi_files
