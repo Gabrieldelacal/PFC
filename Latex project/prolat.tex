@@ -453,12 +453,12 @@ Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix n
 \hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
 \end{tabular}
 \end{table}
-Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V.
+Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V i cap la possibilitat d'utilitzar un mòdul DMP (Digital Motion Processor), però s'ha decidit implementar un filtre de Kalman per llegint les dades en cru (raw) de la cua FIFO del sensor.
 
 \newpage
 \subsubsection*{Transmissor-Receptor}
-Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant una antena plegable. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
-\\
+Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant ones de radio. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
+
 \begin{table}[!h]
 \begin{tabular}{m{5.5cm}m{8cm}}
 \includegraphics[scale=0.3]{E_R.jpg} &
@@ -472,28 +472,25 @@ Amb aquest parell de components es transmet la consigna generada des del transmi
 \end{itemize} \\
 \end{tabular}
 \end{table}
-
 El transmissor té unes dimensions de 156x152x50mm, un pes de 265g i s'alimenta a 6V (4 bateries AA). El receptor té unes mides de 33.5x20.5x13mm i s'alimenta a 4.8-6V.
 
 \subsubsection*{Bateria LiPo}
-Per a alimentar a tot el conjunt s'utilitza una LiPo Turnigy 2200mAh 3S 25C.Aquesta bateria està formada per tres cel·les que proporcionen un voltatge de 11.1V. La capacitat és de 2200mAh, és a dir, pot proporcionar 2.2A durant una hora avans de descarregarse. \\
+Per a alimentar a tot el conjunt s'utilitza una LiPo Turnigy 2200mAh 3S1P 25C. Per tant, és capaç d'entregar 2.2A durant una hora, i com que la capacitat és de 25C, el la descàrrega pot ser de $2.2*25=55$A amb un pic de descàrrega de 35C, és a dir, amb un pic de $2.2*35=77A$ durant 10 segons. Aquesta bateria està formada per tres cel·les que proporcionen un voltatge total de 11.1V:\\
 \begin{center}
 \includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{LiPo.jpg} \\
 \end{center}
-
-
-Spec.
-Minimum Capacity: 2200mAh
-Configuration: 3S1P / 11.1v / 3Cell
-Constant Discharge: 25C
-Peak Discharge (10sec): 35C
-Pack Weight: 188g
-Pack Size: 105 x 33 x 24mm
-Charge Plug: JST-XH
-Discharge plug: XT60
-
+El conector de càrrega és el JST-XH i el de descàrrega el XT60. Per a tenir en compte amb l'estructura (frame) és interessant saber que pesa 188g i les seves dimensions són:  105x33x24mm.
 
 \subsubsection*{Regulador Step-Down}
+Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent:\\
+
+% \begin{table}[!h]
+\begin{tabular}{m{10cm}m{6cm}}
+\includegraphics[scale=0.55]{lm2576s.jpeg} &
+\includegraphics[scale=0.12]{regulator.jpg}
+\end{tabular}
+% \end{table}
+
 \subsubsection*{Variadors ESC}
 Turnigy AE-20A Brushless ESC
 Specification:
@@ -531,6 +528,7 @@ Low voltage cutoff threshold:  Soft cut-off (2.6V)
 Timing setup:  Low 
 Soft Acceleration Start Up:  Normal \\
 Low voltage cutoff type:  Medium
+
 \subsubsection*{Motors //modelo}
 Turnigy 2213 20turn 1050kv 19A Outrunner
 Spec.
@@ -540,11 +538,13 @@ Peak Current: 19A
 Weight: 56g
 Dimensions: 27.6 x 32mm
 Shaft Size: 3.175mm
+
 \subsubsection*{Frame}
 Peso 190g
+
 \subsubsection*{Hèlix}
 
-\newpage
+
 \newpage
 \subsection{Muntatge}
 % Descripción del procedimiento por pasos y con fotos
@@ -612,8 +612,7 @@ Peso 190g
 \section*{ANNEXES}
 \subsection*{Annex 1: Obtenció vector de forces}
 asdfasdf 
-
-\subsection*{Annex 2:}
+\newpage
 
 \subsection*{Annex 2:Preparació de la Raspberry Pi}
 Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal que es pugui comunicar amb la placa MPU-6050.
@@ -675,6 +674,9 @@ El resultat és
 \includegraphics[scale=0.7]{i2cdetect.jpg}
 \end{center}
 que és el dispositiu que correspon al MPU-6050.
+\newpage
+\subsection*{Annex 3: Filtre de kalman}
+
 
 \newpage
 \begin{thebibliography}{99}
@@ -683,5 +685,6 @@ que és el dispositiu que correspon al MPU-6050.
 \bibitem{IMUArduino} Accel·leròmetre i Giròscop MPU-6050 per a Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
 \bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
 \bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
+\bibitem{lm2576s} LM2576S Datasheet: \url{http://www.ti.com/lit/ds/symlink/lm2576.pdf}
 \end{thebibliography}{}
 \end{document}
