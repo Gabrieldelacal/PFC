@@ -1,0 +1,66 @@
+Cmp-Mod V01 Created by PcbNew date = Wed 12 Mar 2014 23:44:15 CET
+
+BeginCmp
+TimeStamp = /5320B21F;
+Reference = C1;
+ValeurCmp = 680uF;
+IdModule  = C2V10;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B22C;
+Reference = C2;
+ValeurCmp = 220uF;
+IdModule  = C2V10;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B6BD;
+Reference = CON1;
+ValeurCmp = USB-MINI-B;
+IdModule  = CONN_USB-B;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B2A9;
+Reference = D1;
+ValeurCmp = 1N5824;
+IdModule  = R6;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B2CC;
+Reference = D2;
+ValeurCmp = LED;
+IdModule  = LEDV;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B35C;
+Reference = L1;
+ValeurCmp = INDUCTOR;
+IdModule  = HC-33UV;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B32A;
+Reference = P1;
+ValeurCmp = CONN_2;
+IdModule  = bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B207;
+Reference = P2;
+ValeurCmp = CONN_5;
+IdModule  = bornier5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5320B2BD;
+Reference = R1;
+ValeurCmp = 230;
+IdModule  = R6;
+EndCmp
+
+EndListe

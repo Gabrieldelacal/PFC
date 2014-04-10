@@ -1,0 +1,778 @@
+%!PS-Adobe-2.0
+%%Creator: wxWidgets PostScript renderer
+%%CreationDate: Thu Mar 13 00:58:25 2014
+%%Orientation: Portrait
+%%DocumentPaperSizes: A4
+%%EndComments
+
+%%BeginProlog
+/conicto {
+    /to_y exch def
+    /to_x exch def
+    /conic_cntrl_y exch def
+    /conic_cntrl_x exch def
+    currentpoint
+    /p0_y exch def
+    /p0_x exch def
+    /p1_x p0_x conic_cntrl_x p0_x sub 2 3 div mul add def
+    /p1_y p0_y conic_cntrl_y p0_y sub 2 3 div mul add def
+    /p2_x p1_x to_x p0_x sub 1 3 div mul add def
+    /p2_y p1_y to_y p0_y sub 1 3 div mul add def
+    p1_x p1_y p2_x p2_y to_x to_y curveto
+}  bind def
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/ellipse {
+    ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+    } def
+/ellipticarcdict 8 dict def
+ellipticarcdict /mtrx matrix put
+/ellipticarc
+{ ellipticarcdict begin
+  /do_fill exch def
+  /endangle exch def
+  /startangle exch def
+  /yrad exch def
+  /xrad exch def 
+  /y exch def
+  /x exch def
+  /savematrix mtrx currentmatrix def
+  x y translate
+  xrad yrad scale
+  do_fill { 0 0 moveto } if
+  0 0 1 startangle endangle arc
+  savematrix setmatrix
+  do_fill { fill }{ stroke } ifelse
+  end
+} def
+% define 'colorimage' if it isn't defined
+%   ('colortogray' and 'mergeprocs' come from xwd2ps
+%     via xgrab)
+/colorimage where   % do we know about 'colorimage'?
+  { pop }           % yes: pop off the 'dict' returned
+  {                 % no:  define one
+    /colortogray {  % define an RGB->I function
+      /rgbdata exch store    % call input 'rgbdata'
+      rgbdata length 3 idiv
+      /npixls exch store
+      /rgbindx 0 store
+      0 1 npixls 1 sub {
+        grays exch
+        rgbdata rgbindx       get 20 mul    % Red
+        rgbdata rgbindx 1 add get 32 mul    % Green
+        rgbdata rgbindx 2 add get 12 mul    % Blue
+        add add 64 idiv      % I = .5G + .31R + .18B
+        put
+        /rgbindx rgbindx 3 add store
+      } for
+      grays 0 npixls getinterval
+    } bind def
+
+    % Utility procedure for colorimage operator.
+    % This procedure takes two procedures off the
+    % stack and merges them into a single procedure.
+
+    /mergeprocs { % def
+      dup length
+      3 -1 roll
+      dup
+      length
+      dup
+      5 1 roll
+      3 -1 roll
+      add
+      array cvx
+      dup
+      3 -1 roll
+      0 exch
+      putinterval
+      dup
+      4 2 roll
+      putinterval
+    } bind def
+
+    /colorimage { % def
+      pop pop     % remove 'false 3' operands
+      {colortogray} mergeprocs
+      image
+    } bind def
+  } ifelse          % end of 'false' case
+
+/reencodeISO {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+/Encoding ISOLatin1Encoding def
+currentdict end definefont
+} def
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/minus/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+/ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] def
+
+/DrawSplineSection {
+    /y3 exch def
+    /x3 exch def
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    /xa x1 x2 x1 sub 0.666667 mul add def
+    /ya y1 y2 y1 sub 0.666667 mul add def
+    /xb x3 x2 x3 sub 0.666667 mul add def
+    /yb y3 y2 y3 sub 0.666667 mul add def
+    x1 y1 lineto
+    xa ya xb yb x3 y3 curveto
+    } def
+%%EndProlog
+1.000000 setlinewidth
+%%Page: 1
+1.00000000 1.00000000 scale
+0 0 translate
+2.835000 setlinewidth
+2.835000 setlinewidth
+newpath
+213 726 moveto
+213 737 lineto
+209 737 lineto
+208 737 lineto
+207 736 lineto
+207 735 lineto
+207 733 lineto
+207 732 lineto
+208 732 lineto
+209 731 lineto
+213 731 lineto
+stroke
+2.835000 setlinewidth
+newpath
+213 731 moveto
+213 731 lineto
+stroke
+2.835000 setlinewidth
+newpath
+202 726 moveto
+201 726 lineto
+198 726 lineto
+197 726 lineto
+196 727 lineto
+196 728 lineto
+196 729 lineto
+196 730 lineto
+197 731 lineto
+198 731 lineto
+200 732 lineto
+201 732 lineto
+202 733 lineto
+202 734 lineto
+202 735 lineto
+202 736 lineto
+201 737 lineto
+200 737 lineto
+197 737 lineto
+196 737 lineto
+stroke
+2.835000 setlinewidth
+newpath
+196 737 moveto
+196 737 lineto
+stroke
+2.835000 setlinewidth
+newpath
+191 737 moveto
+191 728 lineto
+190 727 lineto
+190 726 lineto
+189 726 lineto
+187 726 lineto
+185 726 lineto
+185 727 lineto
+184 728 lineto
+184 737 lineto
+stroke
+2.835000 setlinewidth
+newpath
+184 737 moveto
+184 737 lineto
+stroke
+0.000000 setlinewidth
+0.000000 setlinewidth
+newpath
+50 714 moveto
+53 714 lineto
+stroke
+0.000000 setlinewidth
+newpath
+50 799 moveto
+50 714 lineto
+stroke
+0.000000 setlinewidth
+newpath
+222 714 moveto
+53 714 lineto
+stroke
+0.000000 setlinewidth
+newpath
+222 799 moveto
+222 714 lineto
+stroke
+0.000000 setlinewidth
+newpath
+50 799 moveto
+222 799 lineto
+stroke
+5.669000 setlinewidth
+5.669000 setlinewidth
+newpath
+137 787 moveto
+137 788 lineto
+stroke
+5.669000 setlinewidth
+newpath
+140 791 moveto
+180 791 lineto
+stroke
+5.669000 setlinewidth
+newpath
+137 788 moveto
+140 791 lineto
+stroke
+5.669000 setlinewidth
+newpath
+180 747 moveto
+184 747 lineto
+stroke
+5.669000 setlinewidth
+newpath
+184 747 moveto
+202 765 lineto
+stroke
+5.669000 setlinewidth
+newpath
+158 762 moveto
+166 762 lineto
+stroke
+5.669000 setlinewidth
+newpath
+166 762 moveto
+180 747 lineto
+stroke
+5.669000 setlinewidth
+newpath
+115 769 moveto
+136 769 lineto
+stroke
+5.669000 setlinewidth
+newpath
+143 762 moveto
+158 762 lineto
+stroke
+5.669000 setlinewidth
+newpath
+136 769 moveto
+143 762 lineto
+stroke
+5.669000 setlinewidth
+newpath
+173 733 moveto
+173 740 lineto
+stroke
+5.669000 setlinewidth
+newpath
+173 740 moveto
+180 747 lineto
+stroke
+5.669000 setlinewidth
+newpath
+65 740 moveto
+65 734 lineto
+stroke
+5.669000 setlinewidth
+newpath
+73 726 moveto
+115 726 lineto
+stroke
+5.669000 setlinewidth
+newpath
+65 734 moveto
+73 726 lineto
+stroke
+5.669000 setlinewidth
+newpath
+65 776 moveto
+65 740 lineto
+stroke
+5.669000 setlinewidth
+newpath
+115 740 moveto
+137 740 lineto
+stroke
+5.669000 setlinewidth
+newpath
+137 740 moveto
+144 733 lineto
+stroke
+5.669000 setlinewidth
+newpath
+94 740 moveto
+115 740 lineto
+stroke
+5.669000 setlinewidth
+newpath
+158 776 moveto
+178 776 lineto
+stroke
+5.669000 setlinewidth
+newpath
+181 780 moveto
+202 780 lineto
+stroke
+5.669000 setlinewidth
+newpath
+178 776 moveto
+181 780 lineto
+stroke
+5.669000 setlinewidth
+newpath
+137 780 moveto
+141 775 lineto
+stroke
+5.669000 setlinewidth
+newpath
+158 775 moveto
+158 776 lineto
+stroke
+5.669000 setlinewidth
+newpath
+141 775 moveto
+158 775 lineto
+stroke
+5.669000 setlinewidth
+newpath
+115 783 moveto
+122 783 lineto
+stroke
+5.669000 setlinewidth
+newpath
+126 780 moveto
+137 780 lineto
+stroke
+5.669000 setlinewidth
+newpath
+122 783 moveto
+126 780 lineto
+stroke
+5.669000 setlinewidth
+newpath
+86 776 moveto
+105 757 lineto
+stroke
+5.669000 setlinewidth
+newpath
+108 755 moveto
+115 755 lineto
+stroke
+5.669000 setlinewidth
+newpath
+105 757 moveto
+108 755 lineto
+stroke
+5.669000 setlinewidth
+newpath
+94 783 moveto
+115 783 lineto
+stroke
+5.669000 setlinewidth
+newpath
+79 776 moveto
+86 776 lineto
+stroke
+5.669000 setlinewidth
+newpath
+86 776 moveto
+94 783 lineto
+stroke
+5.669000 setlinewidth
+newpath
+79 776 moveto
+79 740 lineto
+stroke
+0.000000 setlinewidth
+newpath
+207 770 moveto
+207 761 lineto
+196 761 lineto
+196 770 lineto
+eofill
+0.000000 setlinewidth
+newpath
+207 770 moveto
+207 761 lineto
+196 761 lineto
+196 770 lineto
+closepath
+stroke
+newpath
+207 784 moveto
+207 776 lineto
+196 776 lineto
+196 784 lineto
+eofill
+0.000000 setlinewidth
+newpath
+207 784 moveto
+207 776 lineto
+196 776 lineto
+196 784 lineto
+closepath
+stroke
+newpath
+62 738 moveto
+62 743 lineto
+67 743 lineto
+67 738 lineto
+eofill
+0.000000 setlinewidth
+newpath
+62 738 moveto
+62 743 lineto
+67 743 lineto
+67 738 lineto
+closepath
+stroke
+newpath
+79 740 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+79 740 3 3 0 360 ellipse
+stroke
+newpath
+161 759 moveto
+156 759 lineto
+156 764 lineto
+161 764 lineto
+eofill
+0.000000 setlinewidth
+newpath
+161 759 moveto
+156 759 lineto
+156 764 lineto
+161 764 lineto
+closepath
+stroke
+newpath
+158 776 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+158 776 3 3 0 360 ellipse
+stroke
+newpath
+94 783 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+94 783 3 3 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+94 783 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+94 783 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+94 740 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+94 740 3 3 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+94 740 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+94 740 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+135 789 moveto
+139 789 lineto
+139 785 lineto
+135 785 lineto
+eofill
+0.000000 setlinewidth
+newpath
+135 789 moveto
+139 789 lineto
+139 785 lineto
+135 785 lineto
+closepath
+stroke
+newpath
+137 780 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+137 780 2 2 0 360 ellipse
+stroke
+newpath
+180 747 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+180 747 3 3 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+180 747 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+180 747 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+180 791 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+180 791 3 3 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+180 791 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+180 791 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+83 780 moveto
+83 773 lineto
+76 773 lineto
+76 780 lineto
+eofill
+0.000000 setlinewidth
+newpath
+83 780 moveto
+83 773 lineto
+76 773 lineto
+76 780 lineto
+closepath
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+79 776 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+79 776 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+65 776 4 4 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+65 776 4 4 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+65 776 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+65 776 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+115 740 5 5 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+115 740 5 5 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+115 740 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+115 740 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+115 755 5 5 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+115 755 5 5 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+115 755 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+115 755 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+121 720 moveto
+110 720 lineto
+110 731 lineto
+121 731 lineto
+eofill
+0.000000 setlinewidth
+newpath
+121 720 moveto
+110 720 lineto
+110 731 lineto
+121 731 lineto
+closepath
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+115 726 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+115 726 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+115 769 5 5 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+115 769 5 5 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+115 769 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+115 769 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+115 783 5 5 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+115 783 5 5 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+115 783 2 2 0 360 ellipse
+fill
+0.000000 setlinewidth
+0.51764706 0.51764706 0.00000000 setrgbcolor
+newpath
+115 783 2 2 0 360 ellipse
+stroke
+0.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+144 733 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+144 733 3 3 0 360 ellipse
+stroke
+newpath
+173 733 3 3 0 360 ellipse
+fill
+0.000000 setlinewidth
+newpath
+173 733 3 3 0 360 ellipse
+stroke
+showpage

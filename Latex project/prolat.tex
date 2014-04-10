@@ -435,8 +435,6 @@ Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplic
 \subsubsection*{Raspberry Pi} 
 Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
 
-Es un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
-
 S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
  
 \begin{tabular}{cc}
@@ -451,38 +449,49 @@ Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix n
 
 \subsubsection*{GY-521 MPU-6050}
 \begin{table}[!h]
-\begin{tabular}{m{1.5cm}m{12.5cm}}
-\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C a $400kHz$. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
+\begin{tabular}{m{1.5cm}m{12cm}}
+\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
 \end{tabular}
 \end{table}
 Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V.
 
+\newpage
 \subsubsection*{Transmissor-Receptor}
-Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i 
+Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant una antena plegable. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
 \\
 \begin{table}[!h]
-\begin{tabular}{m{7cm}m{12cm}}
-\includegraphics[scale=0.4]{E_R.jpg} & \begin{itemize}
-\item asdf 
-\end{itemize}
+\begin{tabular}{m{5.5cm}m{8cm}}
+\includegraphics[scale=0.3]{E_R.jpg} &
+\begin{itemize}
+\item Control per mitjà de 5 Channel radio control 
+\item Transmissió segura a 2.4GHz amb el mètode FHSS
+\item Dual rates
+\item Aleta de compensació analògica(Analog trim tabs)
+\item Servo reverse
+\item Possible canvi de configuració de mode (mode1-mode2)
+\end{itemize} \\
 \end{tabular}
 \end{table}
 
-5 Channel radio control
-• Secure 2.4GHz FHSS
-• Dual rates
-• Analog trim tabs
-• Servo reverse
-• Switchable mode setting (mode-1-mode-2)
-• Fixed wing and delta mixes
-• LED indicator light
-• Adjustable stick length
-• Folding Antenna
-
-
-\subsubsection*{Emissor Receptor}
+El transmissor té unes dimensions de 156x152x50mm, un pes de 265g i s'alimenta a 6V (4 bateries AA). El receptor té unes mides de 33.5x20.5x13mm i s'alimenta a 4.8-6V.
 
 \subsubsection*{Bateria LiPo}
+Per a alimentar a tot el conjunt s'utilitza una LiPo Turnigy 2200mAh 3S 25C.Aquesta bateria està formada per tres cel·les que proporcionen un voltatge de 11.1V. La capacitat és de 2200mAh, és a dir, pot proporcionar 2.2A durant una hora avans de descarregarse. \\
+\begin{center}
+\includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{LiPo.jpg} \\
+\end{center}
+
+
+Spec.
+Minimum Capacity: 2200mAh
+Configuration: 3S1P / 11.1v / 3Cell
+Constant Discharge: 25C
+Peak Discharge (10sec): 35C
+Pack Weight: 188g
+Pack Size: 105 x 33 x 24mm
+Charge Plug: JST-XH
+Discharge plug: XT60
+
 
 \subsubsection*{Regulador Step-Down}
 \subsubsection*{Variadors ESC}
@@ -520,7 +529,7 @@ Brake:  off
 Battery type:  Li-xx (Li-ion or Li-Po) 
 Low voltage cutoff threshold:  Soft cut-off (2.6V) 
 Timing setup:  Low 
-Soft Acceleration Start Up:  Normal  
+Soft Acceleration Start Up:  Normal \\
 Low voltage cutoff type:  Medium
 \subsubsection*{Motors //modelo}
 Turnigy 2213 20turn 1050kv 19A Outrunner
@@ -535,6 +544,7 @@ Shaft Size: 3.175mm
 Peso 190g
 \subsubsection*{Hèlix}
 
+\newpage
 \newpage
 \subsection{Muntatge}
 % Descripción del procedimiento por pasos y con fotos

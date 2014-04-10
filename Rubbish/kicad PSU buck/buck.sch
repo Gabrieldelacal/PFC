@@ -1,0 +1,235 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:buck-cache
+EELAYER 24 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_5 P2
+U 1 1 5320B207
+P 5500 2000
+F 0 "P2" V 5450 2000 50  0000 C CNN
+F 1 "CONN_5" V 5550 2000 50  0000 C CNN
+F 2 "" H 5500 2000 60  0000 C CNN
+F 3 "" H 5500 2000 60  0000 C CNN
+	1    5500 2000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CP1 C1
+U 1 1 5320B21F
+P 5000 3100
+F 0 "C1" H 5050 3200 50  0000 L CNN
+F 1 "680uF" H 5050 3000 50  0000 L CNN
+F 2 "" H 5000 3100 60  0000 C CNN
+F 3 "" H 5000 3100 60  0000 C CNN
+	1    5000 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP1 C2
+U 1 1 5320B22C
+P 6800 3200
+F 0 "C2" H 6850 3300 50  0000 L CNN
+F 1 "220uF" H 6850 3100 50  0000 L CNN
+F 2 "" H 6800 3200 60  0000 C CNN
+F 3 "" H 6800 3200 60  0000 C CNN
+	1    6800 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L DIODESCH D1
+U 1 1 5320B2A9
+P 5900 3200
+F 0 "D1" H 5900 3300 40  0000 C CNN
+F 1 "1N5824" H 5900 3100 40  0000 C CNN
+F 2 "" H 5900 3200 60  0000 C CNN
+F 3 "" H 5900 3200 60  0000 C CNN
+	1    5900 3200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R1
+U 1 1 5320B2BD
+P 7250 3200
+F 0 "R1" V 7330 3200 40  0000 C CNN
+F 1 "230" V 7257 3201 40  0000 C CNN
+F 2 "" V 7180 3200 30  0000 C CNN
+F 3 "" H 7250 3200 30  0000 C CNN
+	1    7250 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D2
+U 1 1 5320B2CC
+P 7250 3700
+F 0 "D2" H 7250 3800 50  0000 C CNN
+F 1 "LED" H 7250 3600 50  0000 C CNN
+F 2 "" H 7250 3700 60  0000 C CNN
+F 3 "" H 7250 3700 60  0000 C CNN
+	1    7250 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_2 P1
+U 1 1 5320B32A
+P 3500 2750
+F 0 "P1" V 3450 2750 40  0000 C CNN
+F 1 "CONN_2" V 3550 2750 40  0000 C CNN
+F 2 "" H 3500 2750 60  0000 C CNN
+F 3 "" H 3500 2750 60  0000 C CNN
+	1    3500 2750
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR01
+U 1 1 5320B339
+P 5500 4200
+F 0 "#PWR01" H 5500 4200 30  0001 C CNN
+F 1 "GND" H 5500 4130 30  0001 C CNN
+F 2 "" H 5500 4200 60  0000 C CNN
+F 3 "" H 5500 4200 60  0000 C CNN
+	1    5500 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L INDUCTOR L1
+U 1 1 5320B35C
+P 6350 2850
+F 0 "L1" V 6300 2850 40  0000 C CNN
+F 1 "INDUCTOR" V 6450 2850 40  0000 C CNN
+F 2 "" H 6350 2850 60  0000 C CNN
+F 3 "" H 6350 2850 60  0000 C CNN
+	1    6350 2850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3850 2650 5300 2650
+Wire Wire Line
+	5300 2650 5300 2400
+Wire Wire Line
+	4050 4000 4050 2850
+Wire Wire Line
+	4050 2850 3850 2850
+Wire Wire Line
+	5700 4000 5700 2400
+Wire Wire Line
+	5500 2400 5500 4200
+Connection ~ 5500 4000
+Wire Wire Line
+	5600 2400 5600 2650
+Connection ~ 5700 4000
+Wire Wire Line
+	7250 2650 7250 2950
+Wire Wire Line
+	4050 4000 7850 4000
+Wire Wire Line
+	6650 2850 7250 2850
+Connection ~ 7250 2850
+Wire Wire Line
+	7250 3450 7250 3500
+Wire Wire Line
+	7250 4000 7250 3900
+Wire Wire Line
+	6800 3400 6800 4000
+Connection ~ 6800 4000
+Wire Wire Line
+	6800 3000 6800 2850
+Connection ~ 6800 2850
+Wire Wire Line
+	6050 2850 5400 2850
+Wire Wire Line
+	5400 2850 5400 2400
+Wire Wire Line
+	5900 3000 5900 2850
+Connection ~ 5900 2850
+Wire Wire Line
+	5900 3400 5900 4000
+Connection ~ 5900 4000
+Wire Wire Line
+	5600 2650 8150 2650
+Connection ~ 7250 2650
+Wire Wire Line
+	5000 2650 5000 2900
+Connection ~ 5000 2650
+Wire Wire Line
+	5000 3300 5000 4000
+Connection ~ 5000 4000
+$Comp
+L USB-MINI-B CON1
+U 1 1 5320B6BD
+P 8700 2950
+F 0 "CON1" H 8450 3400 60  0000 C CNN
+F 1 "USB-MINI-B" H 8650 2450 60  0000 C CNN
+F 2 "" H 8700 2950 60  0000 C CNN
+F 3 "" H 8700 2950 60  0000 C CNN
+	1    8700 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 3250 7850 3250
+Wire Wire Line
+	7850 3250 7850 4000
+Connection ~ 7250 4000
+NoConn ~ 8150 2800
+NoConn ~ 8150 2950
+NoConn ~ 8150 3100
+NoConn ~ 9250 2650
+NoConn ~ 9250 2800
+NoConn ~ 9250 3100
+NoConn ~ 9250 3250
+$Comp
+L PWR_FLAG #FLG02
+U 1 1 5320BC90
+P 7800 2500
+F 0 "#FLG02" H 7800 2595 30  0001 C CNN
+F 1 "PWR_FLAG" H 7800 2680 30  0000 C CNN
+F 2 "" H 7800 2500 60  0000 C CNN
+F 3 "" H 7800 2500 60  0000 C CNN
+	1    7800 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 2650 7800 2500
+Connection ~ 7800 2650
+$EndSCHEMATC
