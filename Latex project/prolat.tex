@@ -18,7 +18,7 @@
 \usetikzlibrary{arrows,shapes,trees}
 
 \title{\begin{center} 
-\includegraphics[scale=0.3]{upc.jpg} 
+\includegraphics[scale=0.3]{images/upc.jpg} 
 \end{center} 
 \vspace{1cm} 
 Projecte Final de Carrera\\
@@ -46,7 +46,7 @@ Memòria}
 
 \fancyhead[LO,RE]{Quadcopter Control}
 \fancyhead[LE,RO]{\thepage}
-\fancyfoot[LE,RO]{\includegraphics[scale=0.1]{etseib.jpg}}
+\fancyfoot[LE,RO]{\includegraphics[scale=0.1]{images/etseib.jpg}}
 \fancyfoot[C]{}
 
 \begin{document}
@@ -59,7 +59,7 @@ $\begin{array}{ll}
 \mbox{Convocatòria:} & \mbox{Data a presentar}
 \end{array}$}
 \\ \vspace{2cm} \Large{Escola Tècnica Superior d'Enginyeria Industrial de Barcelona}\\ \vspace{1cm}
-\includegraphics[scale=0.4]{etseib.jpg}
+\includegraphics[scale=0.4]{images/etseib.jpg}
 \end{center}
 
 \thispagestyle{empty}
@@ -138,7 +138,7 @@ Per a caracteritzar la planta amb la que es treballarà, és necessari obtenir u
 Per ser més usual la primera opció, es decideix utilitzar la configuració $Cross type$ tal i com es té en la figura \ref{RefQuad}.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{quad.jpg}
+\includegraphics[scale=0.5]{images/quad.jpg}
 \caption{Marcs de referència en el quadcopter}
 \label{RefQuad}
 \end{figure}\\
@@ -438,7 +438,7 @@ Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Bo
 S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
  
 \begin{tabular}{cc}
-\hspace{1cm}\includegraphics[scale=0.06]{RPi.jpg} & \hspace{0.5cm} \includegraphics[scale=0.3]{RPi2.jpg}
+\hspace{1cm}\includegraphics[scale=0.06]{images/RPi.jpg} & \hspace{0.5cm} \includegraphics[scale=0.3]{images/RPi2.jpg}
 \end{tabular} \\
 
 Té un System-on-Chip (SoC) Broadcom BCM2835 amb un ARM1176JZF-S a 700 Mhz, una GPU VideoCore IV i 512 MB de memòria RAM. Disposa de dos ports USB, una sortida mini-jack 3.5mm, sortida d'audio/vídeo HDMI, una sortida RCA i un port RJ45 10/100 d'Ethernet. 
@@ -450,7 +450,7 @@ Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix n
 \subsubsection*{GY-521 MPU-6050}
 \begin{table}[!h]
 \begin{tabular}{m{1.5cm}m{12cm}}
-\hspace{1cm}\includegraphics[scale=0.1]{mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
+\hspace{1cm}\includegraphics[scale=0.1]{images/mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
 \end{tabular}
 \end{table}
 Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V i cap la possibilitat d'utilitzar un mòdul DMP (Digital Motion Processor), però s'ha decidit implementar un filtre de Kalman per llegint les dades en cru (raw) de la cua FIFO del sensor.
@@ -460,8 +460,8 @@ Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm50
 Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant ones de radio. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
 
 \begin{table}[!h]
-\begin{tabular}{m{5.5cm}m{8cm}}
-\includegraphics[scale=0.3]{E_R.jpg} &
+\begin{tabular}{m{4.5cm}m{10cm}}
+\includegraphics[scale=0.4]{images/E_R.jpg} &
 \begin{itemize}
 \item Control per mitjà de 5 Channel radio control 
 \item Transmissió segura a 2.4GHz amb el mètode FHSS
@@ -477,7 +477,7 @@ El transmissor té unes dimensions de 156x152x50mm, un pes de 265g i s'alimenta 
 \subsubsection*{Bateria LiPo}
 Per a alimentar a tot el conjunt s'utilitza una LiPo Turnigy 2200mAh 3S1P 25C. Per tant, és capaç d'entregar 2.2A durant una hora, i com que la capacitat és de 25C, el la descàrrega pot ser de $2.2*25=55$A amb un pic de descàrrega de 35C, és a dir, amb un pic de $2.2*35=77A$ durant 10 segons. Aquesta bateria està formada per tres cel·les que proporcionen un voltatge total de 11.1V:\\
 \begin{center}
-\includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{LiPo.jpg} \\
+\includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{images/LiPo.jpg} \\
 \end{center}
 El conector de càrrega és el JST-XH i el de descàrrega el XT60. Per a tenir en compte amb l'estructura (frame) és interessant saber que pesa 188g i les seves dimensions són:  105x33x24mm.
 
@@ -486,9 +486,9 @@ Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspber
 
 % \begin{table}[!h]
 \begin{tabular}{m{10cm}m{6cm}}
-\includegraphics[scale=0.55]{lm2576s.jpeg} &
-\includegraphics[scale=0.12]{regulator.jpg}
-\end{tabular}
+\includegraphics[scale=0.55]{images/lm2576s.jpeg} &
+\includegraphics[scale=0.12]{images/regulator.jpg}
+\end{tabular}\\
 % \end{table}
 
 \subsubsection*{Variadors ESC}
@@ -619,7 +619,7 @@ Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal qu
 \subsubsection*{Instalació Raspbian}
 Havent introduït la targeta SD en un lector adeqüat, es detecta en una terminal mitjançant l'ordre \textit{df -h}. Suposant que hagués estat gravada anteriorment:
 \begin{center}
-\includegraphics[scale=0.7]{InstalRasp1.jpeg}
+\includegraphics[scale=0.7]{images/InstalRasp1.jpeg}
 \end{center}
 S'han de desmontar les dos particions, tant la \textit{/dev/sdb1} com la \textit{/dev/sdb2}:
 \begin{verbatim}
@@ -652,7 +652,7 @@ les següents dues línies han de començar amb un signe \# (de comentari):
 \end{verbatim}
 Per provar de connectar el sensor, és necessari seguir primer el connexionat:
 \begin{center}
-\includegraphics[scale=0.2,viewport=0 200 800 720,clip]{ConSens.jpg}
+\includegraphics[scale=0.2,viewport=0 200 800 720,clip]{images/ConSens.jpg}
 \end{center}
 És a dir:
 \begin{itemize}
@@ -671,7 +671,7 @@ Per a veure el sensor s'escriu:
 \end{verbatim}
 El resultat és 
 \begin{center}
-\includegraphics[scale=0.7]{i2cdetect.jpg}
+\includegraphics[scale=0.7]{images/i2cdetect.jpg}
 \end{center}
 que és el dispositiu que correspon al MPU-6050.
 \newpage
