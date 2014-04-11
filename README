@@ -1,4 +1,8 @@
-PFC 
+Proyecto Final de Carrera: Control de un Quadcopter.
 
-Quadcopter
+Hasta ahora se tiene implementado un filtro de kalman de los sensores MPU6050, un modelo del sistema y parcialmente desarrollada la memoria. 
+
+En rubbish se tienen anteriores modelos, descartados todos.
+
+Sources contiene la normativa de la memoria del proyecto y Datasheets del sensor: Especificación y mapa de registros para configurarlo.
 
