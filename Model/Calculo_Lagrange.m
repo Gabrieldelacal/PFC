@@ -241,3 +241,27 @@ sol.f4
 % BUSCANDO LINEALIZAR EL SISTEMA EN EL PUNTO DE EQUILIBRIO PARA TENER:
 %       dX=A·X+B·U
 %       Y=C·X
+
+fx=[dXi;
+    sys1;
+    dEta;
+    sys2];
+
+states=[Xi;
+        dXi;
+        Eta;
+        dEta];
+
+forces=[f1;
+        f2;
+        f3;
+        f4];    
+    
+A=jacobian(fx,states);
+Asub=sym(subs(A,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+
+B=jacobian(fx,forces);
+Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+
+C=[[0 0 0 0 0 0 1 0 0 0 0 0];
+   [0 0 0 0 0 0 0 1 0 0 0 0]]
