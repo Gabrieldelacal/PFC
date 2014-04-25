@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  10 APR 2014 13:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  25 APR 2014 13:33
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
@@ -1237,7 +1237,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--127
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [6]
-<images/quad.jpg, id=140, 620.3175pt x 261.97874pt>
+<images/quad.jpg, id=148, 620.3175pt x 261.97874pt>
 File: images/quad.jpg Graphic file (type jpg)
  <use images/quad.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
@@ -1274,115 +1274,111 @@ File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [11]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [12]
-<images/RPi.jpg, id=207, 2569.6pt x 1445.4pt>
+<images/RPi.jpg, id=215, 2569.6pt x 1445.4pt>
 File: images/RPi.jpg Graphic file (type jpg)
  <use images/RPi.jpg>
-<images/RPi2.jpg, id=208, 513.92pt x 400.49625pt>
+<images/RPi2.jpg, id=216, 513.92pt x 400.49625pt>
 File: images/RPi2.jpg Graphic file (type jpg)
  <use images/RPi2.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 440--443
-
- []
-
-<images/mpu-6050.jpg, id=209, 367.3725pt x 481.8pt>
+<images/mpu-6050.jpg, id=217, 367.3725pt x 481.8pt>
 File: images/mpu-6050.jpg Graphic file (type jpg)
  <use images/mpu-6050.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
-[]|
+Overfull \hbox (11.2287pt too wide) in paragraph at lines 468--476
+\T1/cmr/m/n/10 Com a car-ac-terís-tiques dels sen-sors: el giròs-cop té un rang
+ de $\U/MnSymbolC/m/n/10 ^^V\OT1/cmr/m/n/10 250\OML/cmm/m/it/10 ; \U/MnSymbolC/
+m/n/10 ^^V\OT1/cmr/m/n/10 500\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr
+/m/n/10 1000\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr/m/n/10 2000$ \T1
+/cmr/m/n/10 graus/segon,
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [13 <./images/RPi.jpg> <./images/RPi2.jpg> <./images/mp
-u-6050.jpg>] <images/E_R.jpg, id=217, 336.50719pt x 266.49562pt>
+<use images/etseib.jpg> [13 <./images/RPi.jpg> <./images/RPi2.jpg>]
+<images/E_R.jpg, id=224, 336.50719pt x 266.49562pt>
 File: images/E_R.jpg Graphic file (type jpg)
-
-<use images/E_R.jpg>
-Overfull \hbox (6.56308pt too wide) in paragraph at lines 464--464
-[]|[]| 
- []
-
-
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 463--474
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+ <use images/E_R.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
-<images/LiPo.jpg, id=218, 2569.6pt x 1445.4pt>
+<images/LiPo.jpg, id=225, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 485--486
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [14 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
-<images/lm2576s.jpeg, id=220, 504.38437pt x 144.54pt>
+<images/lm2576s.jpeg, id=235, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
-<use images/lm2576s.jpeg> <images/regulator.jpg, id=221, 602.25pt x 602.25pt>
+<use images/lm2576s.jpeg> <images/regulator.jpg, id=236, 602.25pt x 602.25pt>
 File: images/regulator.jpg Graphic file (type jpg)
 
 <use images/regulator.jpg>
-Overfull \hbox (81.67911pt too wide) in paragraph at lines 488--493
+Overfull \hbox (81.67911pt too wide) in paragraph at lines 505--510
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--493
+Underfull \hbox (badness 10000) in paragraph at lines 505--510
 
  []
 
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [14 <./images/LiPo.jpg> <./images/E_R.jpg> <./images/lm
-2576s.jpeg> <./images/regulator.jpg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [15]
+<images/ESC.jpeg, id=237, 335.75438pt x 191.9672pt>
+File: images/ESC.jpeg Graphic file (type jpg)
+ <use images/ESC.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [16]
+<use images/etseib.jpg> [15 <./images/LiPo.jpg> <./images/lm2576s.jpeg> <./imag
+es/regulator.jpg> <./images/ESC.jpeg>]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [17]
+ <use images/etseib.jpg> [16]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [18]
-<images/InstalRasp1.jpeg, id=254, 576.65437pt x 28.60687pt>
+<use images/etseib.jpg> [17]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [18]
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [19]
+<images/InstalRasp1.jpeg, id=269, 576.65437pt x 28.60687pt>
 File: images/InstalRasp1.jpeg Graphic file (type jpg)
 
 <use images/InstalRasp1.jpeg>
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 625.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 651.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-<images/ConSens.jpg, id=255, 963.6pt x 722.7pt>
+<images/ConSens.jpg, id=270, 963.6pt x 722.7pt>
 File: images/ConSens.jpg Graphic file (type jpg)
  <use images/ConSens.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [19 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>]
-<images/i2cdetect.jpg, id=269, 350.81062pt x 134.00063pt>
+<use images/etseib.jpg> [20 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>]
+<images/i2cdetect.jpg, id=284, 350.81062pt x 134.00063pt>
 File: images/i2cdetect.jpg Graphic file (type jpg)
 
 <use images/i2cdetect.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [20 <./images/i2cdetect.jpg>]
+ <use images/etseib.jpg> [21 <./images/i2cdetect.jpg>]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [21]
-Underfull \hbox (badness 10000) in paragraph at lines 686--687
+ <use images/etseib.jpg> [22]
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
 []\T1/cmr/m/n/10 MPU-6050. Es-peci-fi-cació del pro-ducte: []$\T1/cmtt/m/n/10 h
 ttp : / / www . invensense . com / mems / gyro /
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [22] (./prolat.aux) ) 
+<use images/etseib.jpg> [23] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
- 18778 strings out of 495061
- 337220 string characters out of 1182621
- 433019 words of memory out of 3000000
- 21433 multiletter control sequences out of 15000+50000
+ 18790 strings out of 495061
+ 337364 string characters out of 1182621
+ 433119 words of memory out of 3000000
+ 21439 multiletter control sequences out of 15000+50000
  28001 words of font info for 83 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  56i,19n,56p,526b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1408,9 +1404,9 @@ exlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts
 /type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmr7.pfb>
-Output written on prolat.pdf (24 pages, 3395618 bytes).
+Output written on prolat.pdf (25 pages, 3415360 bytes).
 PDF statistics:
- 813 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 827 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

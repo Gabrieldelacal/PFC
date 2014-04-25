@@ -435,54 +435,71 @@ Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplic
 \subsubsection*{Raspberry Pi} 
 Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
 
+%\begin{tabular}{cc}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.06]{images/RPi.jpg}
+\caption{Raspberry Pi a utilitzar}
+\label{RPiImage}
+\end{center}
+\end{figure}
+%\end{tabular}
+
 S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
- 
-\begin{tabular}{cc}
-\hspace{1cm}\includegraphics[scale=0.06]{images/RPi.jpg} & \hspace{0.5cm} \includegraphics[scale=0.3]{images/RPi2.jpg}
-\end{tabular} \\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/RPi2.jpg}
+\caption{Conectors de la Raspberry Pi}
+\label{RPiConn}
+\end{center}
+\end{figure}
+
+%\begin{tabular}{cc}
+%\hspace{1cm}\includegraphics[scale=0.06]{images/RPi.jpg}
+%& \hspace{0.5cm} \includegraphics[scale=0.3]{images/RPi2.jpg}
+%\end{tabular} \\
 
 Té un System-on-Chip (SoC) Broadcom BCM2835 amb un ARM1176JZF-S a 700 Mhz, una GPU VideoCore IV i 512 MB de memòria RAM. Disposa de dos ports USB, una sortida mini-jack 3.5mm, sortida d'audio/vídeo HDMI, una sortida RCA i un port RJ45 10/100 d'Ethernet. 
 
-L'alimentació es realitza per mitjà d'un mini USB a 5V/700mA, amb un consum de 3.5W. El sistema operatiu és un Raspbian, gravat en una targeta SD de 4GB. 
-
-Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix nivell UART, I2C, SPI i 8 pins de propòsit general (General Porpouse Input Output o GPIO).
+L'alimentació es realitza per mitjà d'un mini USB a 5V/700mA, amb un consum de 3.5W. El sistema operatiu és un Raspbian, gravat en una targeta SD de 4GB. Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix nivell UART, I2C, SPI i 8 pins de propòsit general (General Porpouse Input Output o GPIO).
 
 \subsubsection*{GY-521 MPU-6050}
-\begin{table}[!h]
-\begin{tabular}{m{1.5cm}m{12cm}}
-\hspace{1cm}\includegraphics[scale=0.1]{images/mpu-6050.jpg} & Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de 4x4x0.9mm un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació I2C. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.\\
-\end{tabular}
-\end{table}
-Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de 2.375V-3.46V i cap la possibilitat d'utilitzar un mòdul DMP (Digital Motion Processor), però s'ha decidit implementar un filtre de Kalman per llegint les dades en cru (raw) de la cua FIFO del sensor.
+Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de $4x4x0.9mm$ un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació $I2C$. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.12]{images/mpu-6050.jpg} 
+\caption{IMU MPU-6050}
+\end{center}
+\end{figure}\\
+Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de $2.375V-3.46V$ i cap la possibilitat d'utilitzar un mòdul $DMP$ (Digital Motion Processor), però s'ha decidit implementar un filtre de Kalman per llegint les dades en cru (raw) de la cua $FIFO$ del sensor.
 
-\newpage
-\subsubsection*{Transmissor-Receptor}
-Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant ones de radio. El model que s'utilitza és el Turnigy 5X 5Ch Mini, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
+\subsubsection*{Emissor-Receptor}
+Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant ones de radio. El model que s'utilitza és el $Turnigy 5X 5Ch Mini$, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
 
-\begin{table}[!h]
-\begin{tabular}{m{4.5cm}m{10cm}}
-\includegraphics[scale=0.4]{images/E_R.jpg} &
-\begin{itemize}
-\item Control per mitjà de 5 Channel radio control 
-\item Transmissió segura a 2.4GHz amb el mètode FHSS
-\item Dual rates
-\item Aleta de compensació analògica(Analog trim tabs)
-\item Servo reverse
-\item Possible canvi de configuració de mode (mode1-mode2)
-\end{itemize} \\
-\end{tabular}
-\end{table}
-El transmissor té unes dimensions de 156x152x50mm, un pes de 265g i s'alimenta a 6V (4 bateries AA). El receptor té unes mides de 33.5x20.5x13mm i s'alimenta a 4.8-6V.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{images/E_R.jpg} 
+\caption{Emissora i Receptor}
+\end{center}
+\end{figure}
+
+El transmissor té unes dimensions de $156x152x50mm$, un pes de 265g i s'alimenta a 6V (4 bateries AA). El receptor té unes mides de $33.5x20.5x13mm$ i s'alimenta a 4.8-6V. Disposa de 5 canals de radio, amb transmissió segura a 2.4GHz amb el mètode FHSS. Pot configurarse per traballar amb dos modes (mode1-mode2).
+
+La senyal que es reb per cada canal en el receptor és de $PWM$ de $50Hz$ amb un Duty que veria de $1ms$ a $2ms$.
+
+%% Especificación por canal de los PWM: mínimo y máximo Duty
+%% Mirar con osciloscopio la señal
 
 \subsubsection*{Bateria LiPo}
-Per a alimentar a tot el conjunt s'utilitza una LiPo Turnigy 2200mAh 3S1P 25C. Per tant, és capaç d'entregar 2.2A durant una hora, i com que la capacitat és de 25C, el la descàrrega pot ser de $2.2*25=55$A amb un pic de descàrrega de 35C, és a dir, amb un pic de $2.2*35=77A$ durant 10 segons. Aquesta bateria està formada per tres cel·les que proporcionen un voltatge total de 11.1V:\\
+Per a alimentar a tot el conjunt s'utilitza una LiPo $Turnigy 2200mAh 3S1P 25C$. Per tant, és capaç d'entregar 2.2A durant una hora, i com que la capacitat és de 25C, la descàrrega pot ser de $2.2*25=55A$ amb un pic de descàrrega de 35C, és a dir, amb un pic de $2.2*35=77A$ durant 10 segons. Aquesta bateria està formada per tres cel·les que proporcionen un voltatge total d'uns $11.1V$:\\
 \begin{center}
 \includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{images/LiPo.jpg} \\
 \end{center}
-El conector de càrrega és el JST-XH i el de descàrrega el XT60. Per a tenir en compte amb l'estructura (frame) és interessant saber que pesa 188g i les seves dimensions són:  105x33x24mm.
+El conector de càrrega és el $JST-XH$ i el de descàrrega el $XT60$. Per a tenir en compte amb per al quadcopter és interessant saber que pesa $188g$ i respecte a l'estructura (frame) que les seves dimensions són de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
-Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent:\\
+Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent \cite{lm2576s}\\
 
 % \begin{table}[!h]
 \begin{tabular}{m{10cm}m{6cm}}
@@ -491,7 +508,24 @@ Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspber
 \end{tabular}\\
 % \end{table}
 
-\subsubsection*{Variadors ESC}
+\subsubsection*{Motors Brushless}
+Els actuadors que s'utilitzen són motors brushless (BL-DC). En partircular el Turnigy 2213 20turn 1050kv 19A Outrunner. Les seves especificacions més rellevants són:
+\begin{itemize}
+\item Kv: 1050rpm/v
+\item Operating Current: 6A ~ 16A
+\item Peak Current: 19A
+\item Weight: 56g
+\item Dimensions: 27.6 x 32mm
+\item Shaft Size: 3.175mm
+\end{itemize}
+
+\subsubsection*{Variador ESC}
+
+Per a controlar un motor brushless l'etapa de potència a utilitzar un ESC (Electronic Speed Controller) que és un  variador que consta d'un inversor trifàsic:
+\begin{center}
+\includegraphics[scale=0.4]{images/ESC.jpeg}
+\end{center}
+
 Turnigy AE-20A Brushless ESC
 Specification:
 Output:  Continuous 20A, burst 25A up to 10 seconds.
@@ -529,15 +563,6 @@ Timing setup:  Low
 Soft Acceleration Start Up:  Normal \\
 Low voltage cutoff type:  Medium
 
-\subsubsection*{Motors //modelo}
-Turnigy 2213 20turn 1050kv 19A Outrunner
-Spec.
-Kv: 1050rpm/v
-Operating Current: 6A ~ 16A
-Peak Current: 19A
-Weight: 56g
-Dimensions: 27.6 x 32mm
-Shaft Size: 3.175mm
 
 \subsubsection*{Frame}
 Peso 190g

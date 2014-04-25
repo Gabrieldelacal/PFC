@@ -14,5 +14,5 @@
 \contentsline {section}{\numberline {5}Implementaci\IeC {\'o} del control}{12}{section.5}
 \contentsline {section}{\numberline {6}Construcci\IeC {\'o} del Quadcopter}{13}{section.6}
 \contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o} dels components}{13}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Muntatge}{16}{subsection.6.2}
-\contentsline {section}{\numberline {7}An\IeC {\`a}lisi econ\IeC {\`o}mic}{17}{section.7}
+\contentsline {subsection}{\numberline {6.2}Muntatge}{17}{subsection.6.2}
+\contentsline {section}{\numberline {7}An\IeC {\`a}lisi econ\IeC {\`o}mic}{18}{section.7}
