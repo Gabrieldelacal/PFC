@@ -1,0 +1,29 @@
+KALMAN FILTER
+
+	http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it/comment-page-1/#comments
+	http://blog.tkjelectronics.dk/2012/09/raspberry-pi-gpio-control/
+	https://github.com/TKJElectronics/KalmanFilter
+	https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
+	http://www.instructables.com/id/Guide-to-gyro-and-accelerometer-with-Arduino-inclu/?lang=es
+	http://forum.arduino.cc/index.php/topic,58048.0.html
+	
+C PROGRAM AND PERIFPHERALS
+
+	http://elinux.org/RPi_Low-level_peripherals
+	https://projects.drogon.net/raspberry-pi/wiringpi/download-and-install/
+	https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/#comment-3495
+	http://wiringpi.com/reference/raspberry-pi-specifics/
+	http://wiringpi.com/
+	http://cs.smith.edu/dftwiki/index.php/Tutorial:_Interrupt-Driven_Event-Counter_on_the_Raspberry_Pi
+	
+	WHY NOT A PulseIn?
+		
+		http://arduino.cc/es/Reference/PulseIn#.U11OFiK9h-M
+		http://forum.arduino.cc/index.php?topic=105289.0
+		
+		https://www.sparkfun.com/tutorials/348
+		http://rcarduino.blogspot.com.es/2012/01/how-to-read-rc-receiver-with.html
+		http://rcarduino.blogspot.com.es/2012/07/rcarduino-yaw-control-part-2.html
+		http://rcarduino.blogspot.com.es/2012/05/interfacing-rc-channels-to-l293d-motor.html
+		http://rcarduino.blogspot.co.uk/2012/04/how-to-read-multiple-rc-channels-draft.html
+		
