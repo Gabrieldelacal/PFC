@@ -292,3 +292,25 @@ Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
 % C=[[0 0 0 0 0 0 1 0 0 0 0 0];
 %    [0 0 0 0 0 0 0 1 0 0 0 0]]
 
+% COMO LA POSICIÓN Y ORIENTACIÓN ESTÁN DESACOPLADOS EN LA MATRIZ "A", SE
+% PUEDEN EXCLUIR DEL SISTEMA LOS ESTADOS (x,dx,y,dy,z,dz). POR LO TANTO QUEDA:
+
+fx=[dPhi;
+    eq4;
+    dTheta;
+    eq5;
+    dPsi;
+    eq6]
+
+states=[Phi;
+        dPhi;
+        Theta;
+        dTheta;
+        Psi;
+        dPsi]
+    
+disA=jacobian(fx,states);
+Asub=sym(subs(disA,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+
+disB=jacobian(fx,forces);
+Bsub=sym(subs(disB,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
