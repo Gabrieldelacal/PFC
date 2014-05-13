@@ -11,6 +11,14 @@ syms Ixx Iyy Izz
 syms Ax Ay Az 
 syms k m g l b
 
+l=0.165
+Ixx=0.004
+Iyy=0.004
+Izz=0.008
+m=0.85
+
+g=9.81
+
 %%% El vector de variables que se usar�n
 
 v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi]
@@ -308,9 +316,34 @@ states=[Phi;
         dTheta;
         Psi;
         dPsi]
-    
+
 disA=jacobian(fx,states);
 Asub=sym(subs(disA,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
 
 disB=jacobian(fx,forces);
-Bsub=sym(subs(disB,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+Bsub=sym(subs(disB,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))    
+    
+disA=jacobian(fx,states);
+Asub=sym(subs(disA,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,m*g/4,m*g/4,m*g/4}))
+
+disB=jacobian(fx,forces);
+Bsub=sym(subs(disB,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,m*g/4,m*g/4,m*g/4}))
+
+Ared=Asub(1:4,1:4)
+Bred=Bsub(1:4,1:4)
+
+Cred=[[1 0 0 0];[0 0 1 0]]
+Dred=[[0 0 0 0];[0 0 0 0]]
+
+% PARA VER QUE EL SISTEMA ES CONTROLABLE Y OBSERVABLE:
+
+co=ctrb(double(Ared),double(Bred))
+Controlability=rank(co)
+
+ov=obsv(double(Ared),double(Cred))
+Observability=rank(ov)
+
+Q=1*transpose(Cred)*Cred
+R=eye(4)
+
+[K,S,e]=lqr(double(Ared),double(Bred),Q,R)

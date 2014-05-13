@@ -1,0 +1,15 @@
+Instalada la imagen en la SD y ampliada la memoria de la targeta:
+    
+***INSTALACIÓN DE LAS headers DE LA VERSIÓN QUE TOQUE
+   (FUENTE: http://www.raspberrypi.org/forums/viewtopic.php?t=67347&p=495080)    
+    
+   Tras el mensaje de:
+        sudo apt-get install linux-headers
+   Se instala la 3.10-3-rpi
+        sudo apt-get install linux headers-3.10-3-rpi
+   Finalmente se linquea la carpeta descargada con la que se usará:
+        sudo ln -s /lib/modules/3.10-3-rpi/build /lib/modules/3.10.25+/build
+        
+        
+***                      
+    
