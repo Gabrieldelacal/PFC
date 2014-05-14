@@ -4,3 +4,9 @@
 \contentsline {figure}{\numberline {3}{\ignorespaces Conectors de la Raspberry Pi}}{13}{figure.3}
 \contentsline {figure}{\numberline {4}{\ignorespaces IMU MPU-6050}}{14}{figure.4}
 \contentsline {figure}{\numberline {5}{\ignorespaces Emissora i Receptor}}{14}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Connexi\IeC {\'o} per I2C entre MPU-6050 i RPi}}{21}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Detecci\IeC {\'o} del sensor MPU-6050}}{22}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Bancada per a l'estudi del motor}}{24}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Montatge per a l'estudi del motor}}{24}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{25}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{26}{figure.11}

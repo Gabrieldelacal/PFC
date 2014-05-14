@@ -14,6 +14,8 @@
 \usepackage{geometry}
     \geometry{a4paper,total={210mm,297mm},left=35mm,right=30mm,top=30mm,bottom=30mm,}
 
+\usepackage{listings}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
 
@@ -499,26 +501,28 @@ Per a alimentar a tot el conjunt s'utilitza una LiPo $Turnigy 2200mAh 3S1P 25C$.
 El conector de càrrega és el $JST-XH$ i el de descàrrega el $XT60$. Per a tenir en compte amb per al quadcopter és interessant saber que pesa $188g$ i respecte a l'estructura (frame) que les seves dimensions són de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
-Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent \cite{lm2576s}\\
+Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent \\
+\begin{center}
+\includegraphics[scale=0.06]{images/Reg_stepdown.jpg}
+\end{center}
 
-% \begin{table}[!h]
-\begin{tabular}{m{10cm}m{6cm}}
-\includegraphics[scale=0.55]{images/lm2576s.jpeg} &
-\includegraphics[scale=0.12]{images/regulator.jpg}
-\end{tabular}\\
-% \end{table}
+L'esquema del component \cite{lm2576s}:
+
+\begin{center}
+\includegraphics[scale=0.55]{images/lm2576s.jpeg} 
+\end{center}
 
 \subsubsection*{Motors Brushless}
 Els actuadors que s'utilitzen són motors brushless (BL-DC). En partircular el Turnigy 2213 20turn 1050kv 19A Outrunner. Les seves especificacions més rellevants són:
 \begin{itemize}
 \item Kv: 1050rpm/v
-\item Operating Current: 6A ~ 16A
-\item Peak Current: 19A
-\item Weight: 56g
+\item Corrent de treball: 6A ~ 16A
+\item Corrent de pic: 19A
+\item Pes: 56g
 \item Dimensions: 27.6 x 32mm
-\item Shaft Size: 3.175mm
+\item Mida de l'eix: 3.175mm
 \end{itemize}
-
+La relació entre la senyal de PWM i la força, així com el consum es troben a l'Annex
 \subsubsection*{Variador ESC}
 
 Per a controlar un motor brushless l'etapa de potència a utilitzar un ESC (Electronic Speed Controller) que és un  variador que consta d'un inversor trifàsic:
@@ -636,8 +640,90 @@ Peso 190g
 \newpage
 \section*{ANNEXES}
 \subsection*{Annex 1: Obtenció vector de forces}
-asdfasdf 
+Per a treballar amb la dinàmica del sistema s'obté el vector de forces a partir del Lagrangià:
+\begin{verbatim}
+clear all
+clc
+
+%%% Para usar la funcion Laplace en el archivo Laplace.m se deben declarar
+%%% las variables de esta manera:
+
+syms x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi
+syms f1 f2 f3 f4 m1 m2 m3 m4
+% syms w1 w2 w3 w4
+syms Ixx Iyy Izz
+syms Ax Ay Az               % No se tienen en cuenta coeficientes de friccion
+syms k m g l b
+
+l=0.165             % longitud de los brazos
+Ixx=0.004           % Momento de inercia del eje x 
+Iyy=0.004           % Momento de Inercia del eje y
+Izz=0.008           % Momento de Inercia del eje z
+m=0.85              % Peso del Quadcopter
+g=9.81              % gravedad 
+
+%%% El vector de variables que se usaran
+
+v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi]
+
+Xi=[x; y; z]
+dXi=[dx; dy; dz]
+
+Eta=[Phi; Theta; Psi]
+dEta=[dPhi; dTheta; dPsi]
+
+Q=[Xi; Eta]
+dQ=[dXi; dEta]
+
+II=[[Ixx 0 0];
+    [0 Iyy 0];
+    [0 0 Izz]]
+
+A=[[Ax 0 0];
+   [0 Ay 0];
+   [0 0 Az]]   
+   
+R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
+    [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
+    [-sin(Theta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]]
+
+Weta=[[1 0 -sin(Theta)];
+      [0 cos(Phi) cos(Theta)*sin(Phi)];
+      [0 -sin(Phi) cos(Theta)*cos(Phi)]]
+  
+J=transpose(Weta)*II*Weta  
+  
+L=m/2*transpose(dXi)*dXi+(1/2)*transpose(dEta)*transpose(Weta)*II*Weta*dEta-m*g*z
+
+%%% Aqui se obtiene con el Lagrangiano el vector de fuerzas F segun
+%%% F=(d/dt)(dp(L)/dp(dq))-d(L)/dq
+
+F=Lagrange(L,v)
+
+%%% Derivando a mano se obtiene que TauB=J*ddEta+CdEta 
+%%% Y como TauB=[F(4); F(5); F(6)], se tiene que el termino de Coriolis es:
+
+CdEta=[F(4); F(5); F(6)]-J*[ddPhi; ddTheta; ddPsi]
+
+%%% Hasta se tiene el producto Coriolis(Eta,dEta)*dEta. Pero como matlab
+%%% no elimina las aceleraciones se hace a mano, y queda:
+
+CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);
+          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
+          -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)]
+      
+T=f1+f2+f3+f4               % Fuerza total (Total Thrust)
+TB=[0; 0; T]                % Thrust en la referencia del Quadctopter
+TauB=[l*(f4-f2);
+      l*(f3-f1);
+      % (m1+m2+m3+m4)]
+      b*(f1-f2+f3-f4)]
+\end{verbatim}
 \newpage
+
+%\begin{lstlisting}
+
+%\end{lstlisting}
 
 \subsection*{Annex 2:Preparació de la Raspberry Pi}
 Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal que es pugui comunicar amb la placa MPU-6050.
@@ -676,9 +762,15 @@ les següents dues línies han de començar amb un signe \# (de comentari):
            #blacklist i2c-bcm2708
 \end{verbatim}
 Per provar de connectar el sensor, és necessari seguir primer el connexionat:
+
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.2,viewport=0 200 800 720,clip]{images/ConSens.jpg}
+\caption{Connexió per I2C entre MPU-6050 i RPi}
 \end{center}
+\end{figure}
+
+
 És a dir:
 \begin{itemize}
 \item Pin1-3.3V es connecta VCC.
@@ -695,12 +787,97 @@ Per a veure el sensor s'escriu:
            sudo i2cdetect -y 1
 \end{verbatim}
 El resultat és 
+
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.7]{images/i2cdetect.jpg}
+\caption{Detecció del sensor MPU-6050}
 \end{center}
+\end{figure}
 que és el dispositiu que correspon al MPU-6050.
+
+\subsubsection*{Llibrería wiringPi}
+S'utilitza aquesta llibrería\cite{wiringPi} com a interfície del GPIO (General Porpouse Input Output). Permet, per tant,llegir tant les consignes com els sensors i generar les accions de control. 
+La instal·lació i descripció de la llibrería està explicat a la pàgina web incluída a la bibliografía.
+
 \newpage
 \subsection*{Annex 3: Filtre de kalman}
+\newpage
+\subsection*{Annex 4: Caracterització dels motors}
+Per tal de poder controlar la planta és necessari saber còm responen els actuadors per tal de realitzar un control precís. D'aquests és necessari saber quina força i moment proporcionen, així com el consum d'energia donat un PWM. 
+Per a obtenir una corva de la força respecte del PWM es pesa amb una balança l'acció del motor. La rudimentària bancada que es té per a tal objectiu és d'un colze articulat a un eix de tal manera que la distància de l'eix del motor al fulcre i d'aquest a la balança sigui la mateixa (en aquest cas de 12 cm):
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{images/bancada1.jpeg}
+\caption{Bancada per a l'estudi del motor}
+\end{center}
+\end{figure}
+Les parts estan fetes de fusta (part marró) i plàstic ABS (part verda). Tota l'estructura es subjecta a unes fustes:
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.09]{images/montaje.jpg}
+\caption{Montatge per a l'estudi del motor}
+\end{center}
+\end{figure}
+
+Es transmet al ESC a quina velocitat s'ha de fer funcionar al motor des de la Raspberry Pi per mitjà d'una senyal PWM. El programa que s'executa per a fer les proves és:
+
+\begin{verbatim}
+#include <stdio.h>
+#include <termios.h>
+#include <wiringPi.h>
+#include <unistd.h>
+
+#define PIN 2 // pin 13
+
+int main(void){
+
+        int i,p;
+        wiringPiSetup();
+
+        pinMode(PIN,OUTPUT);
+        digitalWrite(PIN,LOW);
+
+        for(i=60;i<=100;i+=5){
+                for(p=0;p<250;p++){
+                        digitalWrite(PIN,HIGH);
+                        delayMicroseconds(950+i*10);
+                        digitalWrite(PIN,LOW);
+                        delayMicroseconds(19050-i*10);
+
+                        printf("PWM(i): %d \t h:%d \n",i,p);
+                }
+        }
+        return 0;
+}
+\end{verbatim}
+
+S'obté una mesura de força i d'intensitat per cada increment del 0.25\% del PWM enviat al Variador. Sobté:
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{images/MvsPWM.jpeg}
+\caption{Relació entre la força (en grams) i el PWM}
+\end{center}
+\end{figure}
+En l'eix de les abscises el PWM(\%) és entre el 5\% i el 10\% de la senyal enviada, que correspon al mínim i màxim que el motor. Com que per a un PWM elevat la força era massa gran i no es preveu que es farà funcionar el sistema en semblants condicions de treball, no s'estudia. 
+
+Es veu una relació proporcional del PWM amb la força generada. Es considera que una regressió lineal serà suficient. S'obté que la força $f(PWM)$ del motor serà:
+$$f=32.5758 \cdot PWM(\%)-32.1758$$
+amb un coeficient de determinació en la regressió és de  $R^2=0.9929$. Aquest resultat facilita el problema en ser una relació prou senzilla.
+
+Per a l'intensitat es té una relació tan amigable com en el cas anterior, però com que no serà cas d'estudi, només es veurà una aproximació del que pot arribar a consumir cada motor per a assegurar una autonomía de vol no irrisòria. Es té que 
+\newpage
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{images/IvsPWM.jpeg}
+\caption{Relació entre la força (en grams) i el PWM}
+\end{center}
+\end{figure}
+
+Com que en el punt d'equilibri cada motor suporta una cuarta part del pes, el PWM hauría de correspondre a una força de $m_{Quadcopter}\cdot g/4\approx0.225$kg. El consum corresponent és de $3.5$A aproximadament. Entre els quatre motors es consumiràn $3.5 \cdot 4=14$A. Com que la bateria es de 2200mAh es suposa una autonomia de 7 minuts aproximadament. 
 
 \newpage
 \begin{thebibliography}{99}
@@ -710,5 +887,6 @@ que és el dispositiu que correspon al MPU-6050.
 \bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
 \bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
 \bibitem{lm2576s} LM2576S Datasheet: \url{http://www.ti.com/lit/ds/symlink/lm2576.pdf}
+\bibitem{wiringPi} Llibrería wiringPi: \url{http://wiringpi.com/}
 \end{thebibliography}{}
 \end{document}
