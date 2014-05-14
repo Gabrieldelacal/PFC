@@ -127,7 +127,6 @@ historia\\
 estudio del arte\\
 futuras aplicaciones\\
 
-% \section{Estudi de l'art}
 \newpage
 \section{Definicio del model}
 \subsection{Definició de les variables}
@@ -623,21 +622,35 @@ Peso 190g
 \end{tikzpicture}
 \end{center}
 
-% \section{Generació de la consigna}
 % Descripcion general de como se genera, envia y procesa la consigna
 % Imagen con esquema
-% \subsection{Configuració de la RPi com a Access Point}
-% Describir procedimiento de configuración de la RPi para ser AP
-% \subsection{Aplicació d'Android }
 % Explicar que la App es en java y para Android y que envia la informacion a la RPi (configurada como AccessPoint).
 % Dar el codigo de la aplicacion
 
-% \section{Comparació amb un control PID}
-
 \newpage
 \section{Anàlisi econòmic}
-
 \newpage
+
+\section{Estudi d'impacte ambiental}
+\newpage
+
+\section*{Conclusions}
+\newpage
+
+\begin{thebibliography}{99}
+\bibitem{QuadPaper} Teppo Luukkonen (August 22,2011). \textit{Modelling and control of quadcopter}
+\bibitem{RPiWiki} Wikipedia de la Raspberry Pi: \url{http://en.wikipedia.org/wiki/Raspberry_Pi}
+\bibitem{IMUArduino} Accel·leròmetre i Giròscop MPU-6050 per a Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
+\bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
+\bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
+\bibitem{lm2576s} LM2576S Datasheet: \url{http://www.ti.com/lit/ds/symlink/lm2576.pdf}
+\bibitem{wiringPi} Llibrería wiringPi: \url{http://wiringpi.com/}
+\end{thebibliography}{}
+\newpage
+
+\section*{Agraïments}
+\newpage
+
 \section*{ANNEXES}
 \subsection*{Annex 1: Obtenció vector de forces}
 Per a treballar amb la dinàmica del sistema s'obté el vector de forces a partir del Lagrangià:
@@ -879,14 +892,5 @@ Per a l'intensitat es té una relació tan amigable com en el cas anterior, per�
 
 Com que en el punt d'equilibri cada motor suporta una cuarta part del pes, el PWM hauría de correspondre a una força de $m_{Quadcopter}\cdot g/4\approx0.225$kg. El consum corresponent és de $3.5$A aproximadament. Entre els quatre motors es consumiràn $3.5 \cdot 4=14$A. Com que la bateria es de 2200mAh es suposa una autonomia de 7 minuts aproximadament. 
 
-\newpage
-\begin{thebibliography}{99}
-\bibitem{QuadPaper} Teppo Luukkonen (August 22,2011). \textit{Modelling and control of quadcopter}
-\bibitem{RPiWiki} Wikipedia de la Raspberry Pi: \url{http://en.wikipedia.org/wiki/Raspberry_Pi}
-\bibitem{IMUArduino} Accel·leròmetre i Giròscop MPU-6050 per a Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
-\bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
-\bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
-\bibitem{lm2576s} LM2576S Datasheet: \url{http://www.ti.com/lit/ds/symlink/lm2576.pdf}
-\bibitem{wiringPi} Llibrería wiringPi: \url{http://wiringpi.com/}
-\end{thebibliography}{}
+
 \end{document}
