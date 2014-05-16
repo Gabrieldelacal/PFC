@@ -48,7 +48,7 @@ Memòria}
 
 \fancyhead[LO,RE]{Quadcopter Control}
 \fancyhead[LE,RO]{\thepage}
-\fancyfoot[LE,RO]{\includegraphics[scale=0.1]{images/etseib.jpg}}
+\fancyfoot[LE,RO]{\includegraphics[scale=0.2]{images/etseib.jpg}}
 \fancyfoot[C]{}
 
 \begin{document}
@@ -391,14 +391,14 @@ Per obtenir el sistema d'equacions del model s'han d'aïllar les accel·leracion
 \label{eq:system}
 \end{equation}
 
-Per a realitzar el control será útil representar el sistema \ref{eq:system} en forma d'espai d'estats:
+Reescribint aquestes equacions de la forma $\dot{x}=f(x,u)$, on $u$ és el conjunt de forçes exercides pels motors, es té 
 
 \begin{equation}
 \frac{\partial}{\partial t}\left[ \begin{array}{l}
 \xi \\
 \dot{\xi} \\
 \eta \\
-\dot{\eta} 
+\dot{\eta} \\
 \end{array} \right] =\left[ \begin{array}{l}
 \dot{\xi} \\
 \frac{1}{m}RT_{B} - g \cdot \left[ \begin{array}{ccc}
@@ -409,11 +409,191 @@ J^{-1} \left( \tau - C(\eta,\dot{\eta})\dot{\eta} \right)
 \end{array} \right]
 \end{equation}
 
+Per a realitzar el control será útil representar el sistema \ref{eq:system} en forma d'espai d'estats, i per tant el vector d'estats serà de la forma $\enspace \left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punt d'equilibri d'aquest sistema és aquell que fa que les components angulars del vector d'estats no variin i no hi hagin desplaçaments lineals. Aquest cas es pot donar per a tota posició $\xi$ donada. Això es té si tots els motors fan exactament mateixa força i entre tots quatre igual al pes del Quadcopter, i per tant és un punt d'equilibri forçat. El punt d'equilibri serà llavors:
+
+\begin{equation}
+\begin{cases}{l}
+X_0=\left[x \enspace 0 \enspace y \enspace 0 \enspace z \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \right]^{T} \\
+U_0=\left[ \begin{array}{l}
+f_{1} \\
+f_{2} \\
+f_{3} \\
+f_{4} \end{array} \right] = \frac{m \cdot g}{4} \left[ \begin{array}{l}
+1 \\
+1 \\
+1 \\
+1 \\ \end{array} \right]
+\end{cases}
+\end{equation}
+
+Per a expressar el model de la forma lineal 
+
+\begin{equation}
+\begin{array}{l}
+\dot{X}=[A] \cdot X + [B] \cdot U \\
+Y = [C] \cdot X 
+\end{array}
+\end{equation} 
+
+és calculen les matrius A i B amb els respectius jacobians en el punt d'equilibri
+
+\begin{equation}
+A=\left.{\frac{\partial f(x,u)}{\partial x}}\right\vert_{X_0,U_0} \hspace*{1.5cm} B=\left.{\frac{\partial f(x,u)}{\partial u}}\right\vert_{X_0,U_0}
+\end{equation}
+
+En considerar que les posicions angulars de $\phi$ i $\theta$ no diferiran significativament respecte de zero i que l'angle $\psi$ no és rellvant, es treballa amb una matriu de rotació $R$ igual a la identitat
+
+\begin{equation}
+R=\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\ \end{array} \right]
+\end{equation}
+
+S'ha mantingut el terme independent de la gravetat a fora de la funció $f(x,u)$ per no eliminar-lo en la derivada del jacobià. Es sistema linealitzat és:
+\begin{center}
+\begin{equation}
+\hspace*{-1.2cm} \left[ \begin{array}{c}
+\dot{x}\\
+\ddot{x} \\
+\dot{y} \\
+\ddot{y} \\
+\dot{z} \\
+\ddot{z} \\
+\dot{\phi} \\
+\ddot{\phi} \\
+\dot{\theta} \\
+\ddot{\theta} \\
+\dot{\psi} \\
+\ddot{\psi} \\ \end{array} \right] = \left[ \begin{array}{cccccccccccc}
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+x \\
+\dot{x} \\
+y \\
+\dot{y} \\
+z \\
+\dot{z} \\
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\
+\psi \\
+\dot{\psi} \\ 
+\end{array} \right] - \left[ \begin{array}{c}
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+9.81 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\ \end{array} \right] + \left[ \begin{array}{cccc}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1/m & 1/m & 1/m & 1/m \\ 
+0 & 0 & 0 & 0 \\
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\ 
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\
+0 & 0 & 0 & 0 \\
+{}^{b}/_{Izz} & {}^{-b}/_{Izz} & {}^{b}/_{Izz} & {}^{-b}/_{Izz} \\ \end{array} \right] \left[ \begin{array}{c}
+f_{1} \\
+f_{2} \\
+f_{3} \\
+f_{4} \\ \end{array} \right] 
+\end{equation}
+\begin{equation}
+\nonumber 				% para eliminar la numeracion de la ecuación
+% \hspace*{-8cm} 
+Y=\left[ \begin{array}{cccccccccccc}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+x \\
+\dot{x} \\
+y \\
+\dot{y} \\
+z \\
+\dot{z} \\
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\
+\psi \\
+\dot{\psi} \\ 
+\end{array} \right]
+\end{equation} 
+\end{center}
+
+Com que es desitja implantar un control sobre l'equilibri del Quadcopter en comptes de la posició, es tindran les variables pertinents a l'orientació, i per tant el vector d'estats estarà format per $\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
+
+Queda llavors
+
+\begin{center}
+\begin{equation}
+\left[ \begin{array}{c}
+\dot{\phi} \\
+\ddot{\phi} \\
+\dot{\theta} \\
+\ddot{\theta} \\
+\dot{\psi} \\
+\ddot{\psi} \\ \end{array} \right] = \left[ \begin{array}{cccccc}
+0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\
+\psi \\
+\dot{\psi} \\ 
+\end{array} \right] + \left[ \begin{array}{cccc}
+0 & 0 & 0 & 0 \\
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\ 
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\
+0 & 0 & 0 & 0 \\
+{}^{b}/_{Izz} & {}^{-b}/_{Izz} & {}^{b}/_{Izz} & {}^{-b}/_{Izz} \\ \end{array} \right] \left[ \begin{array}{c}
+f_{1} \\
+f_{2} \\
+f_{3} \\
+f_{4} \\ \end{array} \right]
+\end{equation} 
+\end{center}
+
+Per abordar el control d'aquest sistema reduït és necessari evaluar la controlabilitat i observabilitat d'aquest. La matriu de controlabilitat $W_c=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ és:
+\begin{equation}
+%W_c=\left[ \begin{array}{•}
+% \end{array}
+\end{equation}
+
+
+\newpage
 \subsection{Representació del model amb Matlab}
-
-
-
-
 
 \newpage
 \section{Disseny del controlador}

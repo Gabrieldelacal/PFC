@@ -119,7 +119,7 @@ CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dT
 
  R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
     [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
-    [-sin(Theta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]]
+    [-sin(Theta)                                    cos(Theta)*sin(Phi)                            cos(Theta)*cos(Phi)]]
 
  % T=k*(w1^2+w2^2+w3^2+w4^2)
  T=f1+f2+f3+f4
@@ -172,6 +172,8 @@ TauB=[l*(f4-f2);
 dPhi=0
 dTheta=0
 dPsi=0
+
+R=eye(3)
 
 sys1=(R*TB-[0; 0; m*g])/m
 sys2=inv(J)*(TauB-CdEta)
@@ -290,12 +292,22 @@ forces=[f1;
         f2;
         f3;
         f4];    
-    
-A=jacobian(fx,states);
-Asub=sym(subs(A,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
 
-B=jacobian(fx,forces);
-Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+    
+% Substituyendo las variables de estado por lo que corresponde en el punto
+% de equilibrio:
+ A=jacobian(fx,states)
+ Asub=sym(subs(A,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+
+ B=jacobian(fx,forces)
+ Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi},{0,0,0,0,0,0}))
+    
+
+A=jacobian(fx,states)
+Asub=sym(subs(A,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,m*g/4,m*g/4,m*g/4}))
+
+B=jacobian(fx,forces)
+Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,m*g/4,m*g/4,m*g/4}))
 
 % C=[[0 0 0 0 0 0 1 0 0 0 0 0];
 %    [0 0 0 0 0 0 0 1 0 0 0 0]]
