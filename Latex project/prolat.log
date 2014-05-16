@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  16 MAY 2014 02:08
-=======
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  14 MAY 2014 10:53
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  16 MAY 2014 11:48
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
@@ -1196,11 +1192,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-<<<<<<< HEAD
-<images/etseib.jpg, id=75, 147.55125pt x 193.47281pt>
-=======
-<images/etseib.jpg, id=79, 196.735pt x 257.96375pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<images/etseib.jpg, id=79, 147.55125pt x 193.47281pt>
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg>
 [1
@@ -1310,7 +1302,7 @@ File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [9]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [10]
-Overfull \hbox (38.1879pt too wide) detected at line 523
+Overfull \hbox (38.1879pt too wide) detected at line 522
 []|  [] \U/MnSymbolD/m/n/10 ^^@ [] [] \U/MnSymbolC/m/n/10 ^^P [] ^^T [] []
  []
 
@@ -1320,47 +1312,27 @@ ntifier (name{equation.3.33}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.596 \newpage
+l.607 \newpage
               ]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [12]
-<<<<<<< HEAD
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [13]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [14] <images/RPi.jpg, id=243, 2569.6pt x 1445.4pt>
-File: images/RPi.jpg Graphic file (type jpg)
-
-<use images/RPi.jpg> <images/RPi2.jpg, id=244, 513.92pt x 400.49625pt>
-File: images/RPi2.jpg Graphic file (type jpg)
-
-<use images/RPi2.jpg> <images/mpu-6050.jpg, id=245, 367.3725pt x 481.8pt>
-File: images/mpu-6050.jpg Graphic file (type jpg)
-
-<use images/mpu-6050.jpg>
+<use images/etseib.jpg> [14]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [15 <./images/RPi.jpg> <./images/RPi2.jpg>] <images/E_
-R.jpg, id=252, 336.50719pt x 266.49562pt>
-File: images/E_R.jpg Graphic file (type jpg)
-
-<use images/E_R.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
-
- []
-
-<images/LiPo.jpg, id=253, 2569.6pt x 1445.4pt>
-=======
-<images/RPi.jpg, id=232, 2569.6pt x 1445.4pt>
+ <use images/etseib.jpg> [15]
+<images/RPi.jpg, id=252, 2569.6pt x 1445.4pt>
 File: images/RPi.jpg Graphic file (type jpg)
  <use images/RPi.jpg>
-<images/RPi2.jpg, id=233, 513.92pt x 400.49625pt>
+<images/RPi2.jpg, id=253, 513.92pt x 400.49625pt>
 File: images/RPi2.jpg Graphic file (type jpg)
  <use images/RPi2.jpg>
-<images/mpu-6050.jpg, id=234, 367.3725pt x 481.8pt>
+<images/mpu-6050.jpg, id=254, 367.3725pt x 481.8pt>
 File: images/mpu-6050.jpg Graphic file (type jpg)
  <use images/mpu-6050.jpg>
-Overfull \hbox (11.2287pt too wide) in paragraph at lines 469--477
+Overfull \hbox (11.2287pt too wide) in paragraph at lines 661--669
 \T1/cmr/m/n/10 Com a car-ac-terís-tiques dels sen-sors: el giròs-cop té un rang
  de $\U/MnSymbolC/m/n/10 ^^V\OT1/cmr/m/n/10 250\OML/cmm/m/it/10 ; \U/MnSymbolC/
 m/n/10 ^^V\OT1/cmr/m/n/10 500\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr
@@ -1369,143 +1341,97 @@ m/n/10 ^^V\OT1/cmr/m/n/10 500\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [13 <./images/RPi.jpg> <./images/RPi2.jpg>]
-<images/E_R.jpg, id=241, 336.50719pt x 266.49562pt>
+<use images/etseib.jpg> [16 <./images/RPi.jpg> <./images/RPi2.jpg>]
+<images/E_R.jpg, id=261, 336.50719pt x 266.49562pt>
 File: images/E_R.jpg Graphic file (type jpg)
  <use images/E_R.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
 
  []
 
-<images/LiPo.jpg, id=242, 2569.6pt x 1445.4pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<images/LiPo.jpg, id=262, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
 
-<<<<<<< HEAD
-<use images/etseib.jpg> [16 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+<use images/etseib.jpg> [17 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
-<images/Reg_stepdown.jpg, id=262, 2569.6pt x 1445.4pt>
+<images/Reg_stepdown.jpg, id=272, 2569.6pt x 1445.4pt>
 File: images/Reg_stepdown.jpg Graphic file (type jpg)
 
 <use images/Reg_stepdown.jpg>
-<images/lm2576s.jpeg, id=264, 504.38437pt x 144.54pt>
+<images/lm2576s.jpeg, id=274, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
-<use images/lm2576s.jpeg> <images/ESC.jpeg, id=265, 335.75438pt x 191.9672pt>
-=======
-<use images/etseib.jpg> [14 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 503--504
-
- []
-
-<images/Reg_stepdown.jpg, id=251, 2569.6pt x 1445.4pt>
-File: images/Reg_stepdown.jpg Graphic file (type jpg)
-
-<use images/Reg_stepdown.jpg>
-<images/lm2576s.jpeg, id=253, 504.38437pt x 144.54pt>
-File: images/lm2576s.jpeg Graphic file (type jpg)
-
-<use images/lm2576s.jpeg> <images/ESC.jpeg, id=254, 335.75438pt x 191.9672pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
-File: images/ESC.jpeg Graphic file (type jpg)
-
-<use images/ESC.jpeg>
+<use images/lm2576s.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [17 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <.
+ <use images/etseib.jpg> [18 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <.
 /images/lm2576s.jpeg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [18 <./images/ESC.jpeg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [19]
-File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [20]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 824.
-=======
- <use images/etseib.jpg> [18]
+<images/ESC.jpeg, id=283, 335.75438pt x 191.9672pt>
+File: images/ESC.jpeg Graphic file (type jpg)
+ <use images/ESC.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [19]
+<use images/etseib.jpg> [19 <./images/ESC.jpeg>]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [20]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 642.
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+ <use images/etseib.jpg>
+[20]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [21]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [22]
+File: images/etseib.jpg Graphic file (type jpg)
 
+<use images/etseib.jpg> [23]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 845.
 
-(/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+ (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-<<<<<<< HEAD
-Overfull \hbox (17.82993pt too wide) in paragraph at lines 901--901
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 847--848
 []\T1/cmr/m/n/10 MPU-6050. Es-peci-fi-cació del pro-ducte: []$\T1/cmtt/m/n/10 h
 ttp : / / www . invensense . com / mems / gyro /
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [21]
+<use images/etseib.jpg> [24]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [22]
-Overfull \hbox (17.82993pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+ <use images/etseib.jpg> [25]
+Overfull \hbox (17.82993pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 syms x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta d
 dTheta Psi dPsi ddPsi[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (12.5812pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddT
 heta Psi dPsi ddPsi][] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (212.0325pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (212.0325pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (212.0325pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)
 *cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (217.28122pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (217.28122pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (217.28122pt too wide) in paragraph at lines 937--937
 []    \T1/cmtt/m/n/10 [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi
 )*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (12.5812pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 L=m/2*transpose(dXi)*dXi+(1/2)*transpose(dEta)*transpose(Weta
 )*II*Weta*dEta-m*g*z[] 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
-<use images/etseib.jpg> [21]
-Overfull \hbox (941.60434pt too wide) in paragraph at lines 901--901
-=======
-<use images/etseib.jpg> [23]
-Overfull \hbox (941.60434pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<use images/etseib.jpg> [26]
+Overfull \hbox (941.60434pt too wide) in paragraph at lines 937--937
 []\T1/cmtt/m/n/10 CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Ph
 i))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (
 Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) +
@@ -1513,11 +1439,7 @@ Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) +
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (1497.96848pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (1497.96848pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (1497.96848pt too wide) in paragraph at lines 937--937
 []          \T1/cmtt/m/n/10 dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*s
 in(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz
 *dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(The
@@ -1526,11 +1448,7 @@ ta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (2232.78903pt too wide) in paragraph at lines 901--901
-=======
-Overfull \hbox (2232.78903pt too wide) in paragraph at lines 734--734
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+Overfull \hbox (2232.78903pt too wide) in paragraph at lines 937--937
 []          \T1/cmtt/m/n/10 -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^
 2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi
 )^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(P
@@ -1541,134 +1459,55 @@ yy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)][]
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
-<use images/etseib.jpg> [22]
-<images/InstalRasp1.jpeg, id=302, 576.65437pt x 28.60687pt>
+<use images/etseib.jpg> [27]
+<images/InstalRasp1.jpeg, id=347, 576.65437pt x 28.60687pt>
 File: images/InstalRasp1.jpeg Graphic file (type jpg)
 
-<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=303, 963.6pt x 722.7pt>
-=======
-<use images/etseib.jpg> [24]
-<images/InstalRasp1.jpeg, id=326, 576.65437pt x 28.60687pt>
-File: images/InstalRasp1.jpeg Graphic file (type jpg)
-
-<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=327, 963.6pt x 722.7pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=348, 963.6pt x 722.7pt>
 File: images/ConSens.jpg Graphic file (type jpg)
 
 <use images/ConSens.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [23 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>
+ <use images/etseib.jpg> [28 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>
 ]
-<images/i2cdetect.jpg, id=317, 350.81062pt x 134.00063pt>
-=======
- <use images/etseib.jpg> [25 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>
-]
-<images/i2cdetect.jpg, id=339, 350.81062pt x 134.00063pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<images/i2cdetect.jpg, id=360, 350.81062pt x 134.00063pt>
 File: images/i2cdetect.jpg Graphic file (type jpg)
 
 <use images/i2cdetect.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [24 <./images/i2cdetect.jpg>]
+ <use images/etseib.jpg> [29 <./images/i2cdetect.jpg>]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [25]
-<images/bancada1.jpeg, id=330, 411.78844pt x 434.37282pt>
+ <use images/etseib.jpg> [30]
+<images/bancada1.jpeg, id=373, 411.78844pt x 434.37282pt>
 File: images/bancada1.jpeg Graphic file (type jpg)
 
-<use images/bancada1.jpeg> <images/montaje.jpg, id=331, 2569.6pt x 1445.4pt>
-=======
- <use images/etseib.jpg> [26 <./images/i2cdetect.jpg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [27]
-<images/bancada1.jpeg, id=351, 411.78844pt x 434.37282pt>
-File: images/bancada1.jpeg Graphic file (type jpg)
-
-<use images/bancada1.jpeg> <images/montaje.jpg, id=352, 2569.6pt x 1445.4pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+<use images/bancada1.jpeg> <images/montaje.jpg, id=374, 2569.6pt x 1445.4pt>
 File: images/montaje.jpg Graphic file (type jpg)
 
 <use images/montaje.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [26 <./images/bancada1.jpeg> <./images/montaje.jpg>] <
-images/MvsPWM.jpeg, id=337, 444.15938pt x 239.39438pt>
-=======
- <use images/etseib.jpg> [28 <./images/bancada1.jpeg> <./images/montaje.jpg>] <
-images/MvsPWM.jpeg, id=358, 444.15938pt x 239.39438pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+ <use images/etseib.jpg> [31 <./images/bancada1.jpeg> <./images/montaje.jpg>] <
+images/MvsPWM.jpeg, id=380, 444.15938pt x 239.39438pt>
 File: images/MvsPWM.jpeg Graphic file (type jpg)
 
 <use images/MvsPWM.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [27 <./images/MvsPWM.jpeg>]
-<images/IvsPWM.jpeg, id=342, 435.87843pt x 241.65282pt>
-=======
- <use images/etseib.jpg> [29 <./images/MvsPWM.jpeg>]
-<images/IvsPWM.jpeg, id=364, 435.87843pt x 241.65282pt>
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
+ <use images/etseib.jpg> [32 <./images/MvsPWM.jpeg>]
+<images/IvsPWM.jpeg, id=385, 435.87843pt x 241.65282pt>
 File: images/IvsPWM.jpeg Graphic file (type jpg)
 
 <use images/IvsPWM.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
-<<<<<<< HEAD
- <use images/etseib.jpg> [28 <./images/IvsPWM.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1067--1068
-[]\T1/cmr/m/n/10 MPU-6050. Es-pe-ci-fi-ca-ció del pro-duc-te: []$\T1/cmtt/m/n/1
-0 http : / / www . invensense . com / mems / gyro /
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [29] (./prolat.aux) ) 
-Here is how much of TeX's memory you used:
- 20166 strings out of 493848
- 357019 string characters out of 1152823
- 481874 words of memory out of 3000000
- 22872 multiletter control sequences out of 15000+50000
- 28001 words of font info for 83 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 56i,19n,56p,791b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/
-cm-super/cm-super-t1.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnS
-ymbolE.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/u
-sr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texmf
--texlive/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts
-/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm
--super-ts1.enc}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10
-.pfb></usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol7.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sftt1000.pfb>
-Output written on prolat.pdf (31 pages, 5743127 bytes).
-PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 251 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
- <use images/etseib.jpg> [30 <./images/IvsPWM.jpeg>]
+ <use images/etseib.jpg> [33 <./images/IvsPWM.jpeg>]
 (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
- 20159 strings out of 495061
- 356781 string characters out of 1182621
- 451875 words of memory out of 3000000
- 22773 multiletter control sequences out of 15000+50000
+ 20172 strings out of 495061
+ 356937 string characters out of 1182621
+ 484875 words of memory out of 3000000
+ 22775 multiletter control sequences out of 15000+50000
  28001 words of font info for 83 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 56i,19n,56p,526b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,19n,56p,791b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
 600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </h
 ome/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk>{/usr/share/te
@@ -1689,11 +1528,11 @@ fonts/type1/public/mnsymbol/MnSymbol7.pfb></usr/share/texmf-texlive/fonts/type1
 /public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
 fonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmm
 i7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on prolat.pdf (32 pages, 5668123 bytes).
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on prolat.pdf (35 pages, 5687103 bytes).
 PDF statistics:
- 933 PDF objects out of 1000 (max. 8388607)
- 115 named destinations out of 1000 (max. 500000)
+ 957 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
  259 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> 20a1aa61f9707ef8f6bcd393ff73a26cd417ba5e
 

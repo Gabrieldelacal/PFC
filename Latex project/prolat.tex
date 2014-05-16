@@ -585,11 +585,23 @@ f_{4} \\ \end{array} \right]
 \end{equation} 
 \end{center}
 
-Per abordar el control d'aquest sistema reduït és necessari evaluar la controlabilitat i observabilitat d'aquest. La matriu de controlabilitat $W_c=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ és:
 \begin{equation}
-%W_c=\left[ \begin{array}{•}
-% \end{array}
+\nonumber
+Y=\left[ \begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 \\
+\end{array} \right] \left[ \begin{array}{c}
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\
+\psi \\
+\dot{\psi} \\ \end{array} \right]
 \end{equation}
+
+Per abordar el control d'aquest sistema reduït és necessari evaluar la controlabilitat i observabilitat d'aquest. La matriu de controlabilitat $W_c=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ és:
+
 
 
 \newpage
@@ -692,24 +704,36 @@ L'esquema del component \cite{lm2576s}:
 \end{center}
 
 \subsubsection*{Motors Brushless}
-Els actuadors que s'utilitzen són motors brushless (BL-DC). En partircular el Turnigy 2213 20turn 1050kv 19A Outrunner. Les seves especificacions més rellevants són:
+Els actuadors que s'utilitzen són motors brushless (BL-DC). En partircular el Turnigy 2213 20turn 1050kv 19A Outrunner.
+Es tracta de màquines síncrones d'imans permanents, en comptes d'utilitzar electroimants, on el camp magnètic està uniformement repartit a l'entreferro. S'anomenen també de força electromotriu (FEM) trapezoidal perquè a velocitat constant la FEM té aquesta forma. 
+Per a controlarl-lo s'utilitzar un inversor (inverter), la commutació deixa de ser mecànica i per tant l'armadura de la màquina pot ser l'estator. Això permet arribar a voltatges d'ús i velocitats de funcionament més alts.
+Les seves especificacions més rellevants són:
 \begin{itemize}
-\item Kv: 1050rpm/v
+\item Kv: 1050rpm/V
 \item Corrent de treball: 6A ~ 16A
 \item Corrent de pic: 19A
 \item Pes: 56g
 \item Dimensions: 27.6 x 32mm
 \item Mida de l'eix: 3.175mm
 \end{itemize}
-La relació entre la senyal de PWM i la força, així com el consum es troben a l'Annex
+El primer paràmetre fa referència a quants rpm's funcionarà el motor per Volt aplicat. A aquest valor se li aplica un percentatge $\%NLS$ (Percentatge de Velocitat sense Càrrega, típicament de 70\%) per a quantes revolucions per minut funcionarà:
+
+\begin{equation}
+Kv  \cdot V \cdot \%NLS = 1050 \cdot \frac{rpm}{V}\cdot V \cdot 0.70 = 8085 \>\> rpm
+\end{equation}
+
+Aquesta velocitat és teòrica, i com que no hi ha un llaç de control sobre aquesta, no es tindrà en compte. En canvi, s'atacarà al motor amb la señal de PWM que s'envia al Variador que el controla. La relació entre la senyal de PWM i la força, així com el consum que es desenvolupa es troben als Annexos. 
+
 \subsubsection*{Variador ESC}
 
-Per a controlar un motor brushless l'etapa de potència a utilitzar un ESC (Electronic Speed Controller) que és un  variador que consta d'un inversor trifàsic:
+Per a controlar un motor brushless l'etapa de potència a utilitzar es un ESC (Electronic Speed Controller) que és un  variador que consta d'un inversor trifàsic:
+
 \begin{center}
 \includegraphics[scale=0.4]{images/ESC.jpeg}
 \end{center}
 
-Turnigy AE-20A Brushless ESC
+El model a utilitzar és el Turnigy AE-20A Brushless ESC. L'ús d'aquest tipus es justifica amb l'amperatje que suporta, en quant els motors consumeixen com a pic fins a 19A, que és menys del màxim de la corrent d'aquest Variador.
+
 Specification:
 Output:  Continuous 20A, burst 25A up to 10 seconds.
 Input Voltage:  2-4 cells lithium battery or 5-12 cells NIMH battery.   
