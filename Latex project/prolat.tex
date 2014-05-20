@@ -16,6 +16,8 @@
 
 \usepackage{listings}
 
+\usepackage{pgfplots}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
 
@@ -23,12 +25,12 @@
 \includegraphics[scale=0.3]{images/upc.jpg} 
 \end{center} 
 \vspace{1cm} 
-Projecte Final de Carrera\\
-ENGINYERIA INDUSTRIAL \\
+Proyecto Final de Carrera\\
+INGENIERÍA INDUSTRIAL \\
 \vspace{1.5cm} 
-\Huge{Control d'un Quadcopter} 
+\Huge{Control de un Quadcopter} 
 \vspace{2cm} \\ 
-Memòria}
+Memoria}
 %\author{Gabriel de la Cal Mendoza}
 \date{}
 
@@ -58,7 +60,7 @@ Memòria}
 $\begin{array}{ll}
 \mbox{Autor:} & \mbox{Gabriel de la Cal Mendoza} \\
 \mbox{Director:} & \mbox{Manel Velasco Garcia} \\
-\mbox{Convocatòria:} & \mbox{Data a presentar}
+\mbox{Convocatoria:} & \mbox{Fecha a presentar}
 \end{array}$}
 \\ \vspace{2cm} \Large{Escola Tècnica Superior d'Enginyeria Industrial de Barcelona}\\ \vspace{1cm}
 \includegraphics[scale=0.4]{images/etseib.jpg}
@@ -72,7 +74,16 @@ $\begin{array}{ll}
 \thispagestyle{empty}
 \newpage
 \setcounter{page}{1}
-\section*{Resum}
+
+\section*{Resumen}
+
+En el presente proyecto se ha tenido como meta el control de un Quadcopter cuyas piezas se han adquirido por partes. Para tal propósito se ha linealizado  el modelo no lineal calculado y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo esta organizado en 8 secciones y 4 secciones.\\
+
+En la sección \ref{prefacio} se presentan los motivos por el que la elección del tema de este PFC queda justificado. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. \\
+En la sección \ref{}
+
+
+
 \newpage
 \begin{center}
 
@@ -91,208 +102,240 @@ $\begin{array}{ll}
 \listoffigures
 \newpage
 
-\section{Prefaci} 
-\subsection{Motivació}
+\section{Prefacio} \label{prefacio}
+\subsection{Motivación}
 
-La principal motivació d'aquest projecte és la d'aplicar els coneixements bàsics adquirits en aquests 6 anys de carrera, i més en particular en l'àrea del control en haver fet l'intensificació d'automàtica.\\
+La principal motivación de este proyecto es la de aplicar por uno mismo los conocimientos básicos adquiridos en la carrera, y más en particular en el área del control en haber cursado la intensificación de automática.\\
 
-Llavors, a l'hora de plantejar un tema per al projecte ràpidament va sorgir la idea de realitzar-lo sobre el control d'un sistema, i més en particular sobre un que estigués actualment emergent tant en mercats com en el camp de l'investigació.\\ 
+En plantear un tema para el proyecto rápidamente surgió la idea de realizarlo sobre el control de un sistema mecánico, y más en particular sobre uno que estuviera actualmente emergiendo tanto en mercados como en el campo de la investigación.\\ 
 
-D'entre les diferents alternatives, un quadcopter és la més atractiva tant per la seva simplicitat constructiva com pel no excessiu cost. Existeixen actualment en el mercat infinitat de proveïdors dels components necessaris per a construïr un quadcopter, amb un gran ventall d'opcions per a escollir cada element com motors, bateries, electrònica, etc.\\
+De entre las diferentes alternativas, un quadcopter es la más atractiva para el proyecto tanto por su simplicidad constructiva como por su no excesivo coste. Existen actualmente en el mercado infinidad de proveedores para los componentes necesarios para construir un quadcopter, con un gran abanico de opciones de entre las que escoger cada elemento como motores, baterías, electrónica, etc.\\
 
-Les possibles aplicacions són nombroses, tant que encara no s'han ni tan sols explotat totes les possibles. Com a exemple: vigilància de superfícies obertes, transport de petits paquets, eina d'oci, entre d'altres.\\
+Las posibles aplicaciones son numerosas, tanto que aún no se han ni tan solo explotado todas las posibles. Como ejemplo: vigilancia de superficies abiertas, transporte de pequeños paquetes, herramienta de ocio, entre otras.\\
 
-%Com a experiència prèvia es va realitzat el Pre-Projecte sobre quadcopters amb la plataforma open source $ArduPilot$.   
+Entender el funcionamiento y familiarizarse con el mecanismo es una inquietud que se ha mantenido insatisfecha durante largo tiempo. Con este pretexto se pretende acabar de justificar la elección del tema de ésta pequeña gran empresa.
 
-El preu d'un quadcopter no es gaire elevat ja que un comercial com el $AR Drone 2.0$ oscil·la els 300 € i en construïr un amb menys prestacions no hauria de superar aquest cost.
+\subsection{Requerimientos previos}
 
-\subsection{Requeriments previs}
+Es necesario tener ciertos conocimientos mínimos en automática para poder controlar el quadcopter, así como la inquietud de aprender lo que sea necesario para cumplir, en la medida de lo posible, los objetivos iniciales del presente proyecto. \\
 
-Com a requeriments previs és necessari tenir certs coneixements mínims en automàtica per tal de controlar el quadcopter, aíxí com l'inquietut per aprendre el que sigui necessari per a complir, en la mesura del possible, els objectius inicials del present projecte com superar les dificultats que hagin sorgit, tenint en compte que el fi no justifica els medis.
+Nociones de mecánica son necesarias para elaborar e interpretar el sistema sobre el que se trabaje, así como sus resultados. Conocimientos del lenguaje $C$ son imprescindibles ya que el código del programa que realiza los cálculos está escrito en este mismo lenguaje. 
+
+Para adaptar los elementos que componen el aparato y afianzarlos a la estructura (Frame)  del Quadcopter ha sido de gran ayuda contar con el servicio de una impresora 3D, creada por uno mismo. Finalmente, estar familiarizado con el argot y elementos de un Quadcopter, así como motores, emisoras de radio, entre otros es de ayuda. \\
+
+Superar las dificultades que han surgido, teniendo en cuenta que el fin no justifica los medios, es la praxis que se ha aplicado a la hora de realizar éste trabajo. Finalmente, recordar reminiscencias de la carrera es siempre útil e interesante, así que conceptos adquiridos pero no utilizados se esperan aplicar.
  
 \newpage
-\section{Introducció}
-Un Quadcopter es un vehicle volador no tripulat ($Unmanned Aerial Vehicle$) que es caracteritza per tenir quatre rotors a mode d'actuadors en comptes de dos com en el cas dels helicòpters. Aquest tipus d'autogir intenta obtenir una flotabilitat estable i vol precís balancejant les forces produïdes pels quatre motors. \\
+\section{Introducción} \label{intro}
 
-Un dels avantatges que s'obtenen amb aquest canvi és la major capacitat de càrrega ja que es tenen 4 motors  per a soportar el pes. L'estabilitat del vehicle millora en permetre aterratges i enlairaments verticals amb una major maniobrabilitat. També pot treballar en àreas de difícil accés o més agressives, com amb pluja i vent. \\
+Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$ o $UAV$) que se caracteriza por tener quatro rotores a modo de actuadores en vez de dos como en el caso de los helicópteros. Este tipo de autogiro intenta obtener una flotabilidad estable y vuelo preciso balanceando las fuerzas producidas por los cuatro motores y surge de la necesidad de un aparato de vuelo de dimensiones reducidas y gran estabilidad, con prestaciones superiores a las de un helicóptero convencional. \\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{images/quadcopter_example.jpg}
+\caption{Quadcopter de ejemplo con cámara}
+\end{center}
+\end{figure}
 
 
+Una de las ventajas que se obtiene con este cambio es la mayor capacidad de carga ya que es tienen 4 motores  para soportar el peso. La estabilidad del vehículo mejora en permitir aterrizajes y despegues verticales con una mayor maniobrabilidad. También puede trabajar en áreas de difícil acceso o más agresivas, como con lluvia y viento. \\
 
-\subsection{Estudi de l'art}
-\subsection{Objectius del projecte}
-Esquemàticament es pot representar com una estructura en $X$ amb el seu centre coincidint amb el centre de masses i quatre actuadors a les puntes de cada braç, tots ells apuntant en la mateixa direcció y sentit
+Esquemáticamente se puede representar como una estructura en $X$ con su centroide coincidiendo con el centro de masas i cuatro actuadores a las puntas de cada brazo, todos ellos apuntando en la misma dirección y sentido, pero con giros de aspa en sentido contrario, pero igual en lados opuestos.
 
-descripción por encima\\
-historia\\
-estudio del arte\\
-futuras aplicaciones\\
+
+\subsection{Estudio del arte}
+
+En la actualidad el campo referente a estos aparatos se ha diversificado tanto que se pueden encontrar muchas variedades y tipos de Quadcopters. Se ha hecho mención del modelo de cuatro motores, pero bien pueden encontrarse de tres hasta 8 motores, sino más en casos más concretos. \\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/6_armed_quadcopter.jpg}
+\caption{Ejemplo de Quadcopter con 6 motores}
+\end{center}
+\end{figure}
+
+Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena odometría del aparato. \\
+
+\subsection{Objetivos del proyecto}
+
+La meta que se persigue es la de hacer planear un Quadcopter en direcciones horizontales. A la vez, éste es un excelente subterfugio para cumplir con otros objetivos relacionados con este fin como el control de motores, el inteligente uso de la electrónica y correcto diseño mecánico del aparato. Además, se espera haber ampliado la visión que uno tiene en cada campo. \\
+
+De entre todas las disciplinas involucradas, se espera acabar familiarizado con las facetas relacionadas con la presente empresa para clarificar la relación entre los elementos que componen un Quadcopter.  A saber, se espera poder acabar entendiendo la electrónica, mecánica y conocimientos de control que reinan en el sistema. \\
+
+En el caso de la electrónica se espera entender y poder implementar sencillos protocolos de comunicación, en este caso $I2C$ entre los sensores y la Raspberry Pi. Ésta misma es el centro neurálgico del Quadcopter, así que es esencial saber utilizarla como se requiere para que pueda recibir consignas, estados y enviar la correspondiente acción de control a los motores para que se llegue al estado final deseado. \\
+
+Por parte de la mecánica, es primordial tener conocimientos sólidos de conceptos como el Teorema de la Cantidad de Movimiento y el de la conservación del Momento de Inercia, así como poder calcular el Lagrangiano ($\mathcal{L}$) para generar un modelo verosímil y que represente fidedignamente la realidad para que se desarrolle de manera efectiva el control. \\
+
+Finalmente, y como más serio objetivo de toda esta aventura, es el de haber afianzado lo que se creía entendido en relación al control. Asimilar otros métodos de control aplicables a sistemas multilineales no contemplados en la carrera es un excitante reto que se espera haber superado con éxito. \\
+
+Entonces, se entiende este trabajo como la causa de la motivación a cumplir con un objetivo multidisciplinar como puede serlo cualquiera en el campo de la robótica, en el que se debe tener constancia de muchos aspectos relevantes, como el de la economía. Poder tener idea de lo que cuesta un robot es de gran importancia si uno se embarca en un proyecto de envergadura, ya que se quiere que los pronósticos sobre el presupuesto cuadren con la futura realidad. 
 
 \newpage
-\section{Definicio del model}
-\subsection{Definició de les variables}
-Per a caracteritzar la planta amb la que es treballarà, és necessari obtenir un model del quadcopter. Les constants pròpies del model es deixaran en forma de paràmetres a calibrar una vegada es tingui l'objecte físic. D'aquesta manera el model serà general per a tot quadcopter que comparteixi la mateixa família de paràmetres.
-És necessari considerar dos marcs de referència: l'inercial format pels eixos $x,y,z$ i el del cos (Body) format pels eixos $x_B,y_B,z_B$. El primer té la persepectiva de l'observador en terra, estàtic, mentre que el segon és solidari a l'estructura. Segons l'orientació del eixos del cos amb aquesta referència es poden donar els següents dos cassos:
+\section{Definición del modelo} \label{model}
+\subsection{Definición de les variables}
+Para caracterizar la planta con la que es trabajará, es necesario obtener un modelo del Quadcopter. Las constantes propias del modelo se dejaran en forma de parámetros a calibrar una vez se tenga el objeto físico. De esta manera el modelo será general para todo quadcopter que comparta la misma familia de parámetros.
+Es necesario considerar dos marcos de referencia: el inercial formado por los ejes $x,y,z$ y el del cuerpo (Body) formado por los ejes $x_B,y_B,z_B$. El primero tiene la perspectiva de el observador en tierra, estático, mientras que el segundo es solidario a la estructura. Según la orientación de los ejes del cos con esta referencia se pueden dar los siguientes dos casos:
 \begin{itemize}
-\item $Cross type$: Els eixos de coordenades coincideixen amb els braços de l'estructura ja que es tenen els actuadors a les puntes de cada braç.
-\item $X-type$: Els eixos i l'estructura formen 45º. Es tenen llavors dos motors al davant i dos al darrere.
+\item \textbf{Cross type}: Los ejes de coordenadas coinciden con los brazos de la estructura ya que se tienen los actuadores a las puntas de cada brazo.
+\item \textbf{X-type}: Los ejes y la estructura forman $45º$. Se tienen entonces dos motores en la parte delantera y dos en la trasera.
 \end{itemize} 
-Per ser més usual la primera opció, es decideix utilitzar la configuració $Cross type$ tal i com es té en la figura \ref{RefQuad}.
+Por ser más usual la primera opción, se decide utilizar la configuración $Cross type$ tal y como se tiene en la figura \ref{RefQuad}.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{images/quad.jpg}
 \caption{Marcs de referència en el quadcopter}
 \label{RefQuad}
 \end{figure}\\
-Es suposa que l'objecte és un rotor esfèric, i per tant el seu tensor d'inèrcia és diagonal:
-\begin{equation}I=\left[ \begin{array}{ccc}
+Se supone que el objeto es un rotor esférico, y por tanto su tensor de inercia es diagonal:
+\begin{equation}\textbf{I}=\left[ \begin{array}{ccc}
 I_{xx} & 0 & 0 \\
 0 & I_{yy} & 0 \\
 0 & 0 & I_{zz} 
 \end{array} \right] \end{equation}
-Es defineix la posició linear absoluta amb les coordenades $x,y,z$ pel vector $\xi$ i igualment per a la posició angular a partir de $\eta$ segons:
-\begin{equation}
-\xi=\left[ \begin{array}{ccc}
+Se define la posición lineal absoluta con las coordenadas $x,y,z$ con vector $\pmb{\xi}$ e igualmente para la posición angular a partir de $\pmb{\eta}$ según:
+\begin{equation} 
+\pmb{\xi}=\left[ \begin{array}{ccc}
 x\\
 y\\
-z \end{array} \right] ,\quad \eta=\left[ \begin{array}{ccc}
+z \end{array} \right] ,\quad \pmb{\eta}=\left[ \begin{array}{ccc}
 \phi\\
 \theta\\
-\psi \end{array} \right] , \quad q=\left[\begin{array}{c}
-\xi\\
-\eta \end{array} \right] 
+\psi \end{array} \right] , \quad \pmb{q}=\left[\begin{array}{c}
+\pmb{\xi}\\
+\pmb{\eta} \end{array} \right] 
 \end{equation}
 
-on $\phi$ és l'angle de capcineig (Pitch), $\theta$ és el de balanceig (Roll) i $\psi$ el de guiñada (Yaw).\\
-Per a l'orientació angular entre els dos marcs es té un sistema de referència amb angles Tait Bryan, on la matriu de transformació és:
+donde $\phi$ es el ángulo de cabeceo (Pitch), $\theta$ és el de balanceo (Roll) y $\psi$ el de guiñada (Yaw).\\
+Para la orientación angular entre los dos marcos se tiene un sistema de referencia con ángulos Tait-Bryan, donde la matriz de transformación es:
 \begin{equation}
-R=\left[\begin{array}{ccc}
+\pmb{R}=\left[\begin{array}{ccc}
 C_\psi C_\theta & C_\psi S_\theta S_\phi - S_\psi C_\phi & C_\psi S_\theta C_\phi + S_\psi S_\phi \\
 S_\psi C_\theta & S_\psi S_\theta S_\phi + C_\psi C_\phi & S_\psi S_\theta C_\phi - C_\psi C_\phi \\
 -S_\theta & C_\theta C_\phi & C_\theta C_\phi 
 \end{array}\right]
 \end{equation}
-amb $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$.\newpage
-Les velocitats lineals en el marc de referència del cos (Body Frame) es representen amb el vector $v_B$ y les velocitats angulars amb $\gamma$ segons:
+con $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$.\newpage
+Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
 \begin{equation}
-v_B=\left[\begin{array}{c}
+\pmb{v_B}=\left[\begin{array}{c}
 v_{x,b}\\
 v_{y,b}\\
 v_{z,b}\\
-\end{array}\right] \hspace{1cm} \gamma=\left[\begin{array}{c}
+\end{array}\right] \hspace{1cm} \pmb{\gamma}=\left[\begin{array}{c}
 p\\
 n\\
 r
 \end{array} \right]
 \end{equation}
-En canvi, les velocitats en el marc de referència inercial (Inertial Frame)  es representen per $\dot{\eta}$ per a les velocitats lineals i per $\dot{\xi}$ per a les angulars: 
+En cambio, las velocidades en el marco de referencia inercial (Inertial Frame)  se representan por $\dot{\eta}$ para las velocidades lineales y con $\dot{\xi}$ para las angulares: 
 \begin{equation}
-\dot{\xi}=\left[\begin{array}{c}
+\pmb{\dot{\xi}}=\left[\begin{array}{c}
 \dot{x} \\
 \dot{y} \\
 \dot{z}
-\end{array} \right] \hspace{1cm} \dot{\eta}=\left[\begin{array}{c}
+\end{array} \right] \hspace{1cm} \pmb{\dot{\eta}}=\left[\begin{array}{c}
 \dot{\psi} \\
 \dot{\theta} \\
 \dot{\psi}
 \end{array} \right] 
 \end{equation}
-Ja que la derivada dels angles $\phi$, $\theta$ i $\psi$ no és el vector de velocitats angulars és necessari tenir un canvi de base per relacionar el marc de referència inercial al del cos amb la matriu $W_\eta$:
+Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de velocidades angulares es necesario tener un cambio de base para relacionar el marco de referencia inercial con el del cuerpo con la matriz $W_\eta$:
 \begin{equation}
-W_\eta=\left[\begin{array}{ccc}
+\pmb{W_\eta}=\left[\begin{array}{ccc}
 1 & 0 & -S_\theta \\
 0 & C_\phi & C_\theta S_\phi \\
 0 & -S_\phi & C_\theta C_\phi 
 \end{array} \right] \hspace{0.5cm} amb \hspace{0.5cm} 
-\gamma=\left[ W_\eta \right] \dot{\eta} 
+\pmb{\gamma}=\left[ \pmb{W_\eta} \right] \pmb{\dot{\eta}} 
 \end{equation}
-Les forces de sustentació i moments generats pels quatre actuadors són $f_1,f_2,f_3,f_4$ i $w_1,w_2,w_3,w_4$ respectivament. Seguint l'orientació de la figura \ref{RefQuad}, per tal de poder anular els moments produïts en l'eix $z_B$ (en el marc del cos) el sentit de gir dels actuadors  $4$ i $2$ és en el de les agulles del rellotge (clockwise) i els dels $1$ i $3$ en sentit contrari (counterclockwise). \\
+Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ i $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise). \\
 
-Interessa conèixer quina força i moment aportarà cada motor per a una velocitat angular coneguda. Es tenen les següents relacions per a cada actuador: 
+Interesa conocer qué fuerza y momento aportará cada motor dada una velocidad angular conocida. Se supone poder controlar la fuerza y momento ejercida por cada motor y cómo aproximación inicial se considera que están relacionados con la velocidad angular de la forma:
 \begin{equation}
 \begin{array}{l}
 f_i=kw^2_i \\ 
 \tau_{M_i}=bw^2_i
 \end{array}
 \end{equation}
-Per tant l'empenta total $T_B$ proporcionada en la direcció $z_B$ i els moments generats $\tau_B$ pels motors és:
+Por tanto el empuje total $\pmb{T_B}$ proporcionado en la dirección $z_B$ y los momentos generados $\pmb{\tau_B}$ por los motores son:
 \begin{equation}
-T_B=k\left(\sum_{i=1}^{4}w^2_i \right)e_{z_B}=\left[ \begin{array}{c}
+\pmb{T_B}=k\left(\sum_{i=1}^{4}w^2_i \right)e_{z_B}=\left[ \begin{array}{c}
 0 \\
 0 \\
-\displaystyle\sum_{i=1}^{4}w^2_i
+\displaystyle\sum_{i=1}^{4}f_i
 \end{array} \right] 
-\hspace{1cm} \tau_B=\left[ \begin{array}{c}
+\hspace{1cm} \pmb{\tau_B}=\left[ \begin{array}{c}
 \tau_\phi \\
 \tau_\theta \\
 \tau_\psi
 \end{array} \right] = \left[ \begin{array}{c}
-lk(w^2_4 - w^2_2) \\
-lk(w^2_3 - w^2_1) \\
+l(f_4 - f_2) \\
+l(f_3 - f_1) \\
 \displaystyle\sum_{i=1}^{4}\tau_{M_i}
 \end{array} \right]
 \end{equation}
 
-\subsection{Obtenció del model}
-Les equacions que governen el sistema s'obtenen amb el mètode de Euler-Lagrange, pel que es parteix obtenint el Lagrangià del sistema:
+\subsection{Obtención del modelo}
+Las ecuaciones que gobiernan el sistema se obtienen con el método de Euler-Lagrange, por lo que se empieza obteniendo el Lagrangiano del sistema:
 \begin{equation}
-\mathcal{L}=E_{cinetica} - E_{potencial} = (E_{translacio}+E_{rotacio})-E_{potencial}
+\mathcal{L}=E_{cinetica} - E_{potencial} = (E_{translacion}+E_{rotacion})-E_{potencial}
 \end{equation}
 
-Substituïnt cada component per la seva expressió:
+Substituyendo cada componente por su expresión:
 \begin{equation}
-\mathcal{L}(q,\dot{q})=\frac{m}{2} \dot{\xi}^T \dot{\xi} + \frac{1}{2}\gamma^{T}I\gamma - mgz
+\mathcal{L}(\pmb{q},\pmb{\dot{q}})=\frac{m}{2} \pmb{\dot{\xi}}^T \pmb{\dot{\xi}} + \frac{1}{2}\pmb{\gamma}^{T}\pmb{I}\pmb{\gamma} - mgz
 \end{equation}
-Es troba el vector de forçes i moments com:
+Es encuentra el vector de fuerzas y  momentos:
 \begin{equation}
-F=\left[ \begin{array}{c}
-f \\
-\tau_B
-\end{array} \right] = \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}}\right)-\frac{\partial\mathcal{L}}{\partial q}
+\pmb{F}=\left[ \begin{array}{c}
+\pmb{f} \\
+\pmb{\tau_B}
+\end{array} \right] = \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \pmb{\dot{q}}}\right)-\frac{\partial\mathcal{L}}{\partial \pmb{q}}
 \end{equation}
 
-amb $ \hspace{0.5cm} q=[\begin{array}{cccccc}
+amb $ \hspace{0.5cm} \pmb{q}=[\begin{array}{cccccc}
 x & y & z & \phi & \theta & \psi
-\end{array} ]^{T} \hspace{0.5cm}$ i $ \hspace{0.5cm} \dot{q}=[\begin{array}{cccccc}
+\end{array} ]^{T} \hspace{0.5cm}$ i $ \hspace{0.5cm} \pmb{\dot{q}}=[\begin{array}{cccccc}
 \dot{x} & \dot{y} & \dot{z} & \dot{\phi} & \dot{\theta} & \dot{\psi}
 \end{array} ]^{T}$.\\
 
-En calcular $F$ és necessari fer el canvi de variables de $\gamma$ a $\dot{\eta}$ amb el canvi de base $\dot{\eta}=\left[ W_\eta \right]^{-1} \gamma$ per tal de poder derivar el Lagrangià respecte $\dot{q}$, que són les variables pròpies del marc de referència inercial
+En calcular $F$ es necesario hacer el cambio de variables de $\gamma$ a $\dot{\eta}$ con el cambio de base $\dot{\eta}=\left[ W_\eta \right]^{-1} \gamma$ para poder derivar el Lagrangiano respecto $\dot{q}$, que son las variables propias del marco de referencia inercial:
 
 \begin{equation}
-\frac{1}{2}\gamma^{T}I\gamma = \frac{1}{2}(W_\eta \dot{\eta})^{T}I(W_\eta \dot{\eta}) = \frac{1}{2}\dot{\eta}^{T}(W_\eta ^{T}IW_\eta)\dot{\eta} = \frac{1}{2}\dot{\eta}^{T}J\dot{\eta}
+\frac{1}{2}\pmb{\gamma}^{T}\pmb{I}\pmb{\gamma} = \frac{1}{2}(\pmb{W_\eta} \pmb{\dot{\eta}})^{T}\pmb{I}(\pmb{W_\eta} \pmb{\dot{\eta}}) = \frac{1}{2}\pmb{\dot{\eta}}^{T}(\pmb{W_\eta} ^{T}\pmb{I}\pmb{W_\eta})\pmb{\dot{\eta}} = \frac{1}{2}\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}}
 \end{equation}
 
-on la matriu $J$ queda com
+donde la matriz $J$ queda como
 \begin{equation}
-J=W_\eta ^{T}IW_\eta = \left[ \begin{array}{ccc}
+\pmb{J}=\pmb{W_\eta} ^{T}\pmb{I}\pmb{W_\eta} = \left[ \begin{array}{ccc}
 I_{xx} & 0 & -I_{xx} S_\theta \\
 0 & I_{yy} C^2_\phi + I_{zz} S^2_\phi & (I_{yy}-I_{zz}) C_{\phi} S_\phi C_\theta \\
 -I_{xx} S_\theta & (I_{yy}-I_{zz}) C_{\phi} S_\phi C_\theta & I_{xx} S^2_{\theta}+I_{yy} S^2_{\phi} C^2_\theta +I_{zz}C^2_{\phi} C^2_{\theta}
 \end{array} \right]
 \end{equation} 
 
-i per tant el Lagrangià queda com:
+y por tanto el Lagrangiano queda:
 
 \begin{equation}
-\mathcal{L}(q,\dot{q})=\frac{m}{2} \dot{\xi}^T \dot{\xi} + \frac{1}{2}\dot{\eta}^{T}J\dot{\eta}- mgz
+\mathcal{L}(\pmb{q},\pmb{\dot{q}})=\frac{m}{2} \pmb{\dot{\xi}}^T \pmb{\dot{\xi}} + \frac{1}{2}\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}} - mgz
 \end{equation}
-Les components lineals y angulars no depenen unes de les altres, i per tant es poden estudiar per separat obtenint dos equacions: una per les forces lineals y un altre per als moments. Això vol dir que la força que exerceixen els actuadors no depenen de les velocitats angulars que es tinguéssin, i tampoc es tindran accel·leracions angulars diferents segons l'altura a la que es trobi el quadcopter: l'objecte girarà de la mateixa manera sigui quina sigui la seva posició en l'espai.
+Los componentes lineales y angulares no dependen unos de los otros y por tanto se pueden estudiar por separado obteniendo dos ecuaciones: una para las fuerzas lineales y otro para los momentos. Ésto quiere decir que la fuerza que ejercen los actuadores no depende de las velocidades angulares que se tengan ni tampoco se tendrán aceleraciones angulares diferentes según la altura a la que se encuentre el quadcopter: el objeto girará de la misma manera sea cual sea la  posición en la que se encuentre en el espacio.
 
-Llavors, fent la derivada parcial respecte $\dot{q}$ s'obté
+Entonces, calculando la derivada parcial respecte $\dot{q}$ se obtiene que 
 \begin{equation}
- F=\frac{d}{dt}\left(\frac{m}{2}(1\cdot\dot{\xi}+\dot{\xi}\cdot 1)+\frac{1}{2}\frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J\dot{\eta})\right)-\frac{\partial \mathcal{L}}{\partial q}
+\pmb{F}=\frac{d}{dt}\left(\frac{m}{2}(1\cdot \pmb{ \dot{\xi}}+\pmb{\dot{\xi}}\cdot 1)+\frac{1}{2}\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}}
 \end{equation}
 
-Com que $J$ és una matriux simètrica, es pot dir que  $\frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J\dot{\eta})=2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta} $. \\
+Como que $\pmb{J}$ es una matriz simétrica, se puede decir que  $\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})=2 \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} $. \\
 
-\textbf{Demostració:} Per probar això es veurà per al cas $\frac{\partial}{\partial x}(x^{T}Ax)=2 \frac{\partial}{\partial x}(x^{T}A)x $ amb 
+\textbf{Demostració:} Para probar ésto se verá para el caso $\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A}\pmb{x})=2 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A})\pmb{x} $ con 
 
 \begin{equation}
-x=\left[ \begin{array}{c}
+\pmb{x}=\left[ \begin{array}{c}
 x_1 \\
 x_2 \\
 x_3 
-\end{array} \right] \hspace{1cm} A=\left[ \begin{array}{ccc}
+\end{array} \right] \hspace{1cm} \pmb{A}=\left[ \begin{array}{ccc}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} 
@@ -300,7 +343,7 @@ a_{31} & a_{32} & a_{33}
 \end{equation}
 Llavors
 \begin{equation}
-\frac{\partial}{\partial x}(x^{T}A x) = \frac{\partial}{\partial x}\left(\left[x_1 x_2 x_3 \right]\left[\begin{array}{ccc}
+\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A} \pmb{x}) = \frac{\partial}{\partial \pmb{x}}\left(\left[x_1 x_2 x_3 \right]\left[\begin{array}{ccc}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} 
@@ -311,11 +354,11 @@ x_3
 \end{array} \right] \right) =
 \end{equation}
 \begin{equation}
-\frac{\partial}{\partial x}(x^2_1 a_{11}+x_1x_2a_{21}+x_1x_3a_{31} + x_1x_2a_{12}+x^2_xa_{22}+x_2x_3a_{32} + x_1x_3a_{13}+x_2x_3a_{23}+x^2_3a_{33})=
+\frac{\partial}{\partial \pmb{x}}(x^2_1 a_{11}+x_1x_2a_{21}+x_1x_3a_{31} + x_1x_2a_{12}+x^2_xa_{22}+x_2x_3a_{32} + x_1x_3a_{13}+x_2x_3a_{23}+x^2_3a_{33})=
 \end{equation}
-Com que $A$ és simètrica $a_{12}=a_{21}$, $a_{13}=a_{31}$ i $a_{23}=a_{32}$, i en fer la derivada direccional resulta
+Com que $\pmb{A}$ és simètrica $a_{12}=a_{21}$, $a_{13}=a_{31}$ i $a_{23}=a_{32}$, y en hacer la derivada direccional resulta
 \begin{equation}
-\frac{\partial}{\partial x}(x^{T}A x)=\left[ \begin{array}{c}
+\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A} \pmb{x})=\left[ \begin{array}{c}
 2x_1a_{11}+x_2a_{21}+x_3a_{31}+x_2a_{12}+x_3a_{13} \\
 x_1a_{21}+x_1a_{12}+2x_2a_{22}+x_3a_{32}+x_3a_{23} \\
 x_1a_{31}+x_2a_{32}+x_1a_{31}+x_2a_{23}+2x_3a_{23}
@@ -325,13 +368,13 @@ x_1a_{12}+x_2a_{22}+x_3a_{23} \\
 x_1a_{13}+x_2a_{23}+x_3a_{23}
 \end{array} \right]
 \end{equation}
-I en avaluar l'altre costat de la igualtat es té el mateix resultat
+Y en avaluar el otro costado de la igualdad se tiene el mismo resultado
 \begin{equation}
-2 \frac{\partial}{\partial x}(x^{T}A)x=2 \frac{\partial}{\partial x} \left( \left[ \begin{array}{ccc}
+2 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A})\pmb{x}=2 \frac{\partial}{\partial \pmb{x}} \left( \left[ \begin{array}{ccc}
 x_1a_{11}+x_2a_{12}+x_3a_{13} \\
 x_1a_{21}+x_2a_{22}+x_3a_{23} \\
 x_1a_{13}+x_2a_{32}+x_3a_{33}
-\end{array} \right]^{T} \right)x=
+\end{array} \right]^{T} \right)\pmb{x}=
 \end{equation}
 \begin{equation}
 =2\left[\begin{array}{ccc}
@@ -349,72 +392,72 @@ x_1a_{13}+x_2a_{23}+x_3a_{23}
 \end{array} \right]
 \end{equation}
 \hfill $\blacksquare$ \newpage
-Com que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ es té, aplicant la regla de la cadena en el producte $J\dot{\eta}$:
+Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $J\dot{\eta}$:
 \begin{equation}
-F=\frac{d}{dt}\left(m \dot{\xi}+J \dot{\eta}\right)-\frac{\partial \mathcal{L}}{\partial q} =m\ddot{\xi} + J\ddot{\eta} + \dot{J}\dot{\eta}-\left( \frac{1}{2} 2 \frac{\partial}{\partial \dot{\eta}} ( \dot{\eta}^{T}J)\dot{\eta} - mg\left[\begin{array}{c}
+\pmb{F}=\frac{d}{dt}\left(m \dot{\pmb{\xi}}+\pmb{J} \pmb{\dot{\eta}}\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}} =m\pmb{\ddot{\xi}} + \pmb{J}\pmb{\ddot{\eta}} + \pmb{\dot{J}}\pmb{\dot{\eta}}-\left( \frac{1}{2} 2 \frac{\partial}{\partial \pmb{\dot{\eta}}} ( \pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} - mg\left[\begin{array}{c}
 0 \\
 0 \\
 1
 \end{array} \right] \right)
 \end{equation}
 
-Per arribar a aquest resultat s'ha aplicat la derivada direccional a $mgz$:
+Para llegar a éste resultado se ha aplicado la derivada direccional a $mgz$:
 \begin{equation}
-D_q(mgz)=D_\xi(mgz)=mg \left[ \begin{array}{c}
+D_q(mgz)=D_{\pmb{\xi}}(mgz)=mg \left[ \begin{array}{c}
 0 \\
 0 \\
 1
 \end{array} \right]
 \end{equation}
 
-Separant les components lineals i angulars en dues equacions:
+Separando las componentes lineales y angulares en dos ecuaciones:
 % \begin{equation}
 \begin{align}
-f & = m \ddot{\xi} + mg \left[ \begin{array}{c}
+f & = m \pmb{\ddot{\xi}} + mg \left[ \begin{array}{c}
 0 \\
 0 \\
 1
-\end{array} \right] =RT_B\\
-\tau & =J \ddot{\eta} +  \underbrace{\left( \dot{J} - \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\right)}_{C(\eta,\dot{\eta})} \dot{\eta} =J \ddot{\eta} +  C(\eta,\dot{\eta})\dot{\eta} 
+\end{array} \right] =\pmb{R}\pmb{T_B}\\
+\pmb{\tau} & =\pmb{J} \pmb{\ddot{\eta}} +  \underbrace{\left( \pmb{\dot{J}} - \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\right)}_{\pmb{C(}\eta,\dot{\eta}\pmb{)}} \pmb{\dot{\eta}} =\pmb{J} \pmb{\ddot{\eta}} +  \pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}} 
 \end{align}
 % \end{equation}
 
-On $C(\eta,\dot{\eta})$ és la matriu de Coriolis. 
-Per obtenir el sistema d'equacions del model s'han d'aïllar les accel·leracions, i s'obté:
+Donde $\pmb{C(\eta,\dot{\eta})}$ es la matriz de Coriolis. 
+Para obtener el sistema de ecuaciones del modelo se han de aislar las aceleraciones y se obtiene:
 \begin{equation}
 \begin{cases}
-\ddot{\xi} & =\frac{1}{m}RT_{B} - g \cdot \left[ \begin{array}{ccc}
+\pmb{\ddot{\xi}} & =\frac{1}{m}\pmb{R}\pmb{T_{B}} - g \cdot \left[ \begin{array}{ccc}
 0 & 0 & 1\\
 \end{array} \right]^{T} \\
-\ddot{\eta} & =J^{-1} \left( \tau - C(\eta,\dot{\eta})\dot{\eta}  \right)
+\pmb{\ddot{\eta}} & =\pmb{J}^{-1} \left( \pmb{\tau} - \pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}}  \right)
 \end{cases}
 \label{eq:system}
 \end{equation}
 
-Reescribint aquestes equacions de la forma $\dot{x}=f(x,u)$, on $u$ és el conjunt de forçes exercides pels motors, es té 
+Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $\pmb{u}$ es el conjunto de fuerzas ejercidas por los motores,se tiene 
 
 \begin{equation}
 \frac{\partial}{\partial t}\left[ \begin{array}{l}
-\xi \\
-\dot{\xi} \\
-\eta \\
-\dot{\eta} \\
+\pmb{\xi} \\
+\pmb{\dot{\xi}} \\
+\pmb{\eta} \\
+\pmb{\dot{\eta}} \\
 \end{array} \right] =\left[ \begin{array}{l}
-\dot{\xi} \\
-\frac{1}{m}RT_{B} - g \cdot \left[ \begin{array}{ccc}
+\pmb{\dot{\xi}} \\
+\frac{1}{m}\pmb{R}\pmb{T_{B}} - g \cdot \left[ \begin{array}{ccc}
 0 & 0 & 1 \\
 \end{array} \right]^{T} \\
-\dot{\eta} \\
-J^{-1} \left( \tau - C(\eta,\dot{\eta})\dot{\eta} \right)
+\pmb{\dot{\eta}} \\
+\pmb{J}^{-1} \left( \pmb{\tau} - \pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}} \right)
 \end{array} \right]
 \end{equation}
 
-Per a realitzar el control será útil representar el sistema \ref{eq:system} en forma d'espai d'estats, i per tant el vector d'estats serà de la forma $\enspace \left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punt d'equilibri d'aquest sistema és aquell que fa que les components angulars del vector d'estats no variin i no hi hagin desplaçaments lineals. Aquest cas es pot donar per a tota posició $\xi$ donada. Això es té si tots els motors fan exactament mateixa força i entre tots quatre igual al pes del Quadcopter, i per tant és un punt d'equilibri forçat. El punt d'equilibri serà llavors:
+Para realizar el control será útil representar el sistema \ref{eq:system} en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. Éste caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener un momento de inercia nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
 
 \begin{equation}
-\begin{cases}{l}
-X_0=\left[x \enspace 0 \enspace y \enspace 0 \enspace z \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \right]^{T} \\
-U_0=\left[ \begin{array}{l}
+\begin{cases}
+\pmb{X_0}=\left[x \enspace 0 \enspace y \enspace 0 \enspace z \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \enspace 0 \right]^{T} \\
+\pmb{U_0}=\left[ \begin{array}{l}
 f_{1} \\
 f_{2} \\
 f_{3} \\
@@ -426,46 +469,34 @@ f_{4} \end{array} \right] = \frac{m \cdot g}{4} \left[ \begin{array}{l}
 \end{cases}
 \end{equation}
 
-Per a expressar el model de la forma lineal 
+El modelo se expresa en forma lineal como
 
 \begin{equation}
 \begin{array}{l}
-\dot{X}=[A] \cdot X + [B] \cdot U \\
-Y = [C] \cdot X 
+\pmb{\dot{X}}=[\pmb{A}] \cdot \pmb{X} + \pmb{K} + [\pmb{B}] \cdot \pmb{U} \\
+\pmb{Y} = [\pmb{C}] \cdot \pmb{X} 
 \end{array}
 \end{equation} 
 
-és calculen les matrius A i B amb els respectius jacobians en el punt d'equilibri
+donde $\pmb{K}$ es el termino que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
 
 \begin{equation}
-A=\left.{\frac{\partial f(x,u)}{\partial x}}\right\vert_{X_0,U_0} \hspace*{1.5cm} B=\left.{\frac{\partial f(x,u)}{\partial u}}\right\vert_{X_0,U_0}
+\pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \hspace*{1.5cm} \pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}}
 \end{equation}
 
-En considerar que les posicions angulars de $\phi$ i $\theta$ no diferiran significativament respecte de zero i que l'angle $\psi$ no és rellvant, es treballa amb una matriu de rotació $R$ igual a la identitat
+
+En considerar que las posiciones angulares de $\phi$ y $\theta$ no diferirán significativamente respecto de zero y que el ángulo $\psi$ no es relevante, se trabaja con una matriz de rotación $R$ igual a la identidad
 
 \begin{equation}
-R=\left[\begin{array}{ccc}
+\pmb{R}=\left[\begin{array}{ccc}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1 \\ \end{array} \right]
 \end{equation}
 
-S'ha mantingut el terme independent de la gravetat a fora de la funció $f(x,u)$ per no eliminar-lo en la derivada del jacobià. Es sistema linealitzat és:
-\begin{center}
+Se ha mantenido el término independiente de la gravedad a fuera de la función $\pmb{f(x,u)}$ para no eliminarlo en la derivada del jacobiano. Las matrices $\pmb{A}$ y $\pmb{B}$ quedan como
 \begin{equation}
-\hspace*{-1.2cm} \left[ \begin{array}{c}
-\dot{x}\\
-\ddot{x} \\
-\dot{y} \\
-\ddot{y} \\
-\dot{z} \\
-\ddot{z} \\
-\dot{\phi} \\
-\ddot{\phi} \\
-\dot{\theta} \\
-\ddot{\theta} \\
-\dot{\psi} \\
-\ddot{\psi} \\ \end{array} \right] = \left[ \begin{array}{cccccccccccc}
+\hspace*{-0.5cm}\pmb{A}=\left[ \begin{array}{cccccccccccc}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -477,32 +508,7 @@ S'ha mantingut el terme independent de la gravetat a fora de la funció $f(x,u)$
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
-x \\
-\dot{x} \\
-y \\
-\dot{y} \\
-z \\
-\dot{z} \\
-\phi \\
-\dot{\phi} \\
-\theta \\
-\dot{\theta} \\
-\psi \\
-\dot{\psi} \\ 
-\end{array} \right] - \left[ \begin{array}{c}
-0 \\
-0 \\
-0 \\
-0 \\
-0 \\
-9.81 \\
-0 \\
-0 \\
-0 \\
-0 \\
-0 \\
-0 \\ \end{array} \right] + \left[ \begin{array}{cccc}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \end{array} \right] \hspace*{0.5cm} \pmb{B} = \left[ \begin{array}{cccc}
 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 \\
@@ -514,42 +520,40 @@ z \\
 0 & 0 & 0 & 0 \\
 {}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\
 0 & 0 & 0 & 0 \\
-{}^{b}/_{Izz} & {}^{-b}/_{Izz} & {}^{b}/_{Izz} & {}^{-b}/_{Izz} \\ \end{array} \right] \left[ \begin{array}{c}
-f_{1} \\
-f_{2} \\
-f_{3} \\
-f_{4} \\ \end{array} \right] 
+{}^{b}/_{Izz} & {}^{-b}/_{Izz} & {}^{b}/_{Izz} & {}^{-b}/_{Izz} \\ \end{array} \right]
 \end{equation}
+
+y las matrices $\pmb{K}$ i $\pmb{C}$ quedan como 
+
 \begin{equation}
-\nonumber 				% para eliminar la numeracion de la ecuación
-% \hspace*{-8cm} 
-Y=\left[ \begin{array}{cccccccccccc}
+\hspace*{0.5cm} \pmb{K}= \left[ \begin{array}{c}
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+-9.81 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\ \end{array} \right]  \hspace*{1cm} \pmb{C}=\left[ \begin{array}{cccccccccccc}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
-x \\
-\dot{x} \\
-y \\
-\dot{y} \\
-z \\
-\dot{z} \\
-\phi \\
-\dot{\phi} \\
-\theta \\
-\dot{\theta} \\
-\psi \\
-\dot{\psi} \\ 
-\end{array} \right]
-\end{equation} 
-\end{center}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \end{array} \right]
+\end{equation}
 
-Com que es desitja implantar un control sobre l'equilibri del Quadcopter en comptes de la posició, es tindran les variables pertinents a l'orientació, i per tant el vector d'estats estarà format per $\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
 
-Queda llavors
 
+Como se desea implantar un control sobre el equilibrio del Quadcopter en vez de la posición, se tendrán las variables pertinentes a la orientación, y por tanto el vector de estados estará formado por %$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
+$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \right]$. 
+
+Queda entonces
+\iffalse
 \begin{center}
 \begin{equation}
 \left[ \begin{array}{c}
@@ -598,27 +602,114 @@ Y=\left[ \begin{array}{cccccc}
 \dot{\theta} \\
 \psi \\
 \dot{\psi} \\ \end{array} \right]
+\end{equation} 
+\fi
+\begin{center}
+\begin{equation}
+\left[ \begin{array}{c}
+\dot{\phi} \\
+\ddot{\phi} \\
+\dot{\theta} \\
+\ddot{\theta} \\ \end{array} \right] = \left[ \begin{array}{cccccc}
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\\end{array} \right] + \left[ \begin{array}{cccc}
+0 & 0 & 0 & 0 \\
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\ 
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+f_{1} \\
+f_{2} \\
+f_{3} \\
+f_{4} \\ \end{array} \right]
+\end{equation} 
+\end{center}
+
+
+\begin{equation}
+\nonumber
+\pmb{Y}=\left[ \begin{array}{cccccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\ \end{array} \right] \left[ \begin{array}{c}
+\phi \\
+\dot{\phi} \\
+\theta \\
+\dot{\theta} \\ \end{array} \right]
+\end{equation} 
+
+donde el vector $\pmb{K}$ se ha obviado porque las componentes que se hubieran considerado de éste son todas nulas. 
+
+El eliminar estas componentes se hace porque no hay una referencia zero para el ángulo $\psi$, mientras que en el caso de los ángulos $\phi$ y $\theta$ la referencia siempre será la horizontal. No supone un infranqueable problema a la hora de hacer mover el Quadcopter, pues éste ya se puede desplazar en todo su plano horizontal, sin necesidad de girar en la dirección del $yaw$.\\
+
+Para abordar el control de este sistema reducido es necesario evaluar su controlabilidad y observabilidad. La matriz de controlabilidad $\pmb{W_c}=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ es de la forma:
+
+\begin{equation}
+\pmb{Wc}=\left[ \left.{\begin{array}{cccc}
+0 & 0 & 0 & 0 \\
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\ 
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\ \end{array}}\right\vert_{} \left.{\begin{array}{cccc}
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\
+0 & 0 & 0 & 0 \\
+\end{array}}\right\vert_{} \quad ... \quad \right]
 \end{equation}
 
-Per abordar el control d'aquest sistema reduït és necessari evaluar la controlabilitat i observabilitat d'aquest. La matriu de controlabilitat $W_c=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ és:
+Con las 8 primeras columnas es suficiente para ver que el rango de la matriz es máximo y por tanto controlable
 
+\begin{equation}
+rango(\pmb{Wc})=4\>\>(max.)\> \rightarrow \>Controlable
+\end{equation}
 
+Para evaluar la observabilidad se calcula la matriz de observabilidad $\pmb{W_o}$ y como en el caso anterior, se evaluará su rango:
+
+\begin{equation}
+\pmb{W_o}=\left[ \begin{array}{c}
+C \\
+CA \\
+CA^2 \\
+...
+\end{array}\right] =\left[\begin{array}{c}
+
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+\hline 
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\hline
+\end{array}\\
+...\\ \end{array} \right]
+\end{equation}
+
+otra vez no es necesario evaluar todos los términos de la matriz, ya que con las primeras 4 filas se ve que el rango vuelve a es máximo:
+\begin{equation}
+rango(\pmb{W_o})=4\>\>(max.) \> \rightarrow \> Observable
+\end{equation}
+
+Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un quadcopter se pueden obtener observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
 
 \newpage
 \subsection{Representació del model amb Matlab}
 
 \newpage
-\section{Disseny del controlador}
+\section{Disseny del controlador} \label{control}
 % Explicar que se quiere controlar el Quadcopter mediante la Linealización extendida, trabajando alrededor de puntos de equilibrio
 % \Linealització extesa
 % Explicar el concepto de Linealización extendida 
 % Explicar el proceso de obtención del lagrangiano con el .m,  vector de fuerzas, obtención del sistema linealizado alrededor del punto de equilibrio, observador lineal,... 
 \newpage
-\section{Implementació del control} 
+\section{Implementació del control} \label{implement}
 % Pufff
 
 \newpage
-\section{Construcció del Quadcopter}
+\section{Construcció del Quadcopter} \label{construc}
 % Descripción de cómo se hará en general
 El conjunt de peces que formen aquest aparell estan conectades entre sí segons la funció que realitzen. Esencialment la Raspberry Pi controla els motors segons les señals que reb de l'IMU i el Receptor. Tot el conjunt és alimentat per una bateria LiPo i s'adapta el voltatge de 11.1V a 5V per mitjà d'un Regulador per tal d'alimentar a la Raspberry. Tots els components estan subjectats a una estructura (Frame) que també pateix les forces y moments.  
 
@@ -832,13 +923,14 @@ Peso 190g
 % Dar el codigo de la aplicacion
 
 \newpage
-\section{Anàlisi econòmic}
+\section{Anàlisi econòmic} \label{economics}
 \newpage
 
-\section{Estudi d'impacte ambiental}
+\section{Estudi d'impacte ambiental} \label{impacto}
 \newpage
 
-\section*{Conclusions}
+\section{Conclusiones} \label{conclusiones}
+\subsection*{Futuras aplicaciones}
 \newpage
 
 \begin{thebibliography}{99}
@@ -1057,7 +1149,7 @@ int main(void){
         pinMode(PIN,OUTPUT);
         digitalWrite(PIN,LOW);
 
-        for(i=60;i<=100;i+=5){
+        for(i=0;i<=100;i+=5){
                 for(p=0;p<250;p++){
                         digitalWrite(PIN,HIGH);
                         delayMicroseconds(950+i*10);
@@ -1079,6 +1171,13 @@ S'obté una mesura de força i d'intensitat per cada increment del 0.25\% del PW
 \caption{Relació entre la força (en grams) i el PWM}
 \end{center}
 \end{figure}
+
+\begin{tikzpicture}
+\begin{axis}
+% \addplot plot[scale=0.8,domain=0:3.14](\x,{sin(\x r)});%r=radianes
+\end{axis}
+\end{tikzpicture}
+
 En l'eix de les abscises el PWM(\%) és entre el 5\% i el 10\% de la senyal enviada, que correspon al mínim i màxim que el motor. Com que per a un PWM elevat la força era massa gran i no es preveu que es farà funcionar el sistema en semblants condicions de treball, no s'estudia. 
 
 Es veu una relació proporcional del PWM amb la força generada. Es considera que una regressió lineal serà suficient. S'obté que la força $f(PWM)$ del motor serà:
@@ -1090,7 +1189,7 @@ Per a l'intensitat es té una relació tan amigable com en el cas anterior, per�
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.8]{images/IvsPWM.jpeg}
-\caption{Relació entre la força (en grams) i el PWM}
+\caption{Relació entre la corrent consumida i el PWM}
 \end{center}
 \end{figure}
 

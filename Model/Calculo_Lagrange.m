@@ -11,17 +11,24 @@ syms Ixx Iyy Izz
 syms Ax Ay Az 
 syms k m g l b
 
-l=0.165
-Ixx=0.004
-Iyy=0.004
-Izz=0.008
-m=0.85
+ l=0.165
+ Ixx=0.004
+ Iyy=0.004
+ Izz=0.008
+ m=0.85
+ b=1.2*10^-7
+ k=3*10^-6
 
-g=9.81
+ g=9.81
+ 
+ Ax=0
+ Ay=0
+ Az=0
+ 
 
 %%% El vector de variables que se usar�n
 
-v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi]
+v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi] 
 
 Xi=[x; y; z]
 dXi=[dx; dy; dz]

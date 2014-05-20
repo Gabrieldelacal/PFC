@@ -1,12 +1,14 @@
 \select@language {spanish}
-\contentsline {figure}{\numberline {1}{\ignorespaces Marcs de refer\IeC {\`e}ncia en el quadcopter}}{7}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Raspberry Pi a utilitzar}}{16}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Conectors de la Raspberry Pi}}{16}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces IMU MPU-6050}}{17}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Emissora i Receptor}}{17}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Connexi\IeC {\'o} per I2C entre MPU-6050 i RPi}}{28}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Detecci\IeC {\'o} del sensor MPU-6050}}{29}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Bancada per a l'estudi del motor}}{31}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Montatge per a l'estudi del motor}}{31}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{32}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{33}{figure.11}
+\contentsline {figure}{\numberline {1}{\ignorespaces Quadcopter de ejemplo con c\IeC {\'a}mara}}{6}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Ejemplo de Quadcopter con 6 motores}}{6}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Marcs de refer\IeC {\`e}ncia en el quadcopter}}{8}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Raspberry Pi a utilitzar}}{17}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Conectors de la Raspberry Pi}}{17}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces IMU MPU-6050}}{18}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Emissora i Receptor}}{18}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Connexi\IeC {\'o} per I2C entre MPU-6050 i RPi}}{29}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Detecci\IeC {\'o} del sensor MPU-6050}}{30}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Bancada per a l'estudi del motor}}{32}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Montatge per a l'estudi del motor}}{32}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{33}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Relaci\IeC {\'o} entre la corrent consumida i el PWM}}{35}{figure.13}

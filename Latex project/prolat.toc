@@ -1,19 +1,20 @@
 \select@language {spanish}
 \contentsline {section}{Resum}{1}{section*.2}
-\contentsline {section}{\numberline {1}Prefaci}{5}{section.1}
-\contentsline {subsection}{\numberline {1.1}Motivaci\IeC {\'o}}{5}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Requeriments previs}{5}{subsection.1.2}
-\contentsline {section}{\numberline {2}Introducci\IeC {\'o}}{6}{section.2}
-\contentsline {subsection}{\numberline {2.1}Estudi de l'art}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Objectius del projecte}{6}{subsection.2.2}
-\contentsline {section}{\numberline {3}Definicio del model}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o} de les variables}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o} del model}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o} del model amb Matlab}{13}{subsection.3.3}
-\contentsline {section}{\numberline {4}Disseny del controlador}{14}{section.4}
-\contentsline {section}{\numberline {5}Implementaci\IeC {\'o} del control}{15}{section.5}
-\contentsline {section}{\numberline {6}Construcci\IeC {\'o} del Quadcopter}{16}{section.6}
-\contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o} dels components}{16}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Muntatge}{20}{subsection.6.2}
-\contentsline {section}{\numberline {7}An\IeC {\`a}lisi econ\IeC {\`o}mic}{21}{section.7}
-\contentsline {section}{\numberline {8}Estudi d'impacte ambiental}{22}{section.8}
+\contentsline {section}{\numberline {1}Prefacio}{5}{section.1}
+\contentsline {subsection}{\numberline {1.1}Motivaci\IeC {\'o}n}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Requerimientos previos}{5}{subsection.1.2}
+\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Estudio del arte}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Objetivos del proyecto}{7}{subsection.2.2}
+\contentsline {section}{\numberline {3}Definici\IeC {\'o}n del modelo}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de les variables}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o} del model amb Matlab}{14}{subsection.3.3}
+\contentsline {section}{\numberline {4}Disseny del controlador}{15}{section.4}
+\contentsline {section}{\numberline {5}Implementaci\IeC {\'o} del control}{16}{section.5}
+\contentsline {section}{\numberline {6}Construcci\IeC {\'o} del Quadcopter}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o} dels components}{17}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Muntatge}{21}{subsection.6.2}
+\contentsline {section}{\numberline {7}An\IeC {\`a}lisi econ\IeC {\`o}mic}{22}{section.7}
+\contentsline {section}{\numberline {8}Estudi d'impacte ambiental}{23}{section.8}
+\contentsline {section}{\numberline {9}Conclusiones}{24}{section.9}
