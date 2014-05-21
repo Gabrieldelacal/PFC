@@ -817,56 +817,48 @@ Aquesta velocitat és teòrica, i com que no hi ha un llaç de control sobre aqu
 
 \subsubsection*{Variador ESC}
 
-Per a controlar un motor brushless l'etapa de potència a utilitzar es un ESC (Electronic Speed Controller) que és un  variador que consta d'un inversor trifàsic:
 
+Para controlar un motor brushless la etapa de potencia a utilitzar es un ESC (Electronic Speed Controller) que es un  variador que se compone de un inversor trifásico:
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{images/ESC.jpeg}
+\caption{Esquema de un Variador como inversor trifásico}
 \end{center}
-
-El model a utilitzar és el Turnigy AE-20A Brushless ESC. L'ús d'aquest tipus es justifica amb l'amperatje que suporta, en quant els motors consumeixen com a pic fins a 19A, que és menys del màxim de la corrent d'aquest Variador.
-
-Specification:
-Output:  Continuous 20A, burst 25A up to 10 seconds.
-Input Voltage:  2-4 cells lithium battery or 5-12 cells NIMH battery.   
-BEC:  Linear 2A @ 5V
-Control Signal Transmission: Optically coupled system.
-Max Speed:     
-   2 Pole: 210,000rpm
-   6 Pole: 70,000rpm
-   12 Pole: 35,000rpm
-Size:  50mm (L) * 26mm (W) * 12mm (H).
-Weight:  19g.
-
-Features:
-High performance microprocessor brings out the best compatibility with all kinds of motors and the highest driving efficiency.
-Wide-open heatsink design to get the best heat dissipation effect.
-Improved Normal, Soft, Very-Soft start modes, compatible with aircraft and helicopter. 
-Smooth, linear, quick and precise throttle response.
-Multiple protection features: Low-voltage cut-off protection / Over-heat protection / Throttle signal loss protection
-Programable via transmitter
-Programming features:
-Brake setting (we recommend using brake for only folding props applications)
-Battery type(Li-xx or Ni-xx) 
-Low voltage cutoff setting 
-Factory default setup restore 
-Timing settings (to enhance ESC efficiency and smoothness) 
-Soft acceleration start ups (for delicate gearbox applications)
-Low voltage cutoff type (power reduction orirnmediate shutdown)
- 
-Factory default settings:
-Brake:  off 
-Battery type:  Li-xx (Li-ion or Li-Po) 
-Low voltage cutoff threshold:  Soft cut-off (2.6V) 
-Timing setup:  Low 
-Soft Acceleration Start Up:  Normal \\
-Low voltage cutoff type:  Medium
+\end{figure}
+El modelo a utilitzar es el Turnigy AE-20A Brushless ESC. El uso de este tipo se justifica con el amperaje que soporta, en cuanto los motores consumen un pico de hasta 19A, que es menor al màximo de la corrente de este Variador (como límite se puede quemar el componente si se hacen circular 25A durante 10 segundos). 
+Se debe asegurar la compatibilidad con la batería también, ya que soporta tensiones de entrada correspondientes a Baterías LiPo de entre 2 y 4 celdas. 
+Incluye un circuito BEC (Battery Eliminator Circuit) para poder alimentar también el receptor de 2A de máxima corriente. 
+La máxima velocidad de funcionamiento del motor depende de sus polos: si es de 2 polos será de 210000 rpm, con 6 polos de 70000 rpm y de 12 polos a 35000 rpm.
 
 
-\subsubsection*{Frame}
-Peso 190g
+Tanto el peso de $19$g,  como las dimensiones de $50x26x12$mm son parámetros a tener en cuenta en el montaje, en parte a que se hubican en los brazos del Quadcopter, aumentando la inercia por eje e influyendo considerablemente en el modelo. Antes de usar cada Variador se ha tenido que programar para que éste responda con un mejor rendimiento al caso en cuestión.
 
-\subsubsection*{Hèlix}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{images/ESC_config.jpeg}
+\caption{Tabla de Set up de un ESC}
+\end{center}
+\end{figure}
 
+Para los 5 parámetros a configurar hay tres opciones, y las marcadas con un punto son las que se han aplicado.
+
+\subsubsection*{Marco}
+
+Todos los elementos que componen el Quadcopter se sujetan en una estructura que mantiene la integridad y rigidez necesarias para el vuelo.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.1]{images/frame.jpg}
+\caption{Piezas que componen la estructura del Quadcopter}
+\end{center}
+\end{figure}
+
+La mayor parte del peso se concentra en el centro de la estructura e interesa que sea lo más ligera posible sin comprometer su integridad, de tal manera que los motores, situados en las puntas de cada brazo, deban compensar el menor peso posible. En este caso, tiene un peso de 190g, y las piezas están hechas de fibra de vidrio las piezas centrales (de color negro en la imagen) y de Nylon los brazos (rojo y blanco en la imagen).
+
+
+\subsubsection*{Hélices}
+
+En girar el motor, las aspas solidarias a su eje utilizan la energía cinética del rotor para proporcionar sustentación propulsando aire. El tipo de aspa condiciona el rendimiento que se obtenga, así que se utilizan las que optimizan la fuerza de propulsión respecto al consumo de corriente. En el presente
 
 \newpage
 \subsection{Muntatge}
