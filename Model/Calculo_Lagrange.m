@@ -362,7 +362,10 @@ Controlability=rank(co)
 ov=obsv(double(Ared),double(Cred))
 Observability=rank(ov)
 
+%            
+
 Q=1*transpose(Cred)*Cred
-R=eye(4)
+% Q=eye(4)
+R=100*eye(4)
 
 [K,S,e]=lqr(double(Ared),double(Bred),Q,R)

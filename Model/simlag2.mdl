@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.27"
+    ComputedModelVersion    "1.51"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gabriel"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 20 00:30:47 2014"
-  RTWModifiedTimeStamp	  322396722
-  ModelVersionFormat	  "1.%<AutoIncrement:27>"
+  LastModifiedDate	  "Thu May 22 22:06:03 2014"
+  RTWModifiedTimeStamp	  322666398
+  ModelVersionFormat	  "1.%<AutoIncrement:51>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -143,7 +143,7 @@ Model {
 	  $ObjectID		  4
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "100"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -637,7 +637,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 999, 141, 1927, 879 ] 
+      ConfigPrmDlgPosition     [ 274, 121, 1250, 967 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -807,7 +807,7 @@ Model {
   }
   System {
     Name		    "simlag2"
-    Location		    [65, 53, 1920, 1080]
+    Location		    [2254, 187, 2941, 1186]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -819,9 +819,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "93"
+    SIDHighWatermark	    "94"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -841,6 +841,15 @@ Model {
       Value		      "[Ixx;Iyy;Izz]"
     }
     Block {
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      "94"
+      Position		      [415, 700, 445, 730]
+      ZOrder		      -5
+      BlockRotation	      270
+      Value		      "K"
+    }
+    Block {
       BlockType		      Demux
       Name		      "Demux"
       SID		      "83"
@@ -856,8 +865,8 @@ Model {
       BlockType		      SubSystem
       Name		      "MATLAB Function"
       SID		      "67"
-      Ports		      [10, 1]
-      Position		      [325, 379, 395, 616]
+      Ports		      [11, 1]
+      Position		      [325, 381, 395, 619]
       ZOrder		      -4
       BlockMirror	      on
       NamePlacement	      "alternate"
@@ -898,7 +907,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"41"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Phi"
@@ -988,6 +997,15 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "K"
+	  SID			  "67::42"
+	  Position		  [20, 461, 40, 479]
+	  ZOrder		  24
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
 	  SID			  "67::20"
@@ -1001,11 +1019,11 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "67::19"
 	  Tag			  "Stateflow S-Function simlag2 3"
-	  Ports			  [10, 2]
+	  Ports			  [11, 2]
 	  Position		  [180, 128, 230, 552]
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[10 2]"
+	  PortCounts		  "[11 2]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
@@ -1089,6 +1107,12 @@ Model {
 	  DstPort		  10
 	}
 	Line {
+	  SrcBlock		  "K"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  11
+	}
+	Line {
 	  Name			  "y"
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
@@ -1137,7 +1161,6 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.88768     0.90643    0.093042    0.055799"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
@@ -1149,7 +1172,7 @@ Model {
       Position		      [830, 184, 890, 236]
       ZOrder		      -16
       Floating		      off
-      Location		      [74, 81, 1928, 1107]
+      Location		      [570, 81, 1188, 1107]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -1167,7 +1190,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.88394     0.90643    0.096818    0.055799"
+      LegendLocations	      "0.78708     0.90643     0.29045    0.055799"
       SaveName		      "ScopeData1"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
@@ -1182,8 +1205,8 @@ Model {
       BlockMirror	      on
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [67, 81, 1922, 1107]
-      Open		      off
+      Location		      [1036, 158, 2891, 1184]
+      Open		      on
       NumInputPorts	      "1"
       TickLabels	      "on"
       List {
@@ -1226,8 +1249,8 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"Subsystem"
-	Location		[66, 81, 1921, 1108]
-	Open			off
+	Location		[2565, 455, 3279, 903]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1522,7 +1545,7 @@ Model {
 	    SIDHighWatermark	    "31"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w1"
+	      Name		      "f1"
 	      SID		      "16::26"
 	      Position		      [20, 101, 40, 119]
 	      ZOrder		      12
@@ -1530,7 +1553,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w2"
+	      Name		      "f2"
 	      SID		      "16::29"
 	      Position		      [20, 136, 40, 154]
 	      ZOrder		      15
@@ -1539,7 +1562,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w3"
+	      Name		      "f3"
 	      SID		      "16::30"
 	      Position		      [20, 171, 40, 189]
 	      ZOrder		      16
@@ -1548,7 +1571,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w4"
+	      Name		      "f4"
 	      SID		      "16::31"
 	      Position		      [20, 206, 40, 224]
 	      ZOrder		      17
@@ -1650,25 +1673,25 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "w1"
+	      SrcBlock		      "f1"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "w2"
+	      SrcBlock		      "f2"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "w3"
+	      SrcBlock		      "f3"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "w4"
+	      SrcBlock		      "f4"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
@@ -1780,14 +1803,14 @@ Model {
 	    SIDHighWatermark	    "36"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w1"
+	      Name		      "f1"
 	      SID		      "26::1"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w2"
+	      Name		      "f2"
 	      SID		      "26::34"
 	      Position		      [20, 136, 40, 154]
 	      ZOrder		      20
@@ -1796,7 +1819,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w3"
+	      Name		      "f3"
 	      SID		      "26::35"
 	      Position		      [20, 171, 40, 189]
 	      ZOrder		      21
@@ -1805,7 +1828,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "w4"
+	      Name		      "f4"
 	      SID		      "26::36"
 	      Position		      [20, 206, 40, 224]
 	      ZOrder		      22
@@ -1953,25 +1976,25 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "w1"
+	      SrcBlock		      "f1"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "w2"
+	      SrcBlock		      "f2"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "w3"
+	      SrcBlock		      "f3"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "w4"
+	      SrcBlock		      "f4"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
@@ -2550,7 +2573,7 @@ Model {
 	DstPort			3
       }
       Branch {
-	Points			[0, 375]
+	Points			[0, 360]
 	DstBlock		"MATLAB Function"
 	DstPort			7
       }
@@ -2571,7 +2594,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 200]
+	Points			[0, 215]
 	DstBlock		"MATLAB Function"
 	DstPort			1
       }
@@ -2585,7 +2608,7 @@ Model {
 	DstPort			2
       }
       Branch {
-	Points			[0, 200]
+	Points			[0, 210]
 	DstBlock		"MATLAB Function"
 	DstPort			2
       }
@@ -2600,7 +2623,7 @@ Model {
 	DstPort			3
       }
       Branch {
-	Points			[0, 200]
+	Points			[0, 205]
 	DstBlock		"MATLAB Function"
 	DstPort			3
       }
@@ -2628,28 +2651,28 @@ Model {
     Line {
       SrcBlock		      "Subsystem"
       SrcPort		      9
-      Points		      [30, 0; 0, 200]
+      Points		      [30, 0; 0, 190]
       DstBlock		      "MATLAB Function"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Subsystem"
       SrcPort		      10
-      Points		      [5, 0; 0, 225]
+      Points		      [5, 0; 0, 205]
       DstBlock		      "MATLAB Function"
       DstPort		      8
     }
     Line {
       SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [0, -15]
+      Points		      [0, -40]
       DstBlock		      "MATLAB Function"
       DstPort		      9
     }
     Line {
       SrcBlock		      "Constant1"
       SrcPort		      1
-      Points		      [0, -15]
+      Points		      [0, -45]
       DstBlock		      "MATLAB Function"
       DstPort		      10
     }
@@ -2724,6 +2747,13 @@ Model {
       DstBlock		      "Scope2"
       DstPort		      1
     }
+    Line {
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      Points		      [0, -95]
+      DstBlock		      "MATLAB Function"
+      DstPort		      11
+    }
   }
 }
 # Finite State Machines
@@ -2739,7 +2769,7 @@ Stateflow {
     name		    "simlag2"
     created		    "22-Feb-2014 19:56:10"
     isLibrary		    0
-    firstTarget		    55
+    firstTarget		    56
     sfVersion		    76014001.00040001
   }
   chart {
@@ -2778,46 +2808,47 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function y = fcn(w1,w2,w3,w4,II,Phi,Theta,Psi,dPhi,dTheta,dPsi,A,l,b,k)\n%#codegen\n\nIxx=II(1);\n"
+      script		      "function y = fcn(f1,f2,f3,f4,II,Phi,Theta,Psi,dPhi,dTheta,dPsi,A,l,b,k)\n%#codegen\n\nIxx=II(1);\n"
       "Iyy=II(2);\nIzz=II(3);\n\n% TauB=[[l*k*(w(4)^2-w(2)^2)];\n%       [l*k*(w(3)^2-w(1)^2)];\n%       [b*(w(1)^2+w(3"
-      ")^2-w(2)^2-w(4)^2)]];\n\nTauB=[[l*k*(w4-w2)];\n      [l*k*(w3-w1)];\n      [b*(w1+w3-w2-w4)]];\n\nWeta=[[1 0 -si"
-      "n(Theta)];\n      [0 cos(Phi) cos(Theta)*sin(Phi)];\n      [0 -sin(Phi) cos(Theta)*cos(Phi)]];\n \nJ=transpose(W"
-      "eta)*[[Ixx 0 0];[0 Iyy 0];[0 0 Izz]]*Weta;  \n\n% CdEta=[((Izz*sin(2*Phi)*cos(Theta)^2)/2 - (Iyy*sin(2*Phi)*cos("
-      "Theta)^2)/2)*dPsi^2 + (Izz*cos(2*Phi)*cos(Theta) - Iyy*cos(2*Phi)*cos(Theta) - Ixx*cos(Theta))*dPsi*dTheta + ((I"
-      "yy*sin(2*Phi))/2 - (Izz*sin(2*Phi))/2)*dTheta^2;\n%        dPsi^2*(Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - Ixx*co"
-      "s(Theta)*sin(Theta) + Iyy*cos(Theta)*sin(Phi)^2*sin(Theta)) - ddTheta*(Iyy*cos(Phi)^2 + Izz*sin(Phi)^2) - ddPsi*"
-      "(Iyy*cos(Phi)*cos(Theta)*sin(Phi) - Izz*cos(Phi)*cos(Theta)*sin(Phi)) + Iyy*ddTheta*cos(Phi)^2 + Izz*ddTheta*sin"
-      "(Phi)^2 - dPhi*dTheta*(2*Iyy*cos(Phi)*sin(Phi) - 2*Izz*cos(Phi)*sin(Phi)) + dPhi*dPsi*(Ixx*cos(Theta) + Iyy*cos("
-      "Phi)^2*cos(Theta) - Izz*cos(Phi)^2*cos(Theta) - Iyy*cos(Theta)*sin(Phi)^2 + Izz*cos(Theta)*sin(Phi)^2) + Iyy*ddP"
-      "si*cos(Phi)*cos(Theta)*sin(Phi) - Izz*ddPsi*cos(Phi)*cos(Theta)*sin(Phi);\n%        Ixx*ddPsi*sin(Theta)^2 - ddP"
-      "si*(Izz*cos(Phi)^2*cos(Theta)^2 + Iyy*cos(Theta)^2*sin(Phi)^2 + Ixx*sin(Theta)^2) - ddTheta*(Iyy*cos(Phi)*cos(Th"
-      "eta)*sin(Phi) - Izz*cos(Phi)*cos(Theta)*sin(Phi)) - dTheta^2*(Iyy*cos(Phi)*sin(Phi)*sin(Theta) - Izz*cos(Phi)*si"
-      "n(Phi)*sin(Theta)) - dPsi*dTheta*(2*Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Ixx*cos(Theta)*sin(Theta) + 2*Iyy*c"
-      "os(Theta)*sin(Phi)^2*sin(Theta)) - dPhi*dTheta*(Ixx*cos(Theta) - Iyy*cos(Phi)^2*cos(Theta) + Izz*cos(Phi)^2*cos("
-      "Theta) + Iyy*cos(Theta)*sin(Phi)^2 - Izz*cos(Theta)*sin(Phi)^2) + dPhi*dPsi*(2*Iyy*cos(Phi)*cos(Theta)^2*sin(Phi"
-      ") - 2*Izz*cos(Phi)*cos(Theta)^2*sin(Phi)) + Izz*ddPsi*cos(Phi)^2*cos(Theta)^2 + Iyy*ddPsi*cos(Theta)^2*sin(Phi)^"
-      "2 + Iyy*ddTheta*cos(Phi)*cos(Theta)*sin(Phi) - Izz*ddTheta*cos(Phi)*cos(Theta)*sin(Phi)]\n \n% CdEta=[(Iyy*dThet"
-      "a^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)"
-      "^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*P"
-      "hi)*cos(Theta);\n%         dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*si"
-      "n(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*"
-      "dPsi*cos(Theta)*sin(Phi)^2) - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta) + I"
-      "zz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);\n%         -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos("
-      "Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 "
-      "- 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi"
-      ")*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*"
-      "Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)];    \n\n\n"
-      "  CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*si"
-      "n(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*"
-      "dPsi*dTheta*cos(2*Phi)*cos(Theta);\n          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz"
-      "*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta"
-      ")*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(P"
-      "hi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);\n          -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*d"
-      "Theta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*c"
-      "os(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  -"
-      " Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(T"
-      "heta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*"
-      "sin(Theta)];\ny = inv(J)*(TauB-CdEta);\n"
+      ")^2-w(2)^2-w(4)^2)]];\n\n%{\nTauB=[[l*k*(f4-f2)];\n      [l*k*(f3-f1)];\n      [b*(f1+f3-f2-f4)]];\n\n%}  \nTauB"
+      "=[[l*(f4-f2)];\n      [l*(f3-f1)];\n      [b*(f1+f3-f2-f4)]];  \n\nWeta=[[1 0 -sin(Theta)];\n      [0 cos(Phi) c"
+      "os(Theta)*sin(Phi)];\n      [0 -sin(Phi) cos(Theta)*cos(Phi)]];\n \nJ=transpose(Weta)*[[Ixx 0 0];[0 Iyy 0];[0 0 "
+      "Izz]]*Weta;  \n\n% CdEta=[((Izz*sin(2*Phi)*cos(Theta)^2)/2 - (Iyy*sin(2*Phi)*cos(Theta)^2)/2)*dPsi^2 + (Izz*cos("
+      "2*Phi)*cos(Theta) - Iyy*cos(2*Phi)*cos(Theta) - Ixx*cos(Theta))*dPsi*dTheta + ((Iyy*sin(2*Phi))/2 - (Izz*sin(2*P"
+      "hi))/2)*dTheta^2;\n%        dPsi^2*(Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - Ixx*cos(Theta)*sin(Theta) + Iyy*cos(T"
+      "heta)*sin(Phi)^2*sin(Theta)) - ddTheta*(Iyy*cos(Phi)^2 + Izz*sin(Phi)^2) - ddPsi*(Iyy*cos(Phi)*cos(Theta)*sin(Ph"
+      "i) - Izz*cos(Phi)*cos(Theta)*sin(Phi)) + Iyy*ddTheta*cos(Phi)^2 + Izz*ddTheta*sin(Phi)^2 - dPhi*dTheta*(2*Iyy*co"
+      "s(Phi)*sin(Phi) - 2*Izz*cos(Phi)*sin(Phi)) + dPhi*dPsi*(Ixx*cos(Theta) + Iyy*cos(Phi)^2*cos(Theta) - Izz*cos(Phi"
+      ")^2*cos(Theta) - Iyy*cos(Theta)*sin(Phi)^2 + Izz*cos(Theta)*sin(Phi)^2) + Iyy*ddPsi*cos(Phi)*cos(Theta)*sin(Phi)"
+      " - Izz*ddPsi*cos(Phi)*cos(Theta)*sin(Phi);\n%        Ixx*ddPsi*sin(Theta)^2 - ddPsi*(Izz*cos(Phi)^2*cos(Theta)^2"
+      " + Iyy*cos(Theta)^2*sin(Phi)^2 + Ixx*sin(Theta)^2) - ddTheta*(Iyy*cos(Phi)*cos(Theta)*sin(Phi) - Izz*cos(Phi)*co"
+      "s(Theta)*sin(Phi)) - dTheta^2*(Iyy*cos(Phi)*sin(Phi)*sin(Theta) - Izz*cos(Phi)*sin(Phi)*sin(Theta)) - dPsi*dThet"
+      "a*(2*Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Ixx*cos(Theta)*sin(Theta) + 2*Iyy*cos(Theta)*sin(Phi)^2*sin(Theta)"
+      ") - dPhi*dTheta*(Ixx*cos(Theta) - Iyy*cos(Phi)^2*cos(Theta) + Izz*cos(Phi)^2*cos(Theta) + Iyy*cos(Theta)*sin(Phi"
+      ")^2 - Izz*cos(Theta)*sin(Phi)^2) + dPhi*dPsi*(2*Iyy*cos(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*cos(Phi)*cos(Theta)^2"
+      "*sin(Phi)) + Izz*ddPsi*cos(Phi)^2*cos(Theta)^2 + Iyy*ddPsi*cos(Theta)^2*sin(Phi)^2 + Iyy*ddTheta*cos(Phi)*cos(Th"
+      "eta)*sin(Phi) - Izz*ddTheta*cos(Phi)*cos(Theta)*sin(Phi)]\n \n% CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta"
+      "^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*"
+      "cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);\n%         dPhi"
+      "*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*co"
+      "s(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2) - I"
+      "xx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta) + Izz*dPsi^2*cos(Phi)^2*cos(Theta)"
+      "*sin(Theta);\n%         -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*"
+      "cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta"
+      ")^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTh"
+      "eta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos("
+      "Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)];    \n\n\n  CdEta=[(Iyy*dTheta^2*sin(2*P"
+      "hi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Iz"
+      "z*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(The"
+      "ta);\n          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iy"
+      "y*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Th"
+      "eta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2"
+      "*cos(Phi)^2*cos(Theta)*sin(Theta);\n          -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + "
+      "Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*d"
+      "Psi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi"
+      ")*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*"
+      "dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)];\ny = inv(J)*(TauB"
+      "-CdEta);\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -2854,7 +2885,7 @@ Stateflow {
   data {
     id			    6
     ssIdNumber		    4
-    name		    "w1"
+    name		    "f1"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -2873,7 +2904,7 @@ Stateflow {
   data {
     id			    7
     ssIdNumber		    17
-    name		    "w2"
+    name		    "f2"
     linkNode		    [2 6 8]
     scope		    INPUT_DATA
     machine		    1
@@ -2895,7 +2926,7 @@ Stateflow {
   data {
     id			    8
     ssIdNumber		    18
-    name		    "w3"
+    name		    "f3"
     linkNode		    [2 7 9]
     scope		    INPUT_DATA
     machine		    1
@@ -2917,7 +2948,7 @@ Stateflow {
   data {
     id			    9
     ssIdNumber		    19
-    name		    "w4"
+    name		    "f4"
     linkNode		    [2 8 10]
     scope		    INPUT_DATA
     machine		    1
@@ -3240,11 +3271,11 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function ddXi = fcn(w1,w2,w3,w4,m,g,k,Phi,Theta,Psi)\n%#codegen\n\nR=[[cos(Psi)*cos(Theta) cos(Ps"
+      script		      "function ddXi = fcn(f1,f2,f3,f4,m,g,k,Phi,Theta,Psi)\n%#codegen\n\nR=[[cos(Psi)*cos(Theta) cos(Ps"
       "i)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];\n   [sin(Psi)*cos(Thet"
       "a) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];\n   [-sin(The"
       "ta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]];\n\n% T=[0; 0; k*(w(1)^2+w(2)^2+w(3)^2+w(4)^2)/m];\n\nT=[0; 0; k*("
-      "w1+w2+w3+w4)/m];\n\nddXi = R*T/m+[0; 0; -g];"
+      "f1+f2+f3+f4)/m];\n% T=[0; 0; (f1+f2+f3+f4)/m];\n\nddXi = R*T/m+[0; 0; -g];"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -3281,7 +3312,7 @@ Stateflow {
   data {
     id			    27
     ssIdNumber		    9
-    name		    "w1"
+    name		    "f1"
     linkNode		    [23 0 28]
     scope		    INPUT_DATA
     machine		    1
@@ -3303,7 +3334,7 @@ Stateflow {
   data {
     id			    28
     ssIdNumber		    12
-    name		    "w2"
+    name		    "f2"
     linkNode		    [23 27 29]
     scope		    INPUT_DATA
     machine		    1
@@ -3325,7 +3356,7 @@ Stateflow {
   data {
     id			    29
     ssIdNumber		    13
-    name		    "w3"
+    name		    "f3"
     linkNode		    [23 28 30]
     scope		    INPUT_DATA
     machine		    1
@@ -3347,7 +3378,7 @@ Stateflow {
   data {
     id			    30
     ssIdNumber		    14
-    name		    "w4"
+    name		    "f4"
     linkNode		    [23 29 31]
     scope		    INPUT_DATA
     machine		    1
@@ -3532,7 +3563,7 @@ Stateflow {
     firstJunction	    41
     viewObj		    39
     machine		    1
-    ssIdHighWaterMark	    24
+    ssIdHighWaterMark	    25
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    43
@@ -3556,16 +3587,17 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function y = fcn(Phi,Theta,Psi,dPhi,dTheta,dPsi,z,dz,Constants,II)\n%#codegen\n\n%{\nm=Constants("
-      "1);\nk=Constants(2);\nl=Constants(3);\nb=Constants(4);\ng=Constants(5);\n\nIxx=II(1);\nIyy=II(2);\nIzz=II(3);\n\n"
-      "zD=10;\ndzD=0;\n\nPhiD=0;\nThetaD=0;\nPsiD=0;\n\ndPhiD=0;\ndThetaD=0;\ndPsiD=0;\n\nKphiP=1.5;\nKthetaP=6;\nKpsiP"
-      "=6;\nKzP=6;\n\nKphiD=2.5;\nKthetaD=1.75;\nKpsiD=1.75;\nKzD=1.75;\n\nT=(g+KzD*(dzD-dz)+KzP*(zD-z))*m/(cos(Phi)*co"
-      "s(Theta));\n\nTauPhi=Ixx*(KphiD*(dPhiD-dPhi)+KphiP*(PhiD-Phi));\n\nTauTheta=Iyy*(KthetaD*(dThetaD-dTheta)+Ktheta"
-      "P*(ThetaD-Theta));\n\nTauPsi=Izz*(KpsiD*(dPsiD-dPsi)+KpsiP*(PsiD-Psi));\n\ny = [(T/(4*k)-TauTheta/(2*k*l)-TauPsi"
-      "/(4*b));\n     (T/(4*k)-TauPhi/(2*k*l)+TauPsi/(4*b));\n     (T/(4*k)+TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T/(4"
-      "*k)+TauPhi/(2*k*l)+TauPsi/(4*b))];\n %}\n\nK=[[      0       0 -0.7071 -0.1309];\n   [-0.7071 -0.1309       0   "
-      "    0];\n   [      0       0  0.7071  0.1309];\n   [ 0.7071  0.1309       0       0]];\n\ny=-100*K*[Phi; Theta; "
-      "dPhi; dTheta];\n\n\n"
+      script		      "function y = fcn(Phi,Theta,Psi,dPhi,dTheta,dPsi,z,dz,Constants,II,K)\n%#codegen\n\n\nm=Constants("
+      "1);\nk=Constants(2);\nl=Constants(3);\nb=Constants(4);\ng=Constants(5);\n\nIxx=II(1);\nIyy=II(2);\nIzz=II(3);\n%"
+      "{\nzD=10;\ndzD=0;\n\nPhiD=0;\nThetaD=0;\nPsiD=0;\n\ndPhiD=0;\ndThetaD=0;\ndPsiD=0;\n\nKphiP=1.5;\nKthetaP=6;\nKp"
+      "siP=6;\nKzP=6;\n\nKphiD=2.5;\nKthetaD=1.75;\nKpsiD=1.75;\nKzD=1.75;\n\nT=(g+KzD*(dzD-dz)+KzP*(zD-z))*m/(cos(Phi)"
+      "*cos(Theta));\n\nTauPhi=Ixx*(KphiD*(dPhiD-dPhi)+KphiP*(PhiD-Phi));\n\nTauTheta=Iyy*(KthetaD*(dThetaD-dTheta)+Kth"
+      "etaP*(ThetaD-Theta));\n\nTauPsi=Izz*(KpsiD*(dPsiD-dPsi)+KpsiP*(PsiD-Psi));\n\ny = [(T/(4*k)-TauTheta/(2*k*l)-Tau"
+      "Psi/(4*b));\n     (T/(4*k)-TauPhi/(2*k*l)+TauPsi/(4*b));\n     (T/(4*k)+TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T"
+      "/(4*k)+TauPhi/(2*k*l)+TauPsi/(4*b))];\n\n\nK=[[      0       0 -0.7071 -0.1309];\n   [-0.7071 -0.1309       0   "
+      "    0];\n   [      0       0  0.7071  0.1309];\n   [ 0.7071  0.1309       0       0]];\n\n%}\n%{\nK =[[      0  "
+      "       0   -0.2236   +0.0736];\n    [-0.2236   +0.0736         0         0];\n    [      0         0    0.2236  "
+      " -0.0736];\n    [ 0.2236   -0.0736         0         0]];\n%}\n\ny=-K*[Phi; dPhi; Theta; dTheta];\n\n\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -3818,7 +3850,29 @@ Stateflow {
     id			    53
     ssIdNumber		    20
     name		    "II"
-    linkNode		    [39 52 0]
+    linkNode		    [39 52 54]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    54
+    ssIdNumber		    25
+    name		    "K"
+    linkNode		    [39 53 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3837,13 +3891,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    54
+    id			    55
     name		    "MATLAB Function"
     machine		    1
     chart		    39
   }
   target {
-    id			    55
+    id			    56
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
