@@ -15,7 +15,14 @@
     \geometry{a4paper,total={210mm,297mm},left=35mm,right=30mm,top=30mm,bottom=30mm,}
 
 \usepackage{listings}
-
+\lstset{
+	% linewidth=15cm,
+	% xrightmargin=1cm,
+	breaklines=true,
+	numbers=left,
+	language=Matlab,
+	frame=single}
+\usepackage{color}
 \usepackage{pgfplots}
 
 \usepackage{tikz}
@@ -696,14 +703,26 @@ rango(\pmb{W_o})=4\>\>(max.) \> \rightarrow \> Observable
 Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un quadcopter se pueden obtener observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
 
 \newpage
-\subsection{Representació del model amb Matlab}
+\subsection{Representación del modelo con Matlab}
 
 \newpage
-\section{Disseny del controlador} \label{control}
-% Explicar que se quiere controlar el Quadcopter mediante la Linealización extendida, trabajando alrededor de puntos de equilibrio
-% \Linealització extesa
-% Explicar el concepto de Linealización extendida 
-% Explicar el proceso de obtención del lagrangiano con el .m,  vector de fuerzas, obtención del sistema linealizado alrededor del punto de equilibrio, observador lineal,... 
+\section{Diseño del controlador} \label{control}
+
+Con el modelo linealizado del sistema ya se tiene lo que emulará una respuesta verosímil y acorde a la realidad.Para que haga lo que uno espera  se decide aplicar un controlar mediante un regulador LQR (Linear Quadratic Regulator). \\
+
+Dado un sistema en de tiempo continuo definido por 
+
+\begin{equation}
+\begin{array}{l}
+\pmb{\dot{X}}=[\pmb{A}] \cdot \pmb{X} + [\pmb{B}] \cdot \pmb{U} \\
+\pmb{Y} = [\pmb{C}] \cdot \pmb{X} 
+\end{array}
+\end{equation} 
+
+
+
+Éste se caracteriza por tener una función de costes $\mathbf{J}$ que depende tanto de los estados como de las entradas del sistemas.
+
 \newpage
 \section{Implementació del control} \label{implement}
 % Pufff

@@ -8,8 +8,8 @@
 \BOOKMARK [1][-]{section.3}{Definici\363n del modelo}{}
 \BOOKMARK [2][-]{subsection.3.1}{Definici\363n de les variables}{section.3}
 \BOOKMARK [2][-]{subsection.3.2}{Obtenci\363n del modelo}{section.3}
-\BOOKMARK [2][-]{subsection.3.3}{Representaci\363 del model amb Matlab}{section.3}
-\BOOKMARK [1][-]{section.4}{Disseny del controlador}{}
+\BOOKMARK [2][-]{subsection.3.3}{Representaci\363n del modelo con Matlab}{section.3}
+\BOOKMARK [1][-]{section.4}{Dise\361o del controlador}{}
 \BOOKMARK [1][-]{section.5}{Implementaci\363 del control}{}
 \BOOKMARK [1][-]{section.6}{Construcci\363 del Quadcopter}{}
 \BOOKMARK [2][-]{subsection.6.1}{Descripci\363 dels components}{section.6}

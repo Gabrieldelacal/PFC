@@ -9,8 +9,8 @@
 \contentsline {section}{\numberline {3}Definici\IeC {\'o}n del modelo}{8}{section.3}
 \contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de les variables}{8}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{9}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o} del model amb Matlab}{14}{subsection.3.3}
-\contentsline {section}{\numberline {4}Disseny del controlador}{15}{section.4}
+\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Matlab}{14}{subsection.3.3}
+\contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{15}{section.4}
 \contentsline {section}{\numberline {5}Implementaci\IeC {\'o} del control}{16}{section.5}
 \contentsline {section}{\numberline {6}Construcci\IeC {\'o} del Quadcopter}{17}{section.6}
 \contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o} dels components}{17}{subsection.6.1}
