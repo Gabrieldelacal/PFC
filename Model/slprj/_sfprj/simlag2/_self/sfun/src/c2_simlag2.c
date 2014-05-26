@@ -339,27 +339,24 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   real_T c2_p_a;
   real_T c2_p_b;
   real_T c2_p_y;
-  real_T c2_q_a;
-  real_T c2_q_b;
-  real_T c2_q_y;
   real_T c2_A;
   real_T c2_B;
   real_T c2_ic_x;
-  real_T c2_r_y;
+  real_T c2_q_y;
   real_T c2_jc_x;
+  real_T c2_r_y;
   real_T c2_s_y;
-  real_T c2_t_y;
   int32_T c2_i3;
-  real_T c2_r_a[9];
+  real_T c2_q_a[9];
   int32_T c2_i4;
-  real_T c2_r_b[3];
+  real_T c2_q_b[3];
   int32_T c2_i5;
-  real_T c2_u_y[3];
+  real_T c2_t_y[3];
   int32_T c2_i6;
   int32_T c2_i7;
   real_T c2_b_B;
+  real_T c2_u_y;
   real_T c2_v_y;
-  real_T c2_w_y;
   int32_T c2_i8;
   real_T c2_dv1[3];
   int32_T c2_i9;
@@ -575,52 +572,49 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   c2_R[2] = -c2_yb_x;
   c2_R[5] = c2_o_y;
   c2_R[8] = c2_p_y;
-  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 10);
-  c2_q_a = c2_k;
-  c2_q_b = ((c2_f1 + c2_f2) + c2_f3) + c2_f4;
-  c2_q_y = c2_q_a * c2_q_b;
-  c2_A = c2_q_y;
+  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 11);
+  c2_A = ((c2_f1 + c2_f2) + c2_f3) + c2_f4;
   c2_B = c2_m;
   c2_ic_x = c2_A;
-  c2_r_y = c2_B;
+  c2_q_y = c2_B;
   c2_jc_x = c2_ic_x;
-  c2_s_y = c2_r_y;
-  c2_t_y = c2_jc_x / c2_s_y;
+  c2_r_y = c2_q_y;
+  c2_s_y = c2_jc_x / c2_r_y;
   c2_T[0] = 0.0;
   c2_T[1] = 0.0;
-  c2_T[2] = c2_t_y;
+  c2_T[2] = c2_s_y;
   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 13);
   for (c2_i3 = 0; c2_i3 < 9; c2_i3++) {
-    c2_r_a[c2_i3] = c2_R[c2_i3];
+    c2_q_a[c2_i3] = c2_R[c2_i3];
   }
 
   for (c2_i4 = 0; c2_i4 < 3; c2_i4++) {
-    c2_r_b[c2_i4] = c2_T[c2_i4];
+    c2_q_b[c2_i4] = c2_T[c2_i4];
   }
 
   c2_eml_scalar_eg(chartInstance);
   c2_eml_scalar_eg(chartInstance);
   for (c2_i5 = 0; c2_i5 < 3; c2_i5++) {
-    c2_u_y[c2_i5] = 0.0;
+    c2_t_y[c2_i5] = 0.0;
     c2_i6 = 0;
     for (c2_i7 = 0; c2_i7 < 3; c2_i7++) {
-      c2_u_y[c2_i5] += c2_r_a[c2_i6 + c2_i5] * c2_r_b[c2_i7];
+      c2_t_y[c2_i5] += c2_q_a[c2_i6 + c2_i5] * c2_q_b[c2_i7];
       c2_i6 += 3;
     }
   }
 
   c2_b_B = c2_m;
-  c2_v_y = c2_b_B;
-  c2_w_y = c2_v_y;
+  c2_u_y = c2_b_B;
+  c2_v_y = c2_u_y;
   for (c2_i8 = 0; c2_i8 < 3; c2_i8++) {
-    c2_u_y[c2_i8] /= c2_w_y;
+    c2_t_y[c2_i8] /= c2_v_y;
   }
 
   c2_dv1[0] = 0.0;
   c2_dv1[1] = 0.0;
   c2_dv1[2] = -c2_g;
   for (c2_i9 = 0; c2_i9 < 3; c2_i9++) {
-    c2_ddXi[c2_i9] = c2_u_y[c2_i9] + c2_dv1[c2_i9];
+    c2_ddXi[c2_i9] = c2_t_y[c2_i9] + c2_dv1[c2_i9];
   }
 
   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, -13);
@@ -1112,10 +1106,10 @@ static void init_dsm_address_info(SFc2_simlag2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c2_simlag2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3612508382U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3656002668U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3737908774U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2901828667U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(179884120U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3258478163U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4056113792U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(900953276U);
 }
 
 mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
@@ -1127,7 +1121,7 @@ mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("iLfiiZY4j8mvMSQ59QVToH");
+    mxArray *mxChecksum = mxCreateString("hFr6CUyTpX77lk6Xn8DaTH");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1445,7 +1439,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,495);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,494);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -1529,7 +1523,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "InHEd3tWg4Tjf5srhFeqNC";
+  return "sVYi3fVzYMm56ZVgnPL0GE";
 }
 
 static void sf_opaque_initialize_c2_simlag2(void *chartInstanceVar)
@@ -1689,10 +1683,10 @@ static void mdlSetWorkWidths_c2_simlag2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2926165493U));
-  ssSetChecksum1(S,(3678959121U));
-  ssSetChecksum2(S,(717268561U));
-  ssSetChecksum3(S,(3266653583U));
+  ssSetChecksum0(S,(1269221061U));
+  ssSetChecksum1(S,(2432778784U));
+  ssSetChecksum2(S,(4031263256U));
+  ssSetChecksum3(S,(2457933621U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

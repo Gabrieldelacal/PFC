@@ -84,10 +84,30 @@ $\begin{array}{ll}
 
 \section*{Resumen}
 
-En el presente proyecto se ha tenido como meta el control de un Quadcopter cuyas piezas se han adquirido por partes. Para tal propósito se ha linealizado  el modelo no lineal calculado y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo esta organizado en 8 secciones y 4 secciones.\\
+En el presente proyecto se ha tenido como meta el control de un Quadcopter cuyas piezas se han adquirido por partes. Para tal propósito se ha linealizado  el modelo no lineal obtenido y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo está organizado en 8 secciones y 4 anexos.\\
 
-En la sección \ref{prefacio} se presentan los motivos por el que la elección del tema de este PFC queda justificado. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. \\
-En la sección \ref{}
+En la sección \ref{prefacio} se presentan los motivos por el que la elección del tema de este PFC queda justificada. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. 
+
+En la sección \ref{intro}, como Introducción, se hace un estudio del arte, con breves pinceladas del basto campo que hoy en día se encuentra sobre este tema. Además se describen los objetivos de este proyecto. Éstos no son más que el resolver todo problema que haya surgido durante esta aventura.
+
+Se obtiene el modelo a partir de los parámetros característicos del sistema físico en la sección \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores basados PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
+
+La sección anterior permite que en la \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un LQR (Linear Quadratic Regulator). Se ataca al sistema con la ley obtenida juzgando los resultados.
+
+En la sección \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
+
+En la sección \ref{construc} se describe tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de otros elementos como el dimensionado mismo del Quadcopter. 
+
+En las secciones \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen los efectos en el medio ambiente de los componentes que se utilizan, tanto en la producción como en el reciclado. En la última sección se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
+
+En el Anexo 1 explica mediante código Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica la linealización en ser toda otra opción, en estas circunstancias, inviable.
+
+En el Anexo 2 se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal y como se ha hecho para el Quadcopter.
+ 
+En el Anexo 3 se describe qué es un filtro de Kalman, por qué es necesario y cómo se ha implementado. 
+
+En el Anexo 4 se describe cómo se han caracterizado los motores y cómo se han obtenido sus curvas características de fuerza y consumo. 
+
 
 
 
@@ -161,7 +181,7 @@ En la actualidad el campo referente a estos aparatos se ha diversificado tanto q
 \end{center}
 \end{figure}
 
-Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena odometría del aparato. \\
+Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena orientación del aparato. \\
 
 \subsection{Objetivos del proyecto}
 
@@ -178,7 +198,7 @@ Finalmente, y como más serio objetivo de toda esta aventura, es el de haber afi
 Entonces, se entiende este trabajo como la causa de la motivación a cumplir con un objetivo multidisciplinar como puede serlo cualquiera en el campo de la robótica, en el que se debe tener constancia de muchos aspectos relevantes, como el de la economía. Poder tener idea de lo que cuesta un robot es de gran importancia si uno se embarca en un proyecto de envergadura, ya que se quiere que los pronósticos sobre el presupuesto cuadren con la futura realidad. 
 
 \newpage
-\section{Definición del modelo} \label{model}
+\section{Definición del modelo} \label{def}
 \subsection{Definición de les variables}
 Para caracterizar la planta con la que es trabajará, es necesario obtener un modelo del Quadcopter. Las constantes propias del modelo se dejaran en forma de parámetros a calibrar una vez se tenga el objeto físico. De esta manera el modelo será general para todo quadcopter que comparta la misma familia de parámetros.
 Es necesario considerar dos marcos de referencia: el inercial formado por los ejes $x,y,z$ y el del cuerpo (Body) formado por los ejes $x_B,y_B,z_B$. El primero tiene la perspectiva de el observador en tierra, estático, mientras que el segundo es solidario a la estructura. Según la orientación de los ejes del cos con esta referencia se pueden dar los siguientes dos casos:
@@ -190,7 +210,7 @@ Por ser más usual la primera opción, se decide utilizar la configuración $Cro
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{images/quad.jpg}
-\caption{Marcs de referència en el quadcopter}
+\caption{Marcos de referencia en el quadcopter}
 \label{RefQuad}
 \end{figure}\\
 Se supone que el objeto es un rotor esférico, y por tanto su tensor de inercia es diagonal:
@@ -335,7 +355,7 @@ Entonces, calculando la derivada parcial respecte $\dot{q}$ se obtiene que
 
 Como que $\pmb{J}$ es una matriz simétrica, se puede decir que  $\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})=2 \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} $. \\
 
-\textbf{Demostració:} Para probar ésto se verá para el caso $\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A}\pmb{x})=2 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A})\pmb{x} $ con 
+\textbf{Demostración:} Para probar ésto se verá para el caso $\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A}\pmb{x})=2 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A})\pmb{x} $ con 
 
 \begin{equation}
 \pmb{x}=\left[ \begin{array}{c}
@@ -363,7 +383,7 @@ x_3
 \begin{equation}
 \frac{\partial}{\partial \pmb{x}}(x^2_1 a_{11}+x_1x_2a_{21}+x_1x_3a_{31} + x_1x_2a_{12}+x^2_xa_{22}+x_2x_3a_{32} + x_1x_3a_{13}+x_2x_3a_{23}+x^2_3a_{33})=
 \end{equation}
-Com que $\pmb{A}$ és simètrica $a_{12}=a_{21}$, $a_{13}=a_{31}$ i $a_{23}=a_{32}$, y en hacer la derivada direccional resulta
+Com que $\pmb{A}$ es simétrica $a_{12}=a_{21}$, $a_{13}=a_{31}$ i $a_{23}=a_{32}$, y en hacer la derivada direccional resulta
 \begin{equation}
 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A} \pmb{x})=\left[ \begin{array}{c}
 2x_1a_{11}+x_2a_{21}+x_3a_{31}+x_2a_{12}+x_3a_{13} \\
@@ -408,7 +428,7 @@ Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J 
 \end{array} \right] \right)
 \end{equation}
 
-Para llegar a éste resultado se ha aplicado la derivada direccional a $mgz$:
+Para llegar a este resultado se ha aplicado la derivada direccional a $mgz$:
 \begin{equation}
 D_q(mgz)=D_{\pmb{\xi}}(mgz)=mg \left[ \begin{array}{c}
 0 \\
@@ -430,7 +450,7 @@ f & = m \pmb{\ddot{\xi}} + mg \left[ \begin{array}{c}
 % \end{equation}
 
 Donde $\pmb{C(\eta,\dot{\eta})}$ es la matriz de Coriolis. 
-Para obtener el sistema de ecuaciones del modelo se han de aislar las aceleraciones y se obtiene:
+Para obtener el sistema de ecuaciones del modelo se deben aislar las aceleraciones y se obtiene:
 \begin{equation}
 \begin{cases}
 \pmb{\ddot{\xi}} & =\frac{1}{m}\pmb{R}\pmb{T_{B}} - g \cdot \left[ \begin{array}{ccc}
@@ -441,7 +461,7 @@ Para obtener el sistema de ecuaciones del modelo se han de aislar las aceleracio
 \label{eq:system}
 \end{equation}
 
-Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $\pmb{u}$ es el conjunto de fuerzas ejercidas por los motores,se tiene 
+Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $\pmb{u}$ es el conjunto de fuerzas ejercidas por los motores, se tiene 
 
 \begin{equation}
 \frac{\partial}{\partial t}\left[ \begin{array}{l}
@@ -653,7 +673,7 @@ donde el vector $\pmb{K}$ se ha obviado porque las componentes que se hubieran c
 
 El eliminar estas componentes se hace porque no hay una referencia zero para el ángulo $\psi$, mientras que en el caso de los ángulos $\phi$ y $\theta$ la referencia siempre será la horizontal. No supone un infranqueable problema a la hora de hacer mover el Quadcopter, pues éste ya se puede desplazar en todo su plano horizontal, sin necesidad de girar en la dirección del $yaw$.\\
 
-Para abordar el control de este sistema reducido es necesario evaluar su controlabilidad y observabilidad. La matriz de controlabilidad $\pmb{W_c}=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ es de la forma:
+Para abordar el control de este sistema reducido se evalúa su controlabilidad y observabilidad. Se espera poder llevar el vector de estados de una posición a otra mediante una entrada adecuada, en un tiempo finito. La matriz de controlabilidad $\pmb{W_c}=[B \>\> AB \>\> A^{2}B \>\> ... \>]$ es de la forma:
 
 \begin{equation}
 \pmb{Wc}=\left[ \left.{\begin{array}{cccc}
@@ -668,7 +688,7 @@ Para abordar el control de este sistema reducido es necesario evaluar su control
 \end{array}}\right\vert_{} \quad ... \quad \right]
 \end{equation}
 
-Con las 8 primeras columnas es suficiente para ver que el rango de la matriz es máximo y por tanto controlable
+Con las 8 primeras columnas es suficiente para ver que el rango de la matriz es máximo ya que el resto de componentes de la matriz son nulas. Por lo tanto, no hay subsistema inaccesible des de la entrada y es entonces controlable:
 
 \begin{equation}
 rango(\pmb{Wc})=4\>\>(max.)\> \rightarrow \>Controlable
@@ -700,9 +720,24 @@ otra vez no es necesario evaluar todos los términos de la matriz, ya que con la
 rango(\pmb{W_o})=4\>\>(max.) \> \rightarrow \> Observable
 \end{equation}
 
-Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un quadcopter se pueden obtener observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
+Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un Quadcopter se pueden observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
 
 \newpage
+<<<<<<< HEAD
+\subsection{Representación del modelo con Simulink}
+
+Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para comprobar que la ley de control que se tenga es válida como para intentar controlar el aparato real. Se intenta que el modelo sea lo más preciso posible, por lo que no se tienen en cuenta linealizaciones ni aproximaciones de tipo alguno. 
+
+
+
+\newpage
+\section{Diseño del controlador} \label{control}
+\subsection{Regulador Quadrático Lineal}
+% Explicar teoría del regulador
+\subsection{Obtención de la ley de control}
+% Cálculo de las k's
+\subsection{Aplicación en el modelo}
+=======
 \subsection{Representación del modelo con Matlab}
 
 \newpage
@@ -722,13 +757,14 @@ Dado un sistema en de tiempo continuo definido por
 
 
 Éste se caracteriza por tener una función de costes $\mathbf{J}$ que depende tanto de los estados como de las entradas del sistemas.
+>>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 
 \newpage
-\section{Implementació del control} \label{implement}
+\section{Implementación del control} \label{implement}
 % Pufff
 
 \newpage
-\section{Construcció del Quadcopter} \label{construc}
+\section{Construcción del Quadcopter} \label{construc}
 % Descripción de cómo se hará en general
 El conjunt de peces que formen aquest aparell estan conectades entre sí segons la funció que realitzen. Esencialment la Raspberry Pi controla els motors segons les señals que reb de l'IMU i el Receptor. Tot el conjunt és alimentat per una bateria LiPo i s'adapta el voltatge de 11.1V a 5V per mitjà d'un Regulador per tal d'alimentar a la Raspberry. Tots els components estan subjectats a una estructura (Frame) que també pateix les forces y moments.  
 

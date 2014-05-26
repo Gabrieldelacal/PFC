@@ -9,10 +9,20 @@
 \contentsline {section}{\numberline {3}Definici\IeC {\'o}n del modelo}{8}{section.3}
 \contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de les variables}{8}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{9}{subsection.3.2}
+<<<<<<< HEAD
+\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Simulink}{14}{subsection.3.3}
+\contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{15}{section.4}
+\contentsline {subsection}{\numberline {4.1}Regulador Quadr\IeC {\'a}tico Lineal}{15}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Obtenci\IeC {\'o}n de la ley de control}{15}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Aplicaci\IeC {\'o}n en el modelo}{15}{subsection.4.3}
+\contentsline {section}{\numberline {5}Implementaci\IeC {\'o}n del control}{16}{section.5}
+\contentsline {section}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{17}{section.6}
+=======
 \contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Matlab}{14}{subsection.3.3}
 \contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{15}{section.4}
 \contentsline {section}{\numberline {5}Implementaci\IeC {\'o} del control}{16}{section.5}
 \contentsline {section}{\numberline {6}Construcci\IeC {\'o} del Quadcopter}{17}{section.6}
+>>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 \contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o} dels components}{17}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Muntatge}{22}{subsection.6.2}
 \contentsline {section}{\numberline {7}An\IeC {\`a}lisi econ\IeC {\`o}mic}{23}{section.7}
