@@ -942,30 +942,30 @@ Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo
 \newpage
 \section{Construcción del Quadcopter} \label{construc}
 % Descripción de cómo se hará en general
-El conjunt de peces que formen aquest aparell estan conectades entre sí segons la funció que realitzen. Esencialment la Raspberry Pi controla els motors segons les señals que reb de l'IMU i el Receptor. Tot el conjunt és alimentat per una bateria LiPo i s'adapta el voltatge de 11.1V a 5V per mitjà d'un Regulador per tal d'alimentar a la Raspberry. Tots els components estan subjectats a una estructura (Frame) que també pateix les forces y moments.  
+El conjunto de piezas que forman este aparato están conectadas entre sí según la función que realicen. Esencialmente la Raspberry Pi controla los motores según les señales que recibe de la IMU y el Receptor. Todo el conjunto es alimentado por una batería LiPo y se adapta el voltaje de 11.1V a 5V por medio de un Regulador para poder alimentar a la Raspberry. Todos los componentes están sujetos a una estructura (Frame) que también subre las fuerzas y momentos.  
 
 \subsection{Descripción de los componentes}
 % Descripción y explicación de cada componente del Quadcopter, con imágenes de cada
-Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplicat.
+Se describe seguidamente cada componente y el criterio de selección que se ha aplicado.
 \subsubsection*{Raspberry Pi} 
-Abreujat com a RPi, és un petit ordinador integrat en una sola placa (Single-Board Computer o SBC en anglès) del tamany d'una targeta de crèdit, és a dir, amb unes dimensions de 85.6cm x 53.98cm, desenvolupat per la Fundació Raspberry Pi amb l'intenció de promocionar les ciències computacionals a les escoles \cite{RPiWiki}. 
+Abreviado com a RPi, es un pequeño ordenador integrado en una sola placa (Single-Board Computer o SBC en inglés) del tamaño de una tarjeta de crédito, es dir, con unas dimensiones de 85.6cm x 53.98cm, desarrollada por la Fundación Raspberry Pi con la intención de promocionar las ciencias computacionales en las escuelas \cite{RPiWiki}. 
 
 %\begin{tabular}{cc}
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.06]{images/RPi.jpg}
-\caption{Raspberry Pi a utilitzar}
+\caption{Raspberry Pi a utilizar}
 \label{RPiImage}
 \end{center}
 \end{figure}
 %\end{tabular}
 
-S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processament i baix consum. A més, s'ha volgut ampliar els coneixements d'aquest petit monstre. En particular s'utilitza la segona revisió del model B:
+Se ha optado por esta opción por su económico precio, la velocidad de procesamiento y bajo consumo. Además, se han querido ampliar los conocimientos de este pequeño monstruo. En particular se utiliza la segunda revisión del modelo B:
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.3]{images/RPi2.jpg}
-\caption{Conectors de la Raspberry Pi}
+\caption{Conectores de la Raspberry Pi}
 \label{RPiConn}
 \end{center}
 \end{figure}
@@ -975,76 +975,82 @@ S'ha optat per aquesta opció pel seu econòmic preu, la velocitat de processame
 %& \hspace{0.5cm} \includegraphics[scale=0.3]{images/RPi2.jpg}
 %\end{tabular} \\
 
-Té un System-on-Chip (SoC) Broadcom BCM2835 amb un ARM1176JZF-S a 700 Mhz, una GPU VideoCore IV i 512 MB de memòria RAM. Disposa de dos ports USB, una sortida mini-jack 3.5mm, sortida d'audio/vídeo HDMI, una sortida RCA i un port RJ45 10/100 d'Ethernet. 
+Tiene un System-on-Chip (SoC) Broadcom BCM2835 con un ARM1176JZF-S a 700 Mhz, una GPU VideoCore IV y 512 MB de memoria RAM. Dispone de dos puertos USB, una salida mini-jack 3.5mm, salida de audio/vídeo HDMI, una salida RCA y un puerto  RJ45 10/100 de Ethernet. 
 
-L'alimentació es realitza per mitjà d'un mini USB a 5V/700mA, amb un consum de 3.5W. El sistema operatiu és un Raspbian, gravat en una targeta SD de 4GB. Disposa d'un conjunt de pins que permeten comunicació amb perifèrics de baix nivell UART, I2C, SPI i 8 pins de propòsit general (General Porpouse Input Output o GPIO).
+La alimentación se realiza por medio de un mini USB a 5V/700mA, con un consumo de 3.5W. El sistema operativi es un Raspbian, grabado en una tarjeta SD de 4GB. Dispone de un conjunto de pines que permiten comunicación con periféricos de bajo nivel UART, I2C, SPI y 8 pines de propósito general (General Porpouse Input Output o GPIO).
 
-\subsubsection*{GY-521 MPU-6050}
-Es tracta d'una Unitat de Mesura Inercial (IMU en anglès) que integra en un mateix encapsulat de $4x4x0.9mm$ un acceleròmetre i un giròscop, ambdós de 3 eixos. Disposa dun conversor ADC de 16 bits per a cada eix i es comunica mitjançant un protocol de comunicació $I2C$. S'ha optat per utilitzar aquest dispositiu pel seu baix cost i la fàcil comunicació que comporta amb la RPi.
+\subsubsection*{GY-521 MPU-6050} 
+Se trata de una Unidad de Medida Inercial (IMU en inglés) que integra en un mismo encapsulado de $4x4x0.9mm$ un acelerómetro y un giróscopo, ambos de 3 ejes. Dispone de un conversor ADC de 16 bits para cada eje y se comunica mediante un protocolo de comunicación $I2C$. Se ha optado por utilizar este dispositivo por su bajo coste y la fácil implicada con la RPi.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.12]{images/mpu-6050.jpg} 
 \caption{IMU MPU-6050}
 \end{center}
 \end{figure}\\
-Com a característiques dels sensors: el giròscop té un rang de  $\pm250,\pm500,\pm1000,\pm2000$ graus/segon, i l'accel·leròmetre de $\pm2g,\pm4g,\pm8g,16g$. La tensió d'alimentació és del rang de $2.375V-3.46V$ i cap la possibilitat d'utilitzar un mòdul $DMP$ (Digital Motion Processor), però s'ha decidit implementar un filtre de Kalman per llegint les dades en cru (raw) de la cua $FIFO$ del sensor.
+Como características de los sensores: el giróscopo tiene un rango de  $\pm250,\pm500,\pm1000,\pm2000$ grados/segundo, y el acel·lerómetro de $\pm2g,\pm4g,\pm8g,16g$. La tensión de alimentación es del rango de $2.375V-3.46V$ y cabe la posibilidad de utilizar un módulo $DMP$ (Digital Motion Processor), pero se ha decidido implementar un filtro de Kalman para leer los datos en crudo (raw) de la cola $FIFO$ del sensor.
 
-\subsubsection*{Emissor-Receptor}
-Amb aquest parell de components es transmet la consigna generada des del transmissor cap al receptor mitjançant ones de radio. El model que s'utilitza és el $Turnigy 5X 5Ch Mini$, per què és un model fàcil d'utilitzar i econòmic. Les especificacions tècniques més rellevants són: 
+\subsubsection*{Emisor-Receptor}
+Con este aparato de se transmite la consigna generada des del transmisor hacia el receptor mediante ondas de radio. El modelo que se utiliza es el $Turnigy 5X 5Ch Mini$, porque es fácil de utilizar y además económico. Las especificaciones técnicas más relevantes son: 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{images/E_R.jpg} 
-\caption{Emissora i Receptor}
+\caption{Emisora y Receptor}
 \end{center}
 \end{figure}
 
-El transmissor té unes dimensions de $156x152x50mm$, un pes de 265g i s'alimenta a 6V (4 bateries AA). El receptor té unes mides de $33.5x20.5x13mm$ i s'alimenta a 4.8-6V. Disposa de 5 canals de radio, amb transmissió segura a 2.4GHz amb el mètode FHSS. Pot configurarse per traballar amb dos modes (mode1-mode2).
+El transmisor tiene unas dimensiones de $156x152x50mm$, un peso de 265g y se alimenta a 6V (4 baterías AA). El receptor tiene unas medidas de $33.5x20.5x13mm$ y se alimenta a 4.8-6V. Dispone de 5 canales de radio, con transmisión segura a 2.4GHz con el método FHSS. Puede configurarse para trabajar con dos modos(mode1-mode2).
 
-La senyal que es reb per cada canal en el receptor és de $PWM$ de $50Hz$ amb un Duty que veria de $1ms$ a $2ms$.
+La señal que se recibe para cada canal en el receptor es de $PWM$ de $50Hz$ con un Duty que varía de $1ms$ a $2ms$.
 
 %% Especificación por canal de los PWM: mínimo y máximo Duty
 %% Mirar con osciloscopio la señal
 
-\subsubsection*{Bateria LiPo}
-Per a alimentar a tot el conjunt s'utilitza una LiPo $Turnigy 2200mAh 3S1P 25C$. Per tant, és capaç d'entregar 2.2A durant una hora, i com que la capacitat és de 25C, la descàrrega pot ser de $2.2*25=55A$ amb un pic de descàrrega de 35C, és a dir, amb un pic de $2.2*35=77A$ durant 10 segons. Aquesta bateria està formada per tres cel·les que proporcionen un voltatge total d'uns $11.1V$:\\
+\subsubsection*{Batería LiPo}
+Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$. Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pic de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$:\\
+
 \begin{center}
 \includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{images/LiPo.jpg} \\
+\caption{Batería LiPo empleada}
 \end{center}
-El conector de càrrega és el $JST-XH$ i el de descàrrega el $XT60$. Per a tenir en compte amb per al quadcopter és interessant saber que pesa $188g$ i respecte a l'estructura (frame) que les seves dimensions són de $105x33x24mm$.
+
+El conector de carga es el $JST-XH$ y el de descarga el $XT60$. Para tener en cuenta respecto al Quadcopter es interesante saber que pesa $188g$ y respecto a la estructura (frame) que sus dimensiones son de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
-Per adaptar la tensió de 11.1V de la bateria LiPo a 5V per alimentar la Raspberry Pi, és necessari un regulador. En aquest cas es té l'Interruptor-Mode Màxim BEC LM2576S, que proporciona fins a 3A de corrent \\
+Para adaptar la tensión de 11.1V de la batería LiPo a 5V para alimentar la Raspberry Pi, es necesario un regulador. En este caso se tiene el Interruptor-Modo Máximo BEC LM2576S, que proporciona hasta 3A de corriente \\
 \begin{center}
 \includegraphics[scale=0.06]{images/Reg_stepdown.jpg}
+\caption{Regulador Step-Down}
 \end{center}
 
-L'esquema del component \cite{lm2576s}:
+El esquema del componente \cite{lm2576s}:
 
 \begin{center}
 \includegraphics[scale=0.55]{images/lm2576s.jpeg} 
+\caption{Esquema del Regulador Step-Down}
 \end{center}
 
-\subsubsection*{Motors Brushless}
-Els actuadors que s'utilitzen són motors brushless (BL-DC). En partircular el Turnigy 2213 20turn 1050kv 19A Outrunner.
-Es tracta de màquines síncrones d'imans permanents, en comptes d'utilitzar electroimants, on el camp magnètic està uniformement repartit a l'entreferro. S'anomenen també de força electromotriu (FEM) trapezoidal perquè a velocitat constant la FEM té aquesta forma. 
-Per a controlarl-lo s'utilitzar un inversor (inverter), la commutació deixa de ser mecànica i per tant l'armadura de la màquina pot ser l'estator. Això permet arribar a voltatges d'ús i velocitats de funcionament més alts.
-Les seves especificacions més rellevants són:
+\subsubsection*{Motores Brushless}
+Los actuadores que se utilizan son motores brushless (BL-DC). En particular el Turnigy 2213 20turn 1050kv 19A Outrunner.
+Se trata de máquinas síncronas de imanes permanentes, en vez de utilizar electroimanes, donde el campo magnético está uniformemente repartido  en el entrehierro. Se conocen también de fuerza electromotriz (FEM) trapezoidal porque a velocidad constante la FEM tiene esta forma. 
+Para controlarlo se utiliza un inversor (inverter), y como la conmutación deja de ser mecánica la armadura de la máquina puede ser el estátor. Ésto permite llegar a voltajes de uso y velocidades de funcionamiento más altas.
+Sus especificaciones más relevantes son:
 \begin{itemize}
 \item Kv: 1050rpm/V
-\item Corrent de treball: 6A ~ 16A
-\item Corrent de pic: 19A
-\item Pes: 56g
-\item Dimensions: 27.6 x 32mm
-\item Mida de l'eix: 3.175mm
+\item Corriente de trabajo: 6A ~ 16A
+\item Corriente de pico: 19A
+\item Peso: 56g
+\item Dimensiones: 27.6 x 32mm
+\item Medida de el eje: 3.175mm
 \end{itemize}
-El primer paràmetre fa referència a quants rpm's funcionarà el motor per Volt aplicat. A aquest valor se li aplica un percentatge $\%NLS$ (Percentatge de Velocitat sense Càrrega, típicament de 70\%) per a quantes revolucions per minut funcionarà:
+
+El primer parámetro hace referencia a cuántas rpm's funcionará el motor por Voltio aplicado. A este valor se le aplica un porcentaje $\%NLS$ (Porcentaje de Velocidad sin Carga, típicamente de 70\%) para saber cuántas revoluciones por minuto funcionará:
 
 \begin{equation}
 Kv  \cdot V \cdot \%NLS = 1050 \cdot \frac{rpm}{V}\cdot V \cdot 0.70 = 8085 \>\> rpm
 \end{equation}
 
-Aquesta velocitat és teòrica, i com que no hi ha un llaç de control sobre aquesta, no es tindrà en compte. En canvi, s'atacarà al motor amb la señal de PWM que s'envia al Variador que el controla. La relació entre la senyal de PWM i la força, així com el consum que es desenvolupa es troben als Annexos. 
+Esta velocidad es teórica, y como que no hay un lazo de control sobre ésta, no se tendrá en cuenta. En cambio, se atacará al motor con la señal de PWM que se envía al Variador que le controla. La relación entre la señal de PWM y la fuerza, así como el consumo que se desarrolla se encuenta en los Anexos. 
 
 \subsubsection*{Variador ESC}
 

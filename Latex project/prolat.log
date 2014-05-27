@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  27 MAY 2014 16:30
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  27 MAY 2014 22:07
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
@@ -1565,10 +1565,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
 <images/LiPo.jpg, id=411, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
-File: images/etseib.jpg Graphic file (type jpg)
 
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1014 \caption
+               {Bater√≠a LiPo empleada}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [21 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
@@ -1576,17 +1587,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
 File: images/Reg_stepdown.jpg Graphic file (type jpg)
 
 <use images/Reg_stepdown.jpg>
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1023 \caption
+               {Regulador Step-Down}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 <images/lm2576s.jpeg, id=422, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
 <use images/lm2576s.jpeg>
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1030 \caption
+               {Esquema del Regulador Step-Down}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [22 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <.
-/images/lm2576s.jpeg>]
-<images/ESC.jpeg, id=431, 335.75438pt x 191.9672pt>
+<use images/etseib.jpg> [22 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <./
+images/lm2576s.jpeg>] <images/ESC.jpeg, id=431, 335.75438pt x 191.9672pt>
 File: images/ESC.jpeg Graphic file (type jpg)
- <use images/ESC.jpeg>
-<images/ESC_config.jpeg, id=432, 792.71156pt x 264.99pt>
+
+<use images/ESC.jpeg> <images/ESC_config.jpeg, id=432, 792.71156pt x 264.99pt>
 File: images/ESC_config.jpeg Graphic file (type jpg)
 
 <use images/ESC_config.jpeg> <images/frame.jpg, id=433, 2569.6pt x 1445.4pt>
@@ -1616,13 +1650,13 @@ File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [27]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [28]
-Underfull \hbox (badness 4886) in paragraph at lines 1179--1180
+Underfull \hbox (badness 4886) in paragraph at lines 1185--1186
 []\T1/cmr/m/n/10 MPU-6050. Es-pe-ci-fi-ca-ciÛn del pro-duc-to: []$\T1/cmtt/m/n/
 10 http : / / www . invensense . com / mems / gyro /
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 1184--1185
+Underfull \hbox (badness 2384) in paragraph at lines 1190--1191
 []\T1/cmr/m/n/10 DocumentaciÛn de la fun-ciÛn LQR de Matlab: []$\T1/cmtt/m/n/10
  http : / / www . mathworks . es / help /
  []
@@ -1706,7 +1740,7 @@ ype1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
 share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/ty
 pe1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/
 sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on prolat.pdf (40 pages, 8237961 bytes).
+Output written on prolat.pdf (40 pages, 8237406 bytes).
 PDF statistics:
  809 PDF objects out of 1000 (max. 8388607)
  325 named destinations out of 1000 (max. 500000)
