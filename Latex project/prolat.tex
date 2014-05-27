@@ -24,7 +24,7 @@
 	frame=single}
 \usepackage{color}
 \usepackage{pgfplots}
-
+\usepackage{slashbox}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
 
@@ -108,9 +108,6 @@ En el Anexo 3 se describe qué es un filtro de Kalman, por qué es necesario y c
 
 En el Anexo 4 se describe cómo se han caracterizado los motores y cómo se han obtenido sus curvas características de fuerza y consumo. 
 
-
-
-
 \newpage
 \begin{center}
 
@@ -155,7 +152,7 @@ Superar las dificultades que han surgido, teniendo en cuenta que el fin no justi
 \newpage
 \section{Introducción} \label{intro}
 
-Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$ o $UAV$) que se caracteriza por tener quatro rotores a modo de actuadores en vez de dos como en el caso de los helicópteros. Este tipo de autogiro intenta obtener una flotabilidad estable y vuelo preciso balanceando las fuerzas producidas por los cuatro motores y surge de la necesidad de un aparato de vuelo de dimensiones reducidas y gran estabilidad, con prestaciones superiores a las de un helicóptero convencional. \\
+Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$ o $UAV$) que se caracteriza por tener quatro rotores a modo de actuadores en vez de dos como en el caso de los helicópteros. Este tipo de autogiro intenta obtener una flotabilidad estable y vuelo preciso balanceando las fuerzas producidas por los cuatro motores y surge de la necesidad de tener un aparato de vuelo de dimensiones reducidas y gran estabilidad, con prestaciones superiores a las de un helicóptero convencional. \\
 
 \begin{figure}[h!]
 \begin{center}
@@ -182,6 +179,8 @@ En la actualidad el campo referente a estos aparatos se ha diversificado tanto q
 \end{figure}
 
 Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena orientación del aparato. \\
+
+Para controlar esta clase de aparatos se utilizan diferentes leyes de control, así como PID, LQR, Redes Neuronales, Machine Learning, entre otros. La más utilizada es sin duda un PID por su fácil implantación y poca carga computacional.
 
 \subsection{Objetivos del proyecto}
 
@@ -477,6 +476,7 @@ Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $
 \pmb{\dot{\eta}} \\
 \pmb{J}^{-1} \left( \pmb{\tau} - \pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}} \right)
 \end{array} \right]
+\label{eq:system2}
 \end{equation}
 
 Para realizar el control será útil representar el sistema \ref{eq:system} en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. Éste caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener un momento de inercia nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
@@ -510,7 +510,6 @@ donde $\pmb{K}$ es el termino que incluye a la constate de la gravedad, separada
 \begin{equation}
 \pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \hspace*{1.5cm} \pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}}
 \end{equation}
-
 
 En considerar que las posiciones angulares de $\phi$ y $\theta$ no diferirán significativamente respecto de zero y que el ángulo $\psi$ no es relevante, se trabaja con una matriz de rotación $R$ igual a la identidad
 
@@ -574,7 +573,7 @@ y las matrices $\pmb{K}$ i $\pmb{C}$ quedan como
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \end{array} \right]
 \end{equation}
 
-
+Éstos son los resultados sacados del procedimiento explicado en el $Anexo \>\>1$, en donde se detalla el procedimiento.\\
 
 Como se desea implantar un control sobre el equilibrio del Quadcopter en vez de la posición, se tendrán las variables pertinentes a la orientación, y por tanto el vector de estados estará formado por %$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
 $\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \right]$. 
@@ -654,6 +653,7 @@ f_{1} \\
 f_{2} \\
 f_{3} \\
 f_{4} \\ \end{array} \right]
+\label{eq:final_system}
 \end{equation} 
 \end{center}
 
@@ -723,29 +723,103 @@ rango(\pmb{W_o})=4\>\>(max.) \> \rightarrow \> Observable
 Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un Quadcopter se pueden observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
 
 \newpage
-<<<<<<< HEAD
 \subsection{Representación del modelo con Simulink}
 
 Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para comprobar que la ley de control que se tenga es válida como para intentar controlar el aparato real. Se intenta que el modelo sea lo más preciso posible, por lo que no se tienen en cuenta linealizaciones ni aproximaciones de tipo alguno. 
 
+\begin{figure}[h!]
+\begin{center}
+\hspace{2cm} \includegraphics[scale=0.6]{images/Simulink_model.jpeg}
+\caption{Modelo en Simulink de la dinámica del Quadcopter}
+\end{center}
+\end{figure}
+
+Aunque en el modelo se hayan tenido en cuenta los respectivos coeficientes de fricción con el aire, como se ha visto en el apartado anterior no se han tenido en cuenta a la hora de linealizar el sistema ni calcular la ley de control ya que la determinación de estos parámetros no es fácil y de incluirse podría aportar incertidumbre. \\
+
+Tal y como se explica a la hora de caracterizar los motores, no se pudo encontrar la relación existente que la fuerza y momento ejercido por cada hélice, por lo que en este caso se ha supuesto que varía proporcionalmente con $b$.
+
+Los dos bloques presentes en el modelo ($Function \>\> Matlab$) definen su dinámica. La función $Dinámica \>\> de \>\> Xi$ determina las aceleraciones lineales. El código que se ejecuta en ésta es:\\
+
+
+\begin{lstlisting}[language=Matlab]
+function ddXi = fcn(f1,f2,f3,f4,m,g,Phi,Theta,Psi)
+%#codegen
+
+R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
+   [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
+   [-sin(Theta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]];
+
+T=[0; 0; (f1+f2+f3+f4)/m];
+
+ddXi = R*T/m+[0; 0; -g];
+\end{lstlisting}
+
+En ella se calcula la matriz de rotación $\pmb{R}$ en función de la posición angular($\phi$,$\theta$ y $\psi$) y con el vector de fuerzas en la base móvil (del cuerpo $Body$) se calcula en vector de aceleraciones lineales, es decir, $\ddot{\xi}=\left[ \ddot{\phi} \quad \ddot{\theta} \quad \ddot{\psi} \right]^{T}$. \\
+
+En la función $Dinámica \>\> de \>\> Eta$ se calculan las aceleraciones angulares. Su código corresponde a: 
+\begin{lstlisting}[language=Matlab]
+function y = fcn(f1,f2,f3,f4,II,Phi,Theta,Psi,dPhi,dTheta,dPsi,A,l,b)
+%#codegen
+
+Ixx=II(1);
+Iyy=II(2);
+Izz=II(3);
+ 
+TauB=[[       l*(f4-f2)];
+      [       l*(f3-f1)];
+      [ b*(f1+f3-f2-f4)]];  
+
+Weta=[[ 1         0         -sin(Theta)];
+      [ 0  cos(Phi) cos(Theta)*sin(Phi)];
+      [ 0 -sin(Phi) cos(Theta)*cos(Phi)]];
+ 
+J=transpose(Weta)*[[Ixx 0 0];[0 Iyy 0];[0 0 Izz]]*Weta;  
+
+CdE1=(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);
+
+CdE2=dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
+
+CdE3=-dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);
+
+CdEta=[CdE1; CdE2; CdE3];
+
+y = inv(J)*(TauB-CdEta);
+\end{lstlisting}
+En esta función se calcula el vector de momentos ($\pmb{TauB}$), se calcula la actual matriz de cambio de base de velocidad angular a derivadas de ángulos de Euler ($\pmb{W_\eta}$), se actualiza el tensor de inercias según este cambio y se obtiene el producto $\pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}}$. Finalmente devuelve las aceleraciones según se obtienen en la ecuación \ref{eq:system2}.
+
+Los parámetros que se cargan en Matlab necesarios para definir este modelo son
+\begin{lstlisting}[language=Matlab]
+% Declaracion simbolica de las variables
+
+syms x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi
+syms f1 f2 f3 f4 
+syms Ixx Iyy Izz
+syms Ax Ay Az 
+syms k m g l b
+
+l=0.165					% Longitud de los brazos
+Ixx=0.004				% Producto de inercia en x
+Iyy=0.004				% Producto de inercia en y
+Izz=0.008				% Producto de inercia en z
+m=0.85					% Masa del Quadcopter
+b=1.2*10^-7				% Relacion Momento-Fuerza
+g=9.81					% Aceleracion gravedad
+
+Ax=0					% Friccion aire (no usado)
+Ay=0
+Az=0
+\end{lstlisting}
 
 
 \newpage
 \section{Diseño del controlador} \label{control}
+
+Con el modelo linealizado del sistema ya se tiene lo que emulará una respuesta verosímil y acorde a la realidad.Para que haga lo que uno espera  se decide aplicar un control óptimo mediante un regulador LQR (Linear Quadratic Regulator). \\
+
 \subsection{Regulador Quadrático Lineal}
 % Explicar teoría del regulador
-\subsection{Obtención de la ley de control}
-% Cálculo de las k's
-\subsection{Aplicación en el modelo}
-=======
-\subsection{Representación del modelo con Matlab}
 
-\newpage
-\section{Diseño del controlador} \label{control}
-
-Con el modelo linealizado del sistema ya se tiene lo que emulará una respuesta verosímil y acorde a la realidad.Para que haga lo que uno espera  se decide aplicar un controlar mediante un regulador LQR (Linear Quadratic Regulator). \\
-
-Dado un sistema en de tiempo continuo definido por 
+Dado un sistema lineal de tiempo continuo definido por 
 
 \begin{equation}
 \begin{array}{l}
@@ -754,10 +828,112 @@ Dado un sistema en de tiempo continuo definido por
 \end{array}
 \end{equation} 
 
+se quiere operar este sistema mediante un coste mínimo según un criterio determinado. Este criterio se caracteriza por tener una función de costes $\mathbf{J}$ que depende tanto de los estados como de las entradas del sistemas \cite{LQR_Wikipedia}
+
+\begin{equation}
+\mathbf{J} =\int^{\infty}_{0} \left( \pmb{X^{T}}\mathbf{Q}\pmb{X} + \pmb{U^{T}}\mathbf{R}\pmb{U} + 2\pmb{X^{T}}\mathbf{N}\pmb{U} \right) dt
+\end{equation}
+
+y se definen los pesos $\mathbf{Q}$, $\mathbf{R}$ y $\mathbf{N}$ como matrices definidas positivas y simétricas, según la penalización que se le quiera dar a los estados ($\mathbf{X}$), acciones ($\mathbf{U}$) o el efecto de ambos ($\mathbf{N}$)respectivamente, tal que se minimice el coste $\mathbf{J}$. Se obtiene la ley de control $\pmb{U}=-\pmb{K} \cdot \pmb{X}$ de 
+\begin{equation}
+\pmb{K}=\mathbf{R}^{-1} \left( \pmb{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) 
+\end{equation}
+
+donde $\mathbf{S}$ es la solución de la ecuación de Riccati asociada 
+
+\begin{equation}
+\pmb{A}^{T}\mathbf{S} + \mathbf{S}\pmb{A} - \left( \mathbf{S}\pmb{B}+\mathbf{N} \right) \mathbf{R}^{-1} \left( \pmb{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) + \mathbf{Q} = - \dot{\mathbf{S}}
+\end{equation}
+
+En este caso se supondrá que $\mathbf{N}=0$ (ver \cite{LQR_Matlab}) se tendrá
+
+\begin{equation}
+\mathbf{J} =\int^{\infty}_{0} \left( \pmb{X^{T}}\mathbf{Q}\pmb{X} + \pmb{U^{T}}\mathbf{R}\pmb{U} \right) dt
+\end{equation}
+
+y por consiguiente, la ecuación a resolver
+
+\begin{equation}
+\pmb{A}^{T}\mathbf{S} + \mathbf{S}\pmb{A} - \mathbf{S}\pmb{B} \mathbf{R}^{-1} \pmb{B}^{T} \mathbf{S} + \mathbf{Q} = 0
+\end{equation}
+
+Finalmente, de éste procedimiento se obtiene, además de las constantes de realimentación $\pmb{K}$ y la solución $\pmb{S}$, los polos del sistema: $\pmb{P}=eig( \pmb{A} - \pmb{B} \cdot \pmb{K})$.
 
 
-Éste se caracteriza por tener una función de costes $\mathbf{J}$ que depende tanto de los estados como de las entradas del sistemas.
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+\subsection{Obtención de la ley de control}
+% Cálculo de las k's
+
+Como se ha visto en la ecuación \ref{eq:final_system}, las matrices que representan el sistema son
+
+\begin{equation}
+\pmb{A}= \left[ \begin{array}{cccc}
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\ \end{array} \right] \hspace{1cm} \pmb{B}=\left[ \begin{array}{cccc}
+0 & 0 & 0 & 0 \\
+0 & {}^{-l}/_{Ixx} & 0 & {}^{l}/_{Ixx} \\ 
+0 & 0 & 0 & 0 \\
+{}^{-l}/_{Iyy} & 0 & {}^{l}/_{Iyy} & 0 \\ \end{array} \right] 
+\end{equation} 
+
+\begin{equation}
+\nonumber
+\pmb{C}=\left[ \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\ \end{array} \right] 
+\end{equation} 
+
+En el apartado anterior se ha visto que se deben asignar valores a $\mathbf{Q}$ y $\mathbf{R}$, y como tanto $\mathbf{X}$ como $\mathbf{U}$ son vectores $4x1$, las matrices a asignar serán $4x4$. La matriz $\mathbf{Q}$ se puede escribir como 
+
+\begin{equation}
+\mathbf{Q}=1 \cdot \pmb{C}^{T}\pmb{C}
+\end{equation}
+
+por lo tanto 
+
+\begin{equation}
+\mathbf{Q}= \left[ \begin{array}{cc}
+1 & 0 \\
+0 & 0 \\
+0 & 1 \\
+0 & 0 \\ \end{array} \right] \left[ \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\ \end{array} \right] = \left[ \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\ \end{array} \right]
+\end{equation}
+
+Para el caso de $\mathbf{R}$ se consideran toda un mismo peso para todas las entradas $f_i$ y muy superior a los pesos de $\mathbf{Q}$: 
+
+\begin{equation}
+\mathbf{R}=100 \cdot I = \left[ \begin{array}{cccc}
+100 &   0 &   0 &   0 \\
+0   & 100 &   0 &   0 \\
+0   &   0 & 100 &   0 \\
+0   &   0 &   0 & 100 \\ \end{array} \right] 
+\end{equation}
+
+Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab para calcular el control óptimo según el regulador LQR\cite{Toolbox_lqr}:
+
+\begin{verbatim}
+            [K,S,e] = LQR(A,B,Q,R)
+\end{verbatim}
+
+Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo 4 son $Ixx=...$, $Iyy=...$ y $l=...$ se tiene que:
+
+\begin{equation}
+\mathbf{K}= ... \hspace{2cm} \mathbf{S}=... 
+\end{equation}
+\begin{equation}
+\nonumber
+\mathbf{E}=...
+\end{equation}
+
+\subsection{Aplicación en el modelo}
+
 
 \newpage
 \section{Implementación del control} \label{implement}
@@ -768,7 +944,7 @@ Dado un sistema en de tiempo continuo definido por
 % Descripción de cómo se hará en general
 El conjunt de peces que formen aquest aparell estan conectades entre sí segons la funció que realitzen. Esencialment la Raspberry Pi controla els motors segons les señals que reb de l'IMU i el Receptor. Tot el conjunt és alimentat per una bateria LiPo i s'adapta el voltatge de 11.1V a 5V per mitjà d'un Regulador per tal d'alimentar a la Raspberry. Tots els components estan subjectats a una estructura (Frame) que també pateix les forces y moments.  
 
-\subsection{Descripció dels components}
+\subsection{Descripción de los componentes}
 % Descripción y explicación de cada componente del Quadcopter, con imágenes de cada
 Es descriu tot seguit cada component i el criteri de sel·lecció que s'ha aplicat.
 \subsubsection*{Raspberry Pi} 
@@ -908,15 +1084,31 @@ Todos los elementos que componen el Quadcopter se sujetan en una estructura que 
 \end{center}
 \end{figure}
 
-La mayor parte del peso se concentra en el centro de la estructura e interesa que sea lo más ligera posible sin comprometer su integridad, de tal manera que los motores, situados en las puntas de cada brazo, deban compensar el menor peso posible. En este caso, tiene un peso de 190g, y las piezas están hechas de fibra de vidrio las piezas centrales (de color negro en la imagen) y de Nylon los brazos (rojo y blanco en la imagen).
+La mayor parte del peso se concentra en el centro de la estructura e interesa que sea lo más ligera posible sin comprometer su integridad, de tal manera que los motores, situados en las puntas de cada brazo, deban compensar el menor peso posible. En este caso, tiene un peso de 190g, y las piezas están hechas de fibra de vidrio las piezas centrales (de color negro en la imagen) y de Nylon los brazos (rojo y blanco en la imagen). La distancia entre dos motores de una diagonal es de 33cm.
 
 
 \subsubsection*{Hélices}
 
-En girar el motor, las aspas solidarias a su eje utilizan la energía cinética del rotor para proporcionar sustentación propulsando aire. El tipo de aspa condiciona el rendimiento que se obtenga, así que se utilizan las que optimizan la fuerza de propulsión respecto al consumo de corriente. En el presente
+En girar el motor, las aspas solidarias a su eje utilizan la energía cinética del rotor para proporcionar sustentación propulsando aire en sentido contrario. El tipo de aspa condiciona el rendimiento que se obtenga, así que se utilizan las que optimizan la fuerza de propulsión respecto al consumo de corriente. El modelo de hélice utilizado es el 8x4
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.065,viewport=0 200 2560 1100,clip]{images/propeller_image.jpg}
+\caption{Par de hélices 8x4 simétricas}
+\end{center}
+\end{figure}
+
+Los parámetros que definen una hélice son su Longitud ($X$), és decir, diámetro de superficie recorrida por las aspas en pulgadas, y el Pitch ($Y$), que es la distancia que se avanzaría la hélice en una revolución de moverse en una masa blanda. Se representan en el siguiente gráfico:
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.9]{images/propeller_xy.jpeg}
+\caption{Representación de la Longitud y Pitch de una Hélice}
+\end{center}
+\end{figure} 
 
 \newpage
-\subsection{Muntatge}
+\subsection{Montaje}
 % Descripción del procedimiento por pasos y con fotos
 
 \begin{center}
@@ -964,45 +1156,49 @@ En girar el motor, las aspas solidarias a su eje utilizan la energía cinética 
 \end{tikzpicture}
 \end{center}
 
-% Descripcion general de como se genera, envia y procesa la consigna
-% Imagen con esquema
-% Explicar que la App es en java y para Android y que envia la informacion a la RPi (configurada como AccessPoint).
-% Dar el codigo de la aplicacion
-
-\newpage
-\section{Anàlisi econòmic} \label{economics}
 \newpage
 
-\section{Estudi d'impacte ambiental} \label{impacto}
+\section{Análisis económico} \label{economics}
+
+\newpage
+
+\section{Estudio del impacto ambiental} \label{impacto}
+
 \newpage
 
 \section{Conclusiones} \label{conclusiones}
+
 \subsection*{Futuras aplicaciones}
+
 \newpage
 
 \begin{thebibliography}{99}
 \bibitem{QuadPaper} Teppo Luukkonen (August 22,2011). \textit{Modelling and control of quadcopter}
 \bibitem{RPiWiki} Wikipedia de la Raspberry Pi: \url{http://en.wikipedia.org/wiki/Raspberry_Pi}
-\bibitem{IMUArduino} Accel·leròmetre i Giròscop MPU-6050 per a Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
-\bibitem{6050Esp} MPU-6050. Especificació del producte: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
-\bibitem{6050RegMap} MPU-6050. Mapa de Registres i descripcions: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
+\bibitem{IMUArduino} Acelerómetro y giroscopio MPU-6050 para Arduino: \url{http://playground.arduino.cc/Main/MPU-6050#.UzhsVCK9jb4}
+\bibitem{6050Esp} MPU-6050. Especificación del producto: \url{http://www.invensense.com/mems/gyro/documents/PS-MPU-6000A-00v3.4.pdf}
+\bibitem{6050RegMap} MPU-6050. Mapa de Registros y descripciones: \url{http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf}
 \bibitem{lm2576s} LM2576S Datasheet: \url{http://www.ti.com/lit/ds/symlink/lm2576.pdf}
-\bibitem{wiringPi} Llibrería wiringPi: \url{http://wiringpi.com/}
+\bibitem{wiringPi} Librería wiringPi: \url{http://wiringpi.com/}
+\bibitem{LQR_Wikipedia} Artículo sobre LQR de Wikipedia: \url{http://en.wikipedia.org/wiki/Linear-quadratic_regulator}
+\bibitem{LQR_Matlab} Documentación de la función LQR de Matlab: \url{http://www.mathworks.es/help/control/ref/lqr.html;jsessionid=8f737c267ee85a89cc2544a09a44}
+\bibitem{Toolbox_lqr} Toolbox de Matlab del LQR : \url{http://www.mathworks.es/es/help/control/ref/lqr.html}
 \end{thebibliography}{}
+
 \newpage
 
-\section*{Agraïments}
+\section*{Agradecimientos}
+
 \newpage
 
-\section*{ANNEXES}
-\subsection*{Annex 1: Obtenció vector de forces}
-Per a treballar amb la dinàmica del sistema s'obté el vector de forces a partir del Lagrangià:
-\begin{verbatim}
+\section*{ANEXOS}
+\subsection*{Anexo 1: Obtención del vector de fuerzas}
+Para trabajar con la dinámica del sistema se obtiene el vector de fuerzas a partir del Lagrangiano:
+\begin{lstlisting}[language=Matlab]
 clear all
 clc
 
-%%% Para usar la funcion Laplace en el archivo Laplace.m se deben declarar
-%%% las variables de esta manera:
+%%% Para usar la funcion Laplace en el archivo Laplace.m se deben declarar las variables de esta manera:
 
 syms x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi
 syms f1 f2 f3 f4 m1 m2 m3 m4
@@ -1074,113 +1270,116 @@ TauB=[l*(f4-f2);
       l*(f3-f1);
       % (m1+m2+m3+m4)]
       b*(f1-f2+f3-f4)]
-\end{verbatim}
+\end{lstlisting}
 \newpage
 
 %\begin{lstlisting}
 
 %\end{lstlisting}
 
-\subsection*{Annex 2:Preparació de la Raspberry Pi}
-Per a posar a punt la RPi s'ha d'instal·lar Raspbian i configurar-lo per tal que es pugui comunicar amb la placa MPU-6050.
-\subsubsection*{Instalació Raspbian}
-Havent introduït la targeta SD en un lector adeqüat, es detecta en una terminal mitjançant l'ordre \textit{df -h}. Suposant que hagués estat gravada anteriorment:
+\subsection*{Anexo 2:Preparación de la Raspberry Pi}
+Para poner a punto la RPi se instala un Raspbian y se configura para que es pueda comunicar con la placa MPU-6050.
+\subsubsection*{Instalación Raspbian}
+Habiendo introducido la tarjeta SD en un lector adecuado, se detecta en una terminal mediante la orden \textit{df -h}. Suponiendo que haya estado gravada anteriormente:
 \begin{center}
 \includegraphics[scale=0.7]{images/InstalRasp1.jpeg}
 \end{center}
-S'han de desmontar les dos particions, tant la \textit{/dev/sdb1} com la \textit{/dev/sdb2}:
+Se deben desmontar las dos particiones, tanto la \textit{/dev/sdb1} como la \textit{/dev/sdb2}:
 \begin{verbatim}
            umount /dev/sdb1
            umount /dev/sdb2
 \end{verbatim}
-Havent descarregat la imatge a instalar per exemple a l'Escriptori, es procedeix amb:
+Descargada la imagen a instalar, por ejemplo en el Escritorio, se procede con:
 \begin{verbatim}
     sudo dd bs=4M if=~/Escritorio/2013-07-26-wheezy-raspbian.img of=/dev/sdb
 \end{verbatim}
-Passats uns minuts ja es té la SD grabada amb el sistema operatiu Raspbian.
-\subsubsection*{Configuració de la Raspberry}
-Per tal de poder comunicar la RPi amb la IMU MPU-6050 per I2C és necessari configurar el sistema. Primer és necessari instal·lar els drivers més rellevants. De l'arxiu
+Pasados unos minutos ya se tiene la SD grabada con el sistema operativo Raspbian.
+\subsubsection*{Configuración de la Raspberry}
+Para poder comunicar la RPi con la IMU MPU-6050 por I2C es necesario configurar el sistema. Primero es necesario instalar los drivers mas relevantes. Del archivo
 \begin{verbatim}
            sudo nano /etc/modules
 \end{verbatim}
-s'han d'afegir les següents dues línies al final de l'arxiu:
+se añaden las siguientes dos líneas al final del archivo:
 \begin{verbatim}
            i2c-bcm2708
            i2c-dev
 \end{verbatim}
-En l'arxiu blacklist:
+En el archivo blacklist:
 \begin{verbatim}
            sudo vi /etc/modprobe.d/raspi-blacklist.conf
 \end{verbatim}
-les següents dues línies han de començar amb un signe \# (de comentari):
+las siguientes dos líneas deben empezar con un signo \# (de comentario):
 \begin{verbatim}
            #blacklist spi-bcm2708
            #blacklist i2c-bcm2708
 \end{verbatim}
-Per provar de connectar el sensor, és necessari seguir primer el connexionat:
+Para conectar el sensor, es necesario seguir primero el conexionado:
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.2,viewport=0 200 800 720,clip]{images/ConSens.jpg}
-\caption{Connexió per I2C entre MPU-6050 i RPi}
+\caption{Conexión por I2C entre MPU-6050 y RPi}
 \end{center}
 \end{figure}
 
 
-És a dir:
+Es decir
 \begin{itemize}
-\item Pin1-3.3V es connecta VCC.
-\item Pin3-SDA es connecta a SDA
-\item Pin5-SCL es connecta a SCL
-\item Pin6-Ground es connecta a GND
+\item Pin 1-3.3V se conecta a VCC.
+\item Pin 3-SDA se conecta a SDA
+\item Pin 5-SCL se conecta a SCL
+\item Pin 6-Ground se conecta a GND
 \end{itemize} 
-S'ha d'instal·lar el paquet $i2c-tools$:
+Es necesario instalar el paquete $i2c-tools$:
 \begin{verbatim}
            sudo apt-get install i2c-tools
 \end{verbatim}
-Per a veure el sensor s'escriu:
+Para ver el sensor se escribe:
 \begin{verbatim}
            sudo i2cdetect -y 1
 \end{verbatim}
-El resultat és 
+El resultado es 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.7]{images/i2cdetect.jpg}
-\caption{Detecció del sensor MPU-6050}
+\caption{Detección del sensor MPU-6050}
 \end{center}
 \end{figure}
-que és el dispositiu que correspon al MPU-6050.
+que es el dispositivo que corresponde al MPU-6050.
 
-\subsubsection*{Llibrería wiringPi}
-S'utilitza aquesta llibrería\cite{wiringPi} com a interfície del GPIO (General Porpouse Input Output). Permet, per tant,llegir tant les consignes com els sensors i generar les accions de control. 
-La instal·lació i descripció de la llibrería està explicat a la pàgina web incluída a la bibliografía.
+\subsubsection*{Librería wiringPi}
+Se utiliza esta librería \cite{wiringPi} como a interfaz del GPIO (General Porpouse Input Output). Permite, por tanto, leer las consignas y sensores y generar las acciones de control. 
+La instalación y descripción de la librería esta explicado en la página web incluida en la bibliografía.
 
 \newpage
-\subsection*{Annex 3: Filtre de kalman}
+\subsection*{Anexo 3: Filtro de Kalman}
 \newpage
-\subsection*{Annex 4: Caracterització dels motors}
-Per tal de poder controlar la planta és necessari saber còm responen els actuadors per tal de realitzar un control precís. D'aquests és necessari saber quina força i moment proporcionen, així com el consum d'energia donat un PWM. 
-Per a obtenir una corva de la força respecte del PWM es pesa amb una balança l'acció del motor. La rudimentària bancada que es té per a tal objectiu és d'un colze articulat a un eix de tal manera que la distància de l'eix del motor al fulcre i d'aquest a la balança sigui la mateixa (en aquest cas de 12 cm):
+\subsection*{Anexo 4: Identificación de los parámetros del Quad}
+%% Inercias, longitud brazos, motores (fuerza e intensidad)
+\subsubsection*{Inercias}
+\subsubsection*{motores}
+Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se deben conocer qué fuerza y momento proporcionan, así como el consumo de energía, dado un PWM. 
+Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el eje de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm):
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{images/bancada1.jpeg}
-\caption{Bancada per a l'estudi del motor}
+\caption{Bancada para el estudio del motor}
 \end{center}
 \end{figure}
-Les parts estan fetes de fusta (part marró) i plàstic ABS (part verda). Tota l'estructura es subjecta a unes fustes:
+Las partes están hechas de madera (parte marrón) y plástico ABS (parte verde). Toda la estructura se sujeta a unas maderas:
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.09]{images/montaje.jpg}
-\caption{Montatge per a l'estudi del motor}
+\caption{Montaje para el estudio del motor}
 \end{center}
 \end{figure}
 
-Es transmet al ESC a quina velocitat s'ha de fer funcionar al motor des de la Raspberry Pi per mitjà d'una senyal PWM. El programa que s'executa per a fer les proves és:
+Se transmite al ESC a qué velocidad se debe hacer funcionar el motor des de la Raspberry Pi por medio de una señal PWM. El programa que se ejecuta para hacer las pruebas es:
 
-\begin{verbatim}
+\begin{lstlisting}[language=C]
 #include <stdio.h>
 #include <termios.h>
 #include <wiringPi.h>
@@ -1208,39 +1407,149 @@ int main(void){
         }
         return 0;
 }
-\end{verbatim}
+\end{lstlisting}
 
-S'obté una mesura de força i d'intensitat per cada increment del 0.25\% del PWM enviat al Variador. Sobté:
+\vspace{0.75cm}
+Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\% del PWM enviado al Variador. Las lecturas que se obtienen son: 
 
-\begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.8]{images/MvsPWM.jpeg}
-\caption{Relació entre la força (en grams) i el PWM}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{PWM(\%)} & \textbf{Fuerza(g)} & \textbf{Intensidad(A)} \\
+\hline
+\hline
+5    &	  0 &   0 \\
+\hline
+5,25 & 0,25 &  13 \\
+\hline
+5,5	 &  0,5 &  38 \\
+\hline
+5,75 &  0,9 &  74 \\
+\hline
+6    & 1,38 &  98 \\
+\hline
+6,25	 &  1,8 & 128 \\
+\hline
+6,5  &	2,4 & 158 \\
+\hline
+6,75 & 	2,9 & 191 \\
+\hline
+7    &	3,5 & 215 \\
+\hline
+7,25 &  	  4	& 250 \\
+\hline
+7,5  & 	4,6 & 277 \\
+\hline
+7,75	 &  5,5 & 318 \\
+\hline
+8    &	6,5	& 360 \\
+\hline
+8,25 &    8 & 400 \\
+\hline
+8,5  & 9,15 & 450 \\
+\hline
+\end{tabular}
+\end{center}
+Graficado:
+
+%\begin{figure}[h!]
+%\begin{center}
+%\includegraphics[scale=0.8]{images/MvsPWM.jpeg}
+%\caption{Relación entre la fuerza (en gramos) y el PWM}
+%\end{center}
+%\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\begin{tikzpicture}
+\path[draw] (11,-0.5) node {PWM(\%)};
+\path[draw] (-0.6,6.5) node {M(g)};
+%\path[draw] [domain=5:8.5,red] plot ({\x},{32.575824*\x-32.175});
+\begin{axis}[width=12cm,height=6cm,xmin=5,ymin=0]
+\addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
+    coordinates {
+%         (2211, 1110)
+%         (6164, 4168)
+%         (11610, 36335)
+			(5,0)
+			(5.25,13)	
+			(5.5,38)
+			(5.75,74)
+			(6,98)
+			(6.25,128)
+			(6.5,158)
+			(6.75,191)
+			(7,215)
+			(7.25,250)
+			(7.5	,277)
+			(7.75,318)
+			(8,360)
+			(8.25,400)
+			(8.5	,450)
+        }; 
+% \path[draw] [domain=5:10,red] plot ({\x},{32.575824*\x-32.175});        
+%\addplot[red, thick] {5,8.5}(x,32.575824*x-32.175); 
+% \node [above] at (axis cs:  2211,  1110) {$32h$};
+% \node [below] at (axis cs:  6164,  4168) {$x_1$};
+% \node [left ] at (axis cs: 11610, 36335) {$x_1-PPL_{18}$};
+% \path[draw] [scale=5,red] plot ({\x},{32.575824*\x-32.175});      
+\end{axis}
+% \draw[red] plot[samples=200,domain=-1:2] function {x**2};
+\end{tikzpicture}
+\caption{Relación entre la fuerza (en gramos) y el PWM}
 \end{center}
 \end{figure}
 
+En el eje de les abscisas el PWM(\%) es entre el 5\% y el 10\% de la señal enviada, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza era demasiado grande y no se prevé que se haga funcionar al sistema en semejantes condiciones de trabajo, no se estudia. 
+
+Se ve una relación proporcional del PWM con la fuerza generada. Se considera que una regresión lineal será suficiente. Se obtiene que la fuerza $f(PWM)$ del motor será:
+$$f=32.5758 \cdot PWM(\%)-32.1758$$
+con un coeficiente de determinación en la regresión de  $R^2=0.9929$. Este resultado facilita el problema en ser una relación suficiente sencilla.
+
+Para la intensidad se tiene una relación tan amigable como en el caso anterior, pero como no sera caso de estudio,solo se verá una aproximación de lo que puede llegar a consumir cada motor para asegurar una autonomía de vuelo no irrisoria. Resulta
+% \newpage
+
+%\begin{figure}[!h]
+%\begin{center}
+%\includegraphics[scale=0.8]{images/IvsPWM.jpeg}
+%\caption{Relación entre la corriente consumida y el PWM}
+%\end{center}
+%\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}
-% \addplot plot[scale=0.8,domain=0:3.14](\x,{sin(\x r)});%r=radianes
+\addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
+    coordinates {
+%         (2211, 1110)
+%         (6164, 4168)
+%         (11610, 36335)
+			(5,0)
+			(5.25,0.25)	
+			(5.5,0.5)
+			(5.75,0.9)
+			(6,1.38)
+			(6.25,1.8)
+			(6.5,2.4)
+			(6.75,2.9)
+			(7,3.5)
+			(7.25,4	)
+			(7.5	,4.6)
+			(7.75,5.5)
+			(8,6.5)
+			(8.25,8)
+			(8.5	,9.15)
+        }; 
+% \addplot[red, thick] (x,32.575824*x-32.175);        
+% \node [above] at (axis cs:  2211,  1110) {$32h$};
+% \node [below] at (axis cs:  6164,  4168) {$x_1$};
+% \node [left ] at (axis cs: 11610, 36335) {$x_1-PPL_{18}$};
 \end{axis}
 \end{tikzpicture}
-
-En l'eix de les abscises el PWM(\%) és entre el 5\% i el 10\% de la senyal enviada, que correspon al mínim i màxim que el motor. Com que per a un PWM elevat la força era massa gran i no es preveu que es farà funcionar el sistema en semblants condicions de treball, no s'estudia. 
-
-Es veu una relació proporcional del PWM amb la força generada. Es considera que una regressió lineal serà suficient. S'obté que la força $f(PWM)$ del motor serà:
-$$f=32.5758 \cdot PWM(\%)-32.1758$$
-amb un coeficient de determinació en la regressió és de  $R^2=0.9929$. Aquest resultat facilita el problema en ser una relació prou senzilla.
-
-Per a l'intensitat es té una relació tan amigable com en el cas anterior, però com que no serà cas d'estudi, només es veurà una aproximació del que pot arribar a consumir cada motor per a assegurar una autonomía de vol no irrisòria. Es té que 
-\newpage
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.8]{images/IvsPWM.jpeg}
-\caption{Relació entre la corrent consumida i el PWM}
 \end{center}
 \end{figure}
 
-Com que en el punt d'equilibri cada motor suporta una cuarta part del pes, el PWM hauría de correspondre a una força de $m_{Quadcopter}\cdot g/4\approx0.225$kg. El consum corresponent és de $3.5$A aproximadament. Entre els quatre motors es consumiràn $3.5 \cdot 4=14$A. Com que la bateria es de 2200mAh es suposa una autonomia de 7 minuts aproximadament. 
-
+Como en el punto de equilibrio cada motor soporta una cuarta parte del peso, el PWM debería corresponder al de una fuerza de $m_{Quadcopter}\cdot g/4\approx0.225$kg. El consumo correspondiente es de $3.5$A aproximadamente. Entre los cuatro motores se consumirán $3.5 \cdot 4=14$A. Como que la batería es de 2200mAh se supone una autonomía de 7 minutos aproximadamente. 
 
 \end{document}

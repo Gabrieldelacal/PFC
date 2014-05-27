@@ -8,7 +8,6 @@
 \BOOKMARK [1][-]{section.3}{Definici\363n del modelo}{}
 \BOOKMARK [2][-]{subsection.3.1}{Definici\363n de les variables}{section.3}
 \BOOKMARK [2][-]{subsection.3.2}{Obtenci\363n del modelo}{section.3}
-<<<<<<< HEAD
 \BOOKMARK [2][-]{subsection.3.3}{Representaci\363n del modelo con Simulink}{section.3}
 \BOOKMARK [1][-]{section.4}{Dise\361o del controlador}{}
 \BOOKMARK [2][-]{subsection.4.1}{Regulador Quadr\341tico Lineal}{section.4}
@@ -16,14 +15,8 @@
 \BOOKMARK [2][-]{subsection.4.3}{Aplicaci\363n en el modelo}{section.4}
 \BOOKMARK [1][-]{section.5}{Implementaci\363n del control}{}
 \BOOKMARK [1][-]{section.6}{Construcci\363n del Quadcopter}{}
-=======
-\BOOKMARK [2][-]{subsection.3.3}{Representaci\363n del modelo con Matlab}{section.3}
-\BOOKMARK [1][-]{section.4}{Dise\361o del controlador}{}
-\BOOKMARK [1][-]{section.5}{Implementaci\363 del control}{}
-\BOOKMARK [1][-]{section.6}{Construcci\363 del Quadcopter}{}
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-\BOOKMARK [2][-]{subsection.6.1}{Descripci\363 dels components}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Muntatge}{section.6}
-\BOOKMARK [1][-]{section.7}{An\340lisi econ\362mic}{}
-\BOOKMARK [1][-]{section.8}{Estudi d'impacte ambiental}{}
+\BOOKMARK [2][-]{subsection.6.1}{Descripci\363n de los componentes}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Montaje}{section.6}
+\BOOKMARK [1][-]{section.7}{An\341lisis econ\363mico}{}
+\BOOKMARK [1][-]{section.8}{Estudio del impacto ambiental}{}
 \BOOKMARK [1][-]{section.9}{Conclusiones}{}

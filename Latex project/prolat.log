@@ -1,15 +1,17 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  26 MAY 2014 12:19
-=======
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  23 MAY 2014 11:12
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  27 MAY 2014 16:30
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
 (./prolat.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size10.clo
@@ -269,7 +271,7 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+(/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/spanish.ldf
@@ -280,12 +282,6 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen105
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Spanish'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@spanish = a dialect from \language0
 \es@datefmt=\count89
 \es@quottoks=\toks17
 \es@quotdepth=\count90
@@ -293,7 +289,8 @@ Package babel Info: Making " an active character on input line 492.
 Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
-)) (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
@@ -718,7 +715,8 @@ Package: geometry 2008/12/21 v4.2 Page Geometry
 \Gm@odd@mp=\dimen122
 \Gm@even@mp=\dimen123
 \Gm@dimlist=\toks31
-)
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (597.50787pt) is ignored.
@@ -1091,13 +1089,23 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2010/10/15 v2.10 (rcs-revision 1.12)
 )))
+(/usr/share/texmf-texlive/tex/latex/slashbox/slashbox.sty
+slashbox style by K.Yasuoka, May 1993.
+\@slashboxa=\box40
+\@slashboxb=\box41
+\@slashboxc=\box42
+\@slashboxwd=\count146
+\@slashboxht=\count147
+\@slashsepl=\dimen186
+\@slashsepr=\dimen187
+)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
 s.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-\arrowsize=\dimen186
+\arrowsize=\dimen188
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
 s.code.tex
@@ -1146,26 +1154,26 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.c
 ode.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box40
-\pgfnodeparttwobox=\box41
-\pgfnodepartthreebox=\box42
-\pgfnodepartfourbox=\box43
-\pgfnodeparttwentybox=\box44
-\pgfnodepartnineteenbox=\box45
-\pgfnodeparteighteenbox=\box46
-\pgfnodepartseventeenbox=\box47
-\pgfnodepartsixteenbox=\box48
-\pgfnodepartfifteenbox=\box49
-\pgfnodepartfourteenbox=\box50
-\pgfnodepartthirteenbox=\box51
-\pgfnodeparttwelvebox=\box52
-\pgfnodepartelevenbox=\box53
-\pgfnodeparttenbox=\box54
-\pgfnodepartninebox=\box55
-\pgfnodeparteightbox=\box56
-\pgfnodepartsevenbox=\box57
-\pgfnodepartsixbox=\box58
-\pgfnodepartfivebox=\box59
+\pgfnodepartlowerbox=\box43
+\pgfnodeparttwobox=\box44
+\pgfnodepartthreebox=\box45
+\pgfnodepartfourbox=\box46
+\pgfnodeparttwentybox=\box47
+\pgfnodepartnineteenbox=\box48
+\pgfnodeparteighteenbox=\box49
+\pgfnodepartseventeenbox=\box50
+\pgfnodepartsixteenbox=\box51
+\pgfnodepartfifteenbox=\box52
+\pgfnodepartfourteenbox=\box53
+\pgfnodepartthirteenbox=\box54
+\pgfnodeparttwelvebox=\box55
+\pgfnodepartelevenbox=\box56
+\pgfnodeparttenbox=\box57
+\pgfnodepartninebox=\box58
+\pgfnodeparteightbox=\box59
+\pgfnodepartsevenbox=\box60
+\pgfnodepartsixbox=\box61
+\pgfnodepartfivebox=\box62
 )))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees
 .code.tex
@@ -1207,15 +1215,15 @@ LaTeX Font Info:    ... okay on input line 63.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count146
-\scratchdimen=\dimen187
-\scratchbox=\box60
-\nofMPsegments=\count147
-\nofMParguments=\count148
+\scratchcounter=\count148
+\scratchdimen=\dimen189
+\scratchbox=\box63
+\nofMPsegments=\count149
+\nofMParguments=\count150
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count149
-\MPscratchDim=\dimen188
-\MPnumerator=\count150
+\MPscratchCnt=\count151
+\MPscratchDim=\dimen190
+\MPnumerator=\count152
 \everyMPtoPDFconversion=\toks47
 )
 Package hyperref Info: Link coloring OFF on input line 63.
@@ -1225,7 +1233,7 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count151
+\c@section@level=\count153
 )
 LaTeX Info: Redefining \ref on input line 63.
 LaTeX Info: Redefining \pageref on input line 63.
@@ -1234,7 +1242,7 @@ LaTeX Info: Redefining \pageref on input line 63.
 \@outlinefile=\write5
 \openout5 = `prolat.out'.
 
-\AtBeginShipoutBox=\box61
+\AtBeginShipoutBox=\box64
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -1277,7 +1285,7 @@ driver: pdftex
 \@twosidetrue \@mparswitchtrue 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-\c@lstlisting=\count152
+\c@lstlisting=\count154
 ABD: EveryShipout initializing macros
 <images/upc.jpg, id=94, 225.84375pt x 225.84375pt>
 File: images/upc.jpg Graphic file (type jpg)
@@ -1307,13 +1315,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--88
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
-=======
-LaTeX Warning: Reference `' on page 1 undefined on input line 90.
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg>
@@ -1327,23 +1331,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-<<<<<<< HEAD
-l.107 \newpage
+l.111 \newpage
                [1]pdfTeX warning (ext4): destination with the same identifier (
 name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112 \newpage
+l.116 \newpage
                [2] (./prolat.toc)
-=======
-l.94 \newpage
-              [1]pdfTeX warning (ext4): destination with the same identifier (n
-ame{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.99 \newpage
-              [2] (./prolat.toc)
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 \tf@toc=\write6
 \openout6 = `prolat.toc'.
 
@@ -1352,209 +1346,125 @@ File: images/etseib.jpg Graphic file (type jpg)
 fier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-<<<<<<< HEAD
-l.119 \newpage
-=======
-l.106 \newpage
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+l.123 \newpage
                [1] (./prolat.lof)
 \tf@lof=\write7
 \openout7 = `prolat.lof'.
 
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [4]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
- []
-
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
- []
-
-
-<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 132--133
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 
  []
 
 
-<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 134--135
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [5]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-<images/quadcopter_example.jpg, id=199, 406.51875pt x 228.855pt>
+<images/quadcopter_example.jpg, id=203, 406.51875pt x 228.855pt>
 File: images/quadcopter_example.jpg Graphic file (type jpg)
 
 <use images/quadcopter_example.jpg>
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-<images/6_armed_quadcopter.jpg, id=200, 602.25pt x 338.76563pt>
+<images/6_armed_quadcopter.jpg, id=204, 602.25pt x 338.76563pt>
 File: images/6_armed_quadcopter.jpg Graphic file (type jpg)
 
 <use images/6_armed_quadcopter.jpg>
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [6 <./images/quadcopter_example.jpg> <./images/6_armed_
 quadcopter.jpg>]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
- []
-
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
- []
-
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
- []
-
-
-<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 187--188
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
 
  []
 
 
-<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 189--190
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [7]
 
-<<<<<<< HEAD
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 200
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 206
 .
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 200
-=======
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 187
-.
-
-
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 187
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 206
 .
 
 Missing character: There is no º in font cmr10!
-<images/quad.jpg, id=212, 620.3175pt x 261.97874pt>
+<images/quad.jpg, id=216, 620.3175pt x 261.97874pt>
 File: images/quad.jpg Graphic file (type jpg)
  <use images/quad.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [8 <./images/quad.jpg>]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 257--259
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 316--321
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 303--308
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 322--327
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [9]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
@@ -1562,438 +1472,243 @@ File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [10]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [11]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 667--668
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [12]pdfTeX warning (ext4): destination with the same id
-entifier (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-<<<<<<< HEAD
-l.671 \begin{equation}
-=======
-l.658 \begin{equation}
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-<<<<<<< HEAD
-l.671 \begin{equation}
-=======
-l.658 \begin{equation}
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-<<<<<<< HEAD
-l.671 \begin{equation}
-=======
-l.658 \begin{equation}
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-<<<<<<< HEAD
-l.671 \begin{equation}
-=======
-l.658 \begin{equation}
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-                      
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [13]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg>
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 711--712
+<use images/etseib.jpg> [12]
+Underfull \hbox (badness 10000) in paragraph at lines 674--675
 
  []
 
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [13pdfTeX warning (ext4): destination with the same ide
+ntifier (name{equation.3.35}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.725 \newpage
+              ]
+<images/Simulink_model.jpeg, id=292, 530.73282pt x 691.08188pt>
+File: images/Simulink_model.jpeg Graphic file (type jpg)
+
+<use images/Simulink_model.jpeg>
+Underfull \hbox (badness 10000) in paragraph at lines 737--738
+
+ []
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 741.
+
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--742
+
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [14 <./images/Simulink_model.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
+
+ []
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 759.
+
+Missing character: There is no á in font cmr10!
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [15]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [16]
-<<<<<<< HEAD
-<images/RPi.jpg, id=301, 2569.6pt x 1445.4pt>
-File: images/RPi.jpg Graphic file (type jpg)
- <use images/RPi.jpg>
-<images/RPi2.jpg, id=302, 513.92pt x 400.49625pt>
-File: images/RPi2.jpg Graphic file (type jpg)
- <use images/RPi2.jpg>
-<images/mpu-6050.jpg, id=303, 367.3725pt x 481.8pt>
-=======
-<images/RPi.jpg, id=280, 2569.6pt x 1445.4pt>
-File: images/RPi.jpg Graphic file (type jpg)
- <use images/RPi.jpg>
-<images/RPi2.jpg, id=281, 513.92pt x 400.49625pt>
-File: images/RPi2.jpg Graphic file (type jpg)
- <use images/RPi2.jpg>
-<images/mpu-6050.jpg, id=282, 367.3725pt x 481.8pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-File: images/mpu-6050.jpg Graphic file (type jpg)
- <use images/mpu-6050.jpg>
-Overfull \hbox (11.2287pt too wide) in paragraph at lines 771--779
-\T1/cmr/m/n/10 Com a car-ac-terís-tiques dels sen-sors: el giròs-cop té un rang
- de $\U/MnSymbolC/m/n/10 ^^V\OT1/cmr/m/n/10 250\OML/cmm/m/it/10 ; \U/MnSymbolC/
-m/n/10 ^^V\OT1/cmr/m/n/10 500\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr
-/m/n/10 1000\OML/cmm/m/it/10 ; \U/MnSymbolC/m/n/10 ^^V\OT1/cmr/m/n/10 2000$ \T1
-/cmr/m/n/10 graus/segon,
+Underfull \hbox (badness 10000) in paragraph at lines 817--818
+
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [17 <./images/RPi.jpg> <./images/RPi2.jpg>]
-<<<<<<< HEAD
-<images/E_R.jpg, id=312, 336.50719pt x 266.49562pt>
+<use images/etseib.jpg> [17pdfTeX warning (ext4): destination with the same ide
+ntifier (name{equation.4.46}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.907 \end{equation}
+                    ]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 921.
+
+ (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [18]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [19]
+<images/RPi.jpg, id=401, 2569.6pt x 1445.4pt>
+File: images/RPi.jpg Graphic file (type jpg)
+ <use images/RPi.jpg>
+<images/RPi2.jpg, id=402, 513.92pt x 400.49625pt>
+File: images/RPi2.jpg Graphic file (type jpg)
+ <use images/RPi2.jpg>
+<images/mpu-6050.jpg, id=403, 367.3725pt x 481.8pt>
+File: images/mpu-6050.jpg Graphic file (type jpg)
+ <use images/mpu-6050.jpg>
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [20 <./images/RPi.jpg> <./images/RPi2.jpg>]
+<images/E_R.jpg, id=410, 336.50719pt x 266.49562pt>
 File: images/E_R.jpg Graphic file (type jpg)
  <use images/E_R.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 805--806
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
 
  []
 
-<images/LiPo.jpg, id=313, 2569.6pt x 1445.4pt>
-=======
-<images/E_R.jpg, id=291, 336.50719pt x 266.49562pt>
-File: images/E_R.jpg Graphic file (type jpg)
- <use images/E_R.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 798--799
-
- []
-
-<images/LiPo.jpg, id=292, 2569.6pt x 1445.4pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<images/LiPo.jpg, id=411, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [18 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 812--813
+<use images/etseib.jpg> [21 <./images/mpu-6050.jpg> <./images/E_R.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
 
  []
 
-<images/Reg_stepdown.jpg, id=322, 2569.6pt x 1445.4pt>
+<images/Reg_stepdown.jpg, id=420, 2569.6pt x 1445.4pt>
 File: images/Reg_stepdown.jpg Graphic file (type jpg)
 
 <use images/Reg_stepdown.jpg>
-<images/lm2576s.jpeg, id=324, 504.38437pt x 144.54pt>
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 805--806
-
- []
-
-<images/Reg_stepdown.jpg, id=301, 2569.6pt x 1445.4pt>
-File: images/Reg_stepdown.jpg Graphic file (type jpg)
-
-<use images/Reg_stepdown.jpg>
-<images/lm2576s.jpeg, id=303, 504.38437pt x 144.54pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<images/lm2576s.jpeg, id=422, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
 <use images/lm2576s.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [19 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <.
+ <use images/etseib.jpg> [22 <./images/LiPo.jpg> <./images/Reg_stepdown.jpg> <.
 /images/lm2576s.jpeg>]
-<<<<<<< HEAD
-<images/ESC.jpeg, id=333, 335.75438pt x 191.9672pt>
+<images/ESC.jpeg, id=431, 335.75438pt x 191.9672pt>
 File: images/ESC.jpeg Graphic file (type jpg)
  <use images/ESC.jpeg>
-<images/ESC_config.jpeg, id=334, 792.71156pt x 264.99pt>
+<images/ESC_config.jpeg, id=432, 792.71156pt x 264.99pt>
 File: images/ESC_config.jpeg Graphic file (type jpg)
 
-<use images/ESC_config.jpeg> <images/frame.jpg, id=335, 2569.6pt x 1445.4pt>
-=======
-<images/ESC.jpeg, id=312, 335.75438pt x 191.9672pt>
-File: images/ESC.jpeg Graphic file (type jpg)
- <use images/ESC.jpeg>
-<images/ESC_config.jpeg, id=313, 792.71156pt x 264.99pt>
-File: images/ESC_config.jpeg Graphic file (type jpg)
-
-<use images/ESC_config.jpeg> <images/frame.jpg, id=314, 2569.6pt x 1445.4pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<use images/ESC_config.jpeg> <images/frame.jpg, id=433, 2569.6pt x 1445.4pt>
 File: images/frame.jpg Graphic file (type jpg)
 
 <use images/frame.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [20 <./images/ESC.jpeg> <./images/ESC_config.jpeg>]
+ <use images/etseib.jpg> [23 <./images/ESC.jpeg> <./images/ESC_config.jpeg>] <i
+mages/propeller_image.jpg, id=441, 2569.6pt x 1445.4pt>
+File: images/propeller_image.jpg Graphic file (type jpg)
+
+<use images/propeller_image.jpg>
+<images/propeller_xy.jpeg, id=443, 168.63pt x 86.57344pt>
+File: images/propeller_xy.jpeg Graphic file (type jpg)
+
+<use images/propeller_xy.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [21 <./images/frame.jpg>]
+ <use images/etseib.jpg> [24 <./images/propeller_image.jpg> <./images/frame.jpg
+> <./images/propeller_xy.jpeg>]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [22]
+<use images/etseib.jpg> [25]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [23]
+ <use images/etseib.jpg> [26]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [24]
+<use images/etseib.jpg> [27]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [25]
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 956.
-=======
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 949.
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-
-
-(/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 958--959
-[]\T1/cmr/m/n/10 MPU-6050. Es-pe-ci-fi-ca-ció del pro-duc-te: []$\T1/cmtt/m/n/1
-0 http : / / www . invensense . com / mems / gyro /
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
-[]\T1/cmr/m/n/10 MPU-6050. Es-peci-fi-cació del pro-ducte: []$\T1/cmtt/m/n/10 h
-ttp : / / www . invensense . com / mems / gyro /
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [26]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [27]
-<<<<<<< HEAD
-Overfull \hbox (17.82993pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (17.82993pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]\T1/cmtt/m/n/10 syms x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta d
-dTheta Psi dPsi ddPsi[] 
+ <use images/etseib.jpg> [28]
+Underfull \hbox (badness 4886) in paragraph at lines 1179--1180
+[]\T1/cmr/m/n/10 MPU-6050. Es-pe-ci-fi-ca-ción del pro-duc-to: []$\T1/cmtt/m/n/
+10 http : / / www . invensense . com / mems / gyro /
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]\T1/cmtt/m/n/10 v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddT
-heta Psi dPsi ddPsi][] 
- []
-
-
-<<<<<<< HEAD
-Overfull \hbox (212.0325pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (212.0325pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]\T1/cmtt/m/n/10 R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)
-*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];[] 
- []
-
-
-<<<<<<< HEAD
-Overfull \hbox (217.28122pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (217.28122pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]    \T1/cmtt/m/n/10 [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi
-)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];[] 
- []
-
-
-<<<<<<< HEAD
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (12.5812pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]\T1/cmtt/m/n/10 L=m/2*transpose(dXi)*dXi+(1/2)*transpose(dEta)*transpose(Weta
-)*II*Weta*dEta-m*g*z[] 
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [28]
-<<<<<<< HEAD
-Overfull \hbox (941.60434pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (941.60434pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]\T1/cmtt/m/n/10 CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Ph
-i))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (
-Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) +
- Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);[] 
- []
-
-
-<<<<<<< HEAD
-Overfull \hbox (1497.96848pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (1497.96848pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]          \T1/cmtt/m/n/10 dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*s
-in(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz
-*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(The
-ta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin
-(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);[] 
- []
-
-
-<<<<<<< HEAD
-Overfull \hbox (2232.78903pt too wide) in paragraph at lines 1048--1048
-=======
-Overfull \hbox (2232.78903pt too wide) in paragraph at lines 1041--1041
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-[]          \T1/cmtt/m/n/10 -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^
-2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi
-)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(P
-hi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) - Iyy*dTheta^2*cos(Phi)*sin(Ph
-i)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*c
-os(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*I
-yy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)][] 
+Underfull \hbox (badness 2384) in paragraph at lines 1184--1185
+[]\T1/cmr/m/n/10 Documentación de la fun-ción LQR de Matlab: []$\T1/cmtt/m/n/10
+ http : / / www . mathworks . es / help /
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [29]
-<<<<<<< HEAD
-<images/InstalRasp1.jpeg, id=404, 576.65437pt x 28.60687pt>
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [30]
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [31]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [32]
+<images/InstalRasp1.jpeg, id=587, 576.65437pt x 28.60687pt>
 File: images/InstalRasp1.jpeg Graphic file (type jpg)
 
-<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=405, 963.6pt x 722.7pt>
-=======
-<images/InstalRasp1.jpeg, id=383, 576.65437pt x 28.60687pt>
-File: images/InstalRasp1.jpeg Graphic file (type jpg)
-
-<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=384, 963.6pt x 722.7pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<use images/InstalRasp1.jpeg> <images/ConSens.jpg, id=588, 963.6pt x 722.7pt>
 File: images/ConSens.jpg Graphic file (type jpg)
 
 <use images/ConSens.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [30 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>
+ <use images/etseib.jpg> [33 <./images/ConSens.jpg> <./images/InstalRasp1.jpeg>
 ]
-<<<<<<< HEAD
-<images/i2cdetect.jpg, id=417, 350.81062pt x 134.00063pt>
-=======
-<images/i2cdetect.jpg, id=396, 350.81062pt x 134.00063pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<images/i2cdetect.jpg, id=600, 350.81062pt x 134.00063pt>
 File: images/i2cdetect.jpg Graphic file (type jpg)
 
 <use images/i2cdetect.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [31 <./images/i2cdetect.jpg>]
+ <use images/etseib.jpg> [34 <./images/i2cdetect.jpg>]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [32]
-<<<<<<< HEAD
-<images/bancada1.jpeg, id=429, 411.78844pt x 434.37282pt>
+ <use images/etseib.jpg> [35]
+<images/bancada1.jpeg, id=613, 411.78844pt x 434.37282pt>
 File: images/bancada1.jpeg Graphic file (type jpg)
 
-<use images/bancada1.jpeg> <images/montaje.jpg, id=430, 2569.6pt x 1445.4pt>
-=======
-<images/bancada1.jpeg, id=408, 411.78844pt x 434.37282pt>
-File: images/bancada1.jpeg Graphic file (type jpg)
-
-<use images/bancada1.jpeg> <images/montaje.jpg, id=409, 2569.6pt x 1445.4pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+<use images/bancada1.jpeg> <images/montaje.jpg, id=614, 2569.6pt x 1445.4pt>
 File: images/montaje.jpg Graphic file (type jpg)
 
 <use images/montaje.jpg>
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [33 <./images/bancada1.jpeg> <./images/montaje.jpg>] <
-<<<<<<< HEAD
-images/MvsPWM.jpeg, id=436, 444.15938pt x 239.39438pt>
-=======
-images/MvsPWM.jpeg, id=415, 444.15938pt x 239.39438pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-File: images/MvsPWM.jpeg Graphic file (type jpg)
 
-<use images/MvsPWM.jpeg>
-! Package pgfplots Warning: You have a plot with empty range. Replacing it with
- default and clearing plots.
+<use images/etseib.jpg> [36 <./images/bancada1.jpeg> <./images/montaje.jpg>]
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [34 <./images/MvsPWM.jpeg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg>
-<<<<<<< HEAD
-[35] <images/IvsPWM.jpeg, id=446, 435.87843pt x 241.65282pt>
-=======
-[35] <images/IvsPWM.jpeg, id=425, 435.87843pt x 241.65282pt>
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
-File: images/IvsPWM.jpeg Graphic file (type jpg)
 
-<use images/IvsPWM.jpeg>
+<use images/etseib.jpg> [37]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [36 <./images/IvsPWM.jpeg>]
-(./prolat.aux) ) 
+ <use images/etseib.jpg> [38] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 23942 strings out of 493848
- 474027 string characters out of 1152823
- 600634 words of memory out of 3000000
- 26529 multiletter control sequences out of 15000+50000
- 31095 words of font info for 87 fonts, out of 3000000 for 9000
+ 25239 strings out of 493848
+ 489228 string characters out of 1152823
+ 1145736 words of memory out of 3000000
+ 27622 multiletter control sequences out of 15000+50000
+ 32399 words of font info for 91 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 63i,23n,61p,915b,1225s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/us
-r/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-texli
-ve/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/d
-vips/mnsymbol/MnSymbolE.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/
-MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}
-{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/te
-xmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}</usr/share/texmf-texlive/fo
-nts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texmf-texlive/fonts/type1/
-public/mnsymbol/MnSymbol7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmm
-i5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on prolat.pdf (38 pages, 6915589 bytes).
+ 63i,23n,61p,915b,2388s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips
+/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-
+t1.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/s
+hare/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texmf-tex
+live/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc
+/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbo
+l/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.en
+c}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol7.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on prolat.pdf (40 pages, 8237961 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
- 23991 strings out of 495061
- 474756 string characters out of 1182621
- 606951 words of memory out of 3000000
- 26474 multiletter control sequences out of 15000+50000
- 32022 words of font info for 90 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 63i,23n,61p,915b,1225s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/
-platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/platic/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk> </home/platic/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/tcrm1000.600pk>{/usr/share/texmf-texlive/fonts/enc/dv
-ips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/M
-nSymbolE.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{
-/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/tex
-mf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texmf-texlive/fon
-ts/enc/dvips/mnsymbol/MnSymbolS.enc} </home/platic/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecbx1200.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecbx1000.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.
-600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </h
-ome/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/platic
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/platic/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk> </home/platic/.texmf-var/fonts/pk
-/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texmf-texlive/fonts/type1/public
-/mnsymbol/MnSymbol10.pfb></usr/share/texmf-texlive/fonts/type1/public/mnsymbol/
-MnSymbol7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr7.pfb>
-Output written on prolat.pdf (38 pages, 6854151 bytes).
-PDF statistics:
- 1002 PDF objects out of 1200 (max. 8388607)
- 140 named destinations out of 1000 (max. 500000)
- 287 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> b09e855b86dcfcee370e0c40901385acc36143b9
+ 809 PDF objects out of 1000 (max. 8388607)
+ 325 named destinations out of 1000 (max. 500000)
+ 322 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,8 +16,8 @@
 /* Variable Declarations */
 
 /* Variable Definitions */
-static const char * c2_debug_family_names[15] = { "R", "T", "nargin", "nargout",
-  "f1", "f2", "f3", "f4", "m", "g", "k", "Phi", "Theta", "Psi", "ddXi" };
+static const char * c2_debug_family_names[14] = { "R", "T", "nargin", "nargout",
+  "f1", "f2", "f3", "f4", "m", "g", "Phi", "Theta", "Psi", "ddXi" };
 
 /* Function Declarations */
 static void initialize_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance);
@@ -167,16 +167,14 @@ static void sf_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   real_T *c2_f4;
   real_T *c2_m;
   real_T *c2_g;
-  real_T *c2_k;
   real_T *c2_Phi;
   real_T *c2_Theta;
   real_T *c2_Psi;
   real_T (*c2_ddXi)[3];
   c2_ddXi = (real_T (*)[3])ssGetOutputPortSignal(chartInstance->S, 1);
-  c2_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 9);
-  c2_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
-  c2_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
-  c2_k = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
+  c2_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
+  c2_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
+  c2_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
   c2_g = (real_T *)ssGetInputPortSignal(chartInstance->S, 5);
   c2_m = (real_T *)ssGetInputPortSignal(chartInstance->S, 4);
   c2_f4 = (real_T *)ssGetInputPortSignal(chartInstance->S, 3);
@@ -191,12 +189,11 @@ static void sf_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   _SFD_DATA_RANGE_CHECK(*c2_f4, 3U);
   _SFD_DATA_RANGE_CHECK(*c2_m, 4U);
   _SFD_DATA_RANGE_CHECK(*c2_g, 5U);
-  _SFD_DATA_RANGE_CHECK(*c2_k, 6U);
-  _SFD_DATA_RANGE_CHECK(*c2_Phi, 7U);
-  _SFD_DATA_RANGE_CHECK(*c2_Theta, 8U);
-  _SFD_DATA_RANGE_CHECK(*c2_Psi, 9U);
+  _SFD_DATA_RANGE_CHECK(*c2_Phi, 6U);
+  _SFD_DATA_RANGE_CHECK(*c2_Theta, 7U);
+  _SFD_DATA_RANGE_CHECK(*c2_Psi, 8U);
   for (c2_i2 = 0; c2_i2 < 3; c2_i2++) {
-    _SFD_DATA_RANGE_CHECK((*c2_ddXi)[c2_i2], 10U);
+    _SFD_DATA_RANGE_CHECK((*c2_ddXi)[c2_i2], 9U);
   }
 
   chartInstance->c2_sfEvent = CALL_EVENT;
@@ -216,21 +213,19 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   real_T c2_g_hoistedGlobal;
   real_T c2_h_hoistedGlobal;
   real_T c2_i_hoistedGlobal;
-  real_T c2_j_hoistedGlobal;
   real_T c2_f1;
   real_T c2_f2;
   real_T c2_f3;
   real_T c2_f4;
   real_T c2_m;
   real_T c2_g;
-  real_T c2_k;
   real_T c2_Phi;
   real_T c2_Theta;
   real_T c2_Psi;
-  uint32_T c2_debug_family_var_map[15];
+  uint32_T c2_debug_family_var_map[14];
   real_T c2_R[9];
   real_T c2_T[3];
-  real_T c2_nargin = 10.0;
+  real_T c2_nargin = 9.0;
   real_T c2_nargout = 1.0;
   real_T c2_ddXi[3];
   real_T c2_x;
@@ -367,16 +362,14 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   real_T *c2_b_f4;
   real_T *c2_b_m;
   real_T *c2_b_g;
-  real_T *c2_b_k;
   real_T *c2_b_Phi;
   real_T *c2_b_Theta;
   real_T *c2_b_Psi;
   real_T (*c2_b_ddXi)[3];
   c2_b_ddXi = (real_T (*)[3])ssGetOutputPortSignal(chartInstance->S, 1);
-  c2_b_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 9);
-  c2_b_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
-  c2_b_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
-  c2_b_k = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
+  c2_b_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
+  c2_b_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
+  c2_b_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
   c2_b_g = (real_T *)ssGetInputPortSignal(chartInstance->S, 5);
   c2_b_m = (real_T *)ssGetInputPortSignal(chartInstance->S, 4);
   c2_b_f4 = (real_T *)ssGetInputPortSignal(chartInstance->S, 3);
@@ -390,21 +383,19 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   c2_d_hoistedGlobal = *c2_b_f4;
   c2_e_hoistedGlobal = *c2_b_m;
   c2_f_hoistedGlobal = *c2_b_g;
-  c2_g_hoistedGlobal = *c2_b_k;
-  c2_h_hoistedGlobal = *c2_b_Phi;
-  c2_i_hoistedGlobal = *c2_b_Theta;
-  c2_j_hoistedGlobal = *c2_b_Psi;
+  c2_g_hoistedGlobal = *c2_b_Phi;
+  c2_h_hoistedGlobal = *c2_b_Theta;
+  c2_i_hoistedGlobal = *c2_b_Psi;
   c2_f1 = c2_hoistedGlobal;
   c2_f2 = c2_b_hoistedGlobal;
   c2_f3 = c2_c_hoistedGlobal;
   c2_f4 = c2_d_hoistedGlobal;
   c2_m = c2_e_hoistedGlobal;
   c2_g = c2_f_hoistedGlobal;
-  c2_k = c2_g_hoistedGlobal;
-  c2_Phi = c2_h_hoistedGlobal;
-  c2_Theta = c2_i_hoistedGlobal;
-  c2_Psi = c2_j_hoistedGlobal;
-  sf_debug_symbol_scope_push_eml(0U, 15U, 15U, c2_debug_family_names,
+  c2_Phi = c2_g_hoistedGlobal;
+  c2_Theta = c2_h_hoistedGlobal;
+  c2_Psi = c2_i_hoistedGlobal;
+  sf_debug_symbol_scope_push_eml(0U, 14U, 14U, c2_debug_family_names,
     c2_debug_family_var_map);
   sf_debug_symbol_scope_add_eml_importable(c2_R, 0U, c2_c_sf_marshallOut,
     c2_c_sf_marshallIn);
@@ -420,11 +411,10 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   sf_debug_symbol_scope_add_eml(&c2_f4, 7U, c2_b_sf_marshallOut);
   sf_debug_symbol_scope_add_eml(&c2_m, 8U, c2_b_sf_marshallOut);
   sf_debug_symbol_scope_add_eml(&c2_g, 9U, c2_b_sf_marshallOut);
-  sf_debug_symbol_scope_add_eml(&c2_k, 10U, c2_b_sf_marshallOut);
-  sf_debug_symbol_scope_add_eml(&c2_Phi, 11U, c2_b_sf_marshallOut);
-  sf_debug_symbol_scope_add_eml(&c2_Theta, 12U, c2_b_sf_marshallOut);
-  sf_debug_symbol_scope_add_eml(&c2_Psi, 13U, c2_b_sf_marshallOut);
-  sf_debug_symbol_scope_add_eml_importable(c2_ddXi, 14U, c2_sf_marshallOut,
+  sf_debug_symbol_scope_add_eml(&c2_Phi, 10U, c2_b_sf_marshallOut);
+  sf_debug_symbol_scope_add_eml(&c2_Theta, 11U, c2_b_sf_marshallOut);
+  sf_debug_symbol_scope_add_eml(&c2_Psi, 12U, c2_b_sf_marshallOut);
+  sf_debug_symbol_scope_add_eml_importable(c2_ddXi, 13U, c2_sf_marshallOut,
     c2_sf_marshallIn);
   CV_EML_FCN(0, 0);
   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 4);
@@ -1106,10 +1096,10 @@ static void init_dsm_address_info(SFc2_simlag2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c2_simlag2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(179884120U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3258478163U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4056113792U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(900953276U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(227504605U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2723912043U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1703730215U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1412677683U);
 }
 
 mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
@@ -1121,14 +1111,14 @@ mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("hFr6CUyTpX77lk6Xn8DaTH");
+    mxArray *mxChecksum = mxCreateString("JJxS1cEVYdNMtWRVucKQcF");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
   {
     const char *dataFields[] = { "size", "type", "complexity" };
 
-    mxArray *mxData = mxCreateStructMatrix(1,10,3,dataFields);
+    mxArray *mxData = mxCreateStructMatrix(1,9,3,dataFields);
 
     {
       mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
@@ -1300,25 +1290,6 @@ mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
     }
 
     mxSetField(mxData,8,"complexity",mxCreateDoubleScalar(0));
-
-    {
-      mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
-      double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(1);
-      pr[1] = (double)(1);
-      mxSetField(mxData,9,"size",mxSize);
-    }
-
-    {
-      const char *typeFields[] = { "base", "fixpt" };
-
-      mxArray *mxType = mxCreateStructMatrix(1,1,2,typeFields);
-      mxSetField(mxType,0,"base",mxCreateDoubleScalar(10));
-      mxSetField(mxType,0,"fixpt",mxCreateDoubleMatrix(0,0,mxREAL));
-      mxSetField(mxData,9,"type",mxType);
-    }
-
-    mxSetField(mxData,9,"complexity",mxCreateDoubleScalar(0));
     mxSetField(mxAutoinheritanceInfo,0,"inputs",mxData);
   }
 
@@ -1392,7 +1363,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           2,
           1,
           1,
-          11,
+          10,
           0,
           0,
           0,
@@ -1419,11 +1390,10 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           _SFD_SET_DATA_PROPS(3,1,1,0,"f4");
           _SFD_SET_DATA_PROPS(4,1,1,0,"m");
           _SFD_SET_DATA_PROPS(5,1,1,0,"g");
-          _SFD_SET_DATA_PROPS(6,1,1,0,"k");
-          _SFD_SET_DATA_PROPS(7,1,1,0,"Phi");
-          _SFD_SET_DATA_PROPS(8,1,1,0,"Theta");
-          _SFD_SET_DATA_PROPS(9,1,1,0,"Psi");
-          _SFD_SET_DATA_PROPS(10,2,0,1,"ddXi");
+          _SFD_SET_DATA_PROPS(6,1,1,0,"Phi");
+          _SFD_SET_DATA_PROPS(7,1,1,0,"Theta");
+          _SFD_SET_DATA_PROPS(8,1,1,0,"Psi");
+          _SFD_SET_DATA_PROPS(9,2,0,1,"ddXi");
           _SFD_STATE_INFO(0,0,2);
           _SFD_CH_SUBSTATE_COUNT(0);
           _SFD_CH_SUBSTATE_DECOMP(0);
@@ -1439,7 +1409,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,494);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,492);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -1467,13 +1437,11 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           (MexFcnForType)c2_b_sf_marshallOut,(MexInFcnForType)NULL);
         _SFD_SET_DATA_COMPILED_PROPS(8,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c2_b_sf_marshallOut,(MexInFcnForType)NULL);
-        _SFD_SET_DATA_COMPILED_PROPS(9,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
-          (MexFcnForType)c2_b_sf_marshallOut,(MexInFcnForType)NULL);
 
         {
           unsigned int dimVector[1];
           dimVector[0]= 3;
-          _SFD_SET_DATA_COMPILED_PROPS(10,SF_DOUBLE,1,&(dimVector[0]),0,0,0,0.0,
+          _SFD_SET_DATA_COMPILED_PROPS(9,SF_DOUBLE,1,&(dimVector[0]),0,0,0,0.0,
             1.0,0,0,(MexFcnForType)c2_sf_marshallOut,(MexInFcnForType)
             c2_sf_marshallIn);
         }
@@ -1485,16 +1453,14 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           real_T *c2_f4;
           real_T *c2_m;
           real_T *c2_g;
-          real_T *c2_k;
           real_T *c2_Phi;
           real_T *c2_Theta;
           real_T *c2_Psi;
           real_T (*c2_ddXi)[3];
           c2_ddXi = (real_T (*)[3])ssGetOutputPortSignal(chartInstance->S, 1);
-          c2_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 9);
-          c2_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
-          c2_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
-          c2_k = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
+          c2_Psi = (real_T *)ssGetInputPortSignal(chartInstance->S, 8);
+          c2_Theta = (real_T *)ssGetInputPortSignal(chartInstance->S, 7);
+          c2_Phi = (real_T *)ssGetInputPortSignal(chartInstance->S, 6);
           c2_g = (real_T *)ssGetInputPortSignal(chartInstance->S, 5);
           c2_m = (real_T *)ssGetInputPortSignal(chartInstance->S, 4);
           c2_f4 = (real_T *)ssGetInputPortSignal(chartInstance->S, 3);
@@ -1507,11 +1473,10 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           _SFD_SET_DATA_VALUE_PTR(3U, c2_f4);
           _SFD_SET_DATA_VALUE_PTR(4U, c2_m);
           _SFD_SET_DATA_VALUE_PTR(5U, c2_g);
-          _SFD_SET_DATA_VALUE_PTR(6U, c2_k);
-          _SFD_SET_DATA_VALUE_PTR(7U, c2_Phi);
-          _SFD_SET_DATA_VALUE_PTR(8U, c2_Theta);
-          _SFD_SET_DATA_VALUE_PTR(9U, c2_Psi);
-          _SFD_SET_DATA_VALUE_PTR(10U, *c2_ddXi);
+          _SFD_SET_DATA_VALUE_PTR(6U, c2_Phi);
+          _SFD_SET_DATA_VALUE_PTR(7U, c2_Theta);
+          _SFD_SET_DATA_VALUE_PTR(8U, c2_Psi);
+          _SFD_SET_DATA_VALUE_PTR(9U, *c2_ddXi);
         }
       }
     } else {
@@ -1523,7 +1488,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "sVYi3fVzYMm56ZVgnPL0GE";
+  return "dYGylZ2hxWTUnCNF28HYaB";
 }
 
 static void sf_opaque_initialize_c2_simlag2(void *chartInstanceVar)
@@ -1670,9 +1635,8 @@ static void mdlSetWorkWidths_c2_simlag2(SimStruct *S)
       ssSetInputPortOptimOpts(S, 6, SS_REUSABLE_AND_LOCAL);
       ssSetInputPortOptimOpts(S, 7, SS_REUSABLE_AND_LOCAL);
       ssSetInputPortOptimOpts(S, 8, SS_REUSABLE_AND_LOCAL);
-      ssSetInputPortOptimOpts(S, 9, SS_REUSABLE_AND_LOCAL);
       sf_mark_chart_expressionable_inputs(S,sf_get_instance_specialization(),
-        infoStruct,2,10);
+        infoStruct,2,9);
       sf_mark_chart_reusable_outputs(S,sf_get_instance_specialization(),
         infoStruct,2,1);
     }
@@ -1683,10 +1647,10 @@ static void mdlSetWorkWidths_c2_simlag2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1269221061U));
-  ssSetChecksum1(S,(2432778784U));
-  ssSetChecksum2(S,(4031263256U));
-  ssSetChecksum3(S,(2457933621U));
+  ssSetChecksum0(S,(3068342994U));
+  ssSetChecksum1(S,(2942376211U));
+  ssSetChecksum2(S,(3513670781U));
+  ssSetChecksum3(S,(4151965103U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

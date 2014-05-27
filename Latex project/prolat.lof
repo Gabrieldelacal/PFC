@@ -2,16 +2,18 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Quadcopter de ejemplo con c\IeC {\'a}mara}}{6}{figure.1}
 \contentsline {figure}{\numberline {2}{\ignorespaces Ejemplo de Quadcopter con 6 motores}}{6}{figure.2}
 \contentsline {figure}{\numberline {3}{\ignorespaces Marcos de referencia en el quadcopter}}{8}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Raspberry Pi a utilitzar}}{17}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Conectors de la Raspberry Pi}}{17}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces IMU MPU-6050}}{18}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Emissora i Receptor}}{18}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{20}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Tabla de Set up de un ESC}}{20}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{21}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Connexi\IeC {\'o} per I2C entre MPU-6050 i RPi}}{30}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Detecci\IeC {\'o} del sensor MPU-6050}}{31}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Bancada per a l'estudi del motor}}{33}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Montatge per a l'estudi del motor}}{33}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Relaci\IeC {\'o} entre la for\IeC {\c c}a (en grams) i el PWM}}{34}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Relaci\IeC {\'o} entre la corrent consumida i el PWM}}{36}{figure.16}
+\contentsline {figure}{\numberline {4}{\ignorespaces Modelo en Simulink de la din\IeC {\'a}mica del Quadcopter}}{14}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Raspberry Pi a utilitzar}}{20}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Conectors de la Raspberry Pi}}{20}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces IMU MPU-6050}}{21}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Emissora i Receptor}}{21}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{23}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Tabla de Set up de un ESC}}{23}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{24}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{24}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una H\IeC {\'e}lice}}{24}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Conexi\IeC {\'o}n por I2C entre MPU-6050 y RPi}}{33}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{34}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Bancada para el estudio del motor}}{36}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Montaje para el estudio del motor}}{36}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Relaci\IeC {\'o}n entre la fuerza (en gramos) y el PWM}}{38}{figure.18}
