@@ -7,13 +7,17 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces Conectores de la Raspberry Pi}}{20}{figure.6}
 \contentsline {figure}{\numberline {7}{\ignorespaces IMU MPU-6050}}{21}{figure.7}
 \contentsline {figure}{\numberline {8}{\ignorespaces Emisora y Receptor}}{21}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{23}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Tabla de Set up de un ESC}}{23}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{24}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{24}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una H\IeC {\'e}lice}}{24}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Conexi\IeC {\'o}n por I2C entre MPU-6050 y RPi}}{33}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{34}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Bancada para el estudio del motor}}{36}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Montaje para el estudio del motor}}{36}{figure.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Relaci\IeC {\'o}n entre la fuerza (en gramos) y el PWM}}{38}{figure.18}
+\contentsline {figure}{\numberline {9}{\ignorespaces Bater\IeC {\'\i }a LiPo empleada}}{22}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Regulador Step-Down}}{22}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Esquema del Regulador Step-Down}}{22}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{23}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Tabla de Set up de un ESC}}{24}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{24}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{24}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una H\IeC {\'e}lice}}{25}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Conexi\IeC {\'o}n por I2C entre MPU-6050 y RPi}}{33}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{34}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Bancada para la determinaci\IeC {\'o}n de las inercias}}{36}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Bancada para el estudio del motor}}{37}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Montaje para el estudio del motor}}{37}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Relaci\IeC {\'o}n entre la fuerza (en gramos) y el PWM}}{39}{figure.22}

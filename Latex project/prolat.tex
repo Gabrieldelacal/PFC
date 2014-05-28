@@ -28,6 +28,8 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
 
+\usetikzlibrary{decorations.pathmorphing,patterns}
+
 \title{\begin{center} 
 \includegraphics[scale=0.3]{images/upc.jpg} 
 \end{center} 
@@ -851,7 +853,7 @@ En este caso se supondrá que $\mathbf{N}=0$ (ver \cite{LQR_Matlab}) se tendrá
 \mathbf{J} =\int^{\infty}_{0} \left( \pmb{X^{T}}\mathbf{Q}\pmb{X} + \pmb{U^{T}}\mathbf{R}\pmb{U} \right) dt
 \end{equation}
 
-y por consiguiente, la ecuación a resolver
+y por consiguiente, la ecuación a resolver es
 
 \begin{equation}
 \pmb{A}^{T}\mathbf{S} + \mathbf{S}\pmb{A} - \mathbf{S}\pmb{B} \mathbf{R}^{-1} \pmb{B}^{T} \mathbf{S} + \mathbf{Q} = 0
@@ -1009,26 +1011,34 @@ La señal que se recibe para cada canal en el receptor es de $PWM$ de $50Hz$ con
 \subsubsection*{Batería LiPo}
 Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$. Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pic de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$:\\
 
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{images/LiPo.jpg} \\
 \caption{Batería LiPo empleada}
 \end{center}
+\end{figure}
 
 El conector de carga es el $JST-XH$ y el de descarga el $XT60$. Para tener en cuenta respecto al Quadcopter es interesante saber que pesa $188g$ y respecto a la estructura (frame) que sus dimensiones son de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
 Para adaptar la tensión de 11.1V de la batería LiPo a 5V para alimentar la Raspberry Pi, es necesario un regulador. En este caso se tiene el Interruptor-Modo Máximo BEC LM2576S, que proporciona hasta 3A de corriente \\
+
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.06]{images/Reg_stepdown.jpg}
 \caption{Regulador Step-Down}
 \end{center}
+\end{figure}
 
 El esquema del componente \cite{lm2576s}:
 
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.55]{images/lm2576s.jpeg} 
 \caption{Esquema del Regulador Step-Down}
 \end{center}
+\end{figure}
+
 
 \subsubsection*{Motores Brushless}
 Los actuadores que se utilizan son motores brushless (BL-DC). En particular el Turnigy 2213 20turn 1050kv 19A Outrunner.
@@ -1072,7 +1082,7 @@ Tanto el peso de $19$g,  como las dimensiones de $50x26x12$mm son parámetros a 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.5]{images/ESC_config.jpeg}
+\includegraphics[scale=0.45]{images/ESC_config.jpeg}
 \caption{Tabla de Set up de un ESC}
 \end{center}
 \end{figure}
@@ -1361,9 +1371,91 @@ La instalación y descripción de la librería esta explicado en la página web 
 \newpage
 \subsection*{Anexo 3: Filtro de Kalman}
 \newpage
-\subsection*{Anexo 4: Identificación de los parámetros del Quad}
+\subsection*{Anexo 4: Identificación de los parámetros del Quadcopter}
 %% Inercias, longitud brazos, motores (fuerza e intensidad)
+Para poder trabajar en particular con el Quadcopter construido es necesario saber qué lo caracteriza o distingue de los demás. Parámetros relevantes y necesarios que se utilizan en el modelo implementado en Simulink deben ser, entonces, medidos para que se simule el mismo aparato con iguales características. \\
+
+Se consideran relevantes la matriz de inercias, la longitud de los brazos  $l$ y la la fuerza e intensidad (consumo) de los motores respecto a la señal $PWM$ con que se controlan.\\
+
+Con este conjunto de parámetros se considera que el Quadcopter está totalmente definido y puede obtenerse la ley de control.
+
 \subsubsection*{Inercias}
+
+Como se ha comentado en la sección \ref{def}, se supone que el Quadcopter es un rotor esférico, y por tanto de su tensor de inercia todos los productos de inercia serán nulos. Se tendrá entonces una matriz diagonal como tensor. En este apartado, entonces, el objetivo será la medición de los dos momentos de inercia $I_{xx}$ y $I_{yy}$, correspondientes a los ángulos $Roll$ y $Pitch$. Para ello se usa una bancada compuesta por un muelle de constante de torsión $D$ conocida del que cuelga el quadcopter. De querer determinar el momento de inercia $I_{xx}$, se cuelga desde uno de los extremos del eje $x$, tal y como se observa en la figura \ref{Quad_spring}
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+\draw[decoration={aspect=0.3, segment length=2mm, amplitude=3mm,coil},decorate] (0,5) -- (0,2); 
+
+\path[draw, line width=5pt,color =black] (0,0) -- (0,2);
+\path[draw, line width=5pt,color =black] (-0.8,1.4) -- (0.8,0.6);
+
+\path[draw, line width=5pt,color =black] (0.05,0.05) -- (-0.3,-0.18);
+\path[draw, line width=5pt,color =black] (0.05,2.05) -- (-0.3,1.82);
+\path[draw, line width=5pt,color =black] (-0.75,1.4) -- (-1.1,1.2);
+\path[draw, line width=5pt,color =black] (0.85,0.62) -- (0.5,0.42);
+
+\path [draw, line width=1pt] (-1,3) -- (-1,2);
+\path [draw, line width=1pt] (-1.2,2.2) -- (-1,2) -- (-0.8,2.2);
+
+\path[draw] (-1.3,2.5) node (nodeC) {\large $\dot{\Omega}$};
+\path[draw] (0.7,3.5) node (nodeC) {\large D};
+
+\path[draw,line width=1pt,dotted, color=black](-1.6,1.8) -- (1.6,0.2);
+\path[draw,line width=1pt,dotted, color=black](-1,0.34) -- (1,1.66);
+\path[draw,line width=1pt,dotted, color=black](0,3) -- (0,-1);
+
+\path[draw,line width=1pt] (0,-0.5) -- (0,-1);
+\path[draw,line width=1pt] (-0.1,-0.8) -- (0,-1) -- (0.1,-0.8);
+\path[draw] (0.4,-0.7) node (nodeC) {\large x};
+\path[draw] (-0.3,0.8) node (nodeC) {\large o};
+
+\fill [pattern = north east lines] (-1,5) rectangle (1,5.2);
+\draw[thick] (-1,5) -- (1,5);
+\end{tikzpicture}
+\end{center}
+\caption{Bancada para la determinación de las inercias}
+\label{Quad_spring}
+\end{figure}
+
+Para un sólido rígido se tiene que 
+
+\begin{equation}
+\mathbf{M}=\frac{d\mathbf{L_{o}}}{dt}
+\end{equation}
+
+donde $\mathbf{M}$ es el momento resultante y $\mathbf{L_{o}}$ es el momento cinético o angular aplicado en el punto $o$, que en este caso corresponde al centro de gravedad del cuerpo. Éste se expresa como
+
+\begin{equation}
+\mathbf{L_{o}}=\mathbf{I}\dot{\mathbf{\Omega}}
+\end{equation}
+
+El momento resultante puede expresarse entonces de la forma 
+
+\begin{equation}
+\mathbf{M}=\frac{d(\mathbf{I}\dot{\mathbf{\Omega}})}{dt}=\mathbf{I}\ddot{\mathbf{\Omega}}
+\label{53}
+\end{equation}
+
+en suponer que el tensor de inercia no varía con el tiempo. Como ************************
+
+\newpage
+Para el muelle se tiene que, según la ley de Hooke
+
+\begin{equation}
+M=-D \cdot \Omega
+\label{54}
+\end{equation}
+
+donde $\mathbf{\Omega}$ es el ángulo girado en la dirección longitudinal del muelle. Igualando las expresiones \ref{53} y \ref{54} se llega a 
+
+\begin{equation}
+-D \cdot \Omega = I_{xx}\ddot{\Omega}\quad \Longrightarrow \quad \ddot{\Omega}+\frac{D}{I_{xx}}\Omega =0
+\end{equation}
+
+
+
 \subsubsection*{motores}
 Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se deben conocer qué fuerza y momento proporcionan, así como el consumo de energía, dado un PWM. 
 Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el eje de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm):
