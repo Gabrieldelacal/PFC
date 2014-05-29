@@ -31,8 +31,8 @@
 \usepackage{multirow}
 
 \usetikzlibrary{decorations.pathmorphing,patterns}
-
-\renewcommand{\baselinestretch}{1.3}
+\usepackage{setspace}
+% \renewcommand{\baselinestretch}{1.3}
 
 \title{\begin{center} 
 \includegraphics[scale=0.3]{images/upc.jpg} 
@@ -67,6 +67,7 @@ Memoria}
 \fancyfoot[C]{}
 
 \begin{document}
+\onehalfspacing
 \maketitle
 \begin{center}
 \large{
@@ -279,7 +280,7 @@ Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de 
 \end{array} \right] \hspace{0.5cm} amb \hspace{0.5cm} 
 \pmb{\gamma}=\left[ \pmb{W_\eta} \right] \pmb{\dot{\eta}} 
 \end{equation}
-Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ i $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise). \\
+Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ i $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise).
 
 Interesa conocer qué fuerza y momento aportará cada motor dada una velocidad angular conocida. Se supone poder controlar la fuerza y momento ejercida por cada motor y cómo aproximación inicial se considera que están relacionados con la velocidad angular de la forma:
 \begin{equation}
@@ -760,6 +761,8 @@ ddXi = R*T/m+[0; 0; -g];
 En ella se calcula la matriz de rotación $\pmb{R}$ en función de la posición angular($\phi$,$\theta$ y $\psi$) y con el vector de fuerzas en la base móvil (del cuerpo $Body$) se calcula en vector de aceleraciones lineales, es decir, $\ddot{\xi}=\left[ \ddot{\phi} \quad \ddot{\theta} \quad \ddot{\psi} \right]^{T}$. \\
 
 En la función $Dinámica \>\> de \>\> Eta$ se calculan las aceleraciones angulares. Su código corresponde a: 
+
+\singlespacing
 \begin{lstlisting}[language=Matlab]
 function y = fcn(f1,f2,f3,f4,II,Phi,Theta,Psi,dPhi,dTheta,dPsi,A,l,b)
 %#codegen
@@ -788,6 +791,8 @@ CdEta=[CdE1; CdE2; CdE3];
 
 y = inv(J)*(TauB-CdEta);
 \end{lstlisting}
+\onehalfspacing
+
 En esta función se calcula el vector de momentos ($\pmb{TauB}$), se calcula la actual matriz de cambio de base de velocidad angular a derivadas de ángulos de Euler ($\pmb{W_\eta}$), se actualiza el tensor de inercias según este cambio y se obtiene el producto $\pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}}$. Finalmente devuelve las aceleraciones según se obtienen en la ecuación \ref{eq:system2}.
 
 Los parámetros que se cargan en Matlab necesarios para definir este modelo son
@@ -1092,7 +1097,7 @@ Para los 5 parámetros a configurar hay tres opciones, y las marcadas con un pun
 
 \subsubsection*{Marco}
 
-Todos los elementos que componen el Quadcopter se sujetan en una estructura que mantiene la integridad y rigidez necesarias para el vuelo.
+Todos los elementos que componen el Quadcopter se sujetan en una estructura que mantiene la integridad y rigidez necesarias para el vuelo. Para el caso tiene el modelo $F330\>\>Wheelbase\>\>330mm$:
 
 \begin{figure}[h!]
 \begin{center}
@@ -1120,13 +1125,14 @@ Los parámetros que definen una hélice son su Longitud ($X$), és decir, diáme
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.9]{images/propeller_xy.jpeg}
-\caption{Representación de la Longitud y Pitch de una Hélice}
+\caption{Representación de la Longitud y Pitch de una hélice de dos aspas}
 \end{center}
 \end{figure} 
 
 \newpage
 \subsection{Montaje}
-% Descripción del procedimiento por pasos y con fotos
+
+Para el ensamblaje de todos los elementos se ha empezado con el Frame 
 
 \begin{center}
 \begin{tikzpicture}
@@ -1211,6 +1217,8 @@ Los parámetros que definen una hélice son su Longitud ($X$), és decir, diáme
 \section*{ANEXOS}
 \subsection*{Anexo 1: Obtención del vector de fuerzas}
 Para trabajar con la dinámica del sistema se obtiene el vector de fuerzas a partir del Lagrangiano:
+
+\singlespacing
 \begin{lstlisting}[language=Matlab]
 clear all
 clc
@@ -1288,6 +1296,8 @@ TauB=[l*(f4-f2);
       % (m1+m2+m3+m4)]
       b*(f1-f2+f3-f4)]
 \end{lstlisting}
+\onehalfspacing
+
 \newpage
 
 %\begin{lstlisting}
@@ -1525,8 +1535,12 @@ y por tanto se obtiene que $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$ y $I_
 Queda especificado en el modelo del Frame elegido que es de $33 \>\> cm$ la distancia de motor a motor, es decir, de la diagonal principal. La longitud que se considera es de $l=16.5 \>\> cm$.
 
 \subsubsection*{Motores}
-Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se deben conocer qué fuerza y momento proporcionan, así como el consumo de energía, dado un PWM. 
-Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el eje de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm):
+Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se debe conocer qué fuerza y momento proporcionan, así como el consumo de energía para un PWM dado. La respuesta varía según las aspas que se utilicen, por lo que las curvas que se obtengan serán únicas para este caso. De cambiarlas tanto la fuerza, consumo y momentos generados.  \\
+
+
+Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el punto en donde se crea el ángulo, de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm). 
+
+Las partes están hechas de madera (parte marrón) y plástico ABS (parte verde). Toda la estructura se sujeta a unas maderas:
 
 \begin{figure}[h!]
 \begin{center}
@@ -1534,17 +1548,17 @@ Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la 
 \caption{Bancada para el estudio del motor}
 \end{center}
 \end{figure}
-Las partes están hechas de madera (parte marrón) y plástico ABS (parte verde). Toda la estructura se sujeta a unas maderas:
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.09]{images/montaje.jpg}
-\caption{Montaje para el estudio del motor}
-\end{center}
-\end{figure}
 
-Se transmite al ESC a qué velocidad se debe hacer funcionar el motor des de la Raspberry Pi por medio de una señal PWM. El programa que se ejecuta para hacer las pruebas es:
+%\begin{figure}[h!]
+%\begin{center}
+%\includegraphics[scale=0.09]{images/montaje.jpg}
+%\caption{Montaje para el estudio del motor}
+%\end{center}
+%\end{figure}
 
+Se transmite al ESC a qué velocidad se debe hacer funcionar el motor des de la Raspberry Pi por medio de una señal PWM. El código que se ejecuta para hacer las pruebas es:
+\singlespacing
 \begin{lstlisting}[language=C]
 #include <stdio.h>
 #include <termios.h>
@@ -1574,8 +1588,8 @@ int main(void){
         return 0;
 }
 \end{lstlisting}
-
-\vspace{0.75cm}
+\onehalfspacing
+%\vspace{0.75cm}
 Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\% del PWM enviado al Variador. Las lecturas que se obtienen son: 
 
 \begin{center}
@@ -1616,20 +1630,21 @@ Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\%
 \hline
 \end{tabular}
 \end{center}
-Graficado:
 
+El PWM(\%) que se envía está comprendido entre el 5\% y el 10\% del ciclo de trabajo, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza se considera demasiado grande y al no preverse que se haga funcionar al sistema en semejantes condiciones, no se estudia. Se detecta una relación proporcional del PWM con la fuerza generada.
+
+Graficado: \\
 %\begin{figure}[h!]
 %\begin{center}
 %\includegraphics[scale=0.8]{images/MvsPWM.jpeg}
 %\caption{Relación entre la fuerza (en gramos) y el PWM}
 %\end{center}
 %\end{figure}
-
 \begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 \path[draw] (11,-0.5) node {PWM(\%)};
-\path[draw] (-0.6,6.5) node {M(g)};
+\path[draw] (-0.6,4) node {M(g)};
 \begin{axis}[width=12cm,height=6cm,xmin=5,ymin=0]
 
 \addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
@@ -1653,9 +1668,6 @@ Graficado:
 			(8.25,400)
 			(8.5	,450)
         }; 
-        
-
-
 % \path[draw] [domain=5:10,red] plot ({\x},{32.575824*\x-32.175});        
 %\addplot[red, thick] {5,8.5}(x,32.575824*x-32.175); 
 % \node [above] at (axis cs:  2211,  1110) {$32h$};
@@ -1669,44 +1681,7 @@ Graficado:
 \end{center}
 \end{figure}
 
-
-\begin{tikzpicture}
-%\foreach \Point in {(5,0), (5.25,13), (5.5,38), (5.75,74), (6,98)}{
-%    \node at \Point {\textbullet};
-%}
-\begin{axis}[width=10cm,height=6cm, xmin=5]
-%    xmin=-10, xmax=10,
-%    ymin=-10, ymax=10,
-%    xtick=\empty, ytick=\empty
-]
-\addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
-    coordinates {
-%         (2211, 1110)
-%         (6164, 4168)
-%         (11610, 36335)
-			(5,0)
-			(5.25,13)	
-			(5.5,38)
-			(5.75,74)
-			(6,98)
-			(6.25,128)
-			(6.5,158)
-			(6.75,191)
-			(7,215)
-			(7.25,250)
-			(7.5	,277)
-			(7.75,318)
-			(8,360)
-			(8.25,400)
-			(8.5	,450)
-        }; 
-\addplot[dashed] {1};
-\end{axis}
-\end{tikzpicture}
-
-En el eje de les abscisas el PWM(\%) es entre el 5\% y el 10\% de la señal enviada, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza era demasiado grande y no se prevé que se haga funcionar al sistema en semejantes condiciones de trabajo, no se estudia. 
-
-Se ve una relación proporcional del PWM con la fuerza generada. Se considera que una regresión lineal será suficiente. Se obtiene que la fuerza $f(PWM)$ del motor será:
+Se considera que una regresión lineal será suficiente. Se obtiene que la fuerza $f(PWM)$ del motor será:
 $$f=32.5758 \cdot PWM(\%)-32.1758$$
 con un coeficiente de determinación en la regresión de  $R^2=0.9929$. Este resultado facilita el problema en ser una relación suficiente sencilla.
 

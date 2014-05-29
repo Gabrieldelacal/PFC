@@ -12,12 +12,12 @@
 \contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Simulink}{18}{subsection.3.3}
 \contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{22}{section.4}
 \contentsline {subsection}{\numberline {4.1}Regulador Quadr\IeC {\'a}tico Lineal}{22}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Obtenci\IeC {\'o}n de la ley de control}{23}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.2}Obtenci\IeC {\'o}n de la ley de control}{22}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Aplicaci\IeC {\'o}n en el modelo}{23}{subsection.4.3}
 \contentsline {section}{\numberline {5}Implementaci\IeC {\'o}n del control}{24}{section.5}
 \contentsline {section}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{25}{section.6}
 \contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o}n de los componentes}{25}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Montaje}{32}{subsection.6.2}
-\contentsline {section}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{33}{section.7}
-\contentsline {section}{\numberline {8}Estudio del impacto ambiental}{34}{section.8}
-\contentsline {section}{\numberline {9}Conclusiones}{35}{section.9}
+\contentsline {subsection}{\numberline {6.2}Montaje}{31}{subsection.6.2}
+\contentsline {section}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{32}{section.7}
+\contentsline {section}{\numberline {8}Estudio del impacto ambiental}{33}{section.8}
+\contentsline {section}{\numberline {9}Conclusiones}{34}{section.9}
