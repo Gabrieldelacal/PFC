@@ -3,21 +3,21 @@
 \contentsline {section}{\numberline {1}Prefacio}{5}{section.1}
 \contentsline {subsection}{\numberline {1.1}Motivaci\IeC {\'o}n}{5}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Requerimientos previos}{5}{subsection.1.2}
-\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{6}{section.2}
-\contentsline {subsection}{\numberline {2.1}Estudio del arte}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Objetivos del proyecto}{7}{subsection.2.2}
-\contentsline {section}{\numberline {3}Definici\IeC {\'o}n del modelo}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de les variables}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{9}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Simulink}{14}{subsection.3.3}
-\contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{17}{section.4}
-\contentsline {subsection}{\numberline {4.1}Regulador Quadr\IeC {\'a}tico Lineal}{17}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Obtenci\IeC {\'o}n de la ley de control}{17}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Aplicaci\IeC {\'o}n en el modelo}{18}{subsection.4.3}
-\contentsline {section}{\numberline {5}Implementaci\IeC {\'o}n del control}{19}{section.5}
-\contentsline {section}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{20}{section.6}
-\contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o}n de los componentes}{20}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Montaje}{25}{subsection.6.2}
-\contentsline {section}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{26}{section.7}
-\contentsline {section}{\numberline {8}Estudio del impacto ambiental}{27}{section.8}
-\contentsline {section}{\numberline {9}Conclusiones}{28}{section.9}
+\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Estudio del arte}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Objetivos del proyecto}{8}{subsection.2.2}
+\contentsline {section}{\numberline {3}Definici\IeC {\'o}n del modelo}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de les variables}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{12}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Simulink}{18}{subsection.3.3}
+\contentsline {section}{\numberline {4}Dise\IeC {\~n}o del controlador}{22}{section.4}
+\contentsline {subsection}{\numberline {4.1}Regulador Quadr\IeC {\'a}tico Lineal}{22}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Obtenci\IeC {\'o}n de la ley de control}{23}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Aplicaci\IeC {\'o}n en el modelo}{23}{subsection.4.3}
+\contentsline {section}{\numberline {5}Implementaci\IeC {\'o}n del control}{24}{section.5}
+\contentsline {section}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{25}{section.6}
+\contentsline {subsection}{\numberline {6.1}Descripci\IeC {\'o}n de los componentes}{25}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Montaje}{32}{subsection.6.2}
+\contentsline {section}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{33}{section.7}
+\contentsline {section}{\numberline {8}Estudio del impacto ambiental}{34}{section.8}
+\contentsline {section}{\numberline {9}Conclusiones}{35}{section.9}

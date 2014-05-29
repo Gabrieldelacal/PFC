@@ -1,4 +1,4 @@
-\documentclass[twoside]{article}
+\documentclass[twoside,11pt]{article}
 \usepackage{graphicx}
 
 %\usepackage[latin1]{inputenc}
@@ -24,11 +24,15 @@
 	frame=single}
 \usepackage{color}
 \usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \usepackage{slashbox}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
+\usepackage{multirow}
 
 \usetikzlibrary{decorations.pathmorphing,patterns}
+
+\renewcommand{\baselinestretch}{1.3}
 
 \title{\begin{center} 
 \includegraphics[scale=0.3]{images/upc.jpg} 
@@ -38,7 +42,7 @@ Proyecto Final de Carrera\\
 INGENIERÍA INDUSTRIAL \\
 \vspace{1.5cm} 
 \Huge{Control de un Quadcopter} 
-\vspace{2cm} \\ 
+\vspace{0.5cm} \\ 
 Memoria}
 %\author{Gabriel de la Cal Mendoza}
 \date{}
@@ -242,8 +246,7 @@ S_\psi C_\theta & S_\psi S_\theta S_\phi + C_\psi C_\phi & S_\psi S_\theta C_\ph
 -S_\theta & C_\theta C_\phi & C_\theta C_\phi 
 \end{array}\right]
 \end{equation}
-con $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$.\newpage
-Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
+con $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$. Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
 \begin{equation}
 \pmb{v_B}=\left[\begin{array}{c}
 v_{x,b}\\
@@ -419,8 +422,8 @@ x_1a_{12}+x_2a_{22}+x_3a_{23} \\
 x_1a_{13}+x_2a_{23}+x_3a_{23}
 \end{array} \right]
 \end{equation}
-\hfill $\blacksquare$ \newpage
-Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $J\dot{\eta}$:
+\hfill $\blacksquare$ \\
+Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $J\dot{\eta}$ que:
 \begin{equation}
 \pmb{F}=\frac{d}{dt}\left(m \dot{\pmb{\xi}}+\pmb{J} \pmb{\dot{\eta}}\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}} =m\pmb{\ddot{\xi}} + \pmb{J}\pmb{\ddot{\eta}} + \pmb{\dot{J}}\pmb{\dot{\eta}}-\left( \frac{1}{2} 2 \frac{\partial}{\partial \pmb{\dot{\eta}}} ( \pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} - mg\left[\begin{array}{c}
 0 \\
@@ -514,17 +517,15 @@ donde $\pmb{K}$ es el termino que incluye a la constate de la gravedad, separada
 \end{equation}
 
 En considerar que las posiciones angulares de $\phi$ y $\theta$ no diferirán significativamente respecto de zero y que el ángulo $\psi$ no es relevante, se trabaja con una matriz de rotación $R$ igual a la identidad
-
 \begin{equation}
 \pmb{R}=\left[\begin{array}{ccc}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1 \\ \end{array} \right]
 \end{equation}
-
 Se ha mantenido el término independiente de la gravedad a fuera de la función $\pmb{f(x,u)}$ para no eliminarlo en la derivada del jacobiano. Las matrices $\pmb{A}$ y $\pmb{B}$ quedan como
 \begin{equation}
-\hspace*{-0.5cm}\pmb{A}=\left[ \begin{array}{cccccccccccc}
+\hspace*{-0.9cm}\pmb{A}=\left[ \begin{array}{cccccccccccc}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -1434,14 +1435,28 @@ donde $\mathbf{M}$ es el momento resultante y $\mathbf{L_{o}}$ es el momento cin
 El momento resultante puede expresarse entonces de la forma 
 
 \begin{equation}
-\mathbf{M}=\frac{d(\mathbf{I}\dot{\mathbf{\Omega}})}{dt}=\mathbf{I}\ddot{\mathbf{\Omega}}
+\mathbf{M}=\frac{d(\mathbf{I}\dot{\mathbf{\Omega}})}{dt}=\mathbf{I}\ddot{\mathbf{\Omega}}=\left[ \begin{array}{ccc}
+I_{xx} & 0 & 0 \\
+0 & I_{yy} & 0 \\
+0 & 0 & I_{zz} \\
+\end{array} \right]\left[ \begin{array}{c}
+\ddot{\Omega}_{x} \\
+\ddot{\Omega}_{y} \\
+\ddot{\Omega}_{z} \\
+\end{array} \right]=\left[ \begin{array}{ccc}
+I_{xx} & 0 & 0 \\
+0 & I_{yy} & 0 \\
+0 & 0 & I_{zz} \\
+\end{array} \right]\left[ \begin{array}{c}
+\ddot{\Omega} \\
+0 \\
+0 \\
+\end{array} \right] = I_{xx} \ddot{\Omega}
 \label{53}
 \end{equation}
 
-en suponer que el tensor de inercia no varía con el tiempo. Como ************************
-
-\newpage
-Para el muelle se tiene que, según la ley de Hooke
+en suponer que el tensor de inercia no varía con el tiempo. Se asume 
+que el eje de rotación $\dot{\Omega}$ pasa por el centro de masas, de lo contrario debería aplicarse el teorema de Steiner. Para el muelle se tiene que, según la ley de Hooke
 
 \begin{equation}
 M=-D \cdot \Omega
@@ -1451,12 +1466,65 @@ M=-D \cdot \Omega
 donde $\mathbf{\Omega}$ es el ángulo girado en la dirección longitudinal del muelle. Igualando las expresiones \ref{53} y \ref{54} se llega a 
 
 \begin{equation}
--D \cdot \Omega = I_{xx}\ddot{\Omega}\quad \Longrightarrow \quad \ddot{\Omega}+\frac{D}{I_{xx}}\Omega =0
+-D \cdot \Omega = I_{xx}\ddot{\Omega}\quad \Longrightarrow \quad \ddot{\Omega}+\frac{D}{I_{xx}}\Omega =0 
 \end{equation}
 
+La solución de la ecuación anterior es el de un oscilador armónico de periodo 
 
+\begin{equation}
+T=2\pi \sqrt{\frac{I_{xx}}{D}}
+\end{equation}
 
-\subsubsection*{motores}
+Ésto se cumple en oscilaciones pequeñas cercanas al punto de equilibrio, donde $\Omega=\dot{\Omega}=\ddot{\Omega}$. Por lo tanto, el periodo de una oscilación es suficiente para poder calcular el momento de inercia en estar directamente relacionados. Para obtener resultados más precisos se medirá el tiempo varias veces. \\
+
+Para calcular la constante de torsión del muelle se le ha sometido a ensayo, sometiéndolo a diferentes deformaciones elásticas y observando con qué momento éste respondía:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$\mathbf{\Omega}$(º) & $\mathbf{M}$($g \cdot 10cm$) & $\mathbf{M}$($N \cdot m$) \\
+\hline 
+\hline 
+30 & 33 & 0.0323 \\
+45 & 46 & 0.0451 \\
+60 & 62 & 0.0608 \\
+90 & 93 & 0.0912 \\
+\hline 
+\end{tabular}
+\end{center}
+
+En calcular la relación entre ambas magnitudes para obtener la constante de torsión del muelle, por regresión lineal se obtiene que la pendiente es de $1.0095\>\>g\cdot10cm/grad$. La constante entonces puede expresarse en unidades del Sistema Internacional como 
+
+\begin{equation}
+D=1.0095 \>\> \frac{g\cdot10cm}{grad}\cdot\frac{9.81 \>\> N}{1000 \>\> g} \cdot \frac{1 \>\> m}{100 \>\> cm} \cdot \frac{360 \>\> grad}{2\pi \>\> rad} = 0.0567 \>\> \frac{Nm}{rad}
+\end{equation}
+
+En hacer oscilar el Quadcopter en el eje $x$ se obtiene:
+
+\begin{center}
+\begin{tabular}{|c|cccc|c|c|}
+\hline
+\textbf{Eje} & \multicolumn{4}{c|}{\textbf{Muestras}(s)} & \textbf{Media}(s) & \textbf{Momento de inercia}($kg \cdot m^{2}$) \\
+\hline
+\multirow{4}{*}{$x$} & 2.3 & 2.3 & 2.5 & 2.2 & \multirow{4}{*}{2.35} & \multirow{4}{*}{$7.932\cdot 10^{-3}$} \\
+& 2.3 & 2.4 & 2.5 & 2.4 & & \\
+& 2.4 & 2.3 & 2.3 & 2.4 & & \\
+& 2.3 & 2.4 & 2.3 & 2.3 & & \\
+\hline
+\multirow{4}{*}{$y$} & 2.4 & 2.3 & 2.2 & 2.4 & \multirow{4}{*}{2.31} & \multirow{4}{*}{$7.664\cdot 10^{-3}$} \\
+& 2.2 & 2.4 & 2.3 & 2.2 & & \\
+& 2.4 & 2.3 & 2.3 & 2.4 & & \\
+& 2.3 & 2.3 & 2.3 & 2.3 & & \\
+\hline
+\end{tabular}
+\end{center}
+
+y por tanto se obtiene que $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$ y $I_{yy}=7.664\cdot 10^{-3}\>\> kg \cdot m^{2}$.
+
+\subsubsection*{Longitud de brazo}
+
+Queda especificado en el modelo del Frame elegido que es de $33 \>\> cm$ la distancia de motor a motor, es decir, de la diagonal principal. La longitud que se considera es de $l=16.5 \>\> cm$.
+
+\subsubsection*{Motores}
 Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se deben conocer qué fuerza y momento proporcionan, así como el consumo de energía, dado un PWM. 
 Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el eje de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm):
 
@@ -1562,8 +1630,8 @@ Graficado:
 \begin{tikzpicture}
 \path[draw] (11,-0.5) node {PWM(\%)};
 \path[draw] (-0.6,6.5) node {M(g)};
-%\path[draw] [domain=5:8.5,red] plot ({\x},{32.575824*\x-32.175});
 \begin{axis}[width=12cm,height=6cm,xmin=5,ymin=0]
+
 \addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
     coordinates {
 %         (2211, 1110)
@@ -1585,6 +1653,9 @@ Graficado:
 			(8.25,400)
 			(8.5	,450)
         }; 
+        
+
+
 % \path[draw] [domain=5:10,red] plot ({\x},{32.575824*\x-32.175});        
 %\addplot[red, thick] {5,8.5}(x,32.575824*x-32.175); 
 % \node [above] at (axis cs:  2211,  1110) {$32h$};
@@ -1597,6 +1668,41 @@ Graficado:
 \caption{Relación entre la fuerza (en gramos) y el PWM}
 \end{center}
 \end{figure}
+
+
+\begin{tikzpicture}
+%\foreach \Point in {(5,0), (5.25,13), (5.5,38), (5.75,74), (6,98)}{
+%    \node at \Point {\textbullet};
+%}
+\begin{axis}[width=10cm,height=6cm, xmin=5]
+%    xmin=-10, xmax=10,
+%    ymin=-10, ymax=10,
+%    xtick=\empty, ytick=\empty
+]
+\addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
+    coordinates {
+%         (2211, 1110)
+%         (6164, 4168)
+%         (11610, 36335)
+			(5,0)
+			(5.25,13)	
+			(5.5,38)
+			(5.75,74)
+			(6,98)
+			(6.25,128)
+			(6.5,158)
+			(6.75,191)
+			(7,215)
+			(7.25,250)
+			(7.5	,277)
+			(7.75,318)
+			(8,360)
+			(8.25,400)
+			(8.5	,450)
+        }; 
+\addplot[dashed] {1};
+\end{axis}
+\end{tikzpicture}
 
 En el eje de les abscisas el PWM(\%) es entre el 5\% y el 10\% de la señal enviada, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza era demasiado grande y no se prevé que se haga funcionar al sistema en semejantes condiciones de trabajo, no se estudia. 
 
@@ -1618,31 +1724,31 @@ Para la intensidad se tiene una relación tan amigable como en el caso anterior,
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}
-\addplot[color=black,solid,thick,mark=*, mark options={fill=white}] 
-    coordinates {
+\addplot [color=black,solid,thick,mark=*, mark options={fill=white}] coordinates {
 %         (2211, 1110)
 %         (6164, 4168)
 %         (11610, 36335)
 			(5,0)
-			(5.25,0.25)	
-			(5.5,0.5)
-			(5.75,0.9)
-			(6,1.38)
-			(6.25,1.8)
-			(6.5,2.4)
-			(6.75,2.9)
-			(7,3.5)
-			(7.25,4	)
-			(7.5	,4.6)
-			(7.75,5.5)
-			(8,6.5)
-			(8.25,8)
-			(8.5	,9.15)
+			(5.25,13)	
+			(5.5,38)
+			(5.75,74)
+			(6,98)
+			(6.25,128)
+			(6.5,158)
+			(6.75,191)
+			(7,215)
+			(7.25,250)
+			(7.5	,277)
+			(7.75,318)
+			(8,360)
+			(8.25,400)
+			(8.5	,450)
         }; 
 % \addplot[red, thick] (x,32.575824*x-32.175);        
 % \node [above] at (axis cs:  2211,  1110) {$32h$};
 % \node [below] at (axis cs:  6164,  4168) {$x_1$};
 % \node [left ] at (axis cs: 11610, 36335) {$x_1-PPL_{18}$};
+\addplot [domain=-10:10, samples=2, dashed] {32.575824*x-32.175};
 \end{axis}
 \end{tikzpicture}
 \end{center}
