@@ -12,9 +12,9 @@ syms Ax Ay Az
 syms k m g l b
 
  l=0.165
- Ixx=0.004
- Iyy=0.004
- Izz=0.008
+ Ixx=0.007931
+ Iyy=0.007667
+ Izz=0.009
  m=0.85
  b=1.2*10^-7
  k=3*10^-6
@@ -366,6 +366,6 @@ Observability=rank(ov)
 
 Q=1*transpose(Cred)*Cred
 % Q=eye(4)
-R=100*eye(4)
+R=1000*eye(4)
 
 [K,S,e]=lqr(double(Ared),double(Bred),Q,R)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  30 MAY 2014 01:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  4 JUN 2014 01:09
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
@@ -12,19 +12,20 @@ skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
 orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
 , estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
 rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -49,7 +50,7 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count87
+\Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -279,12 +280,12 @@ Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
 
 (/usr/share/texmf-texlive/tex/generic/babel/babel.def
 File: babel.def 2008/07/06 v3.8l Babel common definitions
-\babel@savecnt=\count88
+\babel@savecnt=\count89
 \U@D=\dimen105
 )
-\es@datefmt=\count89
+\es@datefmt=\count90
 \es@quottoks=\toks17
-\es@quotdepth=\count90
+\es@quotdepth=\count91
 Package babel Info: Making " an active character on input line 492.
 Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
@@ -310,13 +311,13 @@ Package: amsbsy 1999/11/29 v1.2d
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count92
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count93
+\leftroot@=\count94
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count95
+\DOTSCASE@=\count96
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -325,15 +326,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen108
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
 \tag@help=\toks19
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
 \andhelp@=\toks20
 \eqnshift@=\dimen109
 \alignsep@=\dimen110
@@ -537,8 +538,8 @@ O)
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
 \@linkdim=\dimen115
-\Hy@linkcounter=\count103
-\Hy@pagecounter=\count104
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -605,7 +606,7 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count105
+\Fld@menulength=\count106
 \Field@Width=\dimen116
 \Fld@charsize=\dimen117
 \Field@toks=\toks29
@@ -620,14 +621,14 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count106
-\c@Item=\count107
-\c@Hfootnote=\count108
+\Hy@abspage=\count107
+\c@Item=\count108
+\c@Hfootnote=\count109
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count109
+\Fld@listcount=\count110
 )
 (/usr/share/texmf-texlive/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
@@ -707,9 +708,9 @@ LaTeX Font Info:    Redeclaring math accent \vec on input line 1848.
 )
 (/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
 Package: geometry 2008/12/21 v4.2 Page Geometry
-\Gm@cnth=\count110
-\Gm@cntv=\count111
-\c@Gm@tempcnt=\count112
+\Gm@cnth=\count111
+\Gm@cntv=\count112
+\c@Gm@tempcnt=\count113
 \Gm@bindingoffset=\dimen120
 \Gm@wd@mp=\dimen121
 \Gm@odd@mp=\dimen122
@@ -726,23 +727,23 @@ Package geometry Warning: Over-specification in `v'-direction.
     `height' (845.04684pt) is ignored.
 
 (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
-\lst@mode=\count113
+\lst@mode=\count114
 \lst@gtempboxa=\box28
 \lst@token=\toks32
-\lst@length=\count114
+\lst@length=\count115
 \lst@currlwidth=\dimen124
-\lst@column=\count115
-\lst@pos=\count116
+\lst@column=\count116
+\lst@pos=\count117
 \lst@lostspace=\dimen125
 \lst@width=\dimen126
-\lst@newlines=\count117
-\lst@lineno=\count118
+\lst@newlines=\count118
+\lst@lineno=\count119
 \lst@maxwidth=\dimen127
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count119
-\lst@skipnumbers=\count120
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
 \lst@framebox=\box29
 )
 (/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
@@ -803,10 +804,10 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 \pgf@yc=\dimen135
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count121
-\c@pgf@countb=\count122
-\c@pgf@countc=\count123
-\c@pgf@countd=\count124
+\c@pgf@counta=\count122
+\c@pgf@countb=\count123
+\c@pgf@countc=\count124
+\c@pgf@countd=\count125
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -821,8 +822,8 @@ File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count125
-\pgfsyssoftpath@bigbuffer@items=\count126
+\pgfsyssoftpath@smallbuffer@items=\count126
+\pgfsyssoftpath@bigbuffer@items=\count127
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -853,7 +854,7 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen136
-\pgfmath@count=\count127
+\pgfmath@count=\count128
 \pgfmath@box=\box31
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
@@ -868,7 +869,7 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count128
+\c@pgfmathroundto@lastzeros=\count129
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
@@ -902,7 +903,7 @@ File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box32
 \pgf@hbox=\box33
 \pgf@layerbox@main=\box34
-\pgf@picture@serial@count=\count129
+\pgf@picture@serial@count=\count130
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
@@ -929,7 +930,7 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
 \pgf@max=\dimen159
-\pgf@sys@shading@range@num=\count130
+\pgf@sys@shading@range@num=\count131
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -977,7 +978,7 @@ Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count131
+\pgf@plot@mark@count=\count132
 \pgfplotmarksize=\dimen164
 )
 \tikz@lastx=\dimen165
@@ -988,18 +989,18 @@ File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
 \tikzsiblingdistance=\dimen170
 \tikz@figbox=\box37
 \tikz@tempbox=\box38
-\tikztreelevel=\count132
-\tikznumberofchildren=\count133
-\tikznumberofcurrentchild=\count134
-\tikz@fig@count=\count135
+\tikztreelevel=\count133
+\tikznumberofchildren=\count134
+\tikznumberofcurrentchild=\count135
+\tikz@fig@count=\count136
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count136
-\pgfmatrixcurrentcolumn=\count137
-\pgf@matrix@numberofcolumns=\count138
+\pgfmatrixcurrentrow=\count137
+\pgfmatrixcurrentcolumn=\count138
+\pgf@matrix@numberofcolumns=\count139
 )
-\tikz@expandcount=\count139
+\tikz@expandcount=\count140
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -1023,13 +1024,13 @@ p_pgfkeysfiltered.code.tex
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count140
+\c@pgfmathroundto@lastzeros=\count141
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_pgflibraryplothandlers.code.tex
 File: pgfplotsoldpgfsupp_pgflibraryplothandlers.code.tex 2009/02/13 v2.10 (rcs-
 revision 1.7)
-\pgf@plot@mark@count=\count141
+\pgf@plot@mark@count=\count142
 \pgfplotmarksize=\dimen172
 )
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
@@ -1040,10 +1041,10 @@ ure.code.tex)
 ureext.code.tex)
 (/usr/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotsarray.code
 .tex
-\c@pgfplotsarray@tmp=\count142
+\c@pgfplotsarray@tmp=\count143
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
-\c@pgfplotstable@counta=\count143
+\c@pgfplotstable@counta=\count144
 \pgfplotstable@outfile=\write4
 
 (/usr/share/texmf-texlive/tex/generic/pgfplots/numtable/pgfplotstable.coltype.c
@@ -1060,7 +1061,7 @@ ations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen175
 \pgfdecoratedinputsegmentremainingdistance=\dimen176
 \pgf@decorate@distancetomove=\dimen177
-\pgf@decorate@repeatstate=\count144
+\pgf@decorate@repeatstate=\count145
 \pgfdecorationsegmentamplitude=\dimen178
 \pgfdecorationsegmentlength=\dimen179
 )
@@ -1074,7 +1075,7 @@ athmorphing.code.tex))
 ations.pathreplacing.code.tex
 (/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.p
 athreplacing.code.tex))
-\pgfplots@numplots=\count145
+\pgfplots@numplots=\count146
 \pgfplots@xmin@reg=\dimen180
 \pgfplots@xmax@reg=\dimen181
 \pgfplots@ymin@reg=\dimen182
@@ -1097,8 +1098,8 @@ slashbox style by K.Yasuoka, May 1993.
 \@slashboxa=\box40
 \@slashboxb=\box41
 \@slashboxc=\box42
-\@slashboxwd=\count146
-\@slashboxht=\count147
+\@slashboxwd=\count147
+\@slashboxht=\count148
 \@slashsepl=\dimen186
 \@slashsepr=\dimen187
 )
@@ -1184,6 +1185,20 @@ File: tikzlibrarytrees.code.tex 2008/02/24 v2.10 (rcs-revision 1.2)
 ) (/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen189
 )
+(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+\TX@col@width=\dimen190
+\TX@old@table=\dimen191
+\TX@old@col=\dimen192
+\TX@target=\dimen193
+\TX@delta=\dimen194
+\TX@cols=\count149
+\TX@ftn=\toks46
+)
+(/usr/share/texmf-texlive/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box63
+)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatte
 rns.code.tex
 File: tikzlibrarypatterns.code.tex 2008/01/15 v2.10 (rcs-revision 1.2)
@@ -1195,7 +1210,27 @@ File: pgflibrarypatterns.code.tex 2008/03/03 v2.10 (rcs-revision 1.13)
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+) (/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen195
+\lightrulewidth=\dimen196
+\cmidrulewidth=\dimen197
+\belowrulesep=\dimen198
+\belowbottomsep=\dimen199
+\aboverulesep=\dimen200
+\abovetopsep=\dimen201
+\cmidrulesep=\dimen202
+\cmidrulekern=\dimen203
+\defaultaddspace=\dimen204
+\@cmidla=\count150
+\@cmidlb=\count151
+\@aboverulesep=\dimen205
+\@belowrulesep=\dimen206
+\@thisruleclass=\count152
+\@lastruleclass=\count153
+\@thisrulewidth=\dimen207
+)
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip51
 \f@ncyO@elh=\skip52
 \f@ncyO@erh=\skip53
@@ -1208,58 +1243,58 @@ Package: `setspace' 6.7 <2000/12/01>
 ) (./prolat.aux)
 \openout1 = `prolat.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 71.
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count148
-\scratchdimen=\dimen190
-\scratchbox=\box63
-\nofMPsegments=\count149
-\nofMParguments=\count150
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count151
-\MPscratchDim=\dimen191
-\MPnumerator=\count152
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count154
+\scratchdimen=\dimen208
+\scratchbox=\box64
+\nofMPsegments=\count155
+\nofMParguments=\count156
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count157
+\MPscratchDim=\dimen209
+\MPnumerator=\count158
+\everyMPtoPDFconversion=\toks48
 )
-Package hyperref Info: Link coloring OFF on input line 69.
+Package hyperref Info: Link coloring OFF on input line 71.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count153
+\c@section@level=\count159
 )
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
  (./prolat.out)
 (./prolat.out)
 \@outlinefile=\write5
 \openout5 = `prolat.out'.
 
-\AtBeginShipoutBox=\box64
+\AtBeginShipoutBox=\box65
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -1302,17 +1337,17 @@ driver: pdftex
 \@twosidetrue \@mparswitchtrue 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-\c@lstlisting=\count154
+\c@lstlisting=\count160
 ABD: EveryShipout initializing macros
 <images/upc.jpg, id=94, 225.84375pt x 225.84375pt>
 File: images/upc.jpg Graphic file (type jpg)
  <use images/upc.jpg>
-LaTeX Font Info:    Try loading font information for U+msa on input line 72.
+LaTeX Font Info:    Try loading font information for U+msa on input line 84.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+LaTeX Font Info:    Try loading font information for U+msb on input line 84.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -1320,19 +1355,16 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-<images/etseib.jpg, id=95, 147.55125pt x 193.47281pt>
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg>
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/upc.jpg> <./image
-s/etseib.jpg>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/upc.jpg>]
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
@@ -1342,8 +1374,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+<images/etseib.jpg, id=115, 147.55125pt x 193.47281pt>
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg>
+ <use images/etseib.jpg>
 
 Package Fancyhdr Warning: \footskip is too small (30.0pt): 
  Make it at least 38.69386pt.
@@ -1354,46 +1387,45 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 
-       [1]
+l.118 
+       [1 <./images/etseib.jpg>]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg>pdfTeX warning (ext4): destination with the same identi
 fier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.118 \newpage
+l.123 \newpage
                [2] [3] (./prolat.toc)
 \tf@toc=\write6
 \openout6 = `prolat.toc'.
 
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg>pdfTeX warning (ext4): destination with the same identi
-fier (name{page.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.130 \newpage
-               [1] (./prolat.lof)
+l.135 \newpage
+               [1
+
+] (./prolat.lof)
 \tf@lof=\write7
 \openout7 = `prolat.lof'.
 
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [4]
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+ [4
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
-
- []
-
+]
+Cap\'{\i }tulo 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
@@ -1403,90 +1435,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+[5
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [5]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [6]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+<use images/etseib.jpg> [6]
+Cap\'{\i }tulo 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-<images/quadcopter_example.jpg, id=217, 406.51875pt x 228.855pt>
+<images/quadcopter_example.jpg, id=227, 406.51875pt x 228.855pt>
 File: images/quadcopter_example.jpg Graphic file (type jpg)
 
 <use images/quadcopter_example.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 179--180
 
  []
 
-<images/6_armed_quadcopter.jpg, id=218, 602.25pt x 338.76563pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7
+
+ <./images/quadcopter_example.jpg>]
+<images/6_armed_quadcopter.jpg, id=232, 602.25pt x 338.76563pt>
 File: images/6_armed_quadcopter.jpg Graphic file (type jpg)
 
 <use images/6_armed_quadcopter.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [7 <./images/quadcopter_example.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [8 <./images/6_armed_quadcopter.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+
+ []
+
 File: images/etseib.jpg Graphic file (type jpg)
-
 <use images/etseib.jpg> [9]
+Cap\'{\i }tulo 3.
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 213
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 221
 .
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 213
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 221
 .
 
 Missing character: There is no ∫ in font cmr10!
-<images/quad.jpg, id=234, 620.3175pt x 261.97874pt>
+<images/quad.jpg, id=243, 620.3175pt x 261.97874pt>
 File: images/quad.jpg Graphic file (type jpg)
  <use images/quad.jpg>
-File: images/etseib.jpg Graphic file (type jpg)
+[10
 
-<use images/etseib.jpg> [10 <./images/quad.jpg>]
-Overfull \hbox (14.61317pt too wide) in paragraph at lines 282--284
+ <./images/quad.jpg>]
+Overfull \hbox (14.61317pt too wide) in paragraph at lines 290--292
 \T1/cmr/m/n/10.95 Las fuer-zas de sus-ten-ta-ciÛn y ve-lo-ci-da-des an-gu-la-re
 s de los cua-tro ac-tua-do-res son $\OML/cmm/m/it/10.95 f[]; f[]; f[]; f[]$
  []
@@ -1497,19 +1536,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [11]
-Overfull \hbox (2.03055pt too wide) in paragraph at lines 311--312
+Overfull \hbox (2.03055pt too wide) in paragraph at lines 319--320
 []\T1/cmr/m/n/10.95 Las ecua-cio-nes que go-bier-nan el sis-te-ma se ob-tie-nen
  con el mÈ-to-do de Euler-Lagrange,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--333
+Underfull \hbox (badness 10000) in paragraph at lines 336--341
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [12]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
@@ -1519,124 +1558,161 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [13]
-Overfull \hbox (2.92644pt too wide) in paragraph at lines 488--489
-\T1/cmr/m/n/10.95 dos, y por tan-to el vec-tor de es-ta-dos se-r· de la for-ma 
-$[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [14]
+Overfull \hbox (12.6054pt too wide) in paragraph at lines 499--500
+\T1/cmr/m/n/10.95 ta-dos, y por tan-to el vec-tor de es-ta-dos se-r· de la for-
+ma $[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [15]
-Underfull \hbox (badness 10000) in paragraph at lines 580--581
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [16]
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [16]pdfTeX warning (ext4): destination with the same id
-entifier (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.682 \begin{equation}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.682 \begin{equation}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.682 \begin{equation}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.35}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.682 \begin{equation}
-                      
+
+<use images/etseib.jpg> [17pdfTeX warning (ext4): destination with the same ide
+ntifier (name{equation.3.2.34}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.732 \end{equation}
+                    ]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [17]
-<images/Simulink_model.jpeg, id=319, 530.73282pt x 691.08188pt>
+ <use images/etseib.jpg> [18]
+<images/Simulink_model.jpeg, id=327, 530.73282pt x 691.08188pt>
 File: images/Simulink_model.jpeg Graphic file (type jpg)
 
 <use images/Simulink_model.jpeg>
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [18 <./images/Simulink_model.jpeg>]
+<use images/etseib.jpg> [19 <./images/Simulink_model.jpeg>]
 
-LaTeX Warning: Command \' invalid in math mode on input line 745.
+LaTeX Warning: Command \' invalid in math mode on input line 757.
 
 Missing character: There is no · in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 745--746
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--762
+Underfull \hbox (badness 10000) in paragraph at lines 773--774
 
  []
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 763.
+LaTeX Warning: Command \' invalid in math mode on input line 775.
 
 Missing character: There is no · in font cmr10!
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [19]
+<use images/etseib.jpg> [20]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [20]
+ <use images/etseib.jpg> [21]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [21]
-Underfull \hbox (badness 10000) in paragraph at lines 825--826
-
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [22]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 929.
+Cap\'{\i }tulo 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 838--839
+
+ []
+
+[23
+
+]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 942.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [23pdfTeX warning (ext4): destination with the same id
-entifier (name{equation.4.46}) has been already used, duplicate ignored
+
+<use images/etseib.jpg> [24pdfTeX warning (ext4): destination with the same ide
+ntifier (name{equation.4.2.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.946 \newpage
-              ]
+l.947 
+      ]
+Underfull \hbox (badness 10000) in paragraph at lines 980--981
+
+ []
+
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [24]
-<images/RPi.jpg, id=432, 2569.6pt x 1445.4pt>
-File: images/RPi.jpg Graphic file (type jpg)
- <use images/RPi.jpg>
-<images/RPi2.jpg, id=433, 513.92pt x 400.49625pt>
-File: images/RPi2.jpg Graphic file (type jpg)
- <use images/RPi2.jpg>
+<use images/etseib.jpg> [25]
+<images/Simulink_model_2.jpeg, id=441, 934.24031pt x 549.55313pt>
+File: images/Simulink_model_2.jpeg Graphic file (type jpg)
+
+<use images/Simulink_model_2.jpeg>
+Overfull \hbox (7.83928pt too wide) in paragraph at lines 988--989
+[][] 
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [26 <./images/Simulink_model_2.jpeg>]
+Underfull \vbox (badness 1735) has occurred while \output is active []
+
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [25 <./images/RPi.jpg> <./images/RPi2.jpg>]
-<images/mpu-6050.jpg, id=440, 367.3725pt x 481.8pt>
+<use images/etseib.jpg> [27]
+<images/simulation_1.jpeg, id=496, 1373.88281pt x 738.50906pt>
+File: images/simulation_1.jpeg Graphic file (type jpg)
+
+<use images/simulation_1.jpeg>
+<images/simulation_2.jpeg, id=497, 1375.38844pt x 736.25063pt>
+File: images/simulation_2.jpeg Graphic file (type jpg)
+
+<use images/simulation_2.jpeg>
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [28 <./images/simulation_1.jpeg> <./images/simulation_
+2.jpeg>]
+Cap\'{\i }tulo 5.
+[29
+
+]
+Cap\'{\i }tulo 6.
+<images/RPi.jpg, id=508, 2569.6pt x 1445.4pt>
+File: images/RPi.jpg Graphic file (type jpg)
+ <use images/RPi.jpg>
+<images/RPi2.jpg, id=509, 513.92pt x 400.49625pt>
+File: images/RPi2.jpg Graphic file (type jpg)
+ <use images/RPi2.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[30
+
+ <./images/RPi.jpg>] <images/mpu-6050.jpg, id=516, 367.3725pt x 481.8pt>
 File: images/mpu-6050.jpg Graphic file (type jpg)
- <use images/mpu-6050.jpg>
-Overfull \hbox (16.07733pt too wide) in paragraph at lines 991--999
+
+<use images/mpu-6050.jpg>
+Overfull \hbox (16.07733pt too wide) in paragraph at lines 1123--1131
 \T1/cmr/m/n/10.95 Como ca-rac-te-rÌs-ti-cas de los sen-so-res: el gi-rÛs-co-po 
 tie-ne un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m
 /it/10.95 ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 500\OML/cmm/m/it/10.95
@@ -1644,167 +1720,200 @@ tie-ne un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m
 SymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
  []
 
-<images/E_R.jpg, id=441, 336.50719pt x 266.49562pt>
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [31 <./images/RPi2.jpg> <./images/mpu-6050.jpg>]
+<images/E_R.jpg, id=522, 336.50719pt x 266.49562pt>
 File: images/E_R.jpg Graphic file (type jpg)
  <use images/E_R.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1019
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
 
  []
 
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [26 <./images/mpu-6050.jpg>]
-<images/LiPo.jpg, id=448, 2569.6pt x 1445.4pt>
+<images/LiPo.jpg, id=523, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 1030--1031
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [32 <./images/LiPo.jpg> <./images/E_R.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
 
  []
 
-<images/Reg_stepdown.jpg, id=450, 2569.6pt x 1445.4pt>
+<images/Reg_stepdown.jpg, id=532, 2569.6pt x 1445.4pt>
 File: images/Reg_stepdown.jpg Graphic file (type jpg)
 
 <use images/Reg_stepdown.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/lm2576s.jpeg, id=452, 504.38437pt x 144.54pt>
+<images/lm2576s.jpeg, id=534, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
 <use images/lm2576s.jpeg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [27 <./images/LiPo.jpg> <./images/E_R.jpg>]
-<images/ESC.jpeg, id=462, 335.75438pt x 191.9672pt>
+ <use images/etseib.jpg> [33 <./images/Reg_stepdown.jpg> <./images/lm2576s.jpeg
+>]
+<images/ESC.jpeg, id=542, 335.75438pt x 191.9672pt>
 File: images/ESC.jpeg Graphic file (type jpg)
  <use images/ESC.jpeg>
-File: images/etseib.jpg Graphic file (type jpg)
-
-<use images/etseib.jpg> [28 <./images/Reg_stepdown.jpg> <./images/lm2576s.jpeg>
-] <images/ESC_config.jpeg, id=469, 792.71156pt x 264.99pt>
+<images/ESC_config.jpeg, id=543, 792.71156pt x 264.99pt>
 File: images/ESC_config.jpeg Graphic file (type jpg)
 
 <use images/ESC_config.jpeg>
-Underfull \vbox (badness 4819) has occurred while \output is active []
-
-File: images/etseib.jpg Graphic file (type jpg)
-
-<use images/etseib.jpg> [29 <./images/ESC.jpeg> <./images/ESC_config.jpeg>]
-<images/frame.jpg, id=475, 2569.6pt x 1445.4pt>
-File: images/frame.jpg Graphic file (type jpg)
- <use images/frame.jpg>
-<images/propeller_image.jpg, id=476, 2569.6pt x 1445.4pt>
-File: images/propeller_image.jpg Graphic file (type jpg)
-
-<use images/propeller_image.jpg>
-<images/propeller_xy.jpeg, id=478, 168.63pt x 86.57344pt>
-File: images/propeller_xy.jpeg Graphic file (type jpg)
-
-<use images/propeller_xy.jpeg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [30 <./images/propeller_image.jpg> <./images/frame.jpg>
+<use images/etseib.jpg> [34 <./images/ESC.jpeg>]
+<images/frame.jpg, id=551, 2569.6pt x 1445.4pt>
+File: images/frame.jpg Graphic file (type jpg)
+ <use images/frame.jpg>
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [35 <./images/ESC_config.jpeg> <./images/frame.jpg>]
+<images/propeller_image.jpg, id=558, 2569.6pt x 1445.4pt>
+File: images/propeller_image.jpg Graphic file (type jpg)
+
+<use images/propeller_image.jpg>
+<images/propeller_xy.jpeg, id=560, 168.63pt x 86.57344pt>
+File: images/propeller_xy.jpeg Graphic file (type jpg)
+
+<use images/propeller_xy.jpeg>
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [36 <./images/propeller_image.jpg> <./images/propeller
+_xy.jpeg>]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [37]
+Cap\'{\i }tulo 7.
+[38
+
 ]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [31 <./images/propeller_xy.jpeg>]
-File: images/etseib.jpg Graphic file (type jpg)
+Cap\'{\i }tulo 8.
+[39
 
-<use images/etseib.jpg> [32]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [33]
-File: images/etseib.jpg Graphic file (type jpg)
+]
+Cap\'{\i }tulo 9.
+[40
 
-<use images/etseib.jpg> [34]
-Underfull \hbox (badness 3746) in paragraph at lines 1201--1202
+]
+Underfull \hbox (badness 3746) in paragraph at lines 1363--1364
 []\T1/cmr/m/n/10.95 AcelerÛmetro y gi-ros-co-pio MPU-6050 pa-ra Ar-duino: []$\T
 1/cmtt/m/n/10.95 http : / / playground .
  []
 
 
-Underfull \hbox (badness 2150) in paragraph at lines 1202--1203
+Underfull \hbox (badness 2150) in paragraph at lines 1364--1365
 []\T1/cmr/m/n/10.95 MPU-6050. Es-pe-ci-fi-ca-ciÛn del pro-duc-to: []$\T1/cmtt/m
 /n/10.95 http : / / www . invensense . com / mems /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1369
 []\T1/cmr/m/n/10.95 ArtÌculo so-bre LQR de Wi-ki-pe-dia: []$\T1/cmtt/m/n/10.95 
 http : / / en . wikipedia . org / wiki /
  []
 
+[41
+
+] [42
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1384
+
+ []
+
+[43
+
+]
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [35]
+ <use images/etseib.jpg> [44]
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [36]
+ <use images/etseib.jpg> [45]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [37]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+<use images/etseib.jpg> [46]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [47]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [38]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [39]
-<images/InstalRasp1.jpeg, id=626, 576.65437pt x 28.60687pt>
+<use images/etseib.jpg> [48]
+<images/InstalRasp1.jpeg, id=823, 576.65437pt x 28.60687pt>
 File: images/InstalRasp1.jpeg Graphic file (type jpg)
 
 <use images/InstalRasp1.jpeg>
-Overfull \hbox (17.47122pt too wide) in paragraph at lines 1322--1322
+Overfull \hbox (17.47122pt too wide) in paragraph at lines 1627--1627
 []    \T1/cmtt/m/n/10.95 sudo dd bs=4M if=~/Escritorio/2013-07-26-wheezy-raspbi
 an.img of=/dev/sdb[] 
  []
 
-<images/ConSens.jpg, id=627, 963.6pt x 722.7pt>
+<images/ConSens.jpg, id=824, 963.6pt x 722.7pt>
 File: images/ConSens.jpg Graphic file (type jpg)
  <use images/ConSens.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [40 <./images/InstalRasp1.jpeg>]
-<images/i2cdetect.jpg, id=638, 350.81062pt x 134.00063pt>
+<images/i2cdetect.jpg, id=827, 350.81062pt x 134.00063pt>
 File: images/i2cdetect.jpg Graphic file (type jpg)
 
 <use images/i2cdetect.jpg>
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [41 <./images/ConSens.jpg> <./images/i2cdetect.jpg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1387--1388
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1389--1390
-
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1488--1489
-
- []
-
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1538--1539
-
- []
-
-<images/bancada1.jpeg, id=675, 411.78844pt x 434.37282pt>
-File: images/bancada1.jpeg Graphic file (type jpg)
-
-<use images/bancada1.jpeg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [49 <./images/InstalRasp1.jpeg>]
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [50 <./images/ConSens.jpg> <./images/i2cdetect.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1703--1704
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1705--1706
+
+ []
+
+<images/fun_dens_x.jpeg, id=843, 721.94719pt x 246.1697pt>
+File: images/fun_dens_x.jpeg Graphic file (type jpg)
+
+<use images/fun_dens_x.jpeg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [51]
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1753
+
+ []
+
+<images/comp_fun_dens_x.jpeg, id=856, 713.66624pt x 289.83281pt>
+File: images/comp_fun_dens_x.jpeg Graphic file (type jpg)
+
+<use images/comp_fun_dens_x.jpeg>
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [52 <./images/fun_dens_x.jpeg> <./images/comp_fun_dens
+_x.jpeg>]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1819--1820
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1822
+
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [54]
+Underfull \hbox (badness 10000) in paragraph at lines 1924--1925
+
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [55]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [56]
+Underfull \hbox (badness 10000) in paragraph at lines 2017--2018
+
+ []
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
@@ -1812,60 +1921,54 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
-File: images/etseib.jpg Graphic file (type jpg)
-
-<use images/etseib.jpg> [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [46 <./images/bancada1.jpeg>]
-Overfull \hbox (6.49292pt too wide) in paragraph at lines 1684--1685
-[]\T1/cmr/m/n/10.95 Se con-si-de-ra que una re-gre-siÛn li-neal se-r· su-fi-cie
-n-te. Se ob-tie-ne que la fuer-za $\OML/cmm/m/it/10.95 f\OMX/MnSymbolE/m/n/10.9
-5 à\OML/cmm/m/it/10.95 PWM\OMX/MnSymbolE/m/n/10.95 ç$
- []
+<use images/etseib.jpg> [57]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [58]
+File: images/etseib.jpg Graphic file (type jpg)
 
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [47]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [48] (./prolat.aux) ) 
+<use images/etseib.jpg> [59] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
- 25546 strings out of 493848
- 497844 string characters out of 1152823
- 1139053 words of memory out of 3000000
- 27903 multiletter control sequences out of 15000+50000
- 29021 words of font info for 79 fonts, out of 3000000 for 9000
+ 25957 strings out of 493848
+ 503625 string characters out of 1152823
+ 1046915 words of memory out of 3000000
+ 28119 multiletter control sequences out of 15000+50000
+ 29914 words of font info for 81 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 63i,23n,61p,915b,1898s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips
-/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-
-t1.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/s
-hare/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texmf-tex
-live/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc
-/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbo
-l/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.en
-c}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-bx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfr
-m1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm
-2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on prolat.pdf (51 pages, 7300669 bytes).
+ 63i,22n,61p,915b,1835s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/en
+c/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymb
+ol/MnSymbolE.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/u
+sr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-texl
+ive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/
+dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol
+/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc
+}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/eurosym/feymr10
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sftt1095.pfb>
+Output written on prolat.pdf (62 pages, 7716618 bytes).
 PDF statistics:
- 884 PDF objects out of 1000 (max. 8388607)
- 347 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1158 PDF objects out of 1200 (max. 8388607)
+ 525 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 

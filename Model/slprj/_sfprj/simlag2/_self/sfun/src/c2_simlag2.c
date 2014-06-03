@@ -56,7 +56,7 @@ static void c2_d_emlrt_marshallIn(SFc2_simlag2InstanceStruct *chartInstance,
   const mxArray *c2_u, const emlrtMsgIdentifier *c2_parentId, real_T c2_y[9]);
 static void c2_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c2_mxArrayInData, const char_T *c2_varName, void *c2_outData);
-static void c2_info_helper(c2_ResolvedFunctionInfo c2_info[15]);
+static void c2_info_helper(c2_ResolvedFunctionInfo c2_info[31]);
 static void c2_eml_scalar_eg(SFc2_simlag2InstanceStruct *chartInstance);
 static const mxArray *c2_d_sf_marshallOut(void *chartInstanceVoid, void
   *c2_inData);
@@ -334,24 +334,18 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   real_T c2_p_a;
   real_T c2_p_b;
   real_T c2_p_y;
-  real_T c2_A;
-  real_T c2_B;
-  real_T c2_ic_x;
-  real_T c2_q_y;
-  real_T c2_jc_x;
-  real_T c2_r_y;
-  real_T c2_s_y;
   int32_T c2_i3;
-  real_T c2_q_a[9];
+  static real_T c2_q_a[9] = { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
+
   int32_T c2_i4;
   real_T c2_q_b[3];
   int32_T c2_i5;
-  real_T c2_t_y[3];
+  real_T c2_q_y[3];
   int32_T c2_i6;
   int32_T c2_i7;
-  real_T c2_b_B;
-  real_T c2_u_y;
-  real_T c2_v_y;
+  real_T c2_B;
+  real_T c2_r_y;
+  real_T c2_s_y;
   int32_T c2_i8;
   real_T c2_dv1[3];
   int32_T c2_i9;
@@ -562,22 +556,16 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   c2_R[2] = -c2_yb_x;
   c2_R[5] = c2_o_y;
   c2_R[8] = c2_p_y;
-  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 11);
-  c2_A = ((c2_f1 + c2_f2) + c2_f3) + c2_f4;
-  c2_B = c2_m;
-  c2_ic_x = c2_A;
-  c2_q_y = c2_B;
-  c2_jc_x = c2_ic_x;
-  c2_r_y = c2_q_y;
-  c2_s_y = c2_jc_x / c2_r_y;
-  c2_T[0] = 0.0;
-  c2_T[1] = 0.0;
-  c2_T[2] = c2_s_y;
-  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 13);
+  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 7);
   for (c2_i3 = 0; c2_i3 < 9; c2_i3++) {
-    c2_q_a[c2_i3] = c2_R[c2_i3];
+    c2_R[c2_i3] = c2_q_a[c2_i3];
   }
 
+  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 11);
+  c2_T[0] = 0.0;
+  c2_T[1] = 0.0;
+  c2_T[2] = ((c2_f1 + c2_f2) + c2_f3) + c2_f4;
+  _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 13);
   for (c2_i4 = 0; c2_i4 < 3; c2_i4++) {
     c2_q_b[c2_i4] = c2_T[c2_i4];
   }
@@ -585,26 +573,26 @@ static void c2_chartstep_c2_simlag2(SFc2_simlag2InstanceStruct *chartInstance)
   c2_eml_scalar_eg(chartInstance);
   c2_eml_scalar_eg(chartInstance);
   for (c2_i5 = 0; c2_i5 < 3; c2_i5++) {
-    c2_t_y[c2_i5] = 0.0;
+    c2_q_y[c2_i5] = 0.0;
     c2_i6 = 0;
     for (c2_i7 = 0; c2_i7 < 3; c2_i7++) {
-      c2_t_y[c2_i5] += c2_q_a[c2_i6 + c2_i5] * c2_q_b[c2_i7];
+      c2_q_y[c2_i5] += c2_q_a[c2_i6 + c2_i5] * c2_q_b[c2_i7];
       c2_i6 += 3;
     }
   }
 
-  c2_b_B = c2_m;
-  c2_u_y = c2_b_B;
-  c2_v_y = c2_u_y;
+  c2_B = c2_m;
+  c2_r_y = c2_B;
+  c2_s_y = c2_r_y;
   for (c2_i8 = 0; c2_i8 < 3; c2_i8++) {
-    c2_t_y[c2_i8] /= c2_v_y;
+    c2_q_y[c2_i8] /= c2_s_y;
   }
 
   c2_dv1[0] = 0.0;
   c2_dv1[1] = 0.0;
   c2_dv1[2] = -c2_g;
   for (c2_i9 = 0; c2_i9 < 3; c2_i9++) {
-    c2_ddXi[c2_i9] = c2_t_y[c2_i9] + c2_dv1[c2_i9];
+    c2_ddXi[c2_i9] = c2_q_y[c2_i9] + c2_dv1[c2_i9];
   }
 
   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, -13);
@@ -828,15 +816,15 @@ static void c2_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
 const mxArray *sf_c2_simlag2_get_eml_resolved_functions_info(void)
 {
   const mxArray *c2_nameCaptureInfo;
-  c2_ResolvedFunctionInfo c2_info[15];
+  c2_ResolvedFunctionInfo c2_info[31];
   const mxArray *c2_m0 = NULL;
   int32_T c2_i25;
   c2_ResolvedFunctionInfo *c2_r0;
   c2_nameCaptureInfo = NULL;
   c2_nameCaptureInfo = NULL;
   c2_info_helper(c2_info);
-  sf_mex_assign(&c2_m0, sf_mex_createstruct("nameCaptureInfo", 1, 15), FALSE);
-  for (c2_i25 = 0; c2_i25 < 15; c2_i25++) {
+  sf_mex_assign(&c2_m0, sf_mex_createstruct("nameCaptureInfo", 1, 31), FALSE);
+  for (c2_i25 = 0; c2_i25 < 31; c2_i25++) {
     c2_r0 = &c2_info[c2_i25];
     sf_mex_addfield(c2_m0, sf_mex_create("nameCaptureInfo", c2_r0->context, 15,
       0U, 0U, 0U, 2, 1, strlen(c2_r0->context)), "context", "nameCaptureInfo",
@@ -864,7 +852,7 @@ const mxArray *sf_c2_simlag2_get_eml_resolved_functions_info(void)
   return c2_nameCaptureInfo;
 }
 
-static void c2_info_helper(c2_ResolvedFunctionInfo c2_info[15])
+static void c2_info_helper(c2_ResolvedFunctionInfo c2_info[31])
 {
   c2_info[0].context = "";
   c2_info[0].name = "cos";
@@ -914,104 +902,263 @@ static void c2_info_helper(c2_ResolvedFunctionInfo c2_info[15])
   c2_info[4].mFileTimeLo = 0U;
   c2_info[4].mFileTimeHi = 0U;
   c2_info[5].context = "";
-  c2_info[5].name = "mrdivide";
+  c2_info[5].name = "eye";
   c2_info[5].dominantType = "double";
   c2_info[5].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mrdivide.p";
-  c2_info[5].fileTimeLo = 1325124138U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m";
+  c2_info[5].fileTimeLo = 1286818688U;
   c2_info[5].fileTimeHi = 0U;
-  c2_info[5].mFileTimeLo = 1319729966U;
+  c2_info[5].mFileTimeLo = 0U;
   c2_info[5].mFileTimeHi = 0U;
   c2_info[6].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mrdivide.p";
-  c2_info[6].name = "rdivide";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m!eye_internal";
+  c2_info[6].name = "eml_assert_valid_size_arg";
   c2_info[6].dominantType = "double";
   c2_info[6].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/rdivide.m";
-  c2_info[6].fileTimeLo = 1286818844U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m";
+  c2_info[6].fileTimeLo = 1286818694U;
   c2_info[6].fileTimeHi = 0U;
   c2_info[6].mFileTimeLo = 0U;
   c2_info[6].mFileTimeHi = 0U;
   c2_info[7].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/rdivide.m";
-  c2_info[7].name = "eml_div";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m!isintegral";
+  c2_info[7].name = "isinf";
   c2_info[7].dominantType = "double";
   c2_info[7].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_div.m";
-  c2_info[7].fileTimeLo = 1313347810U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/isinf.m";
+  c2_info[7].fileTimeLo = 1286818760U;
   c2_info[7].fileTimeHi = 0U;
   c2_info[7].mFileTimeLo = 0U;
   c2_info[7].mFileTimeHi = 0U;
   c2_info[8].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c2_info[8].name = "eml_index_class";
-  c2_info[8].dominantType = "";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m!numel_for_size";
+  c2_info[8].name = "mtimes";
+  c2_info[8].dominantType = "double";
   c2_info[8].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_index_class.m";
-  c2_info[8].fileTimeLo = 1286818778U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c2_info[8].fileTimeLo = 1289519692U;
   c2_info[8].fileTimeHi = 0U;
   c2_info[8].mFileTimeLo = 0U;
   c2_info[8].mFileTimeHi = 0U;
   c2_info[9].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c2_info[9].name = "eml_scalar_eg";
-  c2_info[9].dominantType = "double";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m";
+  c2_info[9].name = "eml_index_class";
+  c2_info[9].dominantType = "";
   c2_info[9].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c2_info[9].fileTimeLo = 1286818796U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c2_info[9].fileTimeLo = 1286818778U;
   c2_info[9].fileTimeHi = 0U;
   c2_info[9].mFileTimeLo = 0U;
   c2_info[9].mFileTimeHi = 0U;
   c2_info[10].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c2_info[10].name = "eml_xgemm";
-  c2_info[10].dominantType = "int32";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m";
+  c2_info[10].name = "intmax";
+  c2_info[10].dominantType = "char";
   c2_info[10].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
-  c2_info[10].fileTimeLo = 1299076772U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/intmax.m";
+  c2_info[10].fileTimeLo = 1311255316U;
   c2_info[10].fileTimeHi = 0U;
   c2_info[10].mFileTimeLo = 0U;
   c2_info[10].mFileTimeHi = 0U;
   c2_info[11].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
-  c2_info[11].name = "eml_blas_inline";
-  c2_info[11].dominantType = "";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m!eye_internal";
+  c2_info[11].name = "eml_is_float_class";
+  c2_info[11].dominantType = "char";
   c2_info[11].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
-  c2_info[11].fileTimeLo = 1299076768U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_is_float_class.m";
+  c2_info[11].fileTimeLo = 1286818782U;
   c2_info[11].fileTimeHi = 0U;
   c2_info[11].mFileTimeLo = 0U;
   c2_info[11].mFileTimeHi = 0U;
   c2_info[12].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m!below_threshold";
-  c2_info[12].name = "mtimes";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m!eye_internal";
+  c2_info[12].name = "min";
   c2_info[12].dominantType = "double";
   c2_info[12].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c2_info[12].fileTimeLo = 1289519692U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/datafun/min.m";
+  c2_info[12].fileTimeLo = 1311255318U;
   c2_info[12].fileTimeHi = 0U;
   c2_info[12].mFileTimeLo = 0U;
   c2_info[12].mFileTimeHi = 0U;
   c2_info[13].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
-  c2_info[13].name = "eml_scalar_eg";
-  c2_info[13].dominantType = "double";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/datafun/min.m";
+  c2_info[13].name = "eml_min_or_max";
+  c2_info[13].dominantType = "char";
   c2_info[13].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c2_info[13].fileTimeLo = 1286818796U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_min_or_max.m";
+  c2_info[13].fileTimeLo = 1303146212U;
   c2_info[13].fileTimeHi = 0U;
   c2_info[13].mFileTimeLo = 0U;
   c2_info[13].mFileTimeHi = 0U;
   c2_info[14].context =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
-  c2_info[14].name = "eml_refblas_xgemm";
-  c2_info[14].dominantType = "int32";
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_min_or_max.m!eml_bin_extremum";
+  c2_info[14].name = "eml_scalar_eg";
+  c2_info[14].dominantType = "double";
   c2_info[14].resolved =
-    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xgemm.m";
-  c2_info[14].fileTimeLo = 1299076774U;
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c2_info[14].fileTimeLo = 1286818796U;
   c2_info[14].fileTimeHi = 0U;
   c2_info[14].mFileTimeLo = 0U;
   c2_info[14].mFileTimeHi = 0U;
+  c2_info[15].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_min_or_max.m!eml_bin_extremum";
+  c2_info[15].name = "eml_scalexp_alloc";
+  c2_info[15].dominantType = "double";
+  c2_info[15].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalexp_alloc.m";
+  c2_info[15].fileTimeLo = 1286818796U;
+  c2_info[15].fileTimeHi = 0U;
+  c2_info[15].mFileTimeLo = 0U;
+  c2_info[15].mFileTimeHi = 0U;
+  c2_info[16].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_min_or_max.m!eml_bin_extremum";
+  c2_info[16].name = "eml_index_class";
+  c2_info[16].dominantType = "";
+  c2_info[16].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c2_info[16].fileTimeLo = 1286818778U;
+  c2_info[16].fileTimeHi = 0U;
+  c2_info[16].mFileTimeLo = 0U;
+  c2_info[16].mFileTimeHi = 0U;
+  c2_info[17].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_min_or_max.m!eml_scalar_bin_extremum";
+  c2_info[17].name = "eml_scalar_eg";
+  c2_info[17].dominantType = "double";
+  c2_info[17].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c2_info[17].fileTimeLo = 1286818796U;
+  c2_info[17].fileTimeHi = 0U;
+  c2_info[17].mFileTimeLo = 0U;
+  c2_info[17].mFileTimeHi = 0U;
+  c2_info[18].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m!eye_internal";
+  c2_info[18].name = "eml_index_class";
+  c2_info[18].dominantType = "";
+  c2_info[18].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c2_info[18].fileTimeLo = 1286818778U;
+  c2_info[18].fileTimeHi = 0U;
+  c2_info[18].mFileTimeLo = 0U;
+  c2_info[18].mFileTimeHi = 0U;
+  c2_info[19].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/eye.m!eye_internal";
+  c2_info[19].name = "eml_int_forloop_overflow_check";
+  c2_info[19].dominantType = "";
+  c2_info[19].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m";
+  c2_info[19].fileTimeLo = 1311255316U;
+  c2_info[19].fileTimeHi = 0U;
+  c2_info[19].mFileTimeLo = 0U;
+  c2_info[19].mFileTimeHi = 0U;
+  c2_info[20].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m!eml_int_forloop_overflow_check_helper";
+  c2_info[20].name = "intmax";
+  c2_info[20].dominantType = "char";
+  c2_info[20].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/elmat/intmax.m";
+  c2_info[20].fileTimeLo = 1311255316U;
+  c2_info[20].fileTimeHi = 0U;
+  c2_info[20].mFileTimeLo = 0U;
+  c2_info[20].mFileTimeHi = 0U;
+  c2_info[21].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c2_info[21].name = "eml_index_class";
+  c2_info[21].dominantType = "";
+  c2_info[21].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c2_info[21].fileTimeLo = 1286818778U;
+  c2_info[21].fileTimeHi = 0U;
+  c2_info[21].mFileTimeLo = 0U;
+  c2_info[21].mFileTimeHi = 0U;
+  c2_info[22].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c2_info[22].name = "eml_scalar_eg";
+  c2_info[22].dominantType = "double";
+  c2_info[22].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c2_info[22].fileTimeLo = 1286818796U;
+  c2_info[22].fileTimeHi = 0U;
+  c2_info[22].mFileTimeLo = 0U;
+  c2_info[22].mFileTimeHi = 0U;
+  c2_info[23].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c2_info[23].name = "eml_xgemm";
+  c2_info[23].dominantType = "int32";
+  c2_info[23].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
+  c2_info[23].fileTimeLo = 1299076772U;
+  c2_info[23].fileTimeHi = 0U;
+  c2_info[23].mFileTimeLo = 0U;
+  c2_info[23].mFileTimeHi = 0U;
+  c2_info[24].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
+  c2_info[24].name = "eml_blas_inline";
+  c2_info[24].dominantType = "";
+  c2_info[24].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
+  c2_info[24].fileTimeLo = 1299076768U;
+  c2_info[24].fileTimeHi = 0U;
+  c2_info[24].mFileTimeLo = 0U;
+  c2_info[24].mFileTimeHi = 0U;
+  c2_info[25].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m!below_threshold";
+  c2_info[25].name = "mtimes";
+  c2_info[25].dominantType = "double";
+  c2_info[25].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c2_info[25].fileTimeLo = 1289519692U;
+  c2_info[25].fileTimeHi = 0U;
+  c2_info[25].mFileTimeLo = 0U;
+  c2_info[25].mFileTimeHi = 0U;
+  c2_info[26].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
+  c2_info[26].name = "eml_scalar_eg";
+  c2_info[26].dominantType = "double";
+  c2_info[26].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c2_info[26].fileTimeLo = 1286818796U;
+  c2_info[26].fileTimeHi = 0U;
+  c2_info[26].mFileTimeLo = 0U;
+  c2_info[26].mFileTimeHi = 0U;
+  c2_info[27].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
+  c2_info[27].name = "eml_refblas_xgemm";
+  c2_info[27].dominantType = "int32";
+  c2_info[27].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xgemm.m";
+  c2_info[27].fileTimeLo = 1299076774U;
+  c2_info[27].fileTimeHi = 0U;
+  c2_info[27].mFileTimeLo = 0U;
+  c2_info[27].mFileTimeHi = 0U;
+  c2_info[28].context = "";
+  c2_info[28].name = "mrdivide";
+  c2_info[28].dominantType = "double";
+  c2_info[28].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mrdivide.p";
+  c2_info[28].fileTimeLo = 1325124138U;
+  c2_info[28].fileTimeHi = 0U;
+  c2_info[28].mFileTimeLo = 1319729966U;
+  c2_info[28].mFileTimeHi = 0U;
+  c2_info[29].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/mrdivide.p";
+  c2_info[29].name = "rdivide";
+  c2_info[29].dominantType = "double";
+  c2_info[29].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/rdivide.m";
+  c2_info[29].fileTimeLo = 1286818844U;
+  c2_info[29].fileTimeHi = 0U;
+  c2_info[29].mFileTimeLo = 0U;
+  c2_info[29].mFileTimeHi = 0U;
+  c2_info[30].context =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/ops/rdivide.m";
+  c2_info[30].name = "eml_div";
+  c2_info[30].dominantType = "double";
+  c2_info[30].resolved =
+    "[ILXE]/usr/local/matlab/toolbox/eml/lib/matlab/eml/eml_div.m";
+  c2_info[30].fileTimeLo = 1313347810U;
+  c2_info[30].fileTimeHi = 0U;
+  c2_info[30].mFileTimeLo = 0U;
+  c2_info[30].mFileTimeHi = 0U;
 }
 
 static void c2_eml_scalar_eg(SFc2_simlag2InstanceStruct *chartInstance)
@@ -1096,10 +1243,10 @@ static void init_dsm_address_info(SFc2_simlag2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c2_simlag2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(227504605U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2723912043U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1703730215U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1412677683U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3108349936U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2960604182U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(548276290U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(641503152U);
 }
 
 mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
@@ -1111,7 +1258,7 @@ mxArray *sf_c2_simlag2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("JJxS1cEVYdNMtWRVucKQcF");
+    mxArray *mxChecksum = mxCreateString("XuPp1sglblqQMdglDRWMVC");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1409,7 +1556,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,492);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,499);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -1488,7 +1635,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "dYGylZ2hxWTUnCNF28HYaB";
+  return "7CouzEPzRFPSiEaL3evnFH";
 }
 
 static void sf_opaque_initialize_c2_simlag2(void *chartInstanceVar)
@@ -1647,10 +1794,10 @@ static void mdlSetWorkWidths_c2_simlag2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(3068342994U));
-  ssSetChecksum1(S,(2942376211U));
-  ssSetChecksum2(S,(3513670781U));
-  ssSetChecksum3(S,(4151965103U));
+  ssSetChecksum0(S,(935980668U));
+  ssSetChecksum1(S,(573192431U));
+  ssSetChecksum2(S,(1884848607U));
+  ssSetChecksum3(S,(1466543017U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }
