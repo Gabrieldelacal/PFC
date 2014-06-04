@@ -30,7 +30,7 @@
 \usetikzlibrary{arrows,shapes,trees}
 \usepackage{multirow}
 \usepackage{tabularx}
-\usepackage[official]{eurosym}
+%\usepackage[official]{eurosym}
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usepackage{setspace}
 % \renewcommand{\baselinestretch}{1.3}
@@ -1315,7 +1315,9 @@ Para el ensamblaje de todos los elementos se ha empezado con el Frame
 
 \chapter{Análisis económico} \label{economics}
 
-Como en todo proyecto es importante conocer y justificar el gasto económico implicado. Por ello, en éste se desglosan los costes asociados, tanto materiales como los de mano de obra. Se considera que esta última corresponde a la de un estudiante, como es el caso, realizando el Proyecto Final de Carrera y por lo tanto el coste de  
+Como en todo proyecto es importante conocer y justificar el gasto económico implicado. Por ello, en éste se desglosan los costes asociados, tanto materiales como los de mano de obra. Se considera que esta última corresponde a la de un estudiante, como es el caso, realizando el Proyecto Final de Carrera. \\
+
+Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías: \\  
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -1328,7 +1330,7 @@ Como en todo proyecto es importante conocer y justificar el gasto económico imp
 \hline
 % \myalign{c}{\textbf{Componente}} & \myalign{c}{\textbf{Precio unitario}} & \myalign{c}{\textbf{Cantidad}} & \myalign{c}{\textbf{Coste}}  \\ \multicolumn{1}{|c|}{\textbf{Componente}}
 %\raisebox{-8pt}{\hspace{3cm} \textbf{Componente}} & \textbf{Precio  unitario} & \multicolumn{1}{|c|}{\textbf{Cantidad}} & \multicolumn{1}{|c|}{\textbf{Coste}(\euro)} \\
-\textbf{Componente} & \textbf{Precio unitario} & \textbf{Cantidad} & \textbf{Coste}(\euro) \\
+\textbf{Componente} & \textbf{Precio unitario} & \textbf{Cantidad} & \textbf{Coste}(€) \\
 \hline
 \hline
 Conector XT60 macho & 0.36 & 1 & 0.36 \\
@@ -1339,6 +1341,7 @@ Motor Turnigy 2213 20turn 1050kv 19A & 14.53 & 4 & 58.12 \\
 Variador Turnigy AE-20A Brushless & 10.48 & 4 & 41.92 \\
 Pack 4 hélices 8x4 & 2.28 & 1 & 2.28 \\
 Pack 4 hélices 8x4R & 2.28 & 1 & 2.28 \\ 
+Cargador lipo & 16.95 & 1 & 16.95 \\
 \hline \cmidrule{3-4}
 %\hline
 \multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{Total}} & TOTAL \\ \cmidrule{3-4}
@@ -1378,7 +1381,7 @@ Pack 4 hélices 8x4R & 2.28 & 1 & 2.28 \\
 \newpage
 
 \chapter*{ANEXOS}
-\section*{Anexo 1: Obtención del vector de fuerzas}
+\section*{Anexo A: Obtención del vector de fuerzas}
 
 El archivo que se ejecuta para obtener el modelo parte de los parámetros necesarios para caracterizar el sistema como variables simbólicas. A partir de ellas se extrae el modelo. Se comenta por partes el código Matlab del que se extrae toda la información. \\
 
@@ -1407,7 +1410,7 @@ g=9.81              % gravedad (m/s2)
 
 Se agrupan adecuadamente las variable en vectores, tal y como se especifica en el capítulo \ref{def}:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=18]
 % El vector de variables que se usaran
 
 v=[x dx ddx y dy ddy z dz ddz Phi dPhi ddPhi Theta dTheta ddTheta Psi dPsi ddPsi]
@@ -1439,7 +1442,7 @@ TauB=[l*(f4-f2);
 \onehalfspacing
 Se declaran las matrices de rotación, transformación de velocidad angular a derivada de ángulos de Euler, matriz de inercia y finalmente el Lagrangiano del sistema:
 \singlespacing
-\begin{lstlisting}   
+\begin{lstlisting}[language=Matlab,firstnumber=45]   
    
 R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
     [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
@@ -1459,11 +1462,10 @@ Aqui se obtiene con el Lagrangiano el vector de fuerzas F según la ecuación
 \mathbf{F}=\frac{d}{dt}\left( \frac{\partial \mathcal{L}}{\partial \dot{\pmb{q}}} \right) - \frac{\partial \mathcal{L}}{\partial \pmb{q}}
 \end{equation}
 
-a partir de la función implementada en Lagrange.m implementada \cite{Lagrangian_Matlab}
+a partir de la función implementada en Lagrange.m implementada \cite{Lagrangian_Matlab} \\
 
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=57]
 F=Lagrange(L,v)
-
 \end{lstlisting}
 
 
@@ -1475,8 +1477,7 @@ Para tener una expresión analítica del producto $\pmb{C(\eta,\dot{\eta})\cdot 
 
 y saber cómo aislar el producto
 \singlespacing
-\begin{lstlisting}
-
+\begin{lstlisting}[language=Matlab,firstnumber=58]
 %%% Derivando a mano se obtiene que TauB=J*ddEta+CdEta 
 %%% Y como TauB=[F(4); F(5); F(6)], se tiene que el termino de Coriolis es:
 
@@ -1493,7 +1494,7 @@ CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dT
 Si se quiere econtrar los puntos de equilibrio del sistema planteado en \ref{eq:system} se parte del mismo sistema de ecuaciones y se impone que tanto las velocidades y aceleraciones sean cero. 
 Para facilitar al sistema a resolver el problema también se supone que se está en condiciones próximas al punto de equilibrio, y por tanto, si  $\alpha \approx 0 \rightarrow sin(\alpha)=0$ y si $\alpha \approx 1 \rightarrow cos(\alpha)=1$.
 \singlespacing
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=69]
 dPhi=0
 dTheta=0
 dPsi=0
@@ -1532,7 +1533,7 @@ sol.f4
 Para linealizar el sistema se deben calcular las matrices $\mathbf{A}$ y $\mathbf{B}$ como en  \ref{jacobians}. Para ello se definen los vectores de derivadas, estados y fuerzas, se calculan los jacobianos y se substituye por el punto de equilibrio
 
 \singlespacing
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=101]
 fx=[dx;
     eq1;
     dy;
@@ -1575,7 +1576,7 @@ Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,
 Como se busca un sistema como el que se ha obtenido en \ref{eq:final_system}, se repite todo el proceso incluyendo únicamente las variables respectivas a los ángulos $\phi$ y $\theta$ y sus derivadas:
 
 \singlespacing
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=137]
 fx=[dPhi;
     eq4;
     dTheta;
@@ -1597,7 +1598,7 @@ Bred=sym(subs(disB,{Phi,Theta,dPhi,dTheta,f1,f2,f3,f4},{0,0,0,0,m*g/4,m*g/4,m*g/
 Para calcular las $\mathbf{K}'s$ del control se procede calculando los parámetros $\mathbf{Q}$ y $\mathbf{R}$ necesarios para especificar el control por $LQR$
 
 \singlespacing
-\begin{lstlisting}
+\begin{lstlisting}[language=Matlab,firstnumber=152]
 Cred=[[1 0 0 0];[0 0 1 0]];
 Dred=[[0 0 0 0];[0 0 0 0]];
 
@@ -1609,7 +1610,7 @@ R=1000*eye(4)
 \end{lstlisting}
 \newpage
 
-\section*{Anexo 2:Preparación de la Raspberry Pi}
+\section*{Anexo B:Preparación de la Raspberry Pi}
 Para poner a punto la RPi se instala un Raspbian y se configura para que es pueda comunicar con la placa MPU-6050.
 \subsubsection*{Instalación Raspbian}
 Habiendo introducido la tarjeta SD en un lector adecuado, se detecta en una terminal mediante la orden \textit{df -h}. Suponiendo que haya estado gravada anteriormente:
@@ -1685,7 +1686,7 @@ Se utiliza esta librería \cite{wiringPi} como a interfaz del GPIO (General Porp
 La instalación y descripción de la librería esta explicado en la página web incluida en la bibliografía.
 
 \newpage
-\section*{Anexo 3: Filtro de Kalman}
+\section*{Anexo C: Filtro de Kalman}
 
 Las lecturas del sensor están sometidas a ruido y por lo tanto no son tan precisas como convendría. Para evitar eso se usa un filtro de Kalman,  que es un algoritmo recursivo para corregir los valores obtenidos a partir de la estimación de variables no conocidas, obteniendo valores más precisos que los que se leen. 
 
@@ -1780,41 +1781,121 @@ de media $\mu_{p}$ y varianza $\sigma^{2}_{p}$:
 \mu_{p}=\mu_{1}+\frac{\sigma^{2}_{1}(\mu_{2}-\mu_{1})}{\sigma^{2}_{1}+\sigma^{2}_{2}} \hspace{2cm} \sigma^{2}_{p} = \sigma^{2}_{1} - \frac{\sigma^{4}_{1}}{\sigma^{2}_{1} + \sigma^{2}_{2}} 
 \end{equation}	
 
-Substituyendo en este caso para en .....
-
-obteniendo lo que se denomina innovación: 
-*** ver si es una matriz o un escalar ***
+Substituyendo en este caso con las dos funciones anteriores se tiene que la estimación del estado $a \>\> posteriori$ es 
 
 \begin{equation}
-\tilde{\mathbf{y}}_{k} = \mathbf{z}_{k} - \mathbf{H}_{k} \cdot \hat{\mathbf{x}}_{k|k-1}
+\hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \end{equation}
 
-Se calcula la ganancia de Kalman como 
-
-\begin{equation}
-\mathbf{K}_{k}=\mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} \cdot (\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k})^{-1}
-\end{equation}
-
-para luego obtener la estimación $a \>\> posteriori$
+que se puede expresar como
 
 \begin{equation}
 \hat{\mathbf{x}}_{k|k}=\hat{\mathbf{x}}_{k|k-1}+\mathbf{K}_{k}\cdot \tilde{\mathbf{y}}_{k}
 \end{equation}
 
-y finalmente se actualiza la covarianza del error asociada a esta última estimación
+donde $\mathbf{K}_{k}$ es la ganancia de Kalman y se representa como
+
+\begin{equation}
+\mathbf{K}_{k}=\mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} \cdot (\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k})^{-1}
+\end{equation}
+
+e $\tilde{\mathbf{y}}_{k}$ es la innovación:
+
+\begin{equation}
+\tilde{\mathbf{y}}_{k} = \mathbf{z}_{k} - \mathbf{H}_{k} \cdot \hat{\mathbf{x}}_{k|k-1}
+\end{equation}
+
+Finalmente se actualiza la covarianza del error asociada a esta última estimación
 
 \begin{equation}
 \mathbf{P}_{k|k} = (\mathbf{I} - \mathbf{K}_{k}\mathbf{H}_{k})\mathbf{P}_{k|k-1}
 \end{equation}
 
+
 \section*{Implementación}
 
 Se explicará paso por paso cómo se ha implementado el filtro de Kalman que se ha utilizado en el Quadcopter, en código $C$. 
 
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+#include <fcntl.h>              // para poder usar el parametro 0_RDWR
+#include <sys/time.h>           // para usar gettimeofday()
+#include <math.h>
+#include <wiringPi.h>
+#include <wiringPiI2C.h>
+#include <stdint.h>
 
+#define mgmt_1 0x6b             // direccion del registro para el oscilador
+#define mgmt_2 0x6c
+#define accel_config 0x1c       // direccion para config. el accelerometro
+#define PI 3.14159265
+
+// struct timeval last, now;
+
+// float dist(double, double);
+
+double read_word_2c(adr,reg){
+        uint8_t high=wiringPiI2CReadReg8(adr,reg);
+        uint8_t low=wiringPiI2CReadReg8(adr,reg);
+        uint16_t val=(high<<8)+low;     // lectura de dos palabras
+        // printf("read: %d",val);
+        if(val>=0x8000){                        // complemento a dos si es necesario
+                return(double)(-((65535-val)+1));
+        }else{
+                return(double)(val);
+        }
+}
+
+double dist(a,b){
+        double c=sqrt(a*a+b*b);
+        printf("c: %f",c);
+        return c;
+}
+
+double y_rotation(x,y,z){
+        double rad;
+        rad=atan2(x,dist(y,z));
+        return(-rad/180.0*PI);
+}
+
+double x_rotation(x,y,z){
+        double rad;
+        rad=atan2(y,dist(x,z));
+        printf("rad: %f",rad*180.0/PI);
+        return(-rad*180.0/PI);
+}
+int main(void){
+
+        int fd;         //file direction
+        // char *fileName="/dev/i2c-1";
+        // int address=0x68;
+
+        float ax,ay,az;
+
+        wiringPiSetup();
+        fd=wiringPiI2CSetup(0x68);
+
+        // fd =open(fileName,O_RDWR);
+
+        wiringPiI2CWriteReg8(fd,mgmt_1,0);
+        wiringPiI2CWriteReg8(fd,accel_config,3);
+
+        // gettimeofday(&last,NULL);
+        while(1){
+
+                ax=(read_word_2c(fd,0x3b))/16384.0;
+                ay=(read_word_2c(fd,0x3d))/16384.0;
+                az=(read_word_2c(fd,0x3f))/16384.0;
+        
+//              printf("asdf");
+//              printf("x: %f  \n",x_rotation(ax,ay,az));
+//              printf("%g,arc:%g",sqrt(ax*ax+az*az),atan2(ay,sqrt(ax*ax+az*az))*180/PI);
+                printf("   %g\t ,arc:%g\n",sqrt(ay*ay+az*az),-atan2(ax,sqrt(ay*ay+az*az))*180/PI);
+
+\end{lstlisting}
 
 \newpage
-\section*{Anexo 4: Identificación de los parámetros del Quadcopter}
+\section*{Anexo D: Identificación de los parámetros del Quadcopter}
 %% Inercias, longitud brazos, motores (fuerza e intensidad)
 Para poder trabajar en particular con el Quadcopter construido es necesario saber qué lo caracteriza o distingue de los demás. Parámetros relevantes y necesarios que se utilizan en el modelo implementado en Simulink deben ser, entonces, medidos para que se simule el mismo aparato con iguales características. \\
 
