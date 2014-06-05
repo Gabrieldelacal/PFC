@@ -17,7 +17,7 @@
 \contentsline {chapter}{\numberline {5}Implementaci\IeC {\'o}n del control}{29}{chapter.5}
 \contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{30}{chapter.6}
 \contentsline {section}{\numberline {6.1}Descripci\IeC {\'o}n de los componentes}{30}{section.6.1}
-\contentsline {section}{\numberline {6.2}Montaje}{37}{section.6.2}
-\contentsline {chapter}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{38}{chapter.7}
-\contentsline {chapter}{\numberline {8}Estudio del impacto ambiental}{39}{chapter.8}
-\contentsline {chapter}{\numberline {9}Conclusiones}{40}{chapter.9}
+\contentsline {subsection}{\numberline {6.1.1}Montaje}{37}{subsection.6.1.1}
+\contentsline {chapter}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{40}{chapter.7}
+\contentsline {chapter}{\numberline {8}Impacto ambiental}{41}{chapter.8}
+\contentsline {chapter}{\numberline {9}Conclusiones}{42}{chapter.9}

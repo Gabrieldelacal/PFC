@@ -1159,14 +1159,14 @@ Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$
 El conector de carga es el $JST-XH$ y el de descarga el $XT60$. Para tener en cuenta respecto al Quadcopter es interesante saber que pesa $188g$ y respecto a la estructura (frame) que sus dimensiones son de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
-Para adaptar la tensión de 11.1V de la batería LiPo a 5V para alimentar la Raspberry Pi, es necesario un regulador. En este caso se tiene el Interruptor-Modo Máximo BEC LM2576S, que proporciona hasta 3A de corriente \\
+Para adaptar la tensión de 11.1V de la batería LiPo a 5V para alimentar la Raspberry Pi, es necesario un regulador. En este caso se tiene el Interruptor-Modo Máximo BEC LM2576S, que proporciona hasta 3A de corriente.
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.06]{images/Reg_stepdown.jpg}
-\caption{Regulador Step-Down}
-\end{center}
-\end{figure}
+%\begin{figure}[h!]
+%\begin{center}
+%\includegraphics[scale=0.06]{images/Reg_stepdown.jpg}
+%\caption{Regulador Step-Down}
+%\end{center}
+%\end{figure}
 
 El esquema del componente \cite{lm2576s}:
 
@@ -1212,6 +1212,7 @@ Para controlar un motor brushless la etapa de potencia a utilitzar es un ESC (El
 \end{figure}
 El modelo a utilitzar es el Turnigy AE-20A Brushless ESC. El uso de este tipo se justifica con el amperaje que soporta, en cuanto los motores consumen un pico de hasta 19A, que es menor al màximo de la corrente de este Variador (como límite se puede quemar el componente si se hacen circular 25A durante 10 segundos). 
 Se debe asegurar la compatibilidad con la batería también, ya que soporta tensiones de entrada correspondientes a Baterías LiPo de entre 2 y 4 celdas. 
+
 Incluye un circuito BEC (Battery Eliminator Circuit) para poder alimentar también el receptor de 2A de máxima corriente. 
 La máxima velocidad de funcionamiento del motor depende de sus polos: si es de 2 polos será de 210000 rpm, con 6 polos de 70000 rpm y de 12 polos a 35000 rpm.
 
@@ -1262,9 +1263,50 @@ Los parámetros que definen una hélice son su Longitud ($X$), és decir, diáme
 \end{figure} 
 
 \newpage
-\section{Montaje}
+\subsection{Montaje}
 
-Para el ensamblaje de todos los elementos se ha empezado con el Frame 
+En la unión de todos los componentes se ha optado por hacer uso de la impresión 3D para crear las piezas que se han necesitado en la unión de las mismas. En el ensamblaje de los componentes, se ha empezado con el Frame: \\
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/frame_mount.jpg}
+\end{center}
+\caption{Ensamblaje del esqueleto del Quadcopter}
+\end{figure}
+
+Dado que no se tiene una montura para la Raspberry Pi y demás piezas, se diseñan dos piezas a modo de soporte para la electrónica, con el fin también de proteger tales componentes. Se sujetarán a estas piezas la Raspberry Pi y el Receptor: \\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.35]{images/ensamblaje_rpi_mount.jpg}
+\end{center}
+\caption{Ensamblaje de la montura de la RPi y el Receptor}
+\end{figure}
+
+Atornillados los motores, se sueldan a éstos los variadores, sujetándolos con bridas y teniendo en cuenta que se quiere que se quiere que el sentido de rotación de éstos sea opuesto en las diagonales:\\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.15]{images/comp_motor_wires.jpeg}
+\end{center}
+\caption{Detalle del cruce de fases en los motores}
+\label{detalle_cable_motor}
+\end{figure}
+
+Para tener un vuelo estable es necesario asegurar la sugeción de la batería al marco. En ser ésta el elemento más pesado de todos de los que componen el aparato, de moverse sería el que más contribuiría en un cambio de los parámetros del sistema, i.e.: los momentos de inercia $I_{xx}$ y $I_{yy}$. Se montan entonces escuadras que se atornillan a la estructura para fijar su posición. \\
+
+En despegar se tiene un efecto aerodinámico no considerado en el modelo denominado "$Efecto \>\> suelo$". Se trata de las perturbaciones del aire que, en encontrarse con el suelo, afectan al funcionamiento de las hélices. Para evitar este efecto no deseado se decide elevar la altura inicial del Quadcopter con una extensión de las patas mediante piezas imprimidas: \\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.32]{images/ensamblaje_pata.jpg} \hspace{1.5cm}
+\includegraphics[scale=0.12]{images/detalle_pata.jpeg}
+\end{center}
+\caption{Ensamblaje y detalle de una de las patas.}
+\end{figure}
+
+Y finalmente se fija el Regulador Step-Down a la estructura mediante bridas. En lo referente al conexionado, el esquema que se sigue es \\
 
 \begin{center}
 \begin{tikzpicture}
@@ -1311,13 +1353,25 @@ Para el ensamblaje de todos los elementos se ha empezado con el Frame
 \end{tikzpicture}
 \end{center}
 
+Se han introducido conectores en las tomas positivas de cada ESC para poder programar cada uno por separado de ser necesario. \\
+
+A cada motor se le atornillan la hélice adecuada según su sentido de giro, que viene dado por el orden en que se han soldado las fases del actuador, según \ref{detalle_cable_motor}. El resultado final es:
+
+\textbf{Figura con el resultado final}
+
 \newpage
 
 \chapter{Análisis económico} \label{economics}
 
+<<<<<<< HEAD
+Como en todo proyecto es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
+
+Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ \euro $/ hora$ \\  
+=======
 Como en todo proyecto es importante conocer y justificar el gasto económico implicado. Por ello, en éste se desglosan los costes asociados, tanto materiales como los de mano de obra. Se considera que esta última corresponde a la de un estudiante, como es el caso, realizando el Proyecto Final de Carrera. \\
 
 Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías: \\  
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -1330,7 +1384,11 @@ Referente a los costes materiales, se incluye el de todos los elementos que comp
 \hline
 % \myalign{c}{\textbf{Componente}} & \myalign{c}{\textbf{Precio unitario}} & \myalign{c}{\textbf{Cantidad}} & \myalign{c}{\textbf{Coste}}  \\ \multicolumn{1}{|c|}{\textbf{Componente}}
 %\raisebox{-8pt}{\hspace{3cm} \textbf{Componente}} & \textbf{Precio  unitario} & \multicolumn{1}{|c|}{\textbf{Cantidad}} & \multicolumn{1}{|c|}{\textbf{Coste}(\euro)} \\
+<<<<<<< HEAD
+\hspace{2cm}\textbf{Componente} & \textbf{Precio}(\euro /u) & \textbf{Cantidad} & \textbf{Coste}(\euro) \\
+=======
 \textbf{Componente} & \textbf{Precio unitario} & \textbf{Cantidad} & \textbf{Coste}(€) \\
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 \hline
 \hline
 Conector XT60 macho & 0.36 & 1 & 0.36 \\
@@ -1341,16 +1399,42 @@ Motor Turnigy 2213 20turn 1050kv 19A & 14.53 & 4 & 58.12 \\
 Variador Turnigy AE-20A Brushless & 10.48 & 4 & 41.92 \\
 Pack 4 hélices 8x4 & 2.28 & 1 & 2.28 \\
 Pack 4 hélices 8x4R & 2.28 & 1 & 2.28 \\ 
+<<<<<<< HEAD
+Cargador LiPo iMAX B6 & 16.95 & 1 & 16.95 \\
+\hline \cmidrule{2-4}
+=======
 Cargador lipo & 16.95 & 1 & 16.95 \\
 \hline \cmidrule{3-4}
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 %\hline
-\multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{Total}} & TOTAL \\ \cmidrule{3-4}
-% \hline
+\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total del Coste material}} & 170.24 \\ \cmidrule{2-4}
+\multicolumn{4}{r}{} \\
+\hline
+\hspace{1.5cm}\textbf{Recursos Humanos} & \textbf{Coste}(\euro /hora) & \textbf{Horas} & \textbf{Coste}(\euro) \\
+\hline
+\hline
+Estudiante de PFC & 6 & 540 & 3240 \\
+\hline \cmidrule{2-4}
+%\hline
+\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total R.R. H.H.}} & 3240 \\ \cmidrule{2-4}
+\multicolumn{4}{r}{} \\
+\cmidrule{3-4}
+\multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{TOTAL}} & 3410.24 \\ \cmidrule{3-4}
 \end{tabular} 
 
 \newpage
 
-\chapter{Estudio del impacto ambiental} \label{impacto}
+\chapter{Impacto ambiental} \label{impacto}
+
+En el desarrollo del presente proyecto se ha construido un aparato  compuesto por partes de diferentes materiales, de entre los que destacan el ABS, Nylon y fibra de vidrio. No se estudiará el  impacto medioambiental del complejo proceso de producción, uso y reciclaje de los mismos, sino un comentario del impacto que éstos generan en general. \\
+
+Por parte de la fibra de vidrio, se considera un material de baja toxicidad debido a sus diferencias con los cancerígenos asbestos. En poder fabricarse las fibras a partir de vídrio reciclado, el impacto de este material al medio se considera bajo.
+
+Por otro lado, el Nylon es una poliamida de gran resistencia a la corrosión ambiental. Por este motivo éste es uno de los plásticos que más han contribuido en el incremento de los nieles de contaminación. Los tiempos de degradación del Nylon son muy largos y sus residuos muy perjudiciales para el medio ambiente. Por ello es de gran importancia tener una consolidada etapa de reciclado de éste material, también para otros polímeros parecidos a éste.
+
+Respecto al ABS, se trata de un plástico de ingeniería que de la misma manera que el Nylon por su resistencia térmica y química, debe reciclarse y tratarse los residuos. \\
+
+Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo, conocidas también como de ion de litio. Éstas son muy contaminantes de no tratarse adecuadamente en la fase de reciclado y requieren estar completamente descargadas antes de ser entregadas en un punto de recogida.
 
 \newpage
 
@@ -1442,8 +1526,12 @@ TauB=[l*(f4-f2);
 \onehalfspacing
 Se declaran las matrices de rotación, transformación de velocidad angular a derivada de ángulos de Euler, matriz de inercia y finalmente el Lagrangiano del sistema:
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=45]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=45]   
    
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
     [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
     [-sin(Theta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]]
@@ -1464,7 +1552,11 @@ Aqui se obtiene con el Lagrangiano el vector de fuerzas F según la ecuación
 
 a partir de la función implementada en Lagrange.m implementada \cite{Lagrangian_Matlab} \\
 
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=56]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=57]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 F=Lagrange(L,v)
 \end{lstlisting}
 
@@ -1477,7 +1569,11 @@ Para tener una expresión analítica del producto $\pmb{C(\eta,\dot{\eta})\cdot 
 
 y saber cómo aislar el producto
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=57]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=58]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 %%% Derivando a mano se obtiene que TauB=J*ddEta+CdEta 
 %%% Y como TauB=[F(4); F(5); F(6)], se tiene que el termino de Coriolis es:
 
@@ -1494,7 +1590,11 @@ CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dT
 Si se quiere econtrar los puntos de equilibrio del sistema planteado en \ref{eq:system} se parte del mismo sistema de ecuaciones y se impone que tanto las velocidades y aceleraciones sean cero. 
 Para facilitar al sistema a resolver el problema también se supone que se está en condiciones próximas al punto de equilibrio, y por tanto, si  $\alpha \approx 0 \rightarrow sin(\alpha)=0$ y si $\alpha \approx 1 \rightarrow cos(\alpha)=1$.
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=68]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=69]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 dPhi=0
 dTheta=0
 dPsi=0
@@ -1533,7 +1633,11 @@ sol.f4
 Para linealizar el sistema se deben calcular las matrices $\mathbf{A}$ y $\mathbf{B}$ como en  \ref{jacobians}. Para ello se definen los vectores de derivadas, estados y fuerzas, se calculan los jacobianos y se substituye por el punto de equilibrio
 
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=100]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=101]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 fx=[dx;
     eq1;
     dy;
@@ -1576,7 +1680,11 @@ Bsub=sym(subs(B,{Phi,Theta,Psi,dPhi,dTheta,dPsi,f1,f2,f3,f4},{0,0,0,0,0,0,m*g/4,
 Como se busca un sistema como el que se ha obtenido en \ref{eq:final_system}, se repite todo el proceso incluyendo únicamente las variables respectivas a los ángulos $\phi$ y $\theta$ y sus derivadas:
 
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=136]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=137]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 fx=[dPhi;
     eq4;
     dTheta;
@@ -1598,7 +1706,11 @@ Bred=sym(subs(disB,{Phi,Theta,dPhi,dTheta,f1,f2,f3,f4},{0,0,0,0,m*g/4,m*g/4,m*g/
 Para calcular las $\mathbf{K}'s$ del control se procede calculando los parámetros $\mathbf{Q}$ y $\mathbf{R}$ necesarios para especificar el control por $LQR$
 
 \singlespacing
+<<<<<<< HEAD
+\begin{lstlisting}[language=Matlab,firstnumber=151]
+=======
 \begin{lstlisting}[language=Matlab,firstnumber=152]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 Cred=[[1 0 0 0];[0 0 1 0]];
 Dred=[[0 0 0 0];[0 0 0 0]];
 
@@ -1782,11 +1894,20 @@ de media $\mu_{p}$ y varianza $\sigma^{2}_{p}$:
 \end{equation}	
 
 Substituyendo en este caso con las dos funciones anteriores se tiene que la estimación del estado $a \>\> posteriori$ es 
+<<<<<<< HEAD
+
+\begin{equation}
+\hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
+\label{media_x}
+\end{equation}
+
+=======
 
 \begin{equation}
 \hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \end{equation}
 
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 que se puede expresar como
 
 \begin{equation}
@@ -1805,7 +1926,11 @@ e $\tilde{\mathbf{y}}_{k}$ es la innovación:
 \tilde{\mathbf{y}}_{k} = \mathbf{z}_{k} - \mathbf{H}_{k} \cdot \hat{\mathbf{x}}_{k|k-1}
 \end{equation}
 
+<<<<<<< HEAD
+Finalmente se actualiza la covarianza del error asociada a esta última estimación, substituyendo los valores de las varianzas tal y como se ha hecho para la media en \ref{media_x}:
+=======
 Finalmente se actualiza la covarianza del error asociada a esta última estimación
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
 \begin{equation}
 \mathbf{P}_{k|k} = (\mathbf{I} - \mathbf{K}_{k}\mathbf{H}_{k})\mathbf{P}_{k|k-1}
@@ -2095,7 +2220,7 @@ Queda especificado en el modelo del Frame elegido que es de $33 \>\> cm$ la dist
 Para poder controlar la planta es necesario saber cómo responden los actuadores para realizar un control preciso. De éstos se debe conocer qué fuerza y momento proporcionan, así como el consumo de energía para un PWM dado. La respuesta varía según las aspas que se utilicen, por lo que las curvas que se obtengan serán únicas para este caso. De cambiarlas tanto la fuerza, consumo y momentos generados se verían modificados.  
 
 
-Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el punto en donde se crea el ángulo, de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm). El consumo que se tiene se obtiene mediante un amperímetro conectado en serie al ESC. \\
+Para obtener una curva de la fuerza respecto del PWM se pesa con una balanza la acción del motor. La rudimentaria bancada que se tiene para tal objetivo es un codo articulado en el punto en donde se crea el ángulo, de tal manera que la distancia del eje del motor al fulcro y de éste a la balanza sea la misma (en este caso de 12 cm). El consumo que se tiene se obtiene mediante un amperímetro conectado en serie al ESC.
 
 %Las partes están hechas de madera (parte marrón) y plástico ABS (parte verde). Toda la estructura se sujeta a unas maderas:
 
@@ -2145,8 +2270,7 @@ int main(void){
         return 0;
 }
 \end{lstlisting}
-\onehalfspacing
-%\vspace{0.75cm}
+\onehalfspacing 
 Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\% del PWM enviado al Variador. Las lecturas que se obtienen son: 
 
 \begin{center}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  6 JUN 2014 01:28
+=======
 This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  4 JUN 2014 14:03
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
@@ -1454,7 +1458,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-<images/quadcopter_example.jpg, id=227, 406.51875pt x 228.855pt>
+<images/quadcopter_example.jpg, id=233, 406.51875pt x 228.855pt>
 File: images/quadcopter_example.jpg Graphic file (type jpg)
 
 <use images/quadcopter_example.jpg>
@@ -1473,7 +1477,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7
 
  <./images/quadcopter_example.jpg>]
-<images/6_armed_quadcopter.jpg, id=232, 602.25pt x 338.76563pt>
+<images/6_armed_quadcopter.jpg, id=238, 602.25pt x 338.76563pt>
 File: images/6_armed_quadcopter.jpg Graphic file (type jpg)
 
 <use images/6_armed_quadcopter.jpg>
@@ -1519,7 +1523,7 @@ LaTeX Warning: Command \textordmasculine invalid in math mode on input line 221
 .
 
 Missing character: There is no º in font cmr10!
-<images/quad.jpg, id=243, 620.3175pt x 261.97874pt>
+<images/quad.jpg, id=249, 620.3175pt x 261.97874pt>
 File: images/quad.jpg Graphic file (type jpg)
  <use images/quad.jpg>
 [10
@@ -1602,7 +1606,7 @@ l.732 \end{equation}
                     ]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [18]
-<images/Simulink_model.jpeg, id=327, 530.73282pt x 691.08188pt>
+<images/Simulink_model.jpeg, id=333, 530.73282pt x 691.08188pt>
 File: images/Simulink_model.jpeg Graphic file (type jpg)
 
 <use images/Simulink_model.jpeg>
@@ -1666,7 +1670,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 980--981
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [25]
-<images/Simulink_model_2.jpeg, id=441, 934.24031pt x 549.55313pt>
+<images/Simulink_model_2.jpeg, id=447, 934.24031pt x 549.55313pt>
 File: images/Simulink_model_2.jpeg Graphic file (type jpg)
 
 <use images/Simulink_model_2.jpeg>
@@ -1681,11 +1685,11 @@ Underfull \vbox (badness 1735) has occurred while \output is active []
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [27]
-<images/simulation_1.jpeg, id=496, 1373.88281pt x 738.50906pt>
+<images/simulation_1.jpeg, id=502, 1373.88281pt x 738.50906pt>
 File: images/simulation_1.jpeg Graphic file (type jpg)
 
 <use images/simulation_1.jpeg>
-<images/simulation_2.jpeg, id=497, 1375.38844pt x 736.25063pt>
+<images/simulation_2.jpeg, id=503, 1375.38844pt x 736.25063pt>
 File: images/simulation_2.jpeg Graphic file (type jpg)
 
 <use images/simulation_2.jpeg>
@@ -1697,10 +1701,10 @@ Cap\'{\i }tulo 5.
 
 ]
 Cap\'{\i }tulo 6.
-<images/RPi.jpg, id=508, 2569.6pt x 1445.4pt>
+<images/RPi.jpg, id=514, 2569.6pt x 1445.4pt>
 File: images/RPi.jpg Graphic file (type jpg)
  <use images/RPi.jpg>
-<images/RPi2.jpg, id=509, 513.92pt x 400.49625pt>
+<images/RPi2.jpg, id=515, 513.92pt x 400.49625pt>
 File: images/RPi2.jpg Graphic file (type jpg)
  <use images/RPi2.jpg>
 
@@ -1708,7 +1712,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [30
 
- <./images/RPi.jpg>] <images/mpu-6050.jpg, id=516, 367.3725pt x 481.8pt>
+ <./images/RPi.jpg>] <images/mpu-6050.jpg, id=522, 367.3725pt x 481.8pt>
 File: images/mpu-6050.jpg Graphic file (type jpg)
 
 <use images/mpu-6050.jpg>
@@ -1722,87 +1726,177 @@ lC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [31 <./images/RPi2.jpg> <./images/mpu-6050.jpg>]
-<images/E_R.jpg, id=522, 336.50719pt x 266.49562pt>
+<images/E_R.jpg, id=528, 336.50719pt x 266.49562pt>
 File: images/E_R.jpg Graphic file (type jpg)
  <use images/E_R.jpg>
 Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
 
  []
 
-<images/LiPo.jpg, id=523, 2569.6pt x 1445.4pt>
+<images/LiPo.jpg, id=529, 2569.6pt x 1445.4pt>
 File: images/LiPo.jpg Graphic file (type jpg)
  <use images/LiPo.jpg>
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [32 <./images/LiPo.jpg> <./images/E_R.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
-
- []
-
-<images/Reg_stepdown.jpg, id=532, 2569.6pt x 1445.4pt>
-File: images/Reg_stepdown.jpg Graphic file (type jpg)
-
-<use images/Reg_stepdown.jpg>
-<images/lm2576s.jpeg, id=534, 504.38437pt x 144.54pt>
+<images/lm2576s.jpeg, id=539, 504.38437pt x 144.54pt>
 File: images/lm2576s.jpeg Graphic file (type jpg)
 
 <use images/lm2576s.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [33 <./images/Reg_stepdown.jpg> <./images/lm2576s.jpeg
->]
-<images/ESC.jpeg, id=542, 335.75438pt x 191.9672pt>
+ <use images/etseib.jpg> [33 <./images/lm2576s.jpeg>]
+<images/ESC.jpeg, id=548, 335.75438pt x 191.9672pt>
 File: images/ESC.jpeg Graphic file (type jpg)
  <use images/ESC.jpeg>
-<images/ESC_config.jpeg, id=543, 792.71156pt x 264.99pt>
+<images/ESC_config.jpeg, id=549, 792.71156pt x 264.99pt>
 File: images/ESC_config.jpeg Graphic file (type jpg)
 
 <use images/ESC_config.jpeg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [34 <./images/ESC.jpeg>]
-<images/frame.jpg, id=551, 2569.6pt x 1445.4pt>
+<images/frame.jpg, id=550, 2569.6pt x 1445.4pt>
 File: images/frame.jpg Graphic file (type jpg)
  <use images/frame.jpg>
-File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [35 <./images/ESC_config.jpeg> <./images/frame.jpg>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [34 <./images/ESC.jpeg>]
 <images/propeller_image.jpg, id=558, 2569.6pt x 1445.4pt>
 File: images/propeller_image.jpg Graphic file (type jpg)
 
 <use images/propeller_image.jpg>
-<images/propeller_xy.jpeg, id=560, 168.63pt x 86.57344pt>
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [35 <./images/propeller_image.jpg> <./images/ESC_confi
+g.jpeg> <./images/frame.jpg>]
+<images/propeller_xy.jpeg, id=566, 168.63pt x 86.57344pt>
 File: images/propeller_xy.jpeg Graphic file (type jpg)
 
 <use images/propeller_xy.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [36 <./images/propeller_image.jpg> <./images/propeller
-_xy.jpeg>]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [37]
-Cap\'{\i }tulo 7.
+ <use images/etseib.jpg> [36 <./images/propeller_xy.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1319
+ []
+
+<images/frame_mount.jpg, id=571, 1051.67906pt x 775.39688pt>
+File: images/frame_mount.jpg Graphic file (type jpg)
+
+<use images/frame_mount.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1279
+
+ []
+
+<images/ensamblaje_rpi_mount.jpg, id=572, 593.96906pt x 499.11469pt>
+File: images/ensamblaje_rpi_mount.jpg Graphic file (type jpg)
+
+<use images/ensamblaje_rpi_mount.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 1287--1288
+
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [37 <./images/frame_mount.jpg> <./images/ensamblaje_rpi
+_mount.jpg>] <images/comp_motor_wires.jpeg, id=578, 894.34125pt x 617.30624pt>
+File: images/comp_motor_wires.jpeg Graphic file (type jpg)
+
+<use images/comp_motor_wires.jpeg>
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1298
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+<images/ensamblaje_pata.jpg, id=579, 415.5525pt x 378.66469pt>
+File: images/ensamblaje_pata.jpg Graphic file (type jpg)
+
+<use images/ensamblaje_pata.jpg>
+<images/detalle_pata.jpeg, id=580, 713.66624pt x 924.45375pt>
+File: images/detalle_pata.jpeg Graphic file (type jpg)
+
+<use images/detalle_pata.jpeg>
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1310
+
+ []
+
+
+Underfull \vbox (badness 3396) has occurred while \output is active []
+
+File: images/etseib.jpg Graphic file (type jpg)
+
+<use images/etseib.jpg> [38 <./images/comp_motor_wires.jpeg> <./images/ensambla
+je_pata.jpg> <./images/detalle_pata.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1356--1357
+
+ []
+
+File: images/etseib.jpg Graphic file (type jpg)
+<use images/etseib.jpg> [39]
+Cap\'{\i }tulo 7.
+
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1367
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1318--1319
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
+
+ []
+
+
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1369
+
+ []
+
+[40
+=======
 Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
 
  []
 
 [38
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
 ]
 Cap\'{\i }tulo 8.
-[39
+
+Underfull \hbox (badness 10000) in paragraph at lines 1414--1415
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1421
+
+ []
+
+[41
 
 ]
 Cap\'{\i }tulo 9.
-[40
+[42
 
 ]
+<<<<<<< HEAD
+Underfull \hbox (badness 3746) in paragraph at lines 1435--1436
+[]\T1/cmr/m/n/10.95 Acelerómetro y gi-ros-co-pio MPU-6050 pa-ra Ar-duino: []$\T
+1/cmtt/m/n/10.95 http : / / playground .
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 1436--1437
+[]\T1/cmr/m/n/10.95 MPU-6050. Es-pe-ci-fi-ca-ción del pro-duc-to: []$\T1/cmtt/m
+/n/10.95 http : / / www . invensense . com / mems /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1440--1441
+[]\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wi-ki-pe-dia: []$\T1/cmtt/m/n/10.95 
+http : / / en . wikipedia . org / wiki /
+=======
 Underfull \hbox (badness 3746) in paragraph at lines 1366--1367
 []\T1/cmr/m/n/10.95 Acelerómetro y giro-sco-pio MPU-6050 para Ar-duino: []$\T1/
 cmtt/m/n/10.95 http : / / playground .
@@ -1818,18 +1912,23 @@ Underfull \hbox (badness 2150) in paragraph at lines 1367--1368
 Underfull \hbox (badness 10000) in paragraph at lines 1371--1372
 []\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wikipedia: []$\T1/cmtt/m/n/10.95 htt
 p : / / en . wikipedia . org / wiki /
- []
-
-[41
-
-] [42
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1386--1387
-
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
  []
 
 [43
+
+] [44
+
+]
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1456
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1387
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
+
+ []
+
+[45
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 1465--1466
@@ -1837,33 +1936,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 1465--1466
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
+<<<<<<< HEAD
+ <use images/etseib.jpg> [46]
+=======
 <use images/etseib.jpg> [44]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [45]
-File: images/etseib.jpg Graphic file (type jpg)
-
-<use images/etseib.jpg> [46]
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [47]
 File: images/etseib.jpg Graphic file (type jpg)
 
+<use images/etseib.jpg> [48]
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [49]
+File: images/etseib.jpg Graphic file (type jpg)
+
+<<<<<<< HEAD
+<use images/etseib.jpg> [50]
+<images/InstalRasp1.jpeg, id=841, 576.65437pt x 28.60687pt>
+File: images/InstalRasp1.jpeg Graphic file (type jpg)
+
+<use images/InstalRasp1.jpeg>
+Overfull \hbox (17.47122pt too wide) in paragraph at lines 1696--1696
+=======
 <use images/etseib.jpg> [48]
 <images/InstalRasp1.jpeg, id=821, 576.65437pt x 28.60687pt>
 File: images/InstalRasp1.jpeg Graphic file (type jpg)
 
 <use images/InstalRasp1.jpeg>
 Overfull \hbox (17.47122pt too wide) in paragraph at lines 1628--1628
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 []    \T1/cmtt/m/n/10.95 sudo dd bs=4M if=~/Escritorio/2013-07-26-wheezy-raspbi
 an.img of=/dev/sdb[] 
  []
 
+<<<<<<< HEAD
+<images/ConSens.jpg, id=842, 963.6pt x 722.7pt>
+=======
 <images/ConSens.jpg, id=822, 963.6pt x 722.7pt>
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 File: images/ConSens.jpg Graphic file (type jpg)
  <use images/ConSens.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<<<<<<< HEAD
+<images/i2cdetect.jpg, id=845, 350.81062pt x 134.00063pt>
+=======
 <images/i2cdetect.jpg, id=825, 350.81062pt x 134.00063pt>
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 File: images/i2cdetect.jpg Graphic file (type jpg)
 
 <use images/i2cdetect.jpg>
@@ -1871,20 +1991,33 @@ File: images/i2cdetect.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: images/etseib.jpg Graphic file (type jpg)
-<use images/etseib.jpg> [49 <./images/InstalRasp1.jpeg>]
+<use images/etseib.jpg> [51 <./images/InstalRasp1.jpeg>]
 File: images/etseib.jpg Graphic file (type jpg)
 
+<<<<<<< HEAD
+<use images/etseib.jpg> [52 <./images/ConSens.jpg> <./images/i2cdetect.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1772--1773
+=======
 <use images/etseib.jpg> [50 <./images/ConSens.jpg> <./images/i2cdetect.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 1704--1705
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
  []
 
 
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1775
+
+ []
+
+<images/fun_dens_x.jpeg, id=862, 721.94719pt x 246.1697pt>
+=======
 Underfull \hbox (badness 10000) in paragraph at lines 1706--1707
 
  []
 
 <images/fun_dens_x.jpeg, id=841, 721.94719pt x 246.1697pt>
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 File: images/fun_dens_x.jpeg Graphic file (type jpg)
 
 <use images/fun_dens_x.jpeg>
@@ -1892,17 +2025,26 @@ File: images/fun_dens_x.jpeg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: images/etseib.jpg Graphic file (type jpg)
+<<<<<<< HEAD
+<use images/etseib.jpg> [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1822
+
+ []
+
+<images/comp_fun_dens_x.jpeg, id=875, 713.66624pt x 289.83281pt>
+=======
 <use images/etseib.jpg> [51]
 Underfull \hbox (badness 10000) in paragraph at lines 1753--1754
 
  []
 
 <images/comp_fun_dens_x.jpeg, id=854, 713.66624pt x 289.83281pt>
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 File: images/comp_fun_dens_x.jpeg Graphic file (type jpg)
 
 <use images/comp_fun_dens_x.jpeg>
 File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [52 <./images/fun_dens_x.jpeg> <./images/comp_fun_dens
+ <use images/etseib.jpg> [54 <./images/fun_dens_x.jpeg> <./images/comp_fun_dens
 _x.jpeg>]
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
@@ -1911,6 +2053,10 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 File: images/etseib.jpg Graphic file (type jpg)
+<<<<<<< HEAD
+ <use images/etseib.jpg> [55]
+Underfull \hbox (badness 10000) in paragraph at lines 1892--1893
+=======
 
 <use images/etseib.jpg> [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1921,17 +2067,26 @@ File: images/etseib.jpg Graphic file (type jpg)
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [55]
 Underfull \hbox (badness 10000) in paragraph at lines 1900--1901
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
  []
 
 
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1894--1895
+=======
 Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [56]
+<<<<<<< HEAD
+Underfull \hbox (badness 10000) in paragraph at lines 1997--1998
+=======
 Underfull \hbox (badness 10000) in paragraph at lines 2005--2006
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 
  []
 
@@ -1939,11 +2094,20 @@ File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [57]
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [58]
+<<<<<<< HEAD
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+=======
 Underfull \hbox (badness 10000) in paragraph at lines 2098--2099
 
  []
 
 
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/etseib.jpg Graphic file (type jpg)
@@ -1955,6 +2119,48 @@ File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [61] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
+ 25990 strings out of 493848
+ 504491 string characters out of 1152823
+ 1049085 words of memory out of 3000000
+ 28143 multiletter control sequences out of 15000+50000
+ 30690 words of font info for 82 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 63i,22n,61p,915b,1838s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/en
+c/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymb
+ol/MnSymbolE.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/u
+sr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-texl
+ive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/
+dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol
+/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc
+}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/eurosym/feymr10
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pf
+b>
+Output written on prolat.pdf (64 pages, 7089917 bytes).
+PDF statistics:
+ 1182 PDF objects out of 1200 (max. 8388607)
+ 529 named destinations out of 1000 (max. 500000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
  26057 strings out of 495061
  504824 string characters out of 1182621
  1047456 words of memory out of 3000000
@@ -1995,4 +2201,5 @@ PDF statistics:
  1728 PDF objects out of 1728 (max. 8388607)
  602 named destinations out of 1000 (max. 500000)
  341 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 

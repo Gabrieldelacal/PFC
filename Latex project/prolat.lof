@@ -17,6 +17,25 @@
 \contentsline {figure}{\numberline {6.3}{\ignorespaces IMU MPU-6050}}{31}{figure.6.3}
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Emisora y Receptor}}{32}{figure.6.4}
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Bater\IeC {\'\i }a LiPo empleada}}{32}{figure.6.5}
+<<<<<<< HEAD
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Esquema del Regulador Step-Down}}{33}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{34}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Tabla de Set up de un ESC}}{35}{figure.6.8}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{35}{figure.6.9}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{35}{figure.6.10}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una h\IeC {\'e}lice de dos aspas}}{36}{figure.6.11}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Ensamblaje del esqueleto del Quadcopter}}{37}{figure.6.12}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Ensamblaje de la montura de la RPi y el Receptor}}{37}{figure.6.13}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Detalle del cruce de fases en los motores}}{38}{figure.6.14}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Ensamblaje y detalle de una de las patas.}}{38}{figure.6.15}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Conexi\IeC {\'o}n por I2C entre MPU-6050 y RPi}}{52}{figure.9.1}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{52}{figure.9.2}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Funci\IeC {\'o}n de densidad de la variable de estado $\mathaccentV {hat}05E{x}_{k|k-1}$}}{54}{figure.9.3}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparaci\IeC {\'o}n con funci\IeC {\'o}n de densidad de la medici\IeC {\'o}n $z_{k}$}}{54}{figure.9.4}
+=======
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Regulador Step-Down}}{33}{figure.6.6}
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema del Regulador Step-Down}}{33}{figure.6.7}
 \contentsline {figure}{\numberline {6.8}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{34}{figure.6.8}
@@ -31,4 +50,5 @@
 \contentsline {figure}{\numberline {9.2}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{50}{figure.9.2}
 \contentsline {figure}{\numberline {9.3}{\ignorespaces Funci\IeC {\'o}n de densidad de la variable de estado $\mathaccentV {hat}05E{x}_{k|k-1}$}}{52}{figure.9.3}
 \contentsline {figure}{\numberline {9.4}{\ignorespaces Comparaci\IeC {\'o}n con funci\IeC {\'o}n de densidad de la medici\IeC {\'o}n $z_{k}$}}{52}{figure.9.4}
+>>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 \contentsline {figure}{\numberline {9.5}{\ignorespaces Bancada para la determinaci\IeC {\'o}n de las inercias}}{56}{figure.9.5}
