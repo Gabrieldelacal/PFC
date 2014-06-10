@@ -931,10 +931,10 @@ Para el caso de $\mathbf{R}$ se consideran toda un mismo peso para todas las ent
 
 \begin{equation}
 \mathbf{R}=100 \cdot I = \left[ \begin{array}{cccc}
-100 &   0 &   0 &   0 \\
-0   & 100 &   0 &   0 \\
-0   &   0 & 100 &   0 \\
-0   &   0 &   0 & 100 \\ \end{array} \right] 
+1000 &   0 &   0 &   0 \\
+0   & 1000 &   0 &   0 \\
+0   &   0 & 1000 &   0 \\
+0   &   0 &   0 & 1000 \\ \end{array} \right] 
 \end{equation}
 
 Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab para calcular el control óptimo según el regulador LQR\cite{Toolbox_lqr}:
@@ -947,10 +947,10 @@ Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo
 
 \begin{equation}
 \mathbf{K}= \left[ \begin{array}{cccc}
-         0  &      0  &  -0.0707  & -0.0573 \\
-   -0.0707 &   -0.0583    &     0    &     0 \\
-         0    &     0 &   0.0707  &  0.0573 \\
-    0.0707  &  0.0583    &     0    &     0 \\ \end{array} \right]
+         0  &      0  &  -0.0224  & -0.0322 \\
+   -0.0224 &   -0.0328    &     0    &     0 \\
+         0    &     0 &   0.0224  &  0.0322 \\
+    0.0224  &  0.0328    &     0    &     0 \\ \end{array} \right]
 \end{equation}
 
 En ser la ley de control $\pmb{U}=-\mathbf{K}\cdot \mathbf{X}$, el vector de estados $\mathbf{X}=[\phi \quad \dot{\phi \quad \theta \quad \dot{\theta}}]^{T}$ y $\mathbf{U}=[f_{1} \quad f_{2} \quad f_{3} \quad f_{4}]$, el ángulo $\phi$ tendrán efecto en el los motores $f_{1}$ y  $f_{3}$ mientras que $\theta$ afectará a $f_{2}$ y $f_{4}$. La matriz $\mathbf{S}$, solución de la ecuación de Riccati, queda
@@ -958,20 +958,20 @@ En ser la ley de control $\pmb{U}=-\mathbf{K}\cdot \mathbf{X}$, el vector de est
 \begin{equation}
 \mathbf{S}= \left[ \begin{array}{cccc}
 
-    0.8245  &  0.3399    &     0 &        0 \\
-    0.3399  &  0.2802     &    0   &      0 \\
-         0  &       0  &  0.8106  &  0.3286 \\
-         0   &      0  & 0.3286  &  0.2664 \\ \end{array}     \right]
+    1.4662  &  1.0748    &     0 &        0 \\
+    1.0748  &  1.5758    &     0   &      0 \\
+         0  &       0  &  1.4415  &  1.0390 \\
+         0   &      0  & 1.0390  &  1.4978 \\ \end{array}     \right]
 \end{equation}
 
 y los polos del sistema, considerando que es un sistema $LTI$, son
 
 \begin{equation}
 \mathbf{E}= \left[ \begin{array}{c}
-  -1.2129 + 1.2129i \\
-  -1.2129 - 1.2129i \\
-  -1.2336 + 1.2336i \\
-  -1.2336 - 1.2336i \\
+  -0.6821 + 0.6821i \\
+  -0.6821 - 0.6821i \\
+  -0.6937 + 0.6937i \\
+  -0.6937 - 0.6937i \\
 \end{array} \right] 
 \end{equation}
 
@@ -1871,20 +1871,18 @@ de media $\mu_{p}$ y varianza $\sigma^{2}_{p}$:
 \end{equation}	
 
 Substituyendo en este caso con las dos funciones anteriores se tiene que la estimación del estado $a \>\> posteriori$ es 
-<<<<<<< HEAD
 
 \begin{equation}
 \hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \label{media_x}
 \end{equation}
 
-=======
+
 
 \begin{equation}
 \hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \end{equation}
 
->>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
 que se puede expresar como
 
 \begin{equation}
@@ -1903,11 +1901,11 @@ e $\tilde{\mathbf{y}}_{k}$ es la innovación:
 \tilde{\mathbf{y}}_{k} = \mathbf{z}_{k} - \mathbf{H}_{k} \cdot \hat{\mathbf{x}}_{k|k-1}
 \end{equation}
 
-<<<<<<< HEAD
+
 Finalmente se actualiza la covarianza del error asociada a esta última estimación, substituyendo los valores de las varianzas tal y como se ha hecho para la media en \ref{media_x}:
-=======
+
 Finalmente se actualiza la covarianza del error asociada a esta última estimación
->>>>>>> 253a4247b5eeb564c2784828b991df09ad574a4c
+
 
 \begin{equation}
 \mathbf{P}_{k|k} = (\mathbf{I} - \mathbf{K}_{k}\mathbf{H}_{k})\mathbf{P}_{k|k-1}
@@ -1916,86 +1914,152 @@ Finalmente se actualiza la covarianza del error asociada a esta última estimaci
 
 \section*{Implementación}
 
-Se explicará paso por paso cómo se ha implementado el filtro de Kalman que se ha utilizado en el Quadcopter, en código $C$. 
+Se explicará paso por paso cómo se ha implementado el filtro de Kalman que se ha utilizado en el Quadcopter en código $C$.  \\
 
-\begin{lstlisting}[language=C]
-#include <stdio.h>
-#include <fcntl.h>              // para poder usar el parametro 0_RDWR
-#include <sys/time.h>           // para usar gettimeofday()
-#include <math.h>
-#include <wiringPi.h>
-#include <wiringPiI2C.h>
-#include <stdint.h>
+Se determina el tiempo de muestreo mediante la diferencia de tiempo entre dos lecturas consecutivas del sensor y con ello se obtiene $dt$. Se considera en la estimación del estado sigue una dinámica tal que 
 
-#define mgmt_1 0x6b             // direccion del registro para el oscilador
-#define mgmt_2 0x6c
-#define accel_config 0x1c       // direccion para config. el accelerometro
-#define PI 3.14159265
+\begin{equation}
+\begin{array}{c}
+\hat{\mathbf{x}}_{k|k-1}=\mathbf{F}_{k-1} \cdot \hat{\mathbf{x}}_{k-1|k-1} + \mathbf{B}_{k-1}\cdot \mathbf{u}_{k-1}= \\
+\\ \left[ \begin{array}{c}
+\theta \\
+\dot{\theta}_{b} \\ \end{array} \right]_{k|k-1} = \left[ \begin{array}{cc}
+1 & -\Delta t \\
+0 & 1  \\ \end{array} \right]  \left[ \begin{array}{c}
+\theta \\
+\dot{\theta}_{b} \\ \end{array} \right]_{k-1|k-1} + \left[ \begin{array}{c}
+\Delta t \\
+0 \\ \end{array} \right]  \dot{\theta}_{k}
+\end{array}
+\end{equation}
 
-// struct timeval last, now;
+A este Filtro se le conoce por Filtro de Schmidt ya que su segundo estado es el $bias$ de la velocidad. Desarrollandolo se tiene que:
 
-// float dist(double, double);
+\begin{equation}
+\left[ \begin{array}{c}
+\theta \\
+\dot{\theta}_{b} \\ \end{array} \right]_{k|k-1} = \left[ \begin{array}{c}
+\theta + \Delta t(\dot{\theta}-\dot{\theta}_{b}) \\
+\dot{\theta}_{b} \\ \end{array} \right]
+\label{9.20}
+\end{equation}
 
-double read_word_2c(adr,reg){
-        uint8_t high=wiringPiI2CReadReg8(adr,reg);
-        uint8_t low=wiringPiI2CReadReg8(adr,reg);
-        uint16_t val=(high<<8)+low;     // lectura de dos palabras
-        // printf("read: %d",val);
-        if(val>=0x8000){                        // complemento a dos si es necesario
-                return(double)(-((65535-val)+1));
-        }else{
-                return(double)(val);
-        }
-}
+Si se considera que $rate=(\dot{\theta}-\dot{\theta}_{b})$ se expresa \ref{9.20} como 
 
-double dist(a,b){
-        double c=sqrt(a*a+b*b);
-        printf("c: %f",c);
-        return c;
-}
-
-double y_rotation(x,y,z){
-        double rad;
-        rad=atan2(x,dist(y,z));
-        return(-rad/180.0*PI);
-}
-
-double x_rotation(x,y,z){
-        double rad;
-        rad=atan2(y,dist(x,z));
-        printf("rad: %f",rad*180.0/PI);
-        return(-rad*180.0/PI);
-}
-int main(void){
-
-        int fd;         //file direction
-        // char *fileName="/dev/i2c-1";
-        // int address=0x68;
-
-        float ax,ay,az;
-
-        wiringPiSetup();
-        fd=wiringPiI2CSetup(0x68);
-
-        // fd =open(fileName,O_RDWR);
-
-        wiringPiI2CWriteReg8(fd,mgmt_1,0);
-        wiringPiI2CWriteReg8(fd,accel_config,3);
-
-        // gettimeofday(&last,NULL);
-        while(1){
-
-                ax=(read_word_2c(fd,0x3b))/16384.0;
-                ay=(read_word_2c(fd,0x3d))/16384.0;
-                az=(read_word_2c(fd,0x3f))/16384.0;
-        
-//              printf("asdf");
-//              printf("x: %f  \n",x_rotation(ax,ay,az));
-//              printf("%g,arc:%g",sqrt(ax*ax+az*az),atan2(ay,sqrt(ax*ax+az*az))*180/PI);
-                printf("   %g\t ,arc:%g\n",sqrt(ay*ay+az*az),-atan2(ax,sqrt(ay*ay+az*az))*180/PI);
-
+\begin{lstlisting}[language=C]   
+rate=velocity-bias;
+angle+=dt*rate;
 \end{lstlisting}
 
+Para estimar la varianza $\mathbf{P}_{k|k-1}$ se tiene 
+
+\begin{equation}
+\begin{array}{c}
+
+\hspace{-1cm} \left[ \begin{array}{cc}
+P_{00} & P_{01} \\
+P_{10} & P_{11} \\ \end{array} \right]_{k|k-1} = \left[ \begin{array}{cc}
+1 & -\Delta t \\
+0 & 1 \\ \end{array} \right] \left[ \begin{array}{cc}
+P_{00} & P_{01} \\
+P_{10} & P_{11} \\ \end{array} \right]_{k-1|k-1} \left[ \begin{array}{cc}
+1 & -\Delta t \\
+0 & 1 \\ \end{array} \right]^{T} + \left[ \begin{array}{cc}
+Q_{\theta} & 0 \\
+0 & Q_{\dot{\theta}_{b}} \\ \end{array} \right] \Delta t = \\
+\\
+= \left[ \begin{array}{cc}
+P_{00} + \Delta t (\Delta t P_{11} - P_{01} - P_{10} + Q_{\theta}) & P_{01} - \Delta t P_{11} \\
+P_{10} - \Delta t P_{11} & P_{11}+ Q_{\dot{\theta}_{b}}\Delta t \\ \end{array} \right]
+\end{array}
+\end{equation}
+
+que en código C se implementa como
+
+\begin{lstlisting}[language=C,firstnumber=3]
+P[0][0] += dt * (dt*P[1][1] - P[0][1] - P[1][0] + Q_angle);
+P[0][1] -= dt * P[1][1];
+P[1][0] -= dt * P[1][1];
+P[1][1] += Q_gyroBias * dt;
+\end{lstlisting}
+
+La innovación $\tilde{y}_{k}$ es 
+
+\begin{equation}
+\tilde{y}_{k}=z_{k} - \mathbf{H}_{k}\cdot \hat{\mathbf{x}}_{k|k-1}=z_{k} - \theta_{k|k-1}
+\end{equation}
+
+Que en el programa que se ejecuta se calcula como la diferencia de la lectura y el estado:
+
+\begin{lstlisting}[language=C,firstnumber=7]
+y=newangle-angle;
+\end{lstlisting}
+
+Para calcular la ganancia de Kalman se debe calcular antes $\mathbf{S}_{k}$: 
+
+\begin{equation}
+\begin{array}{c}
+\mathbf{S}_{k}=\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k} = \left[ \begin{array}{cc}
+1 & 0 \\ \end{array} \right] \left[ \begin{array}{cc}
+P_{00} & P_{01} \\
+P_{10} & P_{11} \\ \end{array} \right] \left[ \begin{array}{c}
+1 \\
+0 \\ \end{array} \right] + \mathbf{R}= \\
+\\
+={P_{00}}_{k|k-1} + R_{k}
+\end{array}
+\end{equation}
+
+y para la ganancia es
+
+\begin{equation}
+\mathbf{K}_{k}=\mathbf{P}_{k|k-1}\mathbf{H}^{T}\mathbf{S}_{k}^{-1}= \left[ \begin{array}{c}
+K_{0} \\
+K_{1} \\ \end{array} \right] _{k} = \frac{\left[ \begin{array}{c}
+P_{00} \\
+P_{10} \\ \end{array} \right]_{k|k-1}}{\mathbf{S}_{k}}
+\end{equation}
+
+La implementación de la ganancia de Kalman queda como:
+
+\begin{lstlisting}[language=C,firstnumber=8]
+S = P[0][0] + R_angle;
+
+K[0] = P[0][0] / S;
+K[1] = P[1][0] / S;
+\end{lstlisting}
+
+Por último queda asignar los nuevos valores de las estimaciones. Para el caso del estado $\hat{\mathbf{x}}_{k|k}$ se tiene que 
+ 
+\begin{equation}
+\hat{\mathbf{x}}_{k|k}=\left[\begin{array}{c}
+\theta \\
+\dot{\theta}_{b} \\ \end{array} \right] _{k|k-1} + \left[\begin{array}{c}
+K_{0}\tilde{y} \\
+K_{1}\tilde{y} \\ \end{array} \right]_{k}
+\end{equation}
+
+y para la matriz de covarianzas del error 
+
+\begin{equation}
+\mathbf{P}_{k|k}=(\mathbf{I} - \mathbf{K}_{k}\mathbf{H})\hat{\mathbf{x}}_{k|k-1}=\left[ \begin{array}{cc}
+P_{00} & P_{01} \\
+P_{10} & P_{11} \\ \end{array} \right]_{k|k-1} - \left[ \begin{array}{cc}
+K_{0}P_{00} & K_{0}P_{01} \\
+K_{1}P_{00} & K_{1}P_{01} \\ \end{array} \right] 
+\end{equation}
+
+El código que implementa este último paso del filtro es 
+
+\begin{lstlisting}[language=C,firstnumber=12]
+angle += K[0] * y;
+bias += K[1] * y;
+
+P[0][0] -= K[0] * P[0][0];
+P[0][1] -= K[0] * P[0][1];
+P[1][0] -= K[1] * P[0][0];
+P[1][1] -= K[1] * P[0][1];
+\end{lstlisting}
 \newpage
 \section*{Anexo D: Identificación de los parámetros del Quadcopter}
 %% Inercias, longitud brazos, motores (fuerza e intensidad)

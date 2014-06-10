@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  6 JUN 2014 09:48
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  10 JUN 2014 23:48
 entering extended mode
  %&-line parsing enabled.
 **prolat.tex
 (./prolat.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size11.clo
@@ -266,7 +272,7 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+(/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/spanish.ldf
@@ -277,12 +283,6 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen105
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Spanish'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@spanish = a dialect from \language0
 \es@datefmt=\count90
 \es@quottoks=\toks17
 \es@quotdepth=\count91
@@ -290,7 +290,8 @@ Package babel Info: Making " an active character on input line 492.
 Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
-)) (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
@@ -715,7 +716,8 @@ Package: geometry 2008/12/21 v4.2 Page Geometry
 \Gm@odd@mp=\dimen122
 \Gm@even@mp=\dimen123
 \Gm@dimlist=\toks31
-)
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (597.50787pt) is ignored.
@@ -1409,12 +1411,6 @@ l.135 \newpage
 ]
 Cap\'{\i }tulo 1.
 
-Overfull \hbox (7.72662pt too wide) in paragraph at lines 145--146
-[]\T1/cmr/m/n/10.95 La prin-ci-pal mo-ti-vación de este proyec-to es la de apli
-car por uno mis-mo los conocimien-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
@@ -1526,8 +1522,8 @@ File: images/quad.jpg Graphic file (type jpg)
 
  <./images/quad.jpg>]
 Overfull \hbox (14.61317pt too wide) in paragraph at lines 290--292
-\T1/cmr/m/n/10.95 Las fuerzas de sus-tentación y ve-loci-dades an-gu-lares de l
-os cu-a-tro ac-tu-adores son $\OML/cmm/m/it/10.95 f[]; f[]; f[]; f[]$
+\T1/cmr/m/n/10.95 Las fuer-zas de sus-ten-ta-ción y ve-lo-ci-da-des an-gu-la-re
+s de los cua-tro ac-tua-do-res son $\OML/cmm/m/it/10.95 f[]; f[]; f[]; f[]$
  []
 
 
@@ -1537,8 +1533,8 @@ File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [11]
 Overfull \hbox (2.03055pt too wide) in paragraph at lines 319--320
-[]\T1/cmr/m/n/10.95 Las ecua-ciones que go-b-ier-nan el sis-tema se ob-tienen c
-on el méto-do de Euler-Lagrange,
+[]\T1/cmr/m/n/10.95 Las ecua-cio-nes que go-bier-nan el sis-te-ma se ob-tie-nen
+ con el mé-to-do de Euler-Lagrange,
  []
 
 
@@ -1564,8 +1560,8 @@ File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [14]
 Overfull \hbox (12.6054pt too wide) in paragraph at lines 499--500
-\T1/cmr/m/n/10.95 ta-dos, y por tan-to el vec-tor de es-ta-dos será de la for-m
-a $[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
+\T1/cmr/m/n/10.95 ta-dos, y por tan-to el vec-tor de es-ta-dos se-rá de la for-
+ma $[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
  []
 
 
@@ -1713,11 +1709,11 @@ File: images/mpu-6050.jpg Graphic file (type jpg)
 
 <use images/mpu-6050.jpg>
 Overfull \hbox (16.07733pt too wide) in paragraph at lines 1123--1131
-\T1/cmr/m/n/10.95 Como car-ac-terís-ti-cas de los sen-sores: el girós-copo tien
-e un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m/it/1
-0.95 ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 500\OML/cmm/m/it/10.95 ; \U
-/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 1000\OML/cmm/m/it/10.95 ; \U/MnSymbo
-lC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
+\T1/cmr/m/n/10.95 Como ca-rac-te-rís-ti-cas de los sen-so-res: el gi-rós-co-po 
+tie-ne un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m
+/it/10.95 ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 500\OML/cmm/m/it/10.95
+ ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 1000\OML/cmm/m/it/10.95 ; \U/Mn
+SymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
@@ -1886,20 +1882,20 @@ Cap\'{\i }tulo 9.
 
 ]
 Underfull \hbox (badness 3746) in paragraph at lines 1449--1450
-[]\T1/cmr/m/n/10.95 Acelerómetro y giro-sco-pio MPU-6050 para Ar-duino: []$\T1/
-cmtt/m/n/10.95 http : / / playground .
+[]\T1/cmr/m/n/10.95 Acelerómetro y gi-ros-co-pio MPU-6050 pa-ra Ar-duino: []$\T
+1/cmtt/m/n/10.95 http : / / playground .
  []
 
 
 Underfull \hbox (badness 2150) in paragraph at lines 1450--1451
-[]\T1/cmr/m/n/10.95 MPU-6050. Es-peci-fi-cación del pro-duc-to: []$\T1/cmtt/m/n
-/10.95 http : / / www . invensense . com / mems /
+[]\T1/cmr/m/n/10.95 MPU-6050. Es-pe-ci-fi-ca-ción del pro-duc-to: []$\T1/cmtt/m
+/n/10.95 http : / / www . invensense . com / mems /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1454--1455
-[]\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wikipedia: []$\T1/cmtt/m/n/10.95 htt
-p : / / en . wikipedia . org / wiki /
+[]\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wi-ki-pe-dia: []$\T1/cmtt/m/n/10.95 
+http : / / en . wikipedia . org / wiki /
  []
 
 [44
@@ -1986,6 +1982,10 @@ File: images/comp_fun_dens_x.jpeg Graphic file (type jpg)
 File: images/etseib.jpg Graphic file (type jpg)
  <use images/etseib.jpg> [55 <./images/fun_dens_x.jpeg> <./images/comp_fun_dens
 _x.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1917--1918
+
+ []
+
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
@@ -1995,25 +1995,23 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [56]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: images/etseib.jpg Graphic file (type jpg)
+ <use images/etseib.jpg> [57]
 File: images/etseib.jpg Graphic file (type jpg)
 
-<use images/etseib.jpg> [57]
-File: images/etseib.jpg Graphic file (type jpg)
- <use images/etseib.jpg> [58]
-Underfull \hbox (badness 10000) in paragraph at lines 2002--2003
+<use images/etseib.jpg> [58]
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2067
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
+Underfull \hbox (badness 10000) in paragraph at lines 2068--2069
 
  []
 
 File: images/etseib.jpg Graphic file (type jpg)
 <use images/etseib.jpg> [59]
-Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
+Underfull \hbox (badness 10000) in paragraph at lines 2171--2172
 
  []
 
@@ -2032,44 +2030,43 @@ File: images/etseib.jpg Graphic file (type jpg)
 
 <use images/etseib.jpg> [64] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
- 26113 strings out of 495061
- 505888 string characters out of 1182621
- 1047641 words of memory out of 3000000
- 28089 multiletter control sequences out of 15000+50000
+ 26000 strings out of 493848
+ 504561 string characters out of 1152823
+ 1048677 words of memory out of 3000000
+ 28115 multiletter control sequences out of 15000+50000
  30573 words of font info for 81 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 63i,22n,61p,915b,1908s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 714 hyphenation exceptions out of 8191
+ 63i,22n,61p,915b,1836s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/en
 c/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymb
-ol/MnSymbolE.enc} </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074
-.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </
-home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/plati
-c/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/platic/.texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/tcti1095.600pk> </home/platic/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/tcrm1095.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecti1095.600pk>{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/Mn
-SymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/
-usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texm
-f-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc} </home/platic/.texmf-var/font
-s/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/platic/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecbx1095.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecbx2488.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx14
-40.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> 
-</home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk> </home/pla
-tic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texmf-tex
-live/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texmf-texlive/fonts
-/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on prolat.pdf (67 pages, 7032178 bytes).
+ol/MnSymbolE.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/u
+sr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-texl
+ive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/
+dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol
+/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc
+}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sftt1095.pfb>
+Output written on prolat.pdf (67 pages, 7097824 bytes).
 PDF statistics:
- 1785 PDF objects out of 2073 (max. 8388607)
- 616 named destinations out of 1000 (max. 500000)
+ 1240 PDF objects out of 1440 (max. 8388607)
+ 572 named destinations out of 1000 (max. 500000)
  361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
