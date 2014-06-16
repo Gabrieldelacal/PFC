@@ -1,5 +1,4 @@
 \documentclass[twoside,11pt]{report}
-\usepackage{graphicx}
 
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
@@ -36,8 +35,12 @@
 % \renewcommand{\baselinestretch}{1.3}
 
 \usepackage{booktabs}
+
+\usepackage{graphicx}
+%\usepackage{epstopdf}
+
 \title{\begin{center} 
-\includegraphics[scale=0.3]{images/upc.jpg} 
+\includegraphics[scale=0.4,bb=0 0 225 225]{images/upc.png} 
 \end{center} 
 \vspace{0cm} 
 Proyecto Final de Carrera\\
@@ -65,7 +68,7 @@ Memoria}
 
 \fancyhead[LO,RE]{Quadcopter Control}
 \fancyhead[LE,RO]{\thepage}
-\fancyfoot[LE,RO]{\includegraphics[scale=0.2]{images/etseib.jpg}}
+\fancyfoot[LE,RO]{\includegraphics[scale=0.2,bb=0 0 257 257] {images/etseib_blue.png}}
 \fancyfoot[C]{}
 
 \begin{document}
@@ -170,7 +173,7 @@ Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4]{images/quadcopter_example.jpg}
+\includegraphics[scale=0.4,bb=0 0 405 205]{images/quadcopter_example.png}
 \caption{Quadcopter de ejemplo con cámara}
 \end{center}
 \end{figure}
@@ -187,7 +190,7 @@ En la actualidad el campo referente a estos aparatos se ha diversificado tanto q
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.3]{images/6_armed_quadcopter.jpg}
+\includegraphics[scale=0.3,bb=0 0 650 350]{images/6_armed_quadcopter.png}
 \caption{Ejemplo de Quadcopter con 6 motores}
 \end{center}
 \end{figure}
@@ -223,7 +226,7 @@ Es necesario considerar dos marcos de referencia: el inercial formado por los ej
 Por ser más usual la primera opción, se decide utilizar la configuración $Cross type$ tal y como se tiene en la figura \ref{RefQuad}.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{images/quad.jpg}
+\includegraphics[scale=0.5,bb=0 0 618 261]{images/quad.png}
 \caption{Marcos de referencia en el quadcopter}
 \label{RefQuad}
 \end{figure}\\
@@ -745,7 +748,7 @@ Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para com
 
 \begin{figure}[h!]
 \begin{center}
-\hspace{0cm} \includegraphics[scale=0.6]{images/Simulink_model.jpeg}
+\hspace{0cm} \includegraphics[scale=0.6,bb=0 0 620 750]{images/Simulink_model.png}
 \caption{Modelo en Simulink de la dinámica del Quadcopter}
 \end{center}
 \end{figure}
@@ -985,7 +988,7 @@ No se considera el control de la altura en el sistema real, pero se implementa u
 
 \begin{center}
 \begin{figure}[h!]
-\includegraphics[scale=0.45]{images/Simulink_model_2.jpeg}
+\includegraphics[scale=0.43,bb=0 0 650 600]{images/Simulink_model_2.png}
 \caption{Modelo en Simulink del lazo cerrado aplicado en el Quadcopter}
 \end{figure}
 \end{center}
@@ -1093,7 +1096,7 @@ Abreviado com a RPi, es un pequeño ordenador integrado en una sola placa (Singl
 %\begin{tabular}{cc}
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.06]{images/RPi.jpg}
+\includegraphics[scale=0.1,bb=0 0 1280 1024]{images/RPi.png}
 \caption{Raspberry Pi a utilizar}
 \label{RPiImage}
 \end{center}
@@ -1104,7 +1107,7 @@ Se ha optado por esta opción por su económico precio, la velocidad de procesam
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.3]{images/RPi2.jpg}
+\includegraphics[scale=0.3,bb=0 0 512 399]{images/RPi2.png}
 \caption{Conectores de la Raspberry Pi}
 \label{RPiConn}
 \end{center}
@@ -1123,7 +1126,7 @@ La alimentación se realiza por medio de un mini USB a 5V/700mA, con un consumo 
 Se trata de una Unidad de Medida Inercial (IMU en inglés) que integra en un mismo encapsulado de $4x4x0.9mm$ un acelerómetro y un giróscopo, ambos de 3 ejes. Dispone de un conversor ADC de 16 bits para cada eje y se comunica mediante un protocolo de comunicación $I2C$. Se ha optado por utilizar este dispositivo por su bajo coste y la fácil implicada con la RPi.
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.12]{images/mpu-6050.jpg} 
+\includegraphics[scale=0.12,bb=0 0 366 480]{images/mpu-6050.png} 
 \caption{IMU MPU-6050}
 \end{center}
 \end{figure}\\
@@ -1134,7 +1137,7 @@ Con este aparato de se transmite la consigna generada des del transmisor hacia e
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4]{images/E_R.jpg} 
+\includegraphics[scale=0.4,bb=0 0 400 354]{images/E_R.png} 
 \caption{Emisora y Receptor}
 \end{center}
 \end{figure}
@@ -1147,14 +1150,18 @@ La señal que se recibe para cada canal en el receptor es de $PWM$ de $50Hz$ con
 %% Mirar con osciloscopio la señal
 
 \subsubsection*{Batería LiPo}
-Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$. Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pic de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$:\\
+Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$: 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.1,viewport=0 400 2560 1250,clip]{images/LiPo.jpg} \\
+\includegraphics[scale=0.09,bb=0 0 1433 979]{images/LiPo.png} \\
 \caption{Batería LiPo empleada}
 \end{center}
 \end{figure}
+
+%viewport=0 400 2560 1250,clip
+
+Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pic de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$.
 
 El conector de carga es el $JST-XH$ y el de descarga el $XT60$. Para tener en cuenta respecto al Quadcopter es interesante saber que pesa $188g$ y respecto a la estructura (frame) que sus dimensiones son de $105x33x24mm$.
 
@@ -1172,7 +1179,7 @@ El esquema del componente \cite{lm2576s}:
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.55]{images/lm2576s.jpeg} 
+\includegraphics[scale=0.55,bb=0 0 570 192]{images/lm2576s.png} 
 \caption{Esquema del Regulador Step-Down}
 \end{center}
 \end{figure}
@@ -1206,7 +1213,7 @@ Esta velocidad es teórica, y como que no hay un lazo de control sobre ésta, no
 Para controlar un motor brushless la etapa de potencia a utilitzar es un ESC (Electronic Speed Controller) que es un  variador que se compone de un inversor trifásico:
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4]{images/ESC.jpeg}
+\includegraphics[scale=0.5,bb=0 0 420 200]{images/ESC.png}
 \caption{Esquema de un Variador como inversor trifásico}
 \end{center}
 \end{figure}
@@ -1221,7 +1228,7 @@ Tanto el peso de $19$g,  como las dimensiones de $50x26x12$mm son parámetros a 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{images/ESC_config.jpeg}
+\includegraphics[scale=0.45,bb=0 0 1053 352]{images/ESC_config.png}
 \caption{Tabla de Set up de un ESC}
 \end{center}
 \end{figure}
@@ -1234,7 +1241,7 @@ Todos los elementos que componen el Quadcopter se sujetan en una estructura que 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.1]{images/frame.jpg}
+\includegraphics[scale=0.1,bb=0 0 2560 1440]{images/frame.png}
 \caption{Piezas que componen la estructura del Quadcopter}
 \end{center}
 \end{figure}
@@ -1248,16 +1255,18 @@ En girar el motor, las aspas solidarias a su eje utilizan la energía cinética 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.065,viewport=0 200 2560 1100,clip]{images/propeller_image.jpg}
+\includegraphics[scale=0.65,bb=0 0 450 283]{images/propellers4.png}
 \caption{Par de hélices 8x4 simétricas}
 \end{center}
 \end{figure}
+
+% ,viewport=0 200 2560 1100,clip
 
 Los parámetros que definen una hélice son su Longitud ($X$), és decir, diámetro de superficie recorrida por las aspas en pulgadas, y el Pitch ($Y$), que es la distancia que se avanzaría la hélice en una revolución de moverse en una masa blanda. Se representan en el siguiente gráfico:
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.9]{images/propeller_xy.jpeg}
+\includegraphics[scale=0.9,bb=0 0 244 115]{images/propeller_xy.png}
 \caption{Representación de la Longitud y Pitch de una hélice de dos aspas}
 \end{center}
 \end{figure} 
@@ -1270,7 +1279,7 @@ En la unión de todos los componentes se ha optado por hacer uso de la impresió
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.3]{images/frame_mount.jpg}
+\includegraphics[scale=0.3,bb=0 0 1100 750]{images/frame_mount.png}
 \end{center}
 \caption{Ensamblaje del esqueleto del Quadcopter}
 \end{figure}
@@ -1279,7 +1288,7 @@ Dado que no se tiene una montura para la Raspberry Pi y demás piezas, se diseñ
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.35]{images/ensamblaje_rpi_mount.jpg}
+\includegraphics[scale=0.35,bb=0 0 700 500]{images/ensamblaje_rpi_mount.png}
 \end{center}
 \caption{Ensamblaje de la montura de la RPi y el Receptor}
 \end{figure}
@@ -1288,7 +1297,7 @@ Atornillados los motores, se sueldan a éstos los variadores, sujetándolos con 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.15]{images/comp_motor_wires.jpeg}
+\includegraphics[scale=0.15,bb=0 0 1050 700]{images/comp_motor_wires.png}
 \end{center}
 \caption{Detalle del cruce de fases en los motores}
 \label{detalle_cable_motor}
@@ -1300,8 +1309,8 @@ En despegar se tiene un efecto aerodinámico no considerado en el modelo denomin
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.32]{images/ensamblaje_pata.jpg} \hspace{1.5cm}
-\includegraphics[scale=0.12]{images/detalle_pata.jpeg}
+\includegraphics[scale=0.32,bb=0 0 500 400]{images/ensamblaje_pata.png} \hspace{1.5cm}
+\includegraphics[scale=0.12,bb=0 0 948 1228]{images/detalle_pata.png}
 \end{center}
 \caption{Ensamblaje y detalle de una de las patas.}
 \end{figure}
@@ -1704,7 +1713,7 @@ Para poner a punto la RPi se instala un Raspbian y se configura para que es pued
 \subsubsection*{Instalación Raspbian}
 Habiendo introducido la tarjeta SD en un lector adecuado, se detecta en una terminal mediante la orden \textit{df -h}. Suponiendo que haya estado gravada anteriormente:
 \begin{center}
-\includegraphics[scale=0.7]{images/InstalRasp1.jpeg}
+\includegraphics[scale=0.7,bb=0 0 766 38]{images/InstalRasp1.png}
 \end{center}
 Se deben desmontar las dos particiones, tanto la \textit{/dev/sdb1} como la \textit{/dev/sdb2}:
 \begin{verbatim}
@@ -1735,17 +1744,15 @@ las siguientes dos líneas deben empezar con un signo \# (de comentario):
            #blacklist spi-bcm2708
            #blacklist i2c-bcm2708
 \end{verbatim}
-Para conectar el sensor, es necesario seguir primero el conexionado:
+Para conectar el sensor, se sigue el conexionado:
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.2,viewport=0 200 800 720,clip]{images/ConSens.jpg}
-\caption{Conexión por I2C entre MPU-6050 y RPi}
-\end{center}
-\end{figure}
-
-
-Es decir
+%\begin{figure}[h!]
+%\begin{center}
+%\includegraphics[scale=0.2,viewport=0 200 800 720,clip]{images/ConSens.png}
+%\caption{Conexión por I2C entre MPU-6050 y RPi}
+%\end{center}
+%\end{figure}
+%Es decir
 \begin{itemize}
 \item Pin 1-3.3V se conecta a VCC.
 \item Pin 3-SDA se conecta a SDA
@@ -1760,15 +1767,15 @@ Para ver el sensor se escribe:
 \begin{verbatim}
            sudo i2cdetect -y 1
 \end{verbatim}
-El resultado es 
+El resultado es el dispositivo que corresponde al MPU-6050:
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.7]{images/i2cdetect.jpg}
+\includegraphics[scale=0.7,bb=0 0 350 178]{images/i2cdetect.png}
 \caption{Detección del sensor MPU-6050}
 \end{center}
 \end{figure}
-que es el dispositivo que corresponde al MPU-6050.
+
 
 \subsubsection*{Librería wiringPi}
 Se utiliza esta librería \cite{wiringPi} como a interfaz del GPIO (General Porpouse Input Output). Permite, por tanto, leer las consignas y sensores y generar las acciones de control. 
@@ -1828,7 +1835,7 @@ En suponer que un estado está sometido a ruido blanco se puede expresar su dist
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.35]{images/fun_dens_x.jpeg}
+\includegraphics[scale=0.35,bb=0 0 800 327]{images/fun_dens_x.png}
 \caption{Función de densidad de la variable de estado $\hat{x}_{k|k-1}$}
 \end{center}
 \end{figure}
@@ -1851,7 +1858,7 @@ y se expresa mediante una nueva distribución normal de media $z_{k}$, que en el
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.35]{images/comp_fun_dens_x.jpeg}
+\includegraphics[scale=0.35,bb=0 0 800 350]{images/comp_fun_dens_x.png}
 \caption{Comparación con función de densidad de la medición $z_{k}$}
 \end{center}
 \end{figure}
