@@ -1044,7 +1044,7 @@ y=[vector(1);vector(2);vector(3);vector(4)];
 
 Se calcula la acción de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ en la línea 21 mediante los estados pero se añade un control para la altura para simular un caso más real. Se saturan las acciones de control para que no puedan ser negativas con los cuatro $if$ entre las líneas 23 y 34 porque los motores no pueden cambiar de sentido, ni tampoco superar la fuerza máxima que puedan aportar que se considera que es de $10\>\>N$. De esta manera se tiene una representación de la realidad más verosímil. 
 
-A modo de ejemplo, para unas $\mathbf{K}'s$ de
+A modo de ejemplo, para las $\mathbf{K}'s$ calculadas según los parámetros obtenidos del modelo construido:
 
 \begin{equation}
 \mathbf{K}=\left[ \begin{array}{cccc}
@@ -1055,11 +1055,11 @@ A modo de ejemplo, para unas $\mathbf{K}'s$ de
 \end{array} \right]
 \end{equation}
 
-y partiendo de unas condiciones iniciales de $\mathbf{q}=[0 \quad 0 \quad 0 \quad 45^{o} \quad 0 \quad 0 ]$ se tiene como respuesta para el ángulo $\phi$: 
+y partiendo de unas condiciones iniciales de $\mathbf{q}=[\xi \quad \eta]^{T}=[0 \quad 0 \quad 0 \quad 45^{o} \quad 0 \quad 0 ]$ se tiene como respuesta para el ángulo $\phi$: 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.25]{images/simulation_1.jpeg}
+\includegraphics[scale=0.2]{images/simulation_1.jpeg}
 \end{center}
 \caption{Respuesta del ángulo $\phi$ en la simulación}
 \end{figure}
@@ -1069,12 +1069,12 @@ y la acción de control que se ha aplicado por parte de los motores hasta llegar
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.25]{images/simulation_2.jpeg}
+\includegraphics[scale=0.2]{images/simulation_2.jpeg}
 \end{center}
 \caption{Acciones de los motores en la simulación}
 \end{figure}
 
-Se hace notar que las acciones de los actuadores estan saturadas con límites tanto inferior como superior y el control implementado no contempla tales no linealidades. Por ello el control no es óptimo y se tarda más en alcanzar la consigna, aún ser estable.
+Se hace notar que las acciones de los actuadores estan saturadas con límites tanto inferior como superior y el control implementado no contempla tales no linealidades. Por ello el control no es óptimo y se tarda más aún siendo estable, en alcanzar la consigna. Se detecta también un comportamiento extraño en la evolución del mismo ángulo, que se atribuye a la no linealidad del modelo.
 	
 \newpage
 \chapter{Implementación del control} \label{implement}
@@ -1372,29 +1372,16 @@ A cada motor se le atornillan la hélice adecuada según su sentido de giro, que
 
 \chapter{Análisis económico} \label{economics}
 
+Como en todo proyecto, es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
 
-Como en todo proyecto es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
-
-Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ euro $/ hora$ \\  
-
-Como en todo proyecto es importante conocer y justificar el gasto económico implicado. Por ello, en éste se desglosan los costes asociados, tanto materiales como los de mano de obra. Se considera que esta última corresponde a la de un estudiante, como es el caso, realizando el Proyecto Final de Carrera. \\
-
-Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías: \\  
-
-
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-
-\newcommand*{\myalign}[2]{\multicolumn{1}{#1}{#2}}
-
-\hspace{-1cm}
+Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ €$/ hora$.
+ 
+\begin{figure}[h!]
+\hspace{-0.2cm}
 \begin{tabular}{|l|r|r|r|}
 \hline
-% \myalign{c}{\textbf{Componente}} & \myalign{c}{\textbf{Precio unitario}} & \myalign{c}{\textbf{Cantidad}} & \myalign{c}{\textbf{Coste}}  \\ \multicolumn{1}{|c|}{\textbf{Componente}}
-%\raisebox{-8pt}{\hspace{3cm} \textbf{Componente}} & \textbf{Precio  unitario} & \multicolumn{1}{|c|}{\textbf{Cantidad}} & \multicolumn{1}{|c|}{\textbf{Coste}(\euro)} \\
 
-\hspace{2cm}\textbf{Componente} & \textbf{Precio}(euro /u) & \textbf{Cantidad} & \textbf{Coste}(euro) \\
+\hspace{2cm}\textbf{Componente} & \textbf{Precio}(€ /u) & \textbf{Cantidad} & \textbf{Coste}(€) \\
 \textbf{Componente} & \textbf{Precio unitario} & \textbf{Cantidad} & \textbf{Coste}(€) \\
 
 \hline
@@ -1418,7 +1405,7 @@ Cargador lipo & 16.95 & 1 & 16.95 \\
 \multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total del Coste material}} & 170.24 \\ \cmidrule{2-4}
 \multicolumn{4}{r}{} \\
 \hline
-\hspace{1.5cm}\textbf{Recursos Humanos} & \textbf{Coste}(euro /hora) & \textbf{Horas} & \textbf{Coste}(euro) \\
+\hspace{1.5cm}\textbf{Recursos Humanos} & \textbf{Coste}(€/hora) & \textbf{Horas} & \textbf{Coste}(€) \\
 \hline
 \hline
 Estudiante de PFC & 6 & 540 & 3240 \\
@@ -1427,9 +1414,9 @@ Estudiante de PFC & 6 & 540 & 3240 \\
 \multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total R.R. H.H.}} & 3240 \\ \cmidrule{2-4}
 \multicolumn{4}{r}{} \\
 \cmidrule{3-4}
-\multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{TOTAL}} & 3410.24 \\ \cmidrule{3-4}
+\multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{TOTAL}} & 3410.24 €\\ \cmidrule{3-4}
 \end{tabular} 
-
+\end{figure}
 \newpage
 
 \chapter{Impacto ambiental} \label{impacto}
@@ -2238,14 +2225,14 @@ Y por lo tanto se obtiene que
 T=2\pi \sqrt{\frac{I_{zz}+md^{2}}{mgd}}
 \end{equation}
 
-En el experimento se tiene que $g=9.81\>\>m/s^{2}$, $d=0.035\>\>m$ y $m=0.96\>\>kg$. Se realizan 8 mediciones de 5 oscilaciones cada una, por lo que la media que se obtiene se divide entre 5
+En el experimento se tiene que $g=9.81\>\>m/s^{2}$, $d=0.13\>\>m$ y $m=0.96\>\>kg$. Se realizan 8 mediciones de 5 oscilaciones cada una, por lo que la media que se obtiene se divide entre 5
 
 \begin{center}
 \begin{tabular}{|c|cccc|c|c|}
 \hline
-\textbf{Eje} & \multicolumn{4}{c|}{\textbf{Muestras}(s)} & \textbf{Media}(s) & \textbf{Momento de inercia}($kg \cdot m^{2}$) \\
+\textbf{Eje} & \multicolumn{4}{c|}{\textbf{Muestras}(s) (5 oscil.)} & \textbf{Media}(s) & \textbf{Momento de inercia}($kg \cdot m^{2}$) \\
 \hline
-\multirow{2}{*}{$z$} & 4.6 & 4.5 & 4.5 & 4.6 & \multirow{2}{*}{4.575} & \multirow{2}{*}{$5.814 \cdot 10^{-3}$} \\
+\multirow{2}{*}{$z$} & 4.6 & 4.5 & 4.5 & 4.6 & \multirow{2}{*}{4.575} & \multirow{2}{*}{$9.741 \cdot 10^{-3}$} \\
 & 4.6 & 4.6 & 4.6 & 4.6 & & \\
 \hline
 \end{tabular}
@@ -2256,7 +2243,7 @@ y por tanto se tiene que el tensor de inercia del Quadcopter es
 I=\left[ \begin{array}{ccc}
 7.932 & 0 & 0 \\
 0 & 7.664 & 0 \\
-0 & 0 & 5.814 \\
+0 & 0 & 9.741 \\
 \end{array} \right] \cdot 10^{-3}
 \end{equation}
 
