@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.89"
+    ComputedModelVersion    "1.90"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gabriel"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 02 02:22:04 2014"
-  RTWModifiedTimeStamp	  323572981
-  ModelVersionFormat	  "1.%<AutoIncrement:89>"
+  LastModifiedDate	  "Wed Jun 18 21:13:30 2014"
+  RTWModifiedTimeStamp	  325026805
+  ModelVersionFormat	  "1.%<AutoIncrement:90>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,6 +78,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "simlag2"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -807,7 +808,7 @@ Model {
   }
   System {
     Name		    "simlag2"
-    Location		    [65, 53, 1920, 1080]
+    Location		    [66, 81, 1921, 1108]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -3487,15 +3488,15 @@ Stateflow {
       isEML		      1
       script		      "function y = fcn(Phi,Theta,Psi,dPhi,dTheta,dPsi,z,dz,Constantes,II,K)\n%#codegen\n\n\nm=Constante"
       "s(1);\n% k=Constantes(2);\nl=Constantes(2);\nb=Constantes(3);\ng=Constantes(4);\n\nIxx=II(1);\nIyy=II(2);\nIzz=I"
-      "I(3);\n\nzD=10;\ndzD=0;\n\nKzP=6;\n\nKzD=1.75;\n\n%{\nzD=10;\ndzD=0;\n\nPhiD=0;\nThetaD=0;\nPsiD=0;\n\ndPhiD=0;\n"
-      "dThetaD=0;\ndPsiD=0;\n\nKphiP=1.5;\nKthetaP=6;\nKpsiP=6;\nKzP=6;\n\nKphiD=2.5;\nKthetaD=1.75;\nKpsiD=1.75;\nKzD="
-      "1.75;\n\nT=(g+KzD*(dzD-dz)+KzP*(zD-z))*m/(cos(Phi)*cos(Theta));\n\nTauPhi=Ixx*(KphiD*(dPhiD-dPhi)+KphiP*(PhiD-Ph"
-      "i));\n\nTauTheta=Iyy*(KthetaD*(dThetaD-dTheta)+KthetaP*(ThetaD-Theta));\n\nTauPsi=Izz*(KpsiD*(dPsiD-dPsi)+KpsiP*"
-      "(PsiD-Psi));\n\ny = [(T/(4*k)-TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T/(4*k)-TauPhi/(2*k*l)+TauPsi/(4*b));\n    "
-      " (T/(4*k)+TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T/(4*k)+TauPhi/(2*k*l)+TauPsi/(4*b))];\n\n\nK=[[      0       0"
-      " -0.7071 -0.1309];\n   [-0.7071 -0.1309       0       0];\n   [      0       0  0.7071  0.1309];\n   [ 0.7071  0"
-      ".1309       0       0]];\n\n%}\n%{\nK =[[      0         0   -0.2236   +0.0736];\n    [-0.2236   +0.0736        "
-      " 0         0];\n    [      0         0    0.2236   -0.0736];\n    [ 0.2236   -0.0736         0         0]];\n%}\n"
+      "I(3);\n\nzD=10;\ndzD=0;\n\nKzP=6;\nKzD=1.75;\n\n%{\nzD=10;\ndzD=0;\n\nPhiD=0;\nThetaD=0;\nPsiD=0;\n\ndPhiD=0;\nd"
+      "ThetaD=0;\ndPsiD=0;\n\nKphiP=1.5;\nKthetaP=6;\nKpsiP=6;\nKzP=6;\n\nKphiD=2.5;\nKthetaD=1.75;\nKpsiD=1.75;\nKzD=1"
+      ".75;\n\nT=(g+KzD*(dzD-dz)+KzP*(zD-z))*m/(cos(Phi)*cos(Theta));\n\nTauPhi=Ixx*(KphiD*(dPhiD-dPhi)+KphiP*(PhiD-Phi"
+      "));\n\nTauTheta=Iyy*(KthetaD*(dThetaD-dTheta)+KthetaP*(ThetaD-Theta));\n\nTauPsi=Izz*(KpsiD*(dPsiD-dPsi)+KpsiP*("
+      "PsiD-Psi));\n\ny = [(T/(4*k)-TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T/(4*k)-TauPhi/(2*k*l)+TauPsi/(4*b));\n     "
+      "(T/(4*k)+TauTheta/(2*k*l)-TauPsi/(4*b));\n     (T/(4*k)+TauPhi/(2*k*l)+TauPsi/(4*b))];\n\n\nK=[[      0       0 "
+      "-0.7071 -0.1309];\n   [-0.7071 -0.1309       0       0];\n   [      0       0  0.7071  0.1309];\n   [ 0.7071  0."
+      "1309       0       0]];\n\n%}\n%{\nK =[[      0         0   -0.2236   +0.0736];\n    [-0.2236   +0.0736         "
+      "0         0];\n    [      0         0    0.2236   -0.0736];\n    [ 0.2236   -0.0736         0         0]];\n%}\n"
       "\n% y=-K*[Phi; dPhi; Theta; dTheta]+[m*g/4;m*g/4;m*g/4;m*g/4];\n\n\n\nvector=-K*[Phi; dPhi; Theta; dTheta]+(g+Kz"
       "D*(dzD-dz)+KzP*(zD-z))*m;\n\nif(vector(1)<0) \n       vector(1)=0;\nelseif(vector(1)>10)\n       vector(1)=10;\n"
       "end\nif(vector(2)<0) \n       vector(2)=0;\nelseif(vector(2)>10)\n       vector(2)=10;       \nend\nif(vector(3)"

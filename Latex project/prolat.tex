@@ -173,7 +173,7 @@ Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4,bb=0 0 405 205]{images/quadcopter_example.png}
+\hspace{1cm}\includegraphics[scale=0.4,bb=0 0 405 205]{images/quadcopter_example.png}
 \caption{Quadcopter de ejemplo con cámara}
 \end{center}
 \end{figure}
@@ -212,6 +212,17 @@ Por parte de la mecánica, es primordial tener conocimientos sólidos de concept
 Finalmente, y como más serio objetivo de toda esta aventura, es el de haber afianzado lo que se creía entendido en relación al control. Asimilar otros métodos de control aplicables a sistemas multilineales no contemplados en la carrera es un excitante reto que se espera haber superado con éxito. \\
 
 Entonces, se entiende este trabajo como la causa de la motivación a cumplir con un objetivo multidisciplinar como puede serlo cualquiera en el campo de la robótica, en el que se debe tener constancia de muchos aspectos relevantes, como el de la economía. Poder tener idea de lo que cuesta un robot es de gran importancia si uno se embarca en un proyecto de envergadura, ya que se quiere que los pronósticos sobre el presupuesto cuadren con la futura realidad. 
+\section{Alcance}
+
+En este proyecto se ha perseguido el objetivo de controlar un Quadcopter mediante un regulador LQR. Para ello se ha obtenido un modelo lineal parametrizado con la información representativa propia del sistema real que representa: masas, inercias, distancias y caracterización de los actuadores, al que se le ha aplicado la misma ley de control que al sistema real. \\
+
+La construcción del mismo se ha llevado a cabo mediante piezas compradas por separado sin recurrir a kits montados o modelos completos, como Ardupilot o un AR Drone.\\  
+
+No se analizan ni comparan los resultados con otros posibles controles a implementar, tales como el PID. Se juzgará la calidad del vuelo según su aparente estabilidad y si se mantiene la posición asignada como consigna. 
+
+
+
+
 
 \newpage
 \chapter{Definición del modelo} \label{def}
@@ -226,7 +237,7 @@ Es necesario considerar dos marcos de referencia: el inercial formado por los ej
 Por ser más usual la primera opción, se decide utilizar la configuración $Cross type$ tal y como se tiene en la figura \ref{RefQuad}.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5,bb=0 0 618 261]{images/quad.png}
+\hspace{2cm}\includegraphics[scale=0.5,bb=0 0 618 261]{images/quad.png}
 \caption{Marcos de referencia en el quadcopter}
 \label{RefQuad}
 \end{figure}\\
@@ -1059,7 +1070,7 @@ y partiendo de unas condiciones iniciales de $\mathbf{q}=[\xi \quad \eta]^{T}=[0
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.2]{images/simulation_1.jpeg}
+\includegraphics[scale=0.25]{images/simulation_2.png}
 \end{center}
 \caption{Respuesta del ángulo $\phi$ en la simulación}
 \end{figure}
@@ -1067,9 +1078,9 @@ y partiendo de unas condiciones iniciales de $\mathbf{q}=[\xi \quad \eta]^{T}=[0
 
 y la acción de control que se ha aplicado por parte de los motores hasta llegar a la posición de equilibrio es
 
-\begin{figure}[h!]
+\begin{figure}[h!]				
 \begin{center}
-\includegraphics[scale=0.2]{images/simulation_2.jpeg}
+\includegraphics[scale=0.25]{images/simulation_1.png}
 \end{center}
 \caption{Acciones de los motores en la simulación}
 \end{figure}
@@ -1374,6 +1385,12 @@ A cada motor se le atornillan la hélice adecuada según su sentido de giro, que
 
 Como en todo proyecto, es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
 
+
+Como en todo proyecto es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. 
+Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ euro $/ hora$. \\  
+
+\hspace{-1cm}
+
 Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ €$/ hora$.
  
 \begin{figure}[h!]
@@ -1402,7 +1419,7 @@ Cargador lipo & 16.95 & 1 & 16.95 \\
 \hline \cmidrule{3-4}
 
 %\hline
-\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total del Coste material}} & 170.24 \\ \cmidrule{2-4}
+\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total del Coste material}} & 170.24 €\\ \cmidrule{2-4}
 \multicolumn{4}{r}{} \\
 \hline
 \hspace{1.5cm}\textbf{Recursos Humanos} & \textbf{Coste}(€/hora) & \textbf{Horas} & \textbf{Coste}(€) \\
@@ -1411,7 +1428,7 @@ Cargador lipo & 16.95 & 1 & 16.95 \\
 Estudiante de PFC & 6 & 540 & 3240 \\
 \hline \cmidrule{2-4}
 %\hline
-\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total R.R. H.H.}} & 3240 \\ \cmidrule{2-4}
+\multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total R.R. H.H.}} & 3240 €\\ \cmidrule{2-4}
 \multicolumn{4}{r}{} \\
 \cmidrule{3-4}
 \multicolumn{2}{r}{} & \multicolumn{1}{|l|}{\textbf{TOTAL}} & 3410.24 €\\ \cmidrule{3-4}

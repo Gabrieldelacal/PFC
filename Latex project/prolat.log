@@ -1,11 +1,18 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.12)  18 JUN 2014 12:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.16)  23 JUN 2014 01:04
 entering extended mode
+ \write18 enabled.
  %&-line parsing enabled.
 **prolat.tex
 (./prolat.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size11.clo
@@ -241,7 +248,7 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+(/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/spanish.ldf
@@ -252,12 +259,6 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Spanish'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@spanish = a dialect from \language0
 \es@datefmt=\count89
 \es@quottoks=\toks16
 \es@quotdepth=\count90
@@ -265,7 +266,8 @@ Package babel Info: Making " an active character on input line 492.
 Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
-)) (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
@@ -694,7 +696,8 @@ Package: geometry 2008/12/21 v4.2 Page Geometry
 \Gm@odd@mp=\dimen120
 \Gm@even@mp=\dimen121
 \Gm@dimlist=\toks31
-)
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (597.50787pt) is ignored.
@@ -1336,7 +1339,7 @@ driver: pdftex
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 87.
 
-<images/upc.png, id=94, 180.675pt x 180.675pt>
+<images/upc.png, id=98, 180.675pt x 180.675pt>
 File: images/upc.png Graphic file (type png)
  <use images/upc.png>
 LaTeX Font Info:    Try loading font information for U+msa on input line 87.
@@ -1375,7 +1378,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 121.
 
-<images/etseib_blue.png, id=117, 157.388pt x 206.371pt>
+<images/etseib_blue.png, id=121, 157.388pt x 206.371pt>
 File: images/etseib_blue.png Graphic file (type png)
 
 <use images/etseib_blue.png>
@@ -1420,12 +1423,6 @@ l.138 \newpage
 
 ]
 Cap\'{\i }tulo 1.
-
-Overfull \hbox (7.72662pt too wide) in paragraph at lines 148--149
-[]\T1/cmr/m/n/10.95 La prin-ci-pal mo-ti-vación de este proyec-to es la de apli
-car por uno mis-mo los conocimien-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
@@ -1474,7 +1471,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 176.
 
-<images/quadcopter_example.png, id=234, 325.215pt x 183.084pt>
+<images/quadcopter_example.png, id=239, 325.215pt x 183.084pt>
 File: images/quadcopter_example.png Graphic file (type png)
 
 <use images/quadcopter_example.png>
@@ -1494,7 +1491,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 193.
 
-<images/6_armed_quadcopter.png, id=240, 642.4pt x 361.35pt>
+<images/6_armed_quadcopter.png, id=245, 642.4pt x 361.35pt>
 File: images/6_armed_quadcopter.png Graphic file (type png)
 
 <use images/6_armed_quadcopter.png>
@@ -1533,33 +1530,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 212--213
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 216.
+(pdftex.def)                using `viewport' instead on input line 227.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [9]
 Cap\'{\i }tulo 3.
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 224
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 235
 .
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 224
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 235
 .
 
 Missing character: There is no º in font cmr10!
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 229.
+(pdftex.def)                using `viewport' instead on input line 240.
 
-<images/quad.png, id=252, 496.254pt x 209.583pt>
+<images/quad.png, id=257, 496.254pt x 209.583pt>
 File: images/quad.png Graphic file (type png)
  <use images/quad.png> [10
 
  <./images/quad.png>]
-Overfull \hbox (14.61317pt too wide) in paragraph at lines 293--295
-\T1/cmr/m/n/10.95 Las fuerzas de sus-tentación y ve-loci-dades an-gu-lares de l
-os cu-a-tro ac-tu-adores son $\OML/cmm/m/it/10.95 f[]; f[]; f[]; f[]$
+Overfull \hbox (14.61317pt too wide) in paragraph at lines 304--306
+\T1/cmr/m/n/10.95 Las fuer-zas de sus-ten-ta-ción y ve-lo-ci-da-des an-gu-la-re
+s de los cua-tro ac-tua-do-res son $\OML/cmm/m/it/10.95 f[]; f[]; f[]; f[]$
  []
 
 
@@ -1568,27 +1575,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 295.
+(pdftex.def)                using `viewport' instead on input line 306.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [11]
-Overfull \hbox (2.03055pt too wide) in paragraph at lines 322--323
-[]\T1/cmr/m/n/10.95 Las ecua-ciones que go-b-ier-nan el sis-tema se ob-tienen c
-on el méto-do de Euler-Lagrange,
+Overfull \hbox (2.03055pt too wide) in paragraph at lines 333--334
+[]\T1/cmr/m/n/10.95 Las ecua-cio-nes que go-bier-nan el sis-te-ma se ob-tie-nen
+ con el mé-to-do de Euler-Lagrange,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--344
+Underfull \hbox (badness 10000) in paragraph at lines 350--355
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 358.
+(pdftex.def)                using `viewport' instead on input line 369.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [12]
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 
  []
 
@@ -1598,7 +1605,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 421.
+(pdftex.def)                using `viewport' instead on input line 432.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [13]
@@ -1607,13 +1614,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 500.
+(pdftex.def)                using `viewport' instead on input line 511.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [14]
-Overfull \hbox (12.6054pt too wide) in paragraph at lines 502--503
-\T1/cmr/m/n/10.95 ta-dos, y por tan-to el vec-tor de es-ta-dos será de la for-m
-a $[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
+Overfull \hbox (12.6054pt too wide) in paragraph at lines 513--514
+\T1/cmr/m/n/10.95 ta-dos, y por tan-to el vec-tor de es-ta-dos se-rá de la for-
+ma $[] \U/MnSymbolD/m/n/10.95 ^^@ []$\T1/cmr/m/n/10.95 .
  []
 
 
@@ -1622,11 +1629,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 569.
+(pdftex.def)                using `viewport' instead on input line 580.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [15]
-Underfull \hbox (badness 10000) in paragraph at lines 595--596
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
 
  []
 
@@ -1636,11 +1643,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 676.
+(pdftex.def)                using `viewport' instead on input line 687.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [16]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 704--705
 
  []
 
@@ -1650,7 +1657,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 735.
+(pdftex.def)                using `viewport' instead on input line 746.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [17pdfTeX warning (ext4): destination with the sam
@@ -1658,85 +1665,85 @@ e identifier (name{equation.3.2.34}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.735 \end{equation}
+l.746 \end{equation}
                     ]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 744.
+(pdftex.def)                using `viewport' instead on input line 755.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [18]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 751.
+(pdftex.def)                using `viewport' instead on input line 762.
 
-<images/Simulink_model.png, id=337, 566.115pt x 737.154pt>
+<images/Simulink_model.png, id=342, 566.115pt x 737.154pt>
 File: images/Simulink_model.png Graphic file (type png)
 
 <use images/Simulink_model.png>
-Underfull \hbox (badness 10000) in paragraph at lines 756--757
+Underfull \hbox (badness 10000) in paragraph at lines 767--768
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 758.
+(pdftex.def)                using `viewport' instead on input line 769.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [19 <./images/Simulink_model.png>]
 
-LaTeX Warning: Command \' invalid in math mode on input line 760.
+LaTeX Warning: Command \' invalid in math mode on input line 771.
 
 Missing character: There is no á in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
+Underfull \hbox (badness 10000) in paragraph at lines 771--772
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--777
+Underfull \hbox (badness 10000) in paragraph at lines 787--788
 
  []
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 778.
+LaTeX Warning: Command \' invalid in math mode on input line 789.
 
 Missing character: There is no á in font cmr10!
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 799.
+(pdftex.def)                using `viewport' instead on input line 810.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [20]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 827.
+(pdftex.def)                using `viewport' instead on input line 838.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [21]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 837.
+(pdftex.def)                using `viewport' instead on input line 848.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [22]
 Cap\'{\i }tulo 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 841--842
+Underfull \hbox (badness 10000) in paragraph at lines 852--853
 
  []
 
 [23
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 945.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 956.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 950.
+(pdftex.def)                using `viewport' instead on input line 961.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [24pdfTeX warning (ext4): destination with the sam
@@ -1744,29 +1751,29 @@ e identifier (name{equation.4.2.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.950 
+l.961 
       ]
-Underfull \hbox (badness 10000) in paragraph at lines 983--984
+Underfull \hbox (badness 10000) in paragraph at lines 994--995
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 987.
+(pdftex.def)                using `viewport' instead on input line 998.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [25]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 991.
+(pdftex.def)                using `viewport' instead on input line 1002.
 
-<images/Simulink_model_2.png, id=452, 996.523pt x 586.19pt>
+<images/Simulink_model_2.png, id=457, 996.523pt x 586.19pt>
 File: images/Simulink_model_2.png Graphic file (type png)
 
 <use images/Simulink_model_2.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1016.
+(pdftex.def)                using `viewport' instead on input line 1027.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [26 <./images/Simulink_model_2.png>]
@@ -1775,25 +1782,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1056.
+(pdftex.def)                using `viewport' instead on input line 1067.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [27]
-<images/simulation_1.jpeg, id=507, 1373.88281pt x 738.50906pt>
-File: images/simulation_1.jpeg Graphic file (type jpg)
+<images/simulation_2.png, id=512, 1033.61156pt x 609.02531pt>
+File: images/simulation_2.png Graphic file (type png)
 
-<use images/simulation_1.jpeg>
-<images/simulation_2.jpeg, id=508, 1375.38844pt x 736.25063pt>
-File: images/simulation_2.jpeg Graphic file (type jpg)
+<use images/simulation_2.png>
+<images/simulation_1.png, id=513, 1003.49907pt x 598.48593pt>
+File: images/simulation_1.png Graphic file (type png)
 
-<use images/simulation_2.jpeg>
+<use images/simulation_1.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1079.
+(pdftex.def)                using `viewport' instead on input line 1090.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [28 <./images/simulation_1.jpeg> <./images/simulat
-ion_2.jpeg>]
+<use images/etseib_blue.png> [28 <./images/simulation_2.png> <./images/simulati
+on_1.png>]
 Cap\'{\i }tulo 5.
 [29
 
@@ -1801,90 +1808,90 @@ Cap\'{\i }tulo 5.
 Cap\'{\i }tulo 6.
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1099.
+(pdftex.def)                using `viewport' instead on input line 1110.
 
-<images/RPi.png, id=520, 1027.84pt x 822.272pt>
+<images/RPi.png, id=527, 1027.84pt x 822.272pt>
 File: images/RPi.png Graphic file (type png)
  <use images/RPi.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1110.
+(pdftex.def)                using `viewport' instead on input line 1121.
 
-<images/RPi2.png, id=521, 411.136pt x 320.397pt>
+<images/RPi2.png, id=528, 411.136pt x 320.397pt>
 File: images/RPi2.png Graphic file (type png)
  <use images/RPi2.png> [30
 
  <./images/RPi.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1129.
+(pdftex.def)                using `viewport' instead on input line 1140.
 
-<images/mpu-6050.png, id=529, 293.898pt x 385.44pt>
+<images/mpu-6050.png, id=536, 293.898pt x 385.44pt>
 File: images/mpu-6050.png Graphic file (type png)
  <use images/mpu-6050.png>
-Overfull \hbox (16.07733pt too wide) in paragraph at lines 1126--1134
-\T1/cmr/m/n/10.95 Como car-ac-terís-ti-cas de los sen-sores: el girós-copo tien
-e un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m/it/1
-0.95 ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 500\OML/cmm/m/it/10.95 ; \U
-/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 1000\OML/cmm/m/it/10.95 ; \U/MnSymbo
-lC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
+Overfull \hbox (16.07733pt too wide) in paragraph at lines 1137--1145
+\T1/cmr/m/n/10.95 Como ca-rac-te-rís-ti-cas de los sen-so-res: el gi-rós-co-po 
+tie-ne un ran-go de $\U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 250\OML/cmm/m
+/it/10.95 ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 500\OML/cmm/m/it/10.95
+ ; \U/MnSymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 1000\OML/cmm/m/it/10.95 ; \U/Mn
+SymbolC/m/n/10.95 ^^V\OT1/cmr/m/n/10.95 2000$
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1137.
+(pdftex.def)                using `viewport' instead on input line 1148.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [31 <./images/RPi2.png> <./images/mpu-6050.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1140.
+(pdftex.def)                using `viewport' instead on input line 1151.
 
-<images/E_R.png, id=537, 358.941pt x 284.262pt>
+<images/E_R.png, id=544, 358.941pt x 284.262pt>
 File: images/E_R.png Graphic file (type png)
  <use images/E_R.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1157.
+(pdftex.def)                using `viewport' instead on input line 1168.
 
-<images/LiPo.png, id=538, 1150.699pt x 786.137pt>
+<images/LiPo.png, id=545, 1150.699pt x 786.137pt>
 File: images/LiPo.png Graphic file (type png)
  <use images/LiPo.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1167.
+(pdftex.def)                using `viewport' instead on input line 1178.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [32 <./images/E_R.png> <./images/LiPo.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1182.
+(pdftex.def)                using `viewport' instead on input line 1193.
 
-<images/lm2576s.png, id=548, 538.01pt x 154.176pt>
+<images/lm2576s.png, id=555, 538.01pt x 154.176pt>
 File: images/lm2576s.png Graphic file (type png)
  <use images/lm2576s.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1206.
+(pdftex.def)                using `viewport' instead on input line 1217.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [33 <./images/lm2576s.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1216.
+(pdftex.def)                using `viewport' instead on input line 1227.
 
-<images/ESC.png, id=557, 358.138pt x 204.765pt>
+<images/ESC.png, id=564, 358.138pt x 204.765pt>
 File: images/ESC.png Graphic file (type png)
  <use images/ESC.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1231.
+(pdftex.def)                using `viewport' instead on input line 1242.
 
-<images/ESC_config.png, id=558, 845.559pt x 282.656pt>
+<images/ESC_config.png, id=565, 845.559pt x 282.656pt>
 File: images/ESC_config.png Graphic file (type png)
 
 <use images/ESC_config.png>
-Overfull \hbox (63.05873pt too wide) in paragraph at lines 1231--1232
+Overfull \hbox (63.05873pt too wide) in paragraph at lines 1242--1243
  [] 
  []
 
@@ -1893,254 +1900,268 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1241.
+(pdftex.def)                using `viewport' instead on input line 1252.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [34 <./images/ESC.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1244.
+(pdftex.def)                using `viewport' instead on input line 1255.
 
-<images/frame.png, id=567, 2055.68pt x 1156.32pt>
+<images/frame.png, id=574, 2055.68pt x 1156.32pt>
 File: images/frame.png Graphic file (type png)
  <use images/frame.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1258.
+(pdftex.def)                using `viewport' instead on input line 1269.
 
-<images/propellers4.png, id=568, 425.59pt x 227.249pt>
+<images/propellers4.png, id=575, 425.59pt x 227.249pt>
 File: images/propellers4.png Graphic file (type png)
 
 <use images/propellers4.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1261.
+(pdftex.def)                using `viewport' instead on input line 1272.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [35 <./images/ESC_config.png> <./images/frame.png>
 ]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1269.
+(pdftex.def)                using `viewport' instead on input line 1280.
 
-<images/propeller_xy.png, id=577, 179.872pt x 92.345pt>
+<images/propeller_xy.png, id=584, 179.872pt x 92.345pt>
 File: images/propeller_xy.png Graphic file (type png)
 
 <use images/propeller_xy.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1274.
+(pdftex.def)                using `viewport' instead on input line 1285.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [36 <./images/propellers4.png> <./images/propeller
 _xy.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1288--1289
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1282.
+(pdftex.def)                using `viewport' instead on input line 1293.
 
-<images/frame_mount.png, id=584, 1121.791pt x 827.09pt>
+<images/frame_mount.png, id=591, 1121.791pt x 827.09pt>
 File: images/frame_mount.png Graphic file (type png)
 
 <use images/frame_mount.png>
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1288
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1291.
+(pdftex.def)                using `viewport' instead on input line 1302.
 
-<images/ensamblaje_rpi_mount.png, id=585, 633.567pt x 532.389pt>
+<images/ensamblaje_rpi_mount.png, id=592, 633.567pt x 532.389pt>
 File: images/ensamblaje_rpi_mount.png Graphic file (type png)
 
 <use images/ensamblaje_rpi_mount.png>
-Underfull \hbox (badness 10000) in paragraph at lines 1296--1297
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1308
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1297.
+(pdftex.def)                using `viewport' instead on input line 1308.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [37 <./images/frame_mount.png> <./images/ensamblaj
 e_rpi_mount.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1300.
+(pdftex.def)                using `viewport' instead on input line 1311.
 
-<images/comp_motor_wires.png, id=593, 953.964pt x 658.46pt>
+<images/comp_motor_wires.png, id=600, 953.964pt x 658.46pt>
 File: images/comp_motor_wires.png Graphic file (type png)
 
 <use images/comp_motor_wires.png>
-Underfull \hbox (badness 10000) in paragraph at lines 1306--1307
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1309
+Underfull \hbox (badness 10000) in paragraph at lines 1319--1320
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1312.
+(pdftex.def)                using `viewport' instead on input line 1323.
 
-<images/ensamblaje_pata.png, id=594, 443.256pt x 403.909pt>
+<images/ensamblaje_pata.png, id=601, 443.256pt x 403.909pt>
 File: images/ensamblaje_pata.png Graphic file (type png)
 
 <use images/ensamblaje_pata.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1313.
+(pdftex.def)                using `viewport' instead on input line 1324.
 
-<images/detalle_pata.png, id=595, 761.244pt x 986.084pt>
+<images/detalle_pata.png, id=602, 761.244pt x 986.084pt>
 File: images/detalle_pata.png Graphic file (type png)
 
 <use images/detalle_pata.png>
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1319
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1330
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1320.
+(pdftex.def)                using `viewport' instead on input line 1331.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [38 <./images/comp_motor_wires.png> <./images/ensa
 mblaje_pata.png> <./images/detalle_pata.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1365--1366
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1377
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1371.
+(pdftex.def)                using `viewport' instead on input line 1382.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [39]
 Cap\'{\i }tulo 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1375--1376
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1387
 
  []
 
 
-Overfull \hbox (4.54935pt too wide) in paragraph at lines 1380--1419
+Underfull \hbox (badness 10000) in paragraph at lines 1389--1391
+
+ []
+
+
+Overfull \hbox (4.54935pt too wide) in paragraph at lines 1397--1436
 []  [] 
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [40
 
 ]
+
+Package pdftex.def Warning: Option `bb' does not make sense,
+(pdftex.def)                using `viewport' instead on input line 1439.
+
+File: images/etseib_blue.png Graphic file (type png)
+<use images/etseib_blue.png> [41]
 Cap\'{\i }tulo 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1424--1425
+Underfull \hbox (badness 10000) in paragraph at lines 1441--1442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1430--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1447--1448
 
  []
 
-[41
-
-]
-Cap\'{\i }tulo 9.
 [42
 
 ]
-Underfull \hbox (badness 3746) in paragraph at lines 1445--1446
-[]\T1/cmr/m/n/10.95 Acelerómetro y giro-sco-pio MPU-6050 para Ar-duino: []$\T1/
-cmtt/m/n/10.95 http : / / playground .
- []
-
-
-Underfull \hbox (badness 2150) in paragraph at lines 1446--1447
-[]\T1/cmr/m/n/10.95 MPU-6050. Es-peci-fi-cación del pro-duc-to: []$\T1/cmtt/m/n
-/10.95 http : / / www . invensense . com / mems /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
-[]\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wikipedia: []$\T1/cmtt/m/n/10.95 htt
-p : / / en . wikipedia . org / wiki /
- []
-
+Cap\'{\i }tulo 9.
 [43
 
-] [44
+]
+Underfull \hbox (badness 3746) in paragraph at lines 1462--1463
+[]\T1/cmr/m/n/10.95 Acelerómetro y gi-ros-co-pio MPU-6050 pa-ra Ar-duino: []$\T
+1/cmtt/m/n/10.95 http : / / playground .
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 1463--1464
+[]\T1/cmr/m/n/10.95 MPU-6050. Es-pe-ci-fi-ca-ción del pro-duc-to: []$\T1/cmtt/m
+/n/10.95 http : / / www . invensense . com / mems /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1467--1468
+[]\T1/cmr/m/n/10.95 Artículo so-bre LQR de Wi-ki-pe-dia: []$\T1/cmtt/m/n/10.95 
+http : / / en . wikipedia . org / wiki /
+ []
+
+[44
+
+] [45
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1465--1466
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1483
 
  []
 
-[45
+[46
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1544--1545
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1562
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1547.
-
-File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [46]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1577.
+(pdftex.def)                using `viewport' instead on input line 1564.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [47]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1621.
+(pdftex.def)                using `viewport' instead on input line 1594.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [48]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1671.
+(pdftex.def)                using `viewport' instead on input line 1638.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [49]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1696.
+(pdftex.def)                using `viewport' instead on input line 1688.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [50]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1703.
+(pdftex.def)                using `viewport' instead on input line 1713.
 
-<images/InstalRasp1.png, id=866, 615.098pt x 30.514pt>
+File: images/etseib_blue.png Graphic file (type png)
+<use images/etseib_blue.png> [51]
+
+Package pdftex.def Warning: Option `bb' does not make sense,
+(pdftex.def)                using `viewport' instead on input line 1720.
+
+<images/InstalRasp1.png, id=877, 615.098pt x 30.514pt>
 File: images/InstalRasp1.png Graphic file (type png)
 
 <use images/InstalRasp1.png>
-Overfull \hbox (125.64342pt too wide) in paragraph at lines 1703--1704
+Overfull \hbox (125.64342pt too wide) in paragraph at lines 1720--1721
  [] 
  []
 
 
-Overfull \hbox (17.47122pt too wide) in paragraph at lines 1713--1713
+Overfull \hbox (17.47122pt too wide) in paragraph at lines 1730--1730
 []    \T1/cmtt/m/n/10.95 sudo dd bs=4M if=~/Escritorio/2013-07-26-wheezy-raspbi
 an.img of=/dev/sdb[] 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1761.
+(pdftex.def)                using `viewport' instead on input line 1778.
 
-<images/i2cdetect.png, id=867, 374.198pt x 142.934pt>
+<images/i2cdetect.png, id=878, 374.198pt x 142.934pt>
 File: images/i2cdetect.png Graphic file (type png)
 
 <use images/i2cdetect.png>
@@ -2149,30 +2170,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1770.
+(pdftex.def)                using `viewport' instead on input line 1787.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [51 <./images/InstalRasp1.png>]
+<use images/etseib_blue.png> [52 <./images/InstalRasp1.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1771.
+(pdftex.def)                using `viewport' instead on input line 1788.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [52 <./images/i2cdetect.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
+<use images/etseib_blue.png> [53 <./images/i2cdetect.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1789--1790
+Underfull \hbox (badness 10000) in paragraph at lines 1806--1807
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1825.
+(pdftex.def)                using `viewport' instead on input line 1842.
 
-<images/fun_dens_x.png, id=884, 770.077pt x 262.581pt>
+<images/fun_dens_x.png, id=895, 770.077pt x 262.581pt>
 File: images/fun_dens_x.png Graphic file (type png)
 
 <use images/fun_dens_x.png>
@@ -2181,30 +2202,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1829.
+(pdftex.def)                using `viewport' instead on input line 1846.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1836--1837
+<use images/etseib_blue.png> [54]
+Underfull \hbox (badness 10000) in paragraph at lines 1853--1854
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1848.
+(pdftex.def)                using `viewport' instead on input line 1865.
 
-<images/comp_fun_dens_x.png, id=897, 761.244pt x 309.155pt>
+<images/comp_fun_dens_x.png, id=908, 761.244pt x 309.155pt>
 File: images/comp_fun_dens_x.png Graphic file (type png)
 
 <use images/comp_fun_dens_x.png>
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1863.
+(pdftex.def)                using `viewport' instead on input line 1880.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [54 <./images/fun_dens_x.png> <./images/comp_fun_d
+<use images/etseib_blue.png> [55 <./images/fun_dens_x.png> <./images/comp_fun_d
 ens_x.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1911--1912
+Underfull \hbox (badness 10000) in paragraph at lines 1928--1929
 
  []
 
@@ -2216,114 +2237,112 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 1944.
-
-File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [55]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2038.
+(pdftex.def)                using `viewport' instead on input line 1961.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [56]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2057.
+(pdftex.def)                using `viewport' instead on input line 2055.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [57]
-Underfull \hbox (badness 10000) in paragraph at lines 2060--2061
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2062--2063
-
- []
-
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2117.
+(pdftex.def)                using `viewport' instead on input line 2074.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [58]
-Underfull \hbox (badness 10000) in paragraph at lines 2165--2166
+Underfull \hbox (badness 10000) in paragraph at lines 2077--2078
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2079--2080
 
  []
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2206.
+(pdftex.def)                using `viewport' instead on input line 2134.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [59]
+Underfull \hbox (badness 10000) in paragraph at lines 2182--2183
+
+ []
+
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2258.
+(pdftex.def)                using `viewport' instead on input line 2223.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [60]
+
+Package pdftex.def Warning: Option `bb' does not make sense,
+(pdftex.def)                using `viewport' instead on input line 2275.
+
+File: images/etseib_blue.png Graphic file (type png)
+<use images/etseib_blue.png> [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2348.
-
-File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [61]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2395.
+(pdftex.def)                using `viewport' instead on input line 2365.
 
 File: images/etseib_blue.png Graphic file (type png)
 <use images/etseib_blue.png> [62]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 2441.
+(pdftex.def)                using `viewport' instead on input line 2412.
 
 File: images/etseib_blue.png Graphic file (type png)
-<use images/etseib_blue.png> [63] (./prolat.aux) ) 
+<use images/etseib_blue.png> [63]
+
+Package pdftex.def Warning: Option `bb' does not make sense,
+(pdftex.def)                using `viewport' instead on input line 2458.
+
+File: images/etseib_blue.png Graphic file (type png)
+<use images/etseib_blue.png> [64] (./prolat.aux) ) 
 Here is how much of TeX's memory you used:
- 25983 strings out of 495061
- 504168 string characters out of 1182621
- 1050585 words of memory out of 3000000
- 28006 multiletter control sequences out of 15000+50000
+ 25988 strings out of 493848
+ 504351 string characters out of 1152823
+ 1051571 words of memory out of 3000000
+ 28105 multiletter control sequences out of 15000+50000
  30573 words of font info for 81 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 63i,22n,61p,915b,1895s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 714 hyphenation exceptions out of 8191
+ 63i,22n,61p,915b,1889s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fon
 ts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/m
-nsymbol/MnSymbolE.enc} </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
-m2074.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600p
-k> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/
-platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/platic/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/tcti1095.600pk> </home/platic/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </home/platic/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecti1095.600pk>{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymb
-ol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolD.e
-nc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share
-/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbolS.enc} </home/platic/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/platic/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecbx1095.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecbx2488.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-cbx1440.600pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.60
-0pk> </home/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk> </hom
-e/platic/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texm
-f-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texmf-texlive/
-fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texmf-texlive/fonts/type1
-/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-bx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pf
-b>
-Output written on prolat.pdf (66 pages, 20656051 bytes).
+nsymbol/MnSymbolE.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.en
+c}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf
+-texlive/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texmf-texlive/fonts
+/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mns
+ymbol/MnSymbolF.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/mnsymbol/MnSymbol
+S.enc}</usr/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sftt1095.pfb>
+Output written on prolat.pdf (67 pages, 20501244 bytes).
 PDF statistics:
- 1729 PDF objects out of 2073 (max. 8388607)
- 570 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1264 PDF objects out of 1440 (max. 8388607)
+ 572 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
 
