@@ -46,7 +46,7 @@
 Proyecto Final de Carrera\\
 INGENIERÍA INDUSTRIAL \\
 \vspace{0cm} 
-\Huge{Control de un Quadcopter} 
+\Huge{Modelado, simulación, construcción y control de un Quadcopter} 
 \vspace{0cm} \\ 
 Memoria}
 %\author{Gabriel de la Cal Mendoza}
@@ -66,7 +66,7 @@ Memoria}
 % \rfoot[LE,RO]{\includegraphics[scale=0.1]{etseib.jpg}}
 % \renewcommand{\footrulewidth}{0.5pt}
 
-\fancyhead[LO,RE]{Quadcopter Control}
+\fancyhead[LO,RE]{Quadcopter}
 \fancyhead[LE,RO]{\thepage}
 \fancyfoot[LE,RO]{\includegraphics[scale=0.2,bb=0 0 257 257] {images/etseib_blue.png}}
 \fancyfoot[C]{}
@@ -101,33 +101,33 @@ Memoria}
 
 En el presente proyecto se ha tenido como meta el control de un Quadcopter. Para tal propósito se ha linealizado  el modelo no lineal obtenido y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo está organizado en 8 capítulos y 4 anexos.\\
 
-En el capítulo \ref{prefacio} se presentan los motivos por los que se ha elegido éste tema. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. 
+En el capítulo \ref{prefacio} se presentan los motivos por los que se ha elegido este tema. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. 
 
 En el capítulo \ref{intro}, como Introducción, se hace un estudio del arte, con breves pinceladas del basto campo que hoy en día se encuentra sobre este tema. Además se describen los objetivos de este proyecto. Éstos no son más que el resolver todo problema que haya surgido durante esta aventura.
 
-Se obtiene el modelo a partir de los parámetros característicos del sistema físico en el capítulo \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores basados PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
+Se obtiene el modelo a partir de los parámetros característicos del sistema físico en el capítulo \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
 
-El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un LQR (Linear Quadratic Regulator). Se ataca al sistema con la ley obtenida juzgando los resultados.
+El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un regulador LQR (Linear Quadratic Regulator). Se ataca al sistema con la ley obtenida juzgando los resultados.
 
-En el capítulo \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
+%En el capítulo \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
 
 En el capítulo \ref{construc} se describe tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de otros elementos como el dimensionado mismo del Quadcopter. 
 
-En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen los efectos en el medio ambiente de los componentes que se utilizan, tanto en la producción como en el reciclado. En el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
+En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un  estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen brebemente los principales efectos en el medio ambiente de los componentes que se utilizan. En el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
 
-En el Anexo 1 explica mediante código Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica toda otra opción a la linealización en estas circunstancias inviable.
+En el Anexo A se explica mediante código Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica toda otra opción a la linealización, en estas circunstancias, inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
 
-En el Anexo 2 se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal y como se ha hecho para el Quadcopter.
+En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal y como se ha hecho para el Quadcopter.
  
-En el Anexo 3 se describe qué es un filtro de Kalman, por qué es necesario y cómo se ha implementado. 
+En el Anexo C se describe qué es un filtro de Kalman, por qué es necesario y cómo se ha implementado. 
 
-En el Anexo 4 se describe cómo se han caracterizado los motores y cómo se han obtenido sus curvas características de fuerza y consumo. 
+En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo. Se ha encontrado además la masa, inercias y distancias necesarias.
 
-\newpage
-\begin{center}
+%\newpage
+%\begin{center}
 
-\end{center}
-\thispagestyle{empty}
+%\end{center}
+%\thispagestyle{empty}
 \newpage
 
 \setcounter{page}{1}
@@ -216,7 +216,7 @@ Entonces, se entiende este trabajo como la causa de la motivación a cumplir con
 
 En este proyecto se ha perseguido el objetivo de controlar un Quadcopter mediante un regulador LQR. Para ello se ha obtenido un modelo lineal parametrizado con la información representativa propia del sistema real que representa: masas, inercias, distancias y caracterización de los actuadores, al que se le ha aplicado la misma ley de control que al sistema real. \\
 
-La construcción del mismo se ha llevado a cabo mediante piezas compradas por separado sin recurrir a kits montados o modelos completos, como Ardupilot o un AR Drone.\\  
+La construcción del mismo se ha llevado a cabo mediante piezas compradas por separado sin recurrir a kits montados o modelos completos, como Ardupilot o un AR Drone. No se ha pretendido construir un vehículo totalmente robusto, sino una plataforma de trabajo sobre la que se comparan comportamientos con su simulación y a la que se intenta abordar un control.\\  
 
 No se analizan ni comparan los resultados con otros posibles controles a implementar, tales como el PID. Se juzgará la calidad del vuelo según su aparente estabilidad y si se mantiene la posición asignada como consigna. 
 
