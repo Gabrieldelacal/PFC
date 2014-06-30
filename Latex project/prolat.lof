@@ -1,36 +1,36 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadcopter de ejemplo con c\IeC {\'a}mara}}{7}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de Quadcopter con 6 motores}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadcopter de ejemplo con c\IeC {\'a}mara}}{9}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de Quadcopter con 6 motores}}{10}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Marcos de referencia en el quadcopter}}{10}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Modelo en Simulink de la din\IeC {\'a}mica del Quadcopter}}{19}{figure.3.2}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Marcos de referencia en el quadcopter}}{13}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Modelo en Simulink de la din\IeC {\'a}mica del Quadcopter}}{22}{figure.3.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Modelo en Simulink del lazo cerrado aplicado en el Quadcopter}}{26}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Respuesta del \IeC {\'a}ngulo $\phi $ en la simulaci\IeC {\'o}n}}{28}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Acciones de los motores en la simulaci\IeC {\'o}n}}{28}{figure.4.3}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Raspberry Pi a utilizar}}{30}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Conectores de la Raspberry Pi}}{31}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces IMU MPU-6050}}{31}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Emisora y Receptor}}{32}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Bater\IeC {\'\i }a LiPo empleada}}{32}{figure.6.5}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Esquema del Regulador Step-Down}}{33}{figure.6.6}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{34}{figure.6.7}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Tabla de Set up de un ESC}}{35}{figure.6.8}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{35}{figure.6.9}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{36}{figure.6.10}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una h\IeC {\'e}lice de dos aspas}}{36}{figure.6.11}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Ensamblaje del esqueleto del Quadcopter}}{37}{figure.6.12}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Ensamblaje de la montura de la RPi y el Receptor}}{37}{figure.6.13}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Detalle del cruce de fases en los motores}}{38}{figure.6.14}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Ensamblaje y detalle de una de las patas.}}{38}{figure.6.15}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Modelo en Simulink del lazo cerrado aplicado en el Quadcopter}}{30}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Respuesta del \IeC {\'a}ngulo $\phi $ en la simulaci\IeC {\'o}n}}{32}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Acciones de los motores en la simulaci\IeC {\'o}n}}{32}{figure.4.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Raspberry Pi a utilizar}}{35}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Conectores de la Raspberry Pi}}{36}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces IMU MPU-6050}}{36}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Emisora y Receptor}}{37}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Bater\IeC {\'\i }a LiPo empleada}}{37}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Esquema del Regulador Step-Down}}{38}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema de un Variador como inversor trif\IeC {\'a}sico}}{39}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Tabla de Set up de un ESC}}{40}{figure.6.8}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Piezas que componen la estructura del Quadcopter}}{40}{figure.6.9}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Par de h\IeC {\'e}lices 8x4 sim\IeC {\'e}tricas}}{41}{figure.6.10}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Representaci\IeC {\'o}n de la Longitud y Pitch de una h\IeC {\'e}lice de dos aspas}}{41}{figure.6.11}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Ensamblaje del esqueleto del Quadcopter}}{42}{figure.6.12}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Ensamblaje de la montura de la RPi y el Receptor}}{42}{figure.6.13}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Detalle del cruce de fases en los motores}}{43}{figure.6.14}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Ensamblaje y detalle de una de las patas.}}{43}{figure.6.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{53}{figure.9.1}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Funci\IeC {\'o}n de densidad de la variable de estado $\mathaccentV {hat}05E{x}_{k|k-1}$}}{55}{figure.9.2}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Comparaci\IeC {\'o}n con funci\IeC {\'o}n de densidad de la medici\IeC {\'o}n $z_{k}$}}{55}{figure.9.3}
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Bancada para la determinaci\IeC {\'o}n de las inercias}}{59}{figure.9.4}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Detecci\IeC {\'o}n del sensor MPU-6050}}{62}{figure.9.1}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Funci\IeC {\'o}n de densidad de la variable de estado $\mathaccentV {hat}05E{x}_{k|k-1}$}}{64}{figure.9.2}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Comparaci\IeC {\'o}n con funci\IeC {\'o}n de densidad de la medici\IeC {\'o}n $z_{k}$}}{64}{figure.9.3}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Bancada para la determinaci\IeC {\'o}n de las inercias}}{68}{figure.9.4}

@@ -1,4 +1,4 @@
-\documentclass[twoside,11pt]{report}
+\documentclass[twoside,11pt]{book}
 
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
@@ -107,21 +107,21 @@ En el capítulo \ref{intro}, como Introducción, se hace un estudio del arte, co
 
 Se obtiene el modelo a partir de los parámetros característicos del sistema físico en el capítulo \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
 
-El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un regulador LQR (Linear Quadratic Regulator). Se ataca al sistema con la ley obtenida juzgando los resultados.
+El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un regulador LQR (Linear Quadratic Regulator) y se ataca al sistema con la ley obtenida.
 
 %En el capítulo \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
 
-En el capítulo \ref{construc} se describe tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de otros elementos como el dimensionado mismo del Quadcopter. 
+En el capítulo \ref{construc} se describen tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de otros elementos como el dimensionado mismo del Quadcopter. 
 
 En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un  estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen brebemente los principales efectos en el medio ambiente de los componentes que se utilizan. En el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
 
-En el Anexo A se explica mediante código Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica toda otra opción a la linealización, en estas circunstancias, inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
+En el Anexo A se muestra mediante códigos Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica toda otra opción a la linealización, en estas circunstancias, inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
 
-En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal y como se ha hecho para el Quadcopter.
+En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal según se ha requerido.
  
-En el Anexo C se describe qué es un filtro de Kalman, por qué es necesario y cómo se ha implementado. 
+En el Anexo C se describe el filtro de Kalman y cómo se ha implementado. 
 
-En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo. Se ha encontrado además la masa, inercias y distancias necesarias.
+En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo,además la masa, inercias y distancias características propias del aparato.
 
 %\newpage
 %\begin{center}
@@ -151,9 +151,9 @@ En plantear un tema para el proyecto rápidamente surgió la idea de realizarlo 
 
 De entre las diferentes alternativas, un quadcopter es la más atractiva para el proyecto tanto por su simplicidad constructiva como por su no excesivo coste. Existen actualmente en el mercado infinidad de proveedores para los componentes necesarios para construir un quadcopter, con un gran abanico de opciones de entre las que escoger cada elemento como motores, baterías, electrónica, etc.\\
 
-Las posibles aplicaciones son numerosas, tanto que aún no se han ni tan solo explotado todas las posibles. Como ejemplo: vigilancia de superficies abiertas, transporte de pequeños paquetes, herramienta de ocio, entre otras.\\
+Las posibles aplicaciones son numerosas, tanto que aún no se han explotado todas las posibles. Como ejemplo: vigilancia de superficies abiertas, transporte de pequeños paquetes, herramienta de ocio, entre otras.\\
 
-Entender el funcionamiento y familiarizarse con el mecanismo es una inquietud que se ha mantenido insatisfecha durante largo tiempo. Con este pretexto se pretende acabar de justificar la elección del tema de ésta pequeña gran empresa.
+Entender el funcionamiento y familiarizarse con el mecanismo es una inquietud que se ha mantenido insatisfecha durante largo tiempo. Con este pretexto se pretende acabar de justificar la elección del tema de esta pequeña gran empresa.
 
 \section{Requerimientos previos}
 
@@ -161,15 +161,15 @@ Es necesario tener ciertos conocimientos mínimos en automática para poder cont
 
 Nociones de mecánica son necesarias para elaborar e interpretar el sistema sobre el que se trabaje, así como sus resultados. Conocimientos del lenguaje $C$ son imprescindibles ya que el código del programa que realiza los cálculos está escrito en este mismo lenguaje. 
 
-Para adaptar los elementos que componen el aparato y afianzarlos a la estructura (Frame)  del Quadcopter ha sido de gran ayuda contar con el servicio de una impresora 3D, creada por uno mismo. Finalmente, estar familiarizado con el argot y elementos de un Quadcopter, así como motores, emisoras de radio, entre otros es de ayuda. \\
+Para adaptar los elementos que componen el aparato y afianzarlos a la estructura (Frame)  del Quadcopter ha sido de gran ayuda contar con el servicio de una impresora 3D de creación también propia. Finalmente, estar familiarizado con el argot y elementos de un Quadcopter, así como motores, emisoras de radio, entre otros es de ayuda. \\
 
-Superar las dificultades que han surgido, teniendo en cuenta que el fin no justifica los medios, es la praxis que se ha aplicado a la hora de realizar éste trabajo. Finalmente, recordar reminiscencias de la carrera es siempre útil e interesante, así que conceptos adquiridos pero no utilizados se esperan aplicar.
+Superar las dificultades que han surgido, teniendo en cuenta que el fin no justifica los medios, es la praxis que se ha aplicado a la hora de realizar este trabajo. Finalmente, recordar reminiscencias de la carrera es siempre útil e interesante, así que conceptos adquiridos pero no utilizados se esperan aplicar.
  
 \newpage
 \chapter{Introducción} \label{intro}
 %\section{Introducción} \label{intro}
 
-Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$ o $UAV$) que se caracteriza por tener quatro rotores a modo de actuadores en vez de dos como en el caso de los helicópteros. Este tipo de autogiro intenta obtener una flotabilidad estable y vuelo preciso balanceando las fuerzas producidas por los cuatro motores y surge de la necesidad de tener un aparato de vuelo de dimensiones reducidas y gran estabilidad, con prestaciones superiores a las de un helicóptero convencional. \\
+Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$ o $UAV$) que se caracteriza por tener quatro rotores como actuadores en vez de dos como en el caso de los helicópteros. Este tipo de autogiro intenta obtener una flotabilidad más estable y vuelo preciso balanceando las fuerzas producidas por los cuatro motores y surge de la necesidad de tener un aparato de vuelo de dimensiones reducidas y gran estabilidad, con prestaciones superiores a las de un helicóptero convencional. \\
 
 \begin{figure}[h!]
 \begin{center}
@@ -179,9 +179,9 @@ Un Quadcopter es un vehículo volador no tripulado ($Unmanned \>Aerial\>Vehicle$
 \end{figure}
 
 
-Una de las ventajas que se obtiene con este cambio es la mayor capacidad de carga ya que es tienen 4 motores  para soportar el peso. La estabilidad del vehículo mejora en permitir aterrizajes y despegues verticales con una mayor maniobrabilidad. También puede trabajar en áreas de difícil acceso o más agresivas, como con lluvia y viento. \\
+Una de las ventajas que se obtiene con el cambio es la mayor capacidad de carga ya que es tienen 4 motores  para soportar el peso. La estabilidad del vehículo mejora en permitir aterrizajes y despegues verticales con una mayor maniobrabilidad. También puede trabajar en áreas de difícil acceso o más agresivas, como con lluvia y viento. \\
 
-Esquemáticamente se puede representar como una estructura en $X$ con su centroide coincidiendo con el centro de masas i cuatro actuadores a las puntas de cada brazo, todos ellos apuntando en la misma dirección y sentido, pero con giros de aspa en sentido contrario, pero igual en lados opuestos.
+Esquemáticamente se puede representar como una estructura en $X$ con su centroide coincidiendo con el centro de masas y cuatro actuadores en las puntas de cada brazo, todos ellos apuntando en la misma dirección y sentido pero con giros de aspa en sentido contrario, pero igual en lados opuestos.
 
 
 \section{Estudio del arte}
@@ -195,9 +195,9 @@ En la actualidad el campo referente a estos aparatos se ha diversificado tanto q
 \end{center}
 \end{figure}
 
-Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena orientación del aparato. \\
+Con el objetivo de desarrollar un $UAV$ que realice tareas de forma totalmente autónoma, se han diseñado sensores para estimar los estados del vehículo de manera más rápida y eficiente, así como diferentes estrategias para controlar la estabilidad y orientación del mismo. Se ha utilizado visión  por computador para realizar aterrizajes, detección de objetivos y navegación autónoma. También pueden combinarse diferentes técnicas con el uso del GPS para asegurar una buena localización del aparato. \\
 
-Para controlar esta clase de aparatos se utilizan diferentes leyes de control, así como PID, LQR, Redes Neuronales, Machine Learning, entre otros. La más utilizada es sin duda un PID por su fácil implantación y poca carga computacional.
+Para controlar esta clase de aparatos se utilizan diferentes leyes de control, así como PID, LQR, Redes Neuronales, Machine Learning, entre otros. La más utilizada es sin duda el PID por su fácil implementación y poca carga computacional.
 
 \section{Objetivos del proyecto}
 
@@ -211,7 +211,7 @@ Por parte de la mecánica, es primordial tener conocimientos sólidos de concept
 
 Finalmente, y como más serio objetivo de toda esta aventura, es el de haber afianzado lo que se creía entendido en relación al control. Asimilar otros métodos de control aplicables a sistemas multilineales no contemplados en la carrera es un excitante reto que se espera haber superado con éxito. \\
 
-Entonces, se entiende este trabajo como la causa de la motivación a cumplir con un objetivo multidisciplinar como puede serlo cualquiera en el campo de la robótica, en el que se debe tener constancia de muchos aspectos relevantes, como el de la economía. Poder tener idea de lo que cuesta un robot es de gran importancia si uno se embarca en un proyecto de envergadura, ya que se quiere que los pronósticos sobre el presupuesto cuadren con la futura realidad. 
+Entonces, se entiende este trabajo como la causa de la motivación a cumplir con un objetivo multidisciplinar, como puede serlo cualquiera en el campo de la robótica, en el que se debe tener constancia de muchos aspectos relevantes, como el de la economía. Poder tener idea de lo que cuesta un robot es de gran importancia si uno se embarca en un proyecto de envergadura, ya que se quiere que los pronósticos sobre el presupuesto cuadren con la futura realidad. 
 \section{Alcance}
 
 En este proyecto se ha perseguido el objetivo de controlar un Quadcopter mediante un regulador LQR. Para ello se ha obtenido un modelo lineal parametrizado con la información representativa propia del sistema real que representa: masas, inercias, distancias y caracterización de los actuadores, al que se le ha aplicado la misma ley de control que al sistema real. \\
@@ -227,11 +227,11 @@ No se analizan ni comparan los resultados con otros posibles controles a impleme
 \newpage
 \chapter{Definición del modelo} \label{def}
 %\section{Definición del modelo} \label{def}
-\section{Definición de les variables}
+\section{Definición de las variables}
 Para caracterizar la planta con la que es trabajará, es necesario obtener un modelo del Quadcopter. Las constantes propias del modelo se dejaran en forma de parámetros a calibrar una vez se tenga el objeto físico. De esta manera el modelo será general para todo quadcopter que comparta la misma familia de parámetros.
-Es necesario considerar dos marcos de referencia: el inercial formado por los ejes $x,y,z$ y el del cuerpo (Body) formado por los ejes $x_B,y_B,z_B$. El primero tiene la perspectiva de el observador en tierra, estático, mientras que el segundo es solidario a la estructura. Según la orientación de los ejes del cos con esta referencia se pueden dar los siguientes dos casos:
+Es necesario considerar dos marcos de referencia: el inercial formado por los ejes $x,y,z$ y el del cuerpo (Body) formado por los ejes $x_B,y_B,z_B$. El primero tiene la perspectiva de el observador en tierra, estático, mientras que el segundo es solidario a la estructura. Según la orientación de los ejes del cuerpo con esta referencia se pueden dar los siguientes dos casos:
 \begin{itemize}
-\item \textbf{Cross type}: Los ejes de coordenadas coinciden con los brazos de la estructura ya que se tienen los actuadores a las puntas de cada brazo.
+\item \textbf{Cross type}: Los ejes de coordenadas coinciden con los brazos de la estructura ya que se tienen los actuadores en las puntas de cada brazo.
 \item \textbf{X-type}: Los ejes y la estructura forman $45º$. Se tienen entonces dos motores en la parte delantera y dos en la trasera.
 \end{itemize} 
 Por ser más usual la primera opción, se decide utilizar la configuración $Cross type$ tal y como se tiene en la figura \ref{RefQuad}.
@@ -293,7 +293,7 @@ En cambio, las velocidades en el marco de referencia inercial (Inertial Frame)  
 \dot{\psi}
 \end{array} \right] 
 \end{equation}
-Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de velocidades angulares es necesario tener un cambio de base para relacionar el marco de referencia inercial con el del cuerpo con la matriz $W_\eta$:
+Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de velocidades angulares es necesario tener un cambio de base para relacionar las velocidades en el marco de referencia inercial con las del cuerpo. Para ello con la matriz $\pmb{W_\eta}$:
 \begin{equation}
 \pmb{W_\eta}=\left[\begin{array}{ccc}
 1 & 0 & -S_\theta \\
@@ -302,7 +302,7 @@ Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de 
 \end{array} \right] \hspace{0.5cm} amb \hspace{0.5cm} 
 \pmb{\gamma}=\left[ \pmb{W_\eta} \right] \pmb{\dot{\eta}} 
 \end{equation}
-Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ i $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise).
+Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ y $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise).
 
 Interesa conocer qué fuerza y momento aportará cada motor dada una velocidad angular conocida. Se supone poder controlar la fuerza y momento ejercida por cada motor y cómo aproximación inicial se considera que están relacionados con la velocidad angular de la forma:
 \begin{equation}
@@ -373,9 +373,9 @@ y por tanto el Lagrangiano queda:
 \begin{equation}
 \mathcal{L}(\pmb{q},\pmb{\dot{q}})=\frac{m}{2} \pmb{\dot{\xi}}^T \pmb{\dot{\xi}} + \frac{1}{2}\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}} - mgz
 \end{equation}
-Los componentes lineales y angulares no dependen unos de los otros y por tanto se pueden estudiar por separado obteniendo dos ecuaciones: una para las fuerzas lineales y otro para los momentos. Ésto quiere decir que la fuerza que ejercen los actuadores no depende de las velocidades angulares que se tengan ni tampoco se tendrán aceleraciones angulares diferentes según la altura a la que se encuentre el quadcopter: el objeto girará de la misma manera sea cual sea la  posición en la que se encuentre en el espacio.
+Los componentes lineales y angulares del vector de fuerzas no dependen unos de los otros y por tanto se pueden estudiar por separado obteniendo dos ecuaciones: una para las fuerzas lineales y otro para los momentos. Ésto quiere decir que la fuerza que ejercen los actuadores no depende de las velocidades angulares que se tengan ni tampoco se tendrán aceleraciones angulares diferentes según la altura a la que se encuentre el quadcopter: el objeto girará de la misma manera sea cual sea la  posición en la que se encuentre en el espacio.
 
-Entonces, calculando la derivada parcial respecte $\dot{q}$ se obtiene que 
+Entonces, calculando la derivada parcial respecto $\pmb{\dot{q}}$ se obtiene que 
 \begin{equation}
 \pmb{F}=\frac{d}{dt}\left(\frac{m}{2}(1\cdot \pmb{ \dot{\xi}}+\pmb{\dot{\xi}}\cdot 1)+\frac{1}{2}\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}}
 \end{equation}
@@ -446,7 +446,7 @@ x_1a_{13}+x_2a_{23}+x_3a_{23}
 \end{array} \right]
 \end{equation}
 \hfill $\blacksquare$ \\
-Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $J\dot{\eta}$ que:
+Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $\pmb{J}\pmb{\dot{\eta}}$ que:
 \begin{equation}
 \pmb{F}=\frac{d}{dt}\left(m \dot{\pmb{\xi}}+\pmb{J} \pmb{\dot{\eta}}\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}} =m\pmb{\ddot{\xi}} + \pmb{J}\pmb{\ddot{\eta}} + \pmb{\dot{J}}\pmb{\dot{\eta}}-\left( \frac{1}{2} 2 \frac{\partial}{\partial \pmb{\dot{\eta}}} ( \pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} - mg\left[\begin{array}{c}
 0 \\
@@ -468,7 +468,7 @@ Separando las componentes lineales y angulares en dos ecuaciones:
 \begin{equation}
 \begin{cases}
 %\begin{align}
-f & = m \pmb{\ddot{\xi}} + mg \left[ \begin{array}{c}
+\pmb{f} & = m \pmb{\ddot{\xi}} + mg \left[ \begin{array}{c}
 0 \\
 0 \\
 1
@@ -510,7 +510,7 @@ Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $
 \label{eq:system2}
 \end{equation}
 
-Para realizar el control será útil representar el sistema \ref{eq:system} en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. Éste caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener un momento de inercia nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
+Para realizar el control será útil representar el sistema \ref{eq:system} en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. Éste caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener una cantidad de movimiento nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
 
 \begin{equation}
 \begin{cases}
@@ -536,7 +536,7 @@ El modelo se expresa en forma lineal como
 \end{array}
 \end{equation} 
 
-donde $\pmb{K}$ es el termino que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
+donde $\pmb{K}$ es el término que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
 
 \begin{equation}
 \pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \hspace*{1.5cm} \pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}}
@@ -603,7 +603,7 @@ y las matrices $\pmb{K}$ i $\pmb{C}$ quedan como
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \end{array} \right]
 \end{equation}
 
-Éstos son los resultados sacados del procedimiento explicado en el $Anexo \>\>1$, en donde se detalla el procedimiento.\\
+Éstos son los resultados obtenidos del código comentado en el $Anexo \>\>A$, en donde se detalla el procedimiento.
 
 Como se desea implantar un control sobre el equilibrio del Quadcopter en vez de la posición, se tendrán las variables pertinentes a la orientación, y por tanto el vector de estados estará formado por %$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
 $\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \right]$. 
@@ -718,7 +718,7 @@ Para abordar el control de este sistema reducido se evalúa su controlabilidad y
 \end{array}}\right\vert_{} \quad ... \quad \right]
 \end{equation}
 
-Con las 8 primeras columnas es suficiente para ver que el rango de la matriz es máximo ya que el resto de componentes de la matriz son nulas. Por lo tanto, no hay subsistema inaccesible des de la entrada y es entonces controlable:
+Con las 8 primeras columnas es suficiente para ver que el rango de la matriz es máximo, y el resto de componentes de la matriz son nulas. Por lo tanto, no hay subsistema inaccesible des de la entrada y es entonces controlable:
 
 \begin{equation}
 rango(\pmb{Wc})=4\>\>(max.)\> \rightarrow \>Controlable
@@ -750,12 +750,12 @@ otra vez no es necesario evaluar todos los términos de la matriz, ya que con la
 rango(\pmb{W_o})=4\>\>(max.) \> \rightarrow \> Observable
 \end{equation}
 
-Ésto arroja lo que ya era sabido del sistema por su misma naturaleza física, y es que de un Quadcopter se pueden observar sus estados y que se puede gobernar (controlar) mediante los actuadores provistos. 
+Ésto arroja lo que ya era sabido del sistema: de un Quadcopter se pueden observar sus estados y se puede gobernar (controlar) mediante los actuadores provistos. 
 
 \newpage
 \section{Representación del modelo con Simulink}
 
-Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para comprobar que la ley de control que se tenga es válida como para intentar controlar el aparato real. Se intenta que el modelo sea lo más preciso posible, por lo que no se tienen en cuenta linealizaciones ni aproximaciones de tipo alguno. 
+Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para comprobar que la ley de control que se tenga es válida como para controlar el aparato real. Se intenta que el modelo sea lo más preciso posible, por lo que no se tienen en cuenta linealizaciones ni aproximaciones de tipo alguno. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -764,11 +764,11 @@ Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para com
 \end{center}
 \end{figure}
 
-Aunque en el modelo se hayan tenido en cuenta los respectivos coeficientes de fricción con el aire, como se ha visto en el apartado anterior no se han tenido en cuenta a la hora de linealizar el sistema ni calcular la ley de control ya que la determinación de estos parámetros no es fácil y de incluirse podría aportar incertidumbre. \\
+Como se ha visto en el apartado anterior, no se hayan tenido en cuenta  el modelo los respectivos coeficientes de fricción con el aire ya que la determinación de estos parámetros no es fácil y de incluirse podrían aportar un considerable error a los resul. \\
 
-Tal y como se explica a la hora de caracterizar los motores, no se pudo encontrar la relación existente que la fuerza y momento ejercido por cada hélice, por lo que en este caso se ha supuesto que varía proporcionalmente con $b$.
+Tal y como se explica a la hora de caracterizar los motores, no se pudo encontrar la relación existente entre la fuerza y momento ejercido por cada actuador, por lo que en este caso se ha supuesto que varía proporcionalmente con $b$.
 
-Los dos bloques presentes en el modelo ($Function \>\> Matlab$) definen su dinámica. La función $Dinámica \>\> de \>\> Xi$ determina las aceleraciones lineales. El código que se ejecuta en ésta es:\\
+Los dos bloques presentes en el modelo ($Function \>\> Matlab$) definen su dinámica. La función $Dinámica \>\> de \>\> Xi$ determina las aceleraciones lineales. El código incluido en ésta es:\\
 
 
 \begin{lstlisting}[language=Matlab]
@@ -1383,16 +1383,9 @@ A cada motor se le atornillan la hélice adecuada según su sentido de giro, que
 
 \chapter{Análisis económico} \label{economics}
 
-Como en todo proyecto, es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
-
-
-Como en todo proyecto es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. 
-Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ euro $/ hora$. \\  
-
-\hspace{-1cm}
-
-Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$ €$/ hora$.
- 
+Como en todo proyecto es importante conocer y justificar el gasto económico implicado. En no ser éste una excepción, se desglosan los costes asociados, tanto materiales como los de mano de obra. \\
+Referente a los costes materiales, se incluye el de todos los elementos que componen el Quadcopter, así como otros igualmente necesarios como el cargador de las baterías. Se considera que el trabajo se ha realizado por un estudiante en desarrollo de su Proyecto Final de Carrera. El coste que se le supone al tiempo del digno obrero es de $6$€$/ hora$. \\  
+%\hspace{-1cm}
 \begin{figure}[h!]
 \hspace{-0.2cm}
 \begin{tabular}{|l|r|r|r|}
