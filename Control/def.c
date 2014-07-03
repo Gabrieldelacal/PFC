@@ -298,6 +298,14 @@ int main(void) {
 	pinMode(PIN0,INPUT); 
 	pinMode(PIN7,INPUT); 
 	pinMode(PIN20,INPUT); 
+	
+	    writefile(1,5.0);
+        writefile(2,5.0);
+        writefile(3,5.0);
+        writefile(4,5.0);
+        sleep(5);
+
+	
 /*
 //      wiringPiISR(PIN4, INT_EDGE_BOTH, &handle_throttle); 
 //      wiringPiISR(PIN0, INT_EDGE_BOTH, &handle_rudder); 
@@ -381,10 +389,10 @@ int main(void) {
 	
 //		printf("xangle: %f \t gx: %f \t yangle: %f \t gy: %f \t f1: %f \t f2: %f \t f3: %f \t f4: %f \n",xangle,gx,yangle,gy,f1,f2,f3,f4); 
 
-/*     		writefile(1,f1);
+     		writefile(1,f1);
 		writefile(2,f2);
 		writefile(3,f3);
-		writefile(4,f4);    */
+		writefile(4,f4);    
 
 		
 

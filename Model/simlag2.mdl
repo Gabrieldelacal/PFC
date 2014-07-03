@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.90"
+    ComputedModelVersion    "1.93"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gabriel"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 18 21:13:30 2014"
-  RTWModifiedTimeStamp	  325026805
-  ModelVersionFormat	  "1.%<AutoIncrement:90>"
+  LastModifiedDate	  "Fri Jul 04 00:06:57 2014"
+  RTWModifiedTimeStamp	  326333020
+  ModelVersionFormat	  "1.%<AutoIncrement:93>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,7 +78,6 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "simlag2"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -805,6 +804,10 @@ Model {
     Block {
       BlockType		      Terminator
     }
+    Block {
+      BlockType		      ZeroOrderHold
+      SampleTime	      "1"
+    }
   }
   System {
     Name		    "simlag2"
@@ -822,7 +825,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "113"
+    SIDHighWatermark	    "129"
     Block {
       BlockType		      Scope
       Name		      "Angulos"
@@ -831,7 +834,7 @@ Model {
       Position		      [955, 184, 1015, 236]
       ZOrder		      -16
       Floating		      off
-      Location		      [66, 53, 1921, 1079]
+      Location		      [74, 81, 1928, 1107]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -849,7 +852,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.78306     0.90643    0.079515    0.055799"
+      LegendLocations	      "0.90121     0.90643    0.079515    0.055799"
       YMax		      "50"
       SaveName		      "ScopeData1"
       DataFormat	      "StructureWithTime"
@@ -1150,7 +1153,7 @@ Model {
       BlockMirror	      on
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [66, 53, 1921, 1079]
+      Location		      [74, 81, 1928, 1107]
       Open		      off
       NumInputPorts	      "1"
       TickLabels	      "on"
@@ -1169,6 +1172,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
+      LegendLocations	      "0.9017     0.88925    0.079018    0.072978"
       TimeRange		      "0.2082160945413616"
       YMin		      "-1"
       YMax		      "11"
@@ -1180,7 +1184,7 @@ Model {
       BlockType		      Constant
       Name		      "Inercias"
       SID		      "77"
-      Position		      [495, 600, 525, 630]
+      Position		      [465, 600, 495, 630]
       ZOrder		      -5
       BlockRotation	      270
       Value		      "[Ixx;Iyy;Izz]"
@@ -2479,10 +2483,90 @@ Model {
       NumInputs		      "3"
     }
     Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold"
+      SID		      "122"
+      Position		      [445, 385, 480, 415]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold1"
+      SID		      "123"
+      Position		      [470, 405, 505, 435]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold2"
+      SID		      "124"
+      Position		      [505, 425, 540, 455]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold3"
+      SID		      "125"
+      Position		      [530, 445, 565, 475]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold4"
+      SID		      "126"
+      Position		      [590, 465, 625, 495]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold5"
+      SID		      "127"
+      Position		      [460, 485, 495, 515]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold6"
+      SID		      "128"
+      Position		      [515, 505, 550, 535]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold7"
+      SID		      "129"
+      Position		      [590, 525, 625, 555]
+      ZOrder		      -19
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      SampleTime	      "0.02"
+    }
+    Block {
       BlockType		      Constant
       Name		      "m,k,l,b,g"
       SID		      "72"
-      Position		      [565, 545, 595, 575]
+      Position		      [495, 545, 525, 575]
       ZOrder		      -5
       BlockMirror	      on
       Value		      "[m;l;b;g]"
@@ -2509,8 +2593,8 @@ Model {
       }
       Branch {
 	Points			[0, 360]
-	DstBlock		"Control"
-	DstPort			7
+	DstBlock		"Zero-Order\nHold6"
+	DstPort			1
       }
     }
     Line {
@@ -2530,7 +2614,7 @@ Model {
       }
       Branch {
 	Points			[0, 214]
-	DstBlock		"Control"
+	DstBlock		"Zero-Order\nHold"
 	DstPort			1
       }
     }
@@ -2539,13 +2623,13 @@ Model {
       SrcPort		      5
       Points		      [105, 0]
       Branch {
-	Points			[0, 210]
-	DstBlock		"Control"
+	DstBlock		"Vector\nAngulos"
 	DstPort			2
       }
       Branch {
-	DstBlock		"Vector\nAngulos"
-	DstPort			2
+	Points			[0, 210]
+	DstBlock		"Zero-Order\nHold1"
+	DstPort			1
       }
     }
     Line {
@@ -2559,8 +2643,8 @@ Model {
       }
       Branch {
 	Points			[0, 204]
-	DstBlock		"Control"
-	DstPort			3
+	DstBlock		"Zero-Order\nHold2"
+	DstPort			1
       }
     }
     Line {
@@ -2573,29 +2657,22 @@ Model {
       SrcBlock		      "Quadcopter"
       SrcPort		      7
       Points		      [70, 0; 0, 200]
-      DstBlock		      "Control"
-      DstPort		      4
-    }
-    Line {
-      SrcBlock		      "Quadcopter"
-      SrcPort		      8
-      Points		      [50, 0; 0, 198; -305, 0]
-      DstBlock		      "Control"
-      DstPort		      5
+      DstBlock		      "Zero-Order\nHold3"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Quadcopter"
       SrcPort		      9
       Points		      [30, 0; 0, 190]
-      DstBlock		      "Control"
-      DstPort		      6
+      DstBlock		      "Zero-Order\nHold5"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Quadcopter"
       SrcPort		      10
       Points		      [5, 0; 0, 205]
-      DstBlock		      "Control"
-      DstPort		      8
+      DstBlock		      "Zero-Order\nHold7"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "m,k,l,b,g"
@@ -2687,6 +2764,61 @@ Model {
       DstBlock		      "Fuerzas"
       DstPort		      1
     }
+    Line {
+      SrcBlock		      "Zero-Order\nHold"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold1"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold2"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold3"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold5"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold6"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold7"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Quadcopter"
+      SrcPort		      8
+      Points		      [50, 1; 0, 194]
+      DstBlock		      "Zero-Order\nHold4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold4"
+      SrcPort		      1
+      DstBlock		      "Control"
+      DstPort		      5
+    }
   }
 }
 # Finite State Machines
@@ -2744,54 +2876,55 @@ Stateflow {
       script		      "function y = fcn(f1,f2,f3,f4,II,Phi,Theta,Psi,dPhi,dTheta,dPsi,A,l,b)\n%#codegen\n\nIxx=II(1);\nI"
       "yy=II(2);\nIzz=II(3);\n\n% TauB=[[l*k*(w(4)^2-w(2)^2)];\n%       [l*k*(w(3)^2-w(1)^2)];\n%       [b*(w(1)^2+w(3)"
       "^2-w(2)^2-w(4)^2)]];\n\n%{\nTauB=[[l*k*(f4-f2)];\n      [l*k*(f3-f1)];\n      [b*(f1+f3-f2-f4)]];\n\n%}  \nTauB="
-      "[[l*(f4-f2)];\n      [l*(f3-f1)];\n      [b*(f1+f3-f2-f4)]];  \n\nWeta=[[1 0 -sin(Theta)];\n      [0 cos(Phi) co"
-      "s(Theta)*sin(Phi)];\n      [0 -sin(Phi) cos(Theta)*cos(Phi)]];\n \nJ=transpose(Weta)*[[Ixx 0 0];[0 Iyy 0];[0 0 I"
-      "zz]]*Weta;  \n\n% CdEta=[((Izz*sin(2*Phi)*cos(Theta)^2)/2 - (Iyy*sin(2*Phi)*cos(Theta)^2)/2)*dPsi^2 + (Izz*cos(2"
-      "*Phi)*cos(Theta) - Iyy*cos(2*Phi)*cos(Theta) - Ixx*cos(Theta))*dPsi*dTheta + ((Iyy*sin(2*Phi))/2 - (Izz*sin(2*Ph"
-      "i))/2)*dTheta^2;\n%        dPsi^2*(Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - Ixx*cos(Theta)*sin(Theta) + Iyy*cos(Th"
-      "eta)*sin(Phi)^2*sin(Theta)) - ddTheta*(Iyy*cos(Phi)^2 + Izz*sin(Phi)^2) - ddPsi*(Iyy*cos(Phi)*cos(Theta)*sin(Phi"
-      ") - Izz*cos(Phi)*cos(Theta)*sin(Phi)) + Iyy*ddTheta*cos(Phi)^2 + Izz*ddTheta*sin(Phi)^2 - dPhi*dTheta*(2*Iyy*cos"
-      "(Phi)*sin(Phi) - 2*Izz*cos(Phi)*sin(Phi)) + dPhi*dPsi*(Ixx*cos(Theta) + Iyy*cos(Phi)^2*cos(Theta) - Izz*cos(Phi)"
-      "^2*cos(Theta) - Iyy*cos(Theta)*sin(Phi)^2 + Izz*cos(Theta)*sin(Phi)^2) + Iyy*ddPsi*cos(Phi)*cos(Theta)*sin(Phi) "
-      "- Izz*ddPsi*cos(Phi)*cos(Theta)*sin(Phi);\n%        Ixx*ddPsi*sin(Theta)^2 - ddPsi*(Izz*cos(Phi)^2*cos(Theta)^2 "
-      "+ Iyy*cos(Theta)^2*sin(Phi)^2 + Ixx*sin(Theta)^2) - ddTheta*(Iyy*cos(Phi)*cos(Theta)*sin(Phi) - Izz*cos(Phi)*cos"
-      "(Theta)*sin(Phi)) - dTheta^2*(Iyy*cos(Phi)*sin(Phi)*sin(Theta) - Izz*cos(Phi)*sin(Phi)*sin(Theta)) - dPsi*dTheta"
-      "*(2*Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Ixx*cos(Theta)*sin(Theta) + 2*Iyy*cos(Theta)*sin(Phi)^2*sin(Theta))"
-      " - dPhi*dTheta*(Ixx*cos(Theta) - Iyy*cos(Phi)^2*cos(Theta) + Izz*cos(Phi)^2*cos(Theta) + Iyy*cos(Theta)*sin(Phi)"
-      "^2 - Izz*cos(Theta)*sin(Phi)^2) + dPhi*dPsi*(2*Iyy*cos(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*cos(Phi)*cos(Theta)^2*"
-      "sin(Phi)) + Izz*ddPsi*cos(Phi)^2*cos(Theta)^2 + Iyy*ddPsi*cos(Theta)^2*sin(Phi)^2 + Iyy*ddTheta*cos(Phi)*cos(The"
-      "ta)*sin(Phi) - Izz*ddTheta*cos(Phi)*cos(Theta)*sin(Phi)]\n \n% CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^"
-      "2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*c"
-      "os(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);\n%         dPhi*"
-      "(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos"
-      "(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2) - Ix"
-      "x*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta) + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*"
-      "sin(Theta);\n%         -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*c"
-      "os(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)"
-      "^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dThe"
-      "ta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(T"
-      "heta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)];    \n\n\n\nCdE1=(Iyy*dTheta^2*sin(2*Phi)"
-      ")/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*d"
-      "Psi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta)"
-      ";\nCdE2=dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*c"
-      "os(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin"
-      "(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi"
-      ")^2*cos(Theta)*sin(Theta);\nCdE3=-dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*co"
-      "s(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*"
-      "cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) "
-      "+ Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Ph"
-      "i)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);\nCdEta=[CdE1; CdE2; CdE3];\n\n%"
-      " CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin"
-      "(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*d"
-      "Psi*dTheta*cos(2*Phi)*cos(Theta);\n%          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz"
-      "*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta"
-      ")*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(P"
-      "hi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);\n%          -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*"
-      "dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*"
-      "cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  "
-      "- Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos("
-      "Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2"
-      "*sin(Theta)];\ny = inv(J)*(TauB-CdEta);\n"
+      "[[l*(f4-f2)];\n      [l*(f3-f1)];\n      [b*(f1+f3-f2-f4)]];  \n\n%Weta=[[1 0 -sin(Theta)];\n%      [0 cos(Phi) "
+      "cos(Theta)*sin(Phi)];\n%      [0 -sin(Phi) cos(Theta)*cos(Phi)]];\n \nWeta=[[1 0 sin(Theta)];\n      [0 cos(Phi)"
+      " -cos(Theta)*sin(Phi)];\n      [0 sin(Phi) cos(Theta)*cos(Phi)]];  \n    \nJ=transpose(Weta)*[[Ixx 0 0];[0 Iyy 0"
+      "];[0 0 Izz]]*Weta;  \n\n% CdEta=[((Izz*sin(2*Phi)*cos(Theta)^2)/2 - (Iyy*sin(2*Phi)*cos(Theta)^2)/2)*dPsi^2 + (I"
+      "zz*cos(2*Phi)*cos(Theta) - Iyy*cos(2*Phi)*cos(Theta) - Ixx*cos(Theta))*dPsi*dTheta + ((Iyy*sin(2*Phi))/2 - (Izz*"
+      "sin(2*Phi))/2)*dTheta^2;\n%        dPsi^2*(Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - Ixx*cos(Theta)*sin(Theta) + Iy"
+      "y*cos(Theta)*sin(Phi)^2*sin(Theta)) - ddTheta*(Iyy*cos(Phi)^2 + Izz*sin(Phi)^2) - ddPsi*(Iyy*cos(Phi)*cos(Theta)"
+      "*sin(Phi) - Izz*cos(Phi)*cos(Theta)*sin(Phi)) + Iyy*ddTheta*cos(Phi)^2 + Izz*ddTheta*sin(Phi)^2 - dPhi*dTheta*(2"
+      "*Iyy*cos(Phi)*sin(Phi) - 2*Izz*cos(Phi)*sin(Phi)) + dPhi*dPsi*(Ixx*cos(Theta) + Iyy*cos(Phi)^2*cos(Theta) - Izz*"
+      "cos(Phi)^2*cos(Theta) - Iyy*cos(Theta)*sin(Phi)^2 + Izz*cos(Theta)*sin(Phi)^2) + Iyy*ddPsi*cos(Phi)*cos(Theta)*s"
+      "in(Phi) - Izz*ddPsi*cos(Phi)*cos(Theta)*sin(Phi);\n%        Ixx*ddPsi*sin(Theta)^2 - ddPsi*(Izz*cos(Phi)^2*cos(T"
+      "heta)^2 + Iyy*cos(Theta)^2*sin(Phi)^2 + Ixx*sin(Theta)^2) - ddTheta*(Iyy*cos(Phi)*cos(Theta)*sin(Phi) - Izz*cos("
+      "Phi)*cos(Theta)*sin(Phi)) - dTheta^2*(Iyy*cos(Phi)*sin(Phi)*sin(Theta) - Izz*cos(Phi)*sin(Phi)*sin(Theta)) - dPs"
+      "i*dTheta*(2*Izz*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Ixx*cos(Theta)*sin(Theta) + 2*Iyy*cos(Theta)*sin(Phi)^2*sin"
+      "(Theta)) - dPhi*dTheta*(Ixx*cos(Theta) - Iyy*cos(Phi)^2*cos(Theta) + Izz*cos(Phi)^2*cos(Theta) + Iyy*cos(Theta)*"
+      "sin(Phi)^2 - Izz*cos(Theta)*sin(Phi)^2) + dPhi*dPsi*(2*Iyy*cos(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*cos(Phi)*cos(T"
+      "heta)^2*sin(Phi)) + Izz*ddPsi*cos(Phi)^2*cos(Theta)^2 + Iyy*ddPsi*cos(Theta)^2*sin(Phi)^2 + Iyy*ddTheta*cos(Phi)"
+      "*cos(Theta)*sin(Phi) - Izz*ddTheta*cos(Phi)*cos(Theta)*sin(Phi)]\n \n% CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz"
+      "*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin("
+      "2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);\n%      "
+      "   dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Ph"
+      "i)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)"
+      "^2) - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta) + Izz*dPsi^2*cos(Phi)^2*cos"
+      "(Theta)*sin(Theta);\n%         -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos("
+      "Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*co"
+      "s(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + "
+      "Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)"
+      "^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)];    \n\n\n\nCdE1=(Iyy*dTheta^2*si"
+      "n(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 "
+      "+ (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*co"
+      "s(Theta);\nCdE2=-dPhi*(Ixx*dPsi*cos(Theta) + 2*Iyy*dTheta*cos(Phi)*sin(Phi) - 2*Izz*dTheta*cos(Phi)*sin(Phi) + I"
+      "yy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(T"
+      "heta)*sin(Phi)^2) - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)+ Izz*dPsi^2*c"
+      "os(Phi)^2*cos(Theta)*sin(Theta);\nCdE3= dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTh"
+      "eta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 + 2*Iyy*dPsi*cos"
+      "(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) + Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Th"
+      "eta) - Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*c"
+      "os(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);\nCdEta=[CdE1; CdE2; CdE3];"
+      "\n\n% CdEta=[(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^"
+      "2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + "
+      "Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);\n%          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + "
+      "2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos("
+      "Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*"
+      "sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);\n%          -dPhi*(Ixx*dTheta*cos(Theta) -"
+      " Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dT"
+      "heta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Ph"
+      "i))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta"
+      "*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(P"
+      "hi)^2*sin(Theta)];\ny = inv(J)*(TauB-CdEta);\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

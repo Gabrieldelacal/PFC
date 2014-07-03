@@ -965,7 +965,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_TauB[0] = c1_b_y;
   c1_TauB[1] = c1_c_y;
   c1_TauB[2] = c1_d_y;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 22);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 26);
   c1_x = c1_Theta;
   c1_b_x = c1_x;
   c1_b_x = muDoubleScalarSin(c1_b_x);
@@ -978,7 +978,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_g_x = c1_Phi;
   c1_h_x = c1_g_x;
   c1_h_x = muDoubleScalarSin(c1_h_x);
-  c1_d_a = c1_f_x;
+  c1_d_a = -c1_f_x;
   c1_e_b = c1_h_x;
   c1_e_y = c1_d_a * c1_e_b;
   c1_i_x = c1_Phi;
@@ -995,14 +995,14 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_f_y = c1_e_a * c1_f_b;
   c1_Weta[0] = 1.0;
   c1_Weta[3] = 0.0;
-  c1_Weta[6] = -c1_b_x;
+  c1_Weta[6] = c1_b_x;
   c1_Weta[1] = 0.0;
   c1_Weta[4] = c1_d_x;
   c1_Weta[7] = c1_e_y;
   c1_Weta[2] = 0.0;
-  c1_Weta[5] = -c1_j_x;
+  c1_Weta[5] = c1_j_x;
   c1_Weta[8] = c1_f_y;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 26);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 30);
   c1_i7 = 0;
   for (c1_i8 = 0; c1_i8 < 3; c1_i8++) {
     c1_i9 = 0;
@@ -1085,7 +1085,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
     }
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 38);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 42);
   c1_g_a = c1_Iyy;
   c1_h_b = c1_mpower(chartInstance, c1_dTheta);
   c1_h_y = c1_g_a * c1_h_b;
@@ -1212,7 +1212,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_mb_y = c1_bb_a * c1_ib_b;
   c1_CdE1 = (((((c1_k_y - c1_o_y) - c1_r_y) - c1_w_y) + c1_cb_y) - c1_hb_y) +
     c1_mb_y;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 39);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 43);
   c1_cb_a = c1_Ixx;
   c1_jb_b = c1_dPsi;
   c1_nb_y = c1_cb_a * c1_jb_b;
@@ -1316,8 +1316,8 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_vb_a = c1_ic_y;
   c1_fc_b = c1_mpower(chartInstance, c1_tc_x);
   c1_jc_y = c1_vb_a * c1_fc_b;
-  c1_wb_a = c1_dPhi;
-  c1_gc_b = (((((c1_ob_y - c1_sb_y) + c1_wb_y) + c1_ac_y) - c1_dc_y) - c1_gc_y)
+  c1_wb_a = -c1_dPhi;
+  c1_gc_b = (((((c1_ob_y + c1_sb_y) - c1_wb_y) + c1_ac_y) - c1_dc_y) - c1_gc_y)
     + c1_jc_y;
   c1_kc_y = c1_wb_a * c1_gc_b;
   c1_xb_a = c1_Ixx;
@@ -1378,7 +1378,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_rc_b = c1_kd_x;
   c1_vc_y = c1_ic_a * c1_rc_b;
   c1_CdE2 = ((c1_kc_y - c1_nc_y) + c1_rc_y) + c1_vc_y;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 40);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 44);
   c1_jc_a = c1_Ixx;
   c1_sc_b = c1_dTheta;
   c1_wc_y = c1_jc_a * c1_sc_b;
@@ -1494,9 +1494,9 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_fd_a = c1_td_y;
   c1_qd_b = c1_pe_x;
   c1_ud_y = c1_fd_a * c1_qd_b;
-  c1_gd_a = -c1_dPhi;
-  c1_rd_b = (((((c1_xc_y - c1_bd_y) + c1_ed_y) + c1_hd_y) - c1_kd_y) - c1_pd_y)
-    + c1_ud_y;
+  c1_gd_a = c1_dPhi;
+  c1_rd_b = (((((c1_xc_y - c1_bd_y) + c1_ed_y) + c1_hd_y) - c1_kd_y) + c1_pd_y)
+    - c1_ud_y;
   c1_vd_y = c1_gd_a * c1_rd_b;
   c1_hd_a = c1_Iyy;
   c1_sd_b = c1_mpower(chartInstance, c1_dTheta);
@@ -1612,12 +1612,12 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
   c1_de_a = c1_ue_y;
   c1_re_b = c1_sf_x;
   c1_ve_y = c1_de_a * c1_re_b;
-  c1_CdE3 = ((((c1_vd_y - c1_ae_y) + c1_ee_y) + c1_je_y) - c1_pe_y) - c1_ve_y;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 41);
+  c1_CdE3 = ((((c1_vd_y + c1_ae_y) - c1_ee_y) + c1_je_y) - c1_pe_y) - c1_ve_y;
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 45);
   c1_CdEta[0] = c1_CdE1;
   c1_CdEta[1] = c1_CdE2;
   c1_CdEta[2] = c1_CdE3;
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 46);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, 50);
   for (c1_i28 = 0; c1_i28 < 9; c1_i28++) {
     c1_f_a[c1_i28] = c1_J[c1_i28];
   }
@@ -1740,7 +1740,7 @@ static void c1_chartstep_c1_simlag2(SFc1_simlag2InstanceStruct *chartInstance)
     }
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, -46);
+  _SFD_EML_CALL(0U, chartInstance->c1_sfEvent, -50);
   sf_debug_symbol_scope_pop();
   for (c1_i44 = 0; c1_i44 < 3; c1_i44++) {
     (*c1_df_y)[c1_i44] = c1_y[c1_i44];
@@ -2945,10 +2945,10 @@ static void init_dsm_address_info(SFc1_simlag2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c1_simlag2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1529562177U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2975275596U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2339766701U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1288389414U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1719766515U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1773596759U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2016925917U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3960052552U);
 }
 
 mxArray *sf_c1_simlag2_get_autoinheritance_info(void)
@@ -2960,7 +2960,7 @@ mxArray *sf_c1_simlag2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("VI2zbEQI1y5VZCwqmQ61O");
+    mxArray *mxChecksum = mxCreateString("1LlPxZPqk0IReQYDOAGhyE");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -3358,7 +3358,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,5580);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,5693);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -3474,7 +3474,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "9ryktTfsWIZc8njx8TNUKC";
+  return "cbEShiayEmzBLtrCGlzBmE";
 }
 
 static void sf_opaque_initialize_c1_simlag2(void *chartInstanceVar)
@@ -3638,10 +3638,10 @@ static void mdlSetWorkWidths_c1_simlag2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1908132702U));
-  ssSetChecksum1(S,(4234873183U));
-  ssSetChecksum2(S,(3016425118U));
-  ssSetChecksum3(S,(4290914799U));
+  ssSetChecksum0(S,(722695224U));
+  ssSetChecksum1(S,(1920432286U));
+  ssSetChecksum2(S,(1665291486U));
+  ssSetChecksum3(S,(276102196U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

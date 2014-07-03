@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.3}Alcance}{11}{section.2.3}
 \contentsline {chapter}{\numberline {3}Definici\IeC {\'o}n del modelo}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Definici\IeC {\'o}n de las variables}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{15}{section.3.2}
+\contentsline {section}{\numberline {3.2}Obtenci\IeC {\'o}n del modelo}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}Representaci\IeC {\'o}n del modelo con Simulink}{22}{section.3.3}
 \contentsline {chapter}{\numberline {4}Dise\IeC {\~n}o del controlador}{27}{chapter.4}
 \contentsline {section}{\numberline {4.1}Regulador Quadr\IeC {\'a}tico Lineal}{27}{section.4.1}
@@ -18,7 +18,8 @@
 \contentsline {chapter}{\numberline {5}Implementaci\IeC {\'o}n del control}{33}{chapter.5}
 \contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n del Quadcopter}{35}{chapter.6}
 \contentsline {section}{\numberline {6.1}Descripci\IeC {\'o}n de los componentes}{35}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Montaje}{42}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Montaje}{42}{section.6.2}
 \contentsline {chapter}{\numberline {7}An\IeC {\'a}lisis econ\IeC {\'o}mico}{45}{chapter.7}
 \contentsline {chapter}{\numberline {8}Impacto ambiental}{47}{chapter.8}
 \contentsline {chapter}{\numberline {9}Conclusiones}{49}{chapter.9}
+\contentsline {section}{\numberline {9.1}Futuras aplicaciones}{49}{section.9.1}

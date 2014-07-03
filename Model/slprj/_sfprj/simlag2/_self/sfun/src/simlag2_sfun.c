@@ -122,10 +122,10 @@ unsigned int sf_simlag2_process_check_sum_call( int nlhs, mxArray * plhs[], int
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(117039295U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4247820977U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3599341621U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2550285459U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2174333305U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(877220331U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1548355997U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3769171848U);
   }
 
   return 1;
@@ -163,7 +163,7 @@ unsigned int sf_simlag2_autoinheritance_info( int nlhs, mxArray * plhs[], int
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(aiChksum, "VI2zbEQI1y5VZCwqmQ61O") == 0) {
+        if (strcmp(aiChksum, "1LlPxZPqk0IReQYDOAGhyE") == 0) {
           extern mxArray *sf_c1_simlag2_get_autoinheritance_info(void);
           plhs[0] = sf_c1_simlag2_get_autoinheritance_info();
           break;

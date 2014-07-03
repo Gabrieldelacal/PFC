@@ -30,7 +30,7 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 %\usepackage[official]{eurosym}
-\usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{decorations.pathmorphing,patterns,calc,shapes,arrows}
 \usepackage{setspace}
 % \renewcommand{\baselinestretch}{1.3}
 
@@ -260,16 +260,42 @@ z \end{array} \right] ,\quad \pmb{\eta}=\left[ \begin{array}{ccc}
 \pmb{\eta} \end{array} \right] 
 \end{equation}
 
-donde $\phi$ es el ángulo de cabeceo (Pitch), $\theta$ és el de balanceo (Roll) y $\psi$ el de guiñada (Yaw).\\
+donde $\phi$ es el ángulo de cabeceo (Pitch), $\theta$ és el de alabeo (Roll) y $\psi$ el de guiñada o deriva (Yaw).\\
 Para la orientación angular entre los dos marcos se tiene un sistema de referencia con ángulos Tait-Bryan, donde la matriz de transformación es:
+
 \begin{equation}
-\pmb{R}=\left[\begin{array}{ccc}
+\pmb{R}(\phi,\theta,\psi)=\left[\begin{array}{ccc}
 C_\psi C_\theta & C_\psi S_\theta S_\phi - S_\psi C_\phi & C_\psi S_\theta C_\phi + S_\psi S_\phi \\
 S_\psi C_\theta & S_\psi S_\theta S_\phi + C_\psi C_\phi & S_\psi S_\theta C_\phi - C_\psi C_\phi \\
 -S_\theta & C_\theta C_\phi & C_\theta C_\phi 
 \end{array}\right]
 \end{equation}
-con $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$. Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
+
+con $C_\phi=cos(\phi)$ i $S_\phi=sin(\phi)$. Ésto se obtiene del sistema de  orientación intrínseco basado en las rotaciones fundamentales respecto $\phi,\theta$ y $\psi$:
+
+\begin{equation}
+\pmb{R}(\phi,\theta,\psi)=\pmb{R}_{1}(\psi)\cdot \pmb{R}_{2}(\theta)\cdot \pmb{R}_{3}(\phi)
+\end{equation}
+
+donde las matrices de rotación son de la forma:
+
+\begin{equation}
+\begin{array}{c}
+\pmb{R}(\phi)=\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & cos(\phi) & -sin(\phi) \\
+0 & sin(\phi) & cos(\phi) \\ \end{array} \right]\hspace{1cm} \pmb{R}(\theta)=\left[\begin{array}{ccc}
+cos(\theta) & 0 & sin(\theta) \\
+0 & 1 & 0 \\
+-sin(\theta) & 0 & cos(\theta) \\ \end{array} \right] \\
+\\
+\pmb{R}(\psi)=\left[\begin{array}{ccc}
+cos(\psi) & -sin(\psi) & 0 \\
+sin(\psi) & cos(\psi) & 0 \\
+0 & 0 & 1 \\ \end{array} \right] \end{array}
+\end{equation}
+
+Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
 \begin{equation}
 \pmb{v_B}=\left[\begin{array}{c}
 v_{x,b}\\
@@ -281,30 +307,56 @@ n\\
 r
 \end{array} \right]
 \end{equation}
-En cambio, las velocidades en el marco de referencia inercial (Inertial Frame)  se representan por $\dot{\eta}$ para las velocidades lineales y con $\dot{\xi}$ para las angulares: 
+En cambio, las velocidades en el marco de referencia inercial (Inertial Frame)  se representan por $\pmb{\dot{\xi}}$ para las velocidades lineales y con $\pmb{\dot{\eta}}$ para las angulares: 
 \begin{equation}
 \pmb{\dot{\xi}}=\left[\begin{array}{c}
 \dot{x} \\
 \dot{y} \\
 \dot{z}
 \end{array} \right] \hspace{1cm} \pmb{\dot{\eta}}=\left[\begin{array}{c}
-\dot{\psi} \\
+\dot{\phi} \\
 \dot{\theta} \\
 \dot{\psi}
 \end{array} \right] 
 \end{equation}
-Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es el vector de velocidades angulares es necesario tener un cambio de base para relacionar las velocidades en el marco de referencia inercial con las del cuerpo. Para ello con la matriz $\pmb{W_\eta}$:
+Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es igual al vector de velocidades angulares : $\pmb{\gamma} \neq \pmb{\dot{\eta}}$, es necesario tener un cambio de base para relacionar las velocidades en el marco de referencia inercial con las del cuerpo. Para ello se calcula la matriz de transformación de velocidades angulares entre las referencias Inercial y Body como:
+
+\begin{equation}
+\left[ \begin{array}{c}
+p \\
+n \\
+r\\\end{array} \right] = \pmb{I_{3}}\left[\begin{array}{c}
+\dot{\phi} \\
+0 \\
+0 \\ \end{array} \right] + \pmb{R}(\phi) \left[ \begin{array}{c}
+0 \\
+\dot{\theta} \\
+0 \\ \end{array} \right] + \pmb{R}(\phi)\cdot \pmb{R}(\theta) \left[ \begin{array}{c}
+0 \\
+0 \\
+\dot{\psi} \\ \end{array} \right]= \left[ \pmb{W_{\eta}} \right] \left[ \begin{array}{c}
+\dot{\phi} \\
+\dot{\theta} \\
+\dot{\psi} \\ \end{array} \right] 
+\end{equation}
+
+y se obtiene la matriz $\pmb{W_\eta}$:
+
 \begin{equation}
 \pmb{W_\eta}=\left[\begin{array}{ccc}
-1 & 0 & -S_\theta \\
-0 & C_\phi & C_\theta S_\phi \\
-0 & -S_\phi & C_\theta C_\phi 
-\end{array} \right] \hspace{0.5cm} amb \hspace{0.5cm} 
+%1 & 0 & -S_\theta \\
+%0 & C_\phi & C_\theta S_\phi \\
+%0 & -S_\phi & C_\theta C_\phi 
+1 & 0 & sin(\theta) \\
+0 & cos(\phi) & -sin(\phi)cos(\theta) \\
+0 & sin(\phi) & cos(\phi)cos(\theta) \\
+\end{array} \right] \hspace{0.5cm} con \hspace{0.5cm} 
 \pmb{\gamma}=\left[ \pmb{W_\eta} \right] \pmb{\dot{\eta}} 
 \end{equation}
+
 Las fuerzas de sustentación y velocidades angulares de los cuatro actuadores son $f_1,f_2,f_3,f_4$ y $w_1,w_2,w_3,w_4$ respectivamente. Siguiendo la orientación de la figura \ref{RefQuad}, con el objetivo de poder anular los momentos producidos en el eje $z_B$ (en el marco del cuerpo $B$) el sentido de giro de los actuadores  $4$ y $2$ son en el de las agujas del reloj (clockwise) y el de los $1$ y $3$ en sentido contrario (counterclockwise).
 
-Interesa conocer qué fuerza y momento aportará cada motor dada una velocidad angular conocida. Se supone poder controlar la fuerza y momento ejercida por cada motor y cómo aproximación inicial se considera que están relacionados con la velocidad angular de la forma:
+Interesa conocer qué fuerza y momento aportará cada motor dada una velocidad angular conocida. Se supone poder controlar ambos y cómo aproximación inicial se considera que están relacionados con la velocidad angular de la forma:
 \begin{equation}
 \begin{array}{l}
 f_i=kw^2_i \\ 
@@ -362,9 +414,9 @@ En calcular $F$ es necesario hacer el cambio de variables de $\gamma$ a $\dot{\e
 donde la matriz $J$ queda como
 \begin{equation}
 \pmb{J}=\pmb{W_\eta} ^{T}\pmb{I}\pmb{W_\eta} = \left[ \begin{array}{ccc}
-I_{xx} & 0 & -I_{xx} S_\theta \\
-0 & I_{yy} C^2_\phi + I_{zz} S^2_\phi & (I_{yy}-I_{zz}) C_{\phi} S_\phi C_\theta \\
--I_{xx} S_\theta & (I_{yy}-I_{zz}) C_{\phi} S_\phi C_\theta & I_{xx} S^2_{\theta}+I_{yy} S^2_{\phi} C^2_\theta +I_{zz}C^2_{\phi} C^2_{\theta}
+I_{xx} & 0 & I_{xx} S_\theta \\
+0 & I_{yy} C^2_\phi + I_{zz} S^2_\phi & (I_{zz}-I_{yy}) C_{\phi} S_\phi C_\theta \\
+I_{xx} S_\theta & (I_{zz}-I_{yy}) C_{\phi} S_\phi C_\theta & I_{xx} S^2_{\theta}+I_{yy} S^2_{\phi} C^2_\theta +I_{zz}C^2_{\phi} C^2_{\theta}
 \end{array} \right]
 \end{equation} 
 
@@ -510,7 +562,9 @@ Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $
 \label{eq:system2}
 \end{equation}
 
-Para realizar el control será útil representar el sistema \ref{eq:system} en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. Éste caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener una cantidad de movimiento nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
+Para realizar el control será útil representar el sistema \ref{eq:system}  en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. \\
+
+Este caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener una cantidad de movimiento nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
 
 \begin{equation}
 \begin{cases}
@@ -539,8 +593,10 @@ El modelo se expresa en forma lineal como
 donde $\pmb{K}$ es el término que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
 
 \begin{equation}
+\vspace*{-0.6cm}
 \pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \hspace*{1.5cm} \pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}}
 \label{jacobians}
+\vspace*{1cm}
 \end{equation}
 
 En considerar que las posiciones angulares de $\phi$ y $\theta$ no diferirán significativamente respecto de zero y que el ángulo $\psi$ no es relevante, se trabaja con una matriz de rotación $R$ igual a la identidad
@@ -801,17 +857,17 @@ TauB=[[       l*(f4-f2)];
       [       l*(f3-f1)];
       [ b*(f1+f3-f2-f4)]];  
 
-Weta=[[ 1         0         -sin(Theta)];
-      [ 0  cos(Phi) cos(Theta)*sin(Phi)];
-      [ 0 -sin(Phi) cos(Theta)*cos(Phi)]];
+Weta=[[ 1         0           sin(Theta)];
+      [ 0  cos(Phi) -cos(Theta)*sin(Phi)];
+      [ 0  sin(Phi)  cos(Theta)*cos(Phi)]];
  
 J=transpose(Weta)*[[Ixx 0 0];[0 Iyy 0];[0 0 Izz]]*Weta;  
 
 CdE1=(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);
 
-CdE2=dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
+CdE2=-dPhi*(Ixx*dPsi*cos(Theta) + 2*Iyy*dTheta*cos(Phi)*sin(Phi) - 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta) + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
 
-CdE3=-dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi))  - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);
+CdE3= dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 + 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) + Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) - Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);
 
 CdEta=[CdE1; CdE2; CdE3];
 
@@ -834,7 +890,7 @@ syms k m g l b
 l=0.165			% Longitud de los brazos (m)
 Ixx=0.007931		% Producto de inercia en x (kg*m2)
 Iyy=0.007664		% Producto de inercia en y (kg*m2)
-Izz=0.005814		% Producto de inercia en z (kg*m2)
+Izz=0.009741		% Producto de inercia en z (kg*m2)
 m=0.96			% Masa del Quadcopter (kg)
 b=1.2*10^-7		% Relacion Momento-Fuerza
 g=9.81			% Aceleracion gravedad (m/s2)
@@ -854,45 +910,54 @@ Con el modelo linealizado del sistema ya se tiene lo que emulará una respuesta 
 \section{Regulador Quadrático Lineal}
 % Explicar teoría del regulador
 
-Dado un sistema lineal de tiempo continuo ($LTI$) definido por 
+Dado un sistema lineal de tiempo continuo ($LTI$) discreto definido por 
 
 \begin{equation}
 \begin{array}{l}
-\dot{\mathbf{X}}=[\mathbf{A}] \cdot \mathbf{X} + [\mathbf{B}] \cdot \mathbf{U} \\
-\mathbf{Y} = [\mathbf{C}] \cdot \mathbf{X} 
+\dot{\mathbf{X}}_{k+1}=[\mathbf{A}] \cdot \mathbf{X}_{k} + [\mathbf{B}] \cdot \mathbf{U}_{k} \\
+\mathbf{Y}_{k+1} = [\mathbf{C}] \cdot \mathbf{X}_{k} 
 \end{array}
 \end{equation} 
 
 se quiere operar este sistema mediante un coste mínimo según un criterio determinado. Este criterio se caracteriza por tener una función de costes $\mathbf{J}$ que depende tanto de los estados como de las entradas del sistemas \cite{LQR_Wikipedia}
 
 \begin{equation}
-\mathbf{J} =\int^{\infty}_{0} \left( \mathbf{X}^{T} \mathbf{Q}\pmb{X} + \mathbf{U}^{T} \mathbf{R}\mathbf{U} + 2\mathbf{X}^{T} \mathbf{N}\mathbf{U} \right) dt
+\mathbf{J} =\sum^{\infty}_{k=0} \left( \mathbf{X}^{T}_{k} \mathbf{Q}\pmb{X}_{k} + \mathbf{U}^{T}_{k} \mathbf{R}\mathbf{U}_{k} + 2\mathbf{X}^{T}_{k} \mathbf{N}\mathbf{U}_{k} \right)
 \end{equation}
 
-y se definen los pesos $\mathbf{Q}$, $\mathbf{R}$ y $\mathbf{N}$ como matrices definidas positivas y simétricas, según la penalización que se le quiera dar a los estados ($\mathbf{X}$), acciones ($\mathbf{U}$) o el efecto de ambos ($\mathbf{N}$)respectivamente, tal que se minimice el coste $\mathbf{J}$. Se obtiene la ley de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ de 
+y se definen los pesos $\mathbf{Q}$, $\mathbf{R}$ y $\mathbf{N}$ como matrices definidas positivas y simétricas, según la penalización que se le quiera dar a los estados ($\mathbf{X}$), acciones ($\mathbf{U}$) o el efecto de ambos ($\mathbf{N}$) respectivamente, tal que se minimice el coste $\mathbf{J}$. Se obtiene la ley de control $\mathbf{U}_{k}=-\mathbf{K} \cdot \mathbf{X}_{k}$ de 
+
+%\begin{equation}
+%\mathbf{K}=\mathbf{R}^{-1} \left( \mathbf{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) 
+%\end{equation}
+
 \begin{equation}
-\mathbf{K}=\mathbf{R}^{-1} \left( \mathbf{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) 
+\mathbf{K}=(\mathbf{B}^{T}\mathbf{S}\mathbf{B}+\mathbf{R})^{-1}(\mathbf{B}^{T}\mathbf{S}\mathbf{A}+\mathbf{N}^{T})
 \end{equation}
 
 donde $\mathbf{S}$ es la solución de la ecuación de Riccati asociada 
 
-\begin{equation}
-\mathbf{A}^{T}\mathbf{S} + \mathbf{S}\mathbf{A} - \left( \mathbf{S}\pmb{B}+\mathbf{N} \right) \mathbf{R}^{-1} \left( \mathbf{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) + \mathbf{Q} = - \dot{\mathbf{S}}
-\end{equation}
-
-En este caso se supondrá que $\mathbf{N}=0$ (ver \cite{LQR_Matlab}) se tendrá
+%\begin{equation}
+%\mathbf{A}^{T}\mathbf{S} + \mathbf{S}\mathbf{A} - \left( \mathbf{S}\pmb{B}+\mathbf{N} \right) \mathbf{R}^{-1} \left( \mathbf{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) + \mathbf{Q} = \pmb{0}
+%\end{equation}
 
 \begin{equation}
-\mathbf{J} =\int^{\infty}_{0} \left( \mathbf{X}^{T} \mathbf{Q}\mathbf{X} + \mathbf{U}^{T}\mathbf{R}\mathbf{U} \right) dt
+\mathbf{A}^{T}\mathbf{S}\mathbf{A}-\mathbf{S}-(\mathbf{A}^{T}\mathbf{S}\mathbf{B}+\mathbf{N})(\mathbf{B}^{T}\mathbf{S}\mathbf{B}+\mathbf{R})^{-1}(\mathbf{B}^{T}\mathbf{S}\mathbf{A}+\mathbf{N}^{T})+\mathbf{Q}=\mathbf{0}
 \end{equation}
 
-y por consiguiente, la ecuación a resolver es
+%En este caso se supondrá que $\mathbf{N}=0$ \cite{LQR_Matlab} se tendrá
 
-\begin{equation}
-\mathbf{A}^{T}\mathbf{S} + \mathbf{S}\mathbf{A} - \mathbf{S}\mathbf{B} \mathbf{R}^{-1} \mathbf{B}^{T} \mathbf{S} + \mathbf{Q} = 0
-\end{equation}
+%\begin{equation}
+%\mathbf{J} =\int^{\infty}_{0} \left( \mathbf{X}^{T} \mathbf{Q}\mathbf{X} + \mathbf{U}^{T}\mathbf{R}\mathbf{U} \right) dt
+%\end{equation}
 
-Finalmente, de éste procedimiento se obtiene, además de las constantes de realimentación $\mathbf{K}$ y la solución $\mathbf{S}$, los polos del sistema: $\mathbf{P}=eigenvalue( \mathbf{A} - \mathbf{B} \cdot \mathbf{K})$.
+%y por consiguiente, la ecuación a resolver es
+
+%\begin{equation}
+%\mathbf{A}^{T}\mathbf{S} + \mathbf{S}\mathbf{A} - \mathbf{S}\mathbf{B} \mathbf{R}^{-1} \mathbf{B}^{T} \mathbf{S} + \mathbf{Q} = 0
+%\end{equation}
+
+Finalmente, de este procedimiento se obtiene, además de las constantes de realimentación $\mathbf{K}$ y la solución $\mathbf{S}$, los polos del sistema: $\mathbf{P}=eigenvalue( \mathbf{A} - \mathbf{B} \cdot \mathbf{K})$.
 
 
 \section{Obtención de la ley de control}
@@ -951,13 +1016,13 @@ Para el caso de $\mathbf{R}$ se consideran toda un mismo peso para todas las ent
 0   &   0 &   0 & 1000 \\ \end{array} \right] 
 \end{equation}
 
-Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab para calcular el control óptimo según el regulador LQR\cite{Toolbox_lqr}:
+Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab para calcular el control óptimo según el regulador LQR\cite{Toolbox_lqr} en tiempo discreto:
 
 \begin{verbatim}
-            [K,S,e] = LQR(A,B,Q,R)
+            [K,S,E] = lqrd(A,B,Q,R,Ts)
 \end{verbatim}
 
-Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo 4 son $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$, $I_{yy}=7.664\cdot 10^{-3}\>\> kg \cdot m^{2}$ y $l=16.5 \>\> cm$ se tiene que las constantes $K$ en la realimentación son:
+El tiempo de muestreo se tiene que es $T_{s}=20\>ms$ porque las acciones de control tienen una frecuencia de 50 Hz. Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo 4 son $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$, $I_{yy}=7.664\cdot 10^{-3}\>\> kg \cdot m^{2}$ y $l=16.5 \>\> cm$ se tiene que las constantes $K$ en la realimentación son:
 
 \begin{equation}
 \mathbf{K}= \left[ \begin{array}{cccc}
@@ -965,6 +1030,7 @@ Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo
    -0.0224 &   -0.0328    &     0    &     0 \\
          0    &     0 &   0.0224  &  0.0322 \\
     0.0224  &  0.0328    &     0    &     0 \\ \end{array} \right]
+   \label{Kmatrix}
 \end{equation}
 
 En ser la ley de control $\pmb{U}=-\mathbf{K}\cdot \mathbf{X}$, el vector de estados $\mathbf{X}=[\phi \quad \dot{\phi \quad \theta \quad \dot{\theta}}]^{T}$ y $\mathbf{U}=[f_{1} \quad f_{2} \quad f_{3} \quad f_{4}]$, el ángulo $\phi$ tendrán efecto en el los motores $f_{1}$ y  $f_{3}$ mientras que $\theta$ afectará a $f_{2}$ y $f_{4}$. La matriz $\mathbf{S}$, solución de la ecuación de Riccati, queda
@@ -1090,7 +1156,42 @@ Se hace notar que las acciones de los actuadores estan saturadas con límites ta
 \newpage
 \chapter{Implementación del control} \label{implement}
 % \section{Implementación del control} \label{implement}
-% Pufff
+
+El implementar un control implica hacer capaz al sistema en cuestión de poder recibir la información necesaria para calcular las acciones de control apropiadas y atacar con éstas al sistema. \\
+
+Las funciones que debe realizar la Raspberry Pi en este caso son las de captar tanto la consigna como los sensores, así como calcular qué señal PWM se les debe enviar a los cuatro motores que se tienen, a partir del error entre estado y consigna: 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6,bb=0 0 300 230]{images/flowchart.png}
+\caption{Flowchart del código a ejecutar}
+\label{flowchart}
+\end{center}
+\end{figure}
+
+A los sensores giróscopo y acelerómetro se accede mediante el protocolo de comunicaciones $I2C$ con la librería $wiringPiI2C.h$ y se hace pasar la información por un filtro de Kalman ($Anexo\>\>C$) para quitar el ruido existente en las lecturas. De éstos se obtiene la posición y velocidad.
+
+La consigna se obtiene de la Receptora. Ésta emite 5 señales PWM de iguales características que las que se envían a los motores, es decir, de 50 Hz con un ciclo de trabajo de entre el 5\% y 10\% y se leen del GPIO (General Purpose Input-Output) las 5 señales mediante interrupciones por cambio de flanco y flanco de bajada creadas con la librería $wiringPi.h$.
+
+Mediante la consigna y la lectura de las estimaciones de los estados $\hat{\pmb{x}}_{k|k}$, se calcula con la matriz $\pmb{K}$ obtenida mediante el regulador LQR, la señal a enviar a los motores. Ésta tiene dos componentes: una está influenciada por el error entre los estados  $\pmb{X}=[\phi \quad \dot{\phi} \quad \theta \quad \dot{\theta}]$ y la consigna, es decir, los valores que se desean que tomen. La otra componente viene dada por la persona que controla el aparato en cuestión: el $throttle$, es decir, cuánta fuerza se quiere que apliquen los actuadores (por igual) al sistema, que influirá en el impulso mecánico total del vehículo. 
+
+Entonces, si $K_{i,j}$ es cada constante de la matriz $\pmb{K}$ (\ref{Kmatrix}) y si $f_i$ es la fuerza que requiere ser ejercida por cada motor $i-\acute{e}simo$ en gramos (pondios), éstas se obtienen en el bloque $Acciones\>\>de\>\>control$ de la figura \ref{flowchart} como: 
+
+\begin{equation}
+\begin{array}{l}
+f_1=(K_{1,3}\cdot(-\theta+\theta_{c})+K_{1,4}\cdot(\dot{\theta}))\cdot \frac{1000}{9.81}+throttle \\
+f_2=(K_{2,1}\cdot(-\phi+\phi_{c})+K_{2,2}\cdot(\dot{\phi}))\cdot \frac{1000}{9.81}+throttle \\
+f_3=(K_{3,3}\cdot(-\theta+\theta_{c})+K_{3,4}\cdot(\dot{\theta}))\cdot \frac{1000}{9.81}+throttle \\
+f_4=(K_{4,1}\cdot(-\phi+\phi_{c})+K_{4,2}\cdot(\dot{\phi}))\cdot \frac{1000}{9.81}+throttle \\ \end{array}
+\end{equation}
+
+donde $\phi_{c}$ y $\theta_{c}$ son las consignas. Finalmente, para hallar el ciclo de trabajo que deben tener las señales que se envían a los motores se usa la relación encontrada en el $Anexo\>\>D$ en la caracterización de los motores:
+
+\begin{equation}
+f_{i}=119\cdot PWM_{i} -613 \hspace{1cm} \longrightarrow \hspace{1cm}  PWM_{i}=\frac{f_{i}+613}{119}
+\end{equation}
+
+Para enviar la información se escribe según la especificación de la librería $pi-blaster$ en el archivo FIFO $/dev/pi-blaster$ (creado en la instalación de la misma) el PWM al que funcionará cada motor.
 
 \newpage
 \chapter{Construcción del Quadcopter} \label{construc}
@@ -1155,7 +1256,8 @@ Con este aparato de se transmite la consigna generada des del transmisor hacia e
 
 El transmisor tiene unas dimensiones de $156x152x50mm$, un peso de 265g y se alimenta a 6V (4 baterías AA). El receptor tiene unas medidas de $33.5x20.5x13mm$ y se alimenta a 4.8-6V. Dispone de 5 canales de radio, con transmisión segura a 2.4GHz con el método FHSS. Puede configurarse para trabajar con dos modos(mode1-mode2).
 
-La señal que se recibe para cada canal en el receptor es de $PWM$ de $50Hz$ con un Duty que varía de $1ms$ a $2ms$.
+La señal que se recibe en cada canal en el receptor es un $PWM$ de $50Hz$ con un ciclo de trabajo entre $1ms$ y $2ms$. Las señales que se reciben son  : Aileron, Elevator, Throttle, Rudder y el Channel 5. 
+
 
 %% Especificación por canal de los PWM: mínimo y máximo Duty
 %% Mirar con osciloscopio la señal
@@ -1283,7 +1385,7 @@ Los parámetros que definen una hélice son su Longitud ($X$), és decir, diáme
 \end{figure} 
 
 \newpage
-\subsection{Montaje}
+\section{Montaje}
 
 En la unión de todos los componentes se ha optado por hacer uso de la impresión 3D para crear las piezas que se han necesitado en la unión de las mismas. En el ensamblaje de los componentes, se ha empezado con el Frame: \\
 
@@ -1349,6 +1451,8 @@ Y finalmente se fija el Regulador Step-Down a la estructura mediante bridas. En 
 \path[draw,line width=2pt,dotted, color=cyan](10.6,5.75) -- (12.3,5.75);
 \path[draw] (13, 5.75) node[draw,line width=3pt] (nodeA) {\huge Em.};
 
+%\node[draw, minimum width=2cm, minimum height=1cm, anchor=south west, text width=2cm, align=center] (A) at (LLA) {Impedance\\control};
+
 %%% BUCK LEVEL
 \path[draw,line width=2pt,color=red] (1,4.5) -- (3,4.5);
 \path[draw,line width=2pt,color=black] (2,4) -- (3,4);
@@ -1375,9 +1479,18 @@ Y finalmente se fija el Regulador Step-Down a la estructura mediante bridas. En 
 
 Se han introducido conectores en las tomas positivas de cada ESC para poder programar cada uno por separado de ser necesario. \\
 
-A cada motor se le atornillan la hélice adecuada según su sentido de giro, que viene dado por el orden en que se han soldado las fases del actuador, según \ref{detalle_cable_motor}. El resultado final es:
+A cada motor se le atornillan la hélice adecuada según su sentido de giro, que viene dado por el orden en que se han soldado las fases del actuador, según \ref{detalle_cable_motor}.\\
 
-\textbf{Figura con el resultado final}
+El resultado final es:
+
+%\textbf{Figura con el resultado final}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.19,bb=0 0 1600 1200]{images/qc_final.png}
+\caption{Vehículo finalizado}
+\end{center}
+\end{figure}
+
 
 \newpage
 
@@ -1435,17 +1548,29 @@ En el desarrollo del presente proyecto se ha construido un aparato  compuesto po
 
 Por parte de la fibra de vidrio, se considera un material de baja toxicidad debido a sus diferencias con los cancerígenos asbestos. En poder fabricarse las fibras a partir de vídrio reciclado, el impacto de este material al medio se considera bajo.
 
-Por otro lado, el Nylon es una poliamida de gran resistencia a la corrosión ambiental. Por este motivo éste es uno de los plásticos que más han contribuido en el incremento de los nieles de contaminación. Los tiempos de degradación del Nylon son muy largos y sus residuos muy perjudiciales para el medio ambiente. Por ello es de gran importancia tener una consolidada etapa de reciclado de éste material, también para otros polímeros parecidos a éste.
+Por otro lado, el Nylon es una poliamida de gran resistencia a la corrosión ambiental. Por este motivo éste es uno de los plásticos que más han contribuido en el incremento de los niveles de contaminación. Los tiempos de degradación del Nylon son muy largos y sus residuos muy perjudiciales para el medio ambiente. Por ello es de gran importancia tener una consolidada etapa de reciclado de éste material, también para otros polímeros parecidos a éste.
 
 Respecto al ABS, se trata de un plástico de ingeniería que de la misma manera que el Nylon por su resistencia térmica y química, debe reciclarse y tratarse los residuos. \\
 
-Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo, conocidas también como de ion de litio. Éstas son muy contaminantes de no tratarse adecuadamente en la fase de reciclado y requieren estar completamente descargadas antes de ser entregadas en un punto de recogida.
+Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo, conocidas también como de ion de litio. Éstas son muy contaminantes de no tratarse adecuadamente en la fase de reciclado y requieren estar completamente descargadas antes de ser entregadas a un punto de recogida.
 
 \newpage
 
 \chapter{Conclusiones} \label{conclusiones}
 
-\section*{Futuras aplicaciones}
+
+
+\section{Futuras aplicaciones}
+
+
+
+\newpage
+
+\chapter*{Agradecimientos}
+
+Un trabajo de esta índole no podría haber sido posible sin la ayuda y apoyo de quienes, sin o con la aportación directa en el proyecto, lo han hecho realmente posible. \\
+
+A la familia, la verdadera $Alma\>\>Mater$, por su apoyo,  soporte y paciencia en la convivencia durante mis peores momentos, que no han sido pocos. A Manel Velasco, tutor y mentor de este pobre $umpa\>\>lumpa$ de la ciencia, por la guía, consejos y espacio de trabajo tan amablemente proporcionados en esta empresa. A Joan Guasch y Diego Muñoz, porque es importante hacer ameno el trabajo en los días poco fructíferos, que tan pesados son. 
 
 \newpage
 
@@ -1460,14 +1585,12 @@ Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo
 \bibitem{LQR_Wikipedia} Artículo sobre LQR de Wikipedia: \url{http://en.wikipedia.org/wiki/Linear-quadratic_regulator}
 \bibitem{LQR_Matlab} Documentación de la función LQR de Matlab: \url{http://www.mathworks.es/help/control/ref/lqr.html;jsessionid=8f737c267ee85a89cc2544a09a44}
 \bibitem{Toolbox_lqr} Toolbox de Matlab del LQR : \url{http://www.mathworks.es/es/help/control/ref/lqr.html}
-\bibitem{Lagrangian_Matlab} Ecuaciones de Lagrange en Matlab \url{http://www.mathworks.com/matlabcentral/fileexchange/23037-lagranges-equations/content/Lagrange.m}
+\bibitem{Lagrangian_Matlab} Ecuaciones de Lagrange en Matlab: \url{http://www.mathworks.com/matlabcentral/fileexchange/23037-lagranges-equations/content/Lagrange.m}
+\bibitem{pi-blaster} Github de la librería pi-blaster: \url{https://github.com/sarfata/pi-blaster/}
 \end{thebibliography}{}
 
 \newpage
 
-\chapter*{Agradecimientos}
-
-\newpage
 
 \chapter*{ANEXOS}
 \section*{Anexo A: Obtención del vector de fuerzas}
@@ -1492,7 +1615,7 @@ syms k m g l b
 l=0.165             % longitud de los brazos (m)
 Ixx=0.007931           % Momento de inercia del eje x (kg*m2) 
 Iyy=0.007664           % Momento de Inercia del eje y
-Izz=0.005814           % Momento de Inercia del eje z
+Izz=0.009741           % Momento de Inercia del eje z
 m=0.96              % Peso del Quadcopter (kg)
 g=9.81              % gravedad (m/s2)
 \end{lstlisting}
@@ -1577,9 +1700,13 @@ CdEta=[F(4); F(5); F(6)]-J*[ddPhi; ddTheta; ddPsi]
 %%% Hasta se tiene el producto Coriolis(Eta,dEta)*dEta. Pero como matlab
 %%% no elimina las aceleraciones se hace a mano, y queda:
 
-CdEta = [(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);
-          dPhi*(Ixx*dPsi*cos(Theta) - 2*Iyy*dTheta*cos(Phi)*sin(Phi) + 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2)  - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)  + Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
-          -dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 - 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) + 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) - Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta)]     
+CdE1=(Iyy*dTheta^2*sin(2*Phi))/2 - (Izz*dTheta^2*sin(2*Phi))/2 - Ixx*dPsi*dTheta*cos(Theta) - (Iyy*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 + (Izz*dPsi^2*sin(2*Phi)*cos(Theta)^2)/2 - Iyy*dPsi*dTheta*cos(2*Phi)*cos(Theta) + Izz*dPsi*dTheta*cos(2*Phi)*cos(Theta);
+
+CdE2=-dPhi*(Ixx*dPsi*cos(Theta) + 2*Iyy*dTheta*cos(Phi)*sin(Phi) - 2*Izz*dTheta*cos(Phi)*sin(Phi) + Iyy*dPsi*cos(Phi)^2*cos(Theta) - Izz*dPsi*cos(Phi)^2*cos(Theta) - Iyy*dPsi*cos(Theta)*sin(Phi)^2 + Izz*dPsi*cos(Theta)*sin(Phi)^2) - Ixx*dPsi^2*cos(Theta)*sin(Theta) + Iyy*dPsi^2*cos(Theta)*sin(Phi)^2*sin(Theta)+ Izz*dPsi^2*cos(Phi)^2*cos(Theta)*sin(Theta);
+
+CdE3= dPhi*(Ixx*dTheta*cos(Theta) - Iyy*dTheta*cos(Phi)^2*cos(Theta) + Izz*dTheta*cos(Phi)^2*cos(Theta) + Iyy*dTheta*cos(Theta)*sin(Phi)^2 - Izz*dTheta*cos(Theta)*sin(Phi)^2 + 2*Iyy*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi) - 2*Izz*dPsi*cos(Phi)*cos(Theta)^2*sin(Phi)) + Iyy*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) - Izz*dTheta^2*cos(Phi)*sin(Phi)*sin(Theta) + 2*Ixx*dPsi*dTheta*cos(Theta)*sin(Theta) - 2*Izz*dPsi*dTheta*cos(Phi)^2*cos(Theta)*sin(Theta) - 2*Iyy*dPsi*dTheta*cos(Theta)*sin(Phi)^2*sin(Theta);
+
+CdEta=[CdE1; CdE2; CdE3];
 \end{lstlisting}
 \onehalfspacing
 Si se quiere econtrar los puntos de equilibrio del sistema planteado en \ref{eq:system} se parte del mismo sistema de ecuaciones y se impone que tanto las velocidades y aceleraciones sean cero. 
@@ -1776,7 +1903,10 @@ El resultado es el dispositivo que corresponde al MPU-6050:
 
 \subsubsection*{Librería wiringPi}
 Se utiliza esta librería \cite{wiringPi} como a interfaz del GPIO (General Porpouse Input Output). Permite, por tanto, leer las consignas y sensores y generar las acciones de control. 
-La instalación y descripción de la librería esta explicado en la página web incluida en la bibliografía.
+La instalación y descripción de la librería esta explicado en la página web incluida en la bibliografía. Ésta también incluye la librería $wiringPiI2C.h$, usada para la comunicación por I2C con los sensores.
+
+\subsubsection*{Librería pi-blaster}
+Es necesaria esta librería \cite{pi-blaster} para enviar las señales de control a sus respectivos motores, ya que permite usar cada pin del GPIO como un PWM. Se instala y usa según se especifica en el repositorio.
 
 \newpage
 \section*{Anexo C: Filtro de Kalman}
@@ -1822,13 +1952,13 @@ Se procede a hacer una estimación $a \>\> priori$ del estado mediante
 \hat{\mathbf{x}}_{k|k-1} =\mathbf{\Phi}_{k} \cdot \mathbf{x}_{k-1|k-1}
 \end{equation}
 
-donde $\mathbf{\Phi}_{k}$ es la matriz de transición de estados. Ésta puede depende también de otras variables, tales como $\mathbf{u}_{k}$ como se verá posteriormente y se calcula la covarianza del error asociada a la estimación $a \>\> priori$ en función de la varianza $\mathbf{Q}_{k}$ del estado como
+donde $\mathbf{\Phi}_{k}$ es la matriz de transición de estados. Ésta puede depender también de otras variables, tales como $\mathbf{u}_{k}$ como se verá posteriormente y se calcula la covarianza del error asociada a la estimación $a \>\> priori$ en función de la varianza $\mathbf{Q}_{k}$ del estado como
 
 \begin{equation}
 \mathbf{P}_{k|k-1}=\mathbf{\Phi}_{k} \cdot \mathbf{P}_{k-1|k-1} \cdot \mathbf{\Phi}_{k}^{T} + \mathbf{Q}_{k}
 \end{equation}
 
-En suponer que un estado está sometido a ruido blanco se puede expresar su distribución de probabilidad con una distribución normal con media igual a la estimación realizada $\mu=\hat{x}_{k|k-1}$ y varianza $\sigma^{2}=P_{k|k-1}$:
+En suponer que un estado está sometido a ruido blanco se puede expresar su distribución de probabilidad con una distribución normal con media igual a la estimación realizada $\mu=\hat{\pmb{x}}_{k|k-1}$ y varianza $\sigma^{2}=P_{k|k-1}$:
 
 \begin{figure}[h!]
 \begin{center}
@@ -1877,14 +2007,8 @@ de media $\mu_{p}$ y varianza $\sigma^{2}_{p}$:
 Substituyendo en este caso con las dos funciones anteriores se tiene que la estimación del estado $a \>\> posteriori$ es 
 
 \begin{equation}
-\hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
+\hat{\pmb{x}}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \label{media_x}
-\end{equation}
-
-
-
-\begin{equation}
-\hat{x}_{k|k}=\hat{x}_{k|k-1} + \frac{\mathbf{P}_{k|k-1}\mathbf{H}^{T}_{k}(z_{k}-\mathbf{H}_{k}\hat{x}_{k|k-1})}{\mathbf{H}_{k} \mathbf{P}_{k|k-1} \mathbf{H}_{k}^{T} + \mathbf{R}_{k}}
 \end{equation}
 
 que se puede expresar como
