@@ -913,7 +913,7 @@ Con el modelo linealizado del sistema ya se tiene lo que emulará una respuesta 
 \section{Regulador Quadrático Lineal}
 % Explicar teoría del regulador
 
-Dado un sistema lineal de tiempo continuo ($LTI$) discreto definido por 
+Dado un sistema lineal de tiempo discreto definido por 
 
 \begin{equation}
 \begin{array}{l}
@@ -1013,10 +1013,10 @@ Para el caso de $\mathbf{R}$ se consideran toda un mismo peso para todas las ent
 
 \begin{equation}
 \mathbf{R}=100 \cdot I = \left[ \begin{array}{cccc}
-1000 &   0 &   0 &   0 \\
-0   & 1000 &   0 &   0 \\
-0   &   0 & 1000 &   0 \\
-0   &   0 &   0 & 1000 \\ \end{array} \right] 
+100 &   0 &   0 &   0 \\
+0   & 100 &   0 &   0 \\
+0   &   0 & 100 &   0 \\
+0   &   0 &   0 & 100 \\ \end{array} \right] 
 \end{equation}
 
 Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab para calcular el control óptimo según el regulador LQR\cite{Toolbox_lqr} en tiempo discreto:
@@ -1047,7 +1047,7 @@ En ser la ley de control $\pmb{U}=-\mathbf{K}\cdot \mathbf{X}$, el vector de est
          0   &      0  & 0.3286  &  0.2664 \\ \end{array}     \right]
 \end{equation}
 
-y los polos del sistema, considerando que es un sistema $LTI$, son
+y los polos del sistema, considerando que es un sistema discreto, son
 
 \begin{equation}
 \mathbf{E}= \left[ \begin{array}{c}
