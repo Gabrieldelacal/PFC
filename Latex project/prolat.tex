@@ -593,10 +593,13 @@ El modelo se expresa en forma lineal como
 donde $\pmb{K}$ es el término que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
 
 \begin{equation}
-\vspace*{-0.6cm}
-\pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \hspace*{1.5cm} \pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}}
+\begin{array}{c}
+%\vspace*{-0.6cm}
+\pmb{A}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{x}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \\ %\hspace*{1.5cm} 
+\\
+\pmb{B}=\left.{\frac{\partial \pmb{f(x,u)}}{\partial \pmb{u}}}\right\vert_{\pmb{X_0},\pmb{U_0}} \\\end{array}
 \label{jacobians}
-\vspace*{1cm}
+%\vspace*{1cm}
 \end{equation}
 
 En considerar que las posiciones angulares de $\phi$ y $\theta$ no diferirán significativamente respecto de zero y que el ángulo $\psi$ no es relevante, se trabaja con una matriz de rotación $R$ igual a la identidad
@@ -1026,10 +1029,10 @@ El tiempo de muestreo se tiene que es $T_{s}=20\>ms$ porque las acciones de cont
 
 \begin{equation}
 \mathbf{K}= \left[ \begin{array}{cccc}
-         0  &      0  &  -0.0224  & -0.0322 \\
-   -0.0224 &   -0.0328    &     0    &     0 \\
-         0    &     0 &   0.0224  &  0.0322 \\
-    0.0224  &  0.0328    &     0    &     0 \\ \end{array} \right]
+         0  &      0  &  -0.0690  & -0.0566 \\
+   -0.0690 &   -0.0576    &     0    &     0 \\
+         0    &     0 &   0.0690  &  0.0566 \\
+    0.0690  &  0.0576    &     0    &     0 \\ \end{array} \right]
    \label{Kmatrix}
 \end{equation}
 
@@ -1038,20 +1041,20 @@ En ser la ley de control $\pmb{U}=-\mathbf{K}\cdot \mathbf{X}$, el vector de est
 \begin{equation}
 \mathbf{S}= \left[ \begin{array}{cccc}
 
-    1.4662  &  1.0748    &     0 &        0 \\
-    1.0748  &  1.5758    &     0   &      0 \\
-         0  &       0  &  1.4415  &  1.0390 \\
-         0   &      0  & 1.0390  &  1.4978 \\ \end{array}     \right]
+    0.8245  &  0.3399    &     0 &        0 \\
+    0.3399  &  0.2802    &     0   &      0 \\
+         0  &       0  &  0.8107  &  0.3286 \\
+         0   &      0  & 0.3286  &  0.2664 \\ \end{array}     \right]
 \end{equation}
 
 y los polos del sistema, considerando que es un sistema $LTI$, son
 
 \begin{equation}
 \mathbf{E}= \left[ \begin{array}{c}
-  -0.6821 + 0.6821i \\
-  -0.6821 - 0.6821i \\
-  -0.6937 + 0.6937i \\
-  -0.6937 - 0.6937i \\
+  -0.9757 + 0.0237i \\
+  -0.9757 - 0.0237i \\
+  -0.9753 + 0.0241i \\
+  -0.9753 - 0.0241i \\
 \end{array} \right] 
 \end{equation}
 
@@ -1070,6 +1073,7 @@ No se considera el control de la altura en el sistema real, pero se implementa u
 \end{figure}
 \end{center}
 
+La frecuencia de la señal con la que se controlan los motores es de 50 Hz, por lo que se disponen lo $Zero-Order-Holder$ en la entrada de la función de Matlab $Control$ para incluir en la simulación esta característica del sistema real.\\ 
 Mediante los tres $Scopes$ se pueden observar la posición, ángulos y acciones de los motores del Quadcopter. La $Function \>\> Matlab$ proporciona la acción de control según sea el estado del sistema. A ésta se importan las constantes de realimentación $\mathbf{K}$ desde el $Workspace$ de Matlab y su contenido es
 
 \begin{lstlisting}[language=Matlab]
@@ -1121,22 +1125,20 @@ y=[vector(1);vector(2);vector(3);vector(4)];
 
 Se calcula la acción de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ en la línea 21 mediante los estados pero se añade un control para la altura para simular un caso más real. Se saturan las acciones de control para que no puedan ser negativas con los cuatro $if$ entre las líneas 23 y 34 porque los motores no pueden cambiar de sentido, ni tampoco superar la fuerza máxima que puedan aportar que se considera que es de $10\>\>N$. De esta manera se tiene una representación de la realidad más verosímil. 
 
-A modo de ejemplo, para las $\mathbf{K}'s$ calculadas según los parámetros obtenidos del modelo construido:
-
-\begin{equation}
-\mathbf{K}=\left[ \begin{array}{cccc}
-         0 &         0 &  -0.0224 &  -0.0322 \\
-   -0.0224 &  -0.0328    &     0  &       0 \\
-         0      &   0  &  0.0224 &   0.0322 \\
-    0.0224  &  0.0328  &       0    &     0 \\
-\end{array} \right]
-\end{equation}
-
+A modo de ejemplo, para las $\mathbf{K}'s$ calculadas según los parámetros obtenidos del modelo,
+%\begin{equation}
+%\mathbf{K}=\left[ \begin{array}{cccc}
+%         0 &         0 &  -0.0224 &  -0.0322 \\
+%   -0.0224 &  -0.0328    &     0  &       0 \\
+%         0      &   0  &  0.0224 &   0.0322 \\
+%    0.0224  &  0.0328  &       0    &     0 \\
+%\end{array} \right]
+%\end{equation}
 y partiendo de unas condiciones iniciales de $\mathbf{q}=[\xi \quad \eta]^{T}=[0 \quad 0 \quad 0 \quad 45^{o} \quad 0 \quad 0 ]$ se tiene como respuesta para el ángulo $\phi$: 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.25,bb=0 0 1000 600]{images/simulation_2.png}
+\includegraphics[scale=0.4,bb=0 0 625 400]{images/simulation_2_2.png}
 \end{center}
 \caption{Respuesta del ángulo $\phi$ en la simulación}
 \end{figure}
@@ -1146,7 +1148,7 @@ y la acción de control que se ha aplicado por parte de los motores hasta llegar
 
 \begin{figure}[h!]				
 \begin{center}
-\includegraphics[scale=0.25,bb=0 0 1000 600]{images/simulation_1.png}
+\includegraphics[scale=0.3,bb=0 0 800 550]{images/simulation_1_1.png}
 \end{center}
 \caption{Acciones de los motores en la simulación}
 \end{figure}
@@ -1591,7 +1593,7 @@ A la familia, la verdadera $Alma\>\>Mater$, por su apoyo,  soporte y paciencia e
 
 \newpage
 
-
+\addcontentsline{toc}{chapter}{ANEXOS}
 \chapter*{ANEXOS}
 \section*{Anexo A: Obtención del vector de fuerzas}
 
@@ -1655,7 +1657,6 @@ TauB=[l*(f4-f2);
 Se declaran las matrices de rotación, transformación de velocidad angular a derivada de ángulos de Euler, matriz de inercia y finalmente el Lagrangiano del sistema:
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=45]
-\begin{lstlisting}[language=Matlab,firstnumber=45]   
 R=[[cos(Psi)*cos(Theta) cos(Psi)*sin(Theta)*sin(Phi)-sin(Psi)*cos(Phi) cos(Psi)*sin(Theta)*cos(Phi)+sin(Psi)*sin(Phi)];
     [sin(Psi)*cos(Theta) sin(Psi)*sin(Theta)*sin(Phi)+cos(Psi)*cos(Phi) sin(Psi)*sin(Theta)*cos(Phi)-cos(Psi)*sin(Phi)];
     [-sin(Theta) cos(Theta)*sin(Phi) cos(Theta)*cos(Phi)]]
@@ -1677,7 +1678,6 @@ Aqui se obtiene con el Lagrangiano el vector de fuerzas F según la ecuación
 a partir de la función implementada en Lagrange.m implementada \cite{Lagrangian_Matlab} \\
 
 \begin{lstlisting}[language=Matlab,firstnumber=56]
-\begin{lstlisting}[language=Matlab,firstnumber=57]
 F=Lagrange(L,v)
 \end{lstlisting}
 
@@ -1691,7 +1691,6 @@ Para tener una expresión analítica del producto $\pmb{C(\eta,\dot{\eta})\cdot 
 y saber cómo aislar el producto
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=57]
-\begin{lstlisting}[language=Matlab,firstnumber=58]
 %%% Derivando a mano se obtiene que TauB=J*ddEta+CdEta 
 %%% Y como TauB=[F(4); F(5); F(6)], se tiene que el termino de Coriolis es:
 
@@ -1713,7 +1712,6 @@ Si se quiere econtrar los puntos de equilibrio del sistema planteado en \ref{eq:
 Para facilitar al sistema a resolver el problema también se supone que se está en condiciones próximas al punto de equilibrio, y por tanto, si  $\alpha \approx 0 \rightarrow sin(\alpha)=0$ y si $\alpha \approx 1 \rightarrow cos(\alpha)=1$.
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=68]
-\begin{lstlisting}[language=Matlab,firstnumber=69]
 dPhi=0
 dTheta=0
 dPsi=0
@@ -1753,7 +1751,6 @@ Para linealizar el sistema se deben calcular las matrices $\mathbf{A}$ y $\mathb
 
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=100]
-\begin{lstlisting}[language=Matlab,firstnumber=101]
 fx=[dx;
     eq1;
     dy;
@@ -1797,8 +1794,6 @@ Como se busca un sistema como el que se ha obtenido en \ref{eq:final_system}, se
 
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=136]
-
-\begin{lstlisting}[language=Matlab,firstnumber=137]
 fx=[dPhi;
     eq4;
     dTheta;
@@ -1817,18 +1812,17 @@ Bred=sym(subs(disB,{Phi,Theta,dPhi,dTheta,f1,f2,f3,f4},{0,0,0,0,m*g/4,m*g/4,m*g/
 \end{lstlisting}
 \onehalfspacing
 
-Para calcular las $\mathbf{K}'s$ del control se procede calculando los parámetros $\mathbf{Q}$ y $\mathbf{R}$ necesarios para especificar el control por $LQR$
+Para calcular las $\mathbf{K}'s$ del control se procede calculando los parámetros $\mathbf{Q}$ y $\mathbf{R}$ necesarios para especificar el control por $LQR$:
 
 \singlespacing
 \begin{lstlisting}[language=Matlab,firstnumber=151]
-\begin{lstlisting}[language=Matlab,firstnumber=152]
 Cred=[[1 0 0 0];[0 0 1 0]];
 Dred=[[0 0 0 0];[0 0 0 0]];
 
 Q=1*transpose(Cred)*Cred
-R=1000*eye(4)
+R=100*eye(4)
 
-[K,S,e]=lqr(double(Ared),double(Bred),Q,R)
+[K,S,e]=lqrd(double(Ared),double(Bred),Q,R,0.02)
 \end{lstlisting}
 \newpage
 
