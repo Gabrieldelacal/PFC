@@ -201,11 +201,11 @@ Para controlar esta clase de aparatos se utilizan diferentes leyes de control, a
 
 \section{Objetivos del proyecto}
 
-La meta que se persigue es la de hacer planear un Quadcopter en direcciones horizontales. A la vez, éste es un excelente subterfugio para cumplir con otros objetivos relacionados con este fin como el control de motores, el inteligente uso de la electrónica y correcto diseño mecánico del aparato. Además, se espera haber ampliado la visión que uno tiene en cada campo. \\
+La meta que se persigue es la de controlar un Quadcopter. Éste es un excelente subterfugio para cumplir con otros objetivos relacionados con este fin, como el control de motores, el inteligente uso de la electrónica y correcto diseño mecánico del aparato. Además, se espera haber ampliado la visión que uno tiene en cada campo. \\
 
 De entre todas las disciplinas involucradas, se espera acabar familiarizado con las facetas relacionadas con la presente empresa para clarificar la relación entre los elementos que componen un Quadcopter.  A saber, se espera poder acabar entendiendo la electrónica, mecánica y conocimientos de control que reinan en el sistema. \\
 
-En el caso de la electrónica se espera entender y poder implementar sencillos protocolos de comunicación, en este caso $I2C$ entre los sensores y la Raspberry Pi. Ésta misma es el centro neurálgico del Quadcopter, así que es esencial saber utilizarla como se requiere para que pueda recibir consignas, estados y enviar la correspondiente acción de control a los motores para que se llegue al estado final deseado. \\
+En el caso de la electrónica se espera entender y poder implementar sencillos protocolos de comunicación, en este caso $I2C$ entre los sensores y la Raspberry Pi. Ésta es el centro neurálgico del Quadcopter, así que es esencial saber utilizarla como se requiere para que pueda recibir consignas, estados y enviar la correspondiente acción de control a los motores para que se llegue al estado final deseado. \\
 
 Por parte de la mecánica, es primordial tener conocimientos sólidos de conceptos como el Teorema de la Cantidad de Movimiento y el de la conservación del Momento de Inercia, así como poder calcular el Lagrangiano ($\mathcal{L}$) para generar un modelo verosímil y que represente fidedignamente la realidad para que se desarrolle de manera efectiva el control. \\
 
@@ -219,10 +219,6 @@ En este proyecto se ha perseguido el objetivo de controlar un Quadcopter mediant
 La construcción del mismo se ha llevado a cabo mediante piezas compradas por separado sin recurrir a kits montados o modelos completos, como Ardupilot o un AR Drone. No se ha pretendido construir un vehículo totalmente robusto, sino una plataforma de trabajo sobre la que se comparan comportamientos con su simulación y a la que se intenta abordar un control.\\  
 
 No se analizan ni comparan los resultados con otros posibles controles a implementar, tales como el PID. Se juzgará la calidad del vuelo según su aparente estabilidad y si se mantiene la posición asignada como consigna. 
-
-
-
-
 
 \newpage
 \chapter{Definición del modelo} \label{def}
@@ -1560,11 +1556,13 @@ Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo
 
 \chapter{Conclusiones} \label{conclusiones}
 
+Concluido el trabajo, se tiene como resultado el modelo de un Quadcopter definido a partir de sus parámetros característicos, los cuales se han obtenido a partir de procedimientos eminentemente heurísticos. Dado cualquier Quadcopter, éste puede ser representado por el modelo.
 
+Se ha obtenido un modelo no lineal, pero a la hora de diseñar el controlador conveniente se ha  linealizado el sistema. Se ha atacado al sistema mediante un control basado en un regulador LQR en función de las características del vehículo, por lo que adoptando un criterio adecuado a la hora de imponer los pesos en la función de costes con $\mathbf{Q}$ y $\mathbf{R}$ el vehículo podría estabilizarse.
 
-\section{Futuras aplicaciones}
+A pesar de atacar un sistema fuertemente no lineal mediante un controlador lineal, en la simulación se obtiene como resultado que el vehículo se estabiliza, aún mostrar un comportamiento no lineal en estar alejado del punto de equilibrio. \\
 
-
+Como los resultados distan mucho de ser óptimos, se esperan añadir mejoras en el futuro y mantener al proyecto en constante evolución. Por ello se mantiene en el repositorio  $https://github.com/Gabrieldelacal/PFC$ toda la información y material necesario tanto para seguir mejorando el trabajo como para que, quien lo desee, clonar el repositorio y seguir por cuenta propia.
 
 \newpage
 
@@ -1572,7 +1570,7 @@ Como sistema de alimentación para el quadcopter se usan baterías del tipo LiPo
 
 Un trabajo de esta índole no podría haber sido posible sin la ayuda y apoyo de quienes, sin o con la aportación directa en el proyecto, lo han hecho realmente posible. \\
 
-A la familia, la verdadera $Alma\>\>Mater$, por su apoyo,  soporte y paciencia en la convivencia durante mis peores momentos, que no han sido pocos. A Manel Velasco, tutor y mentor de este pobre $umpa\>\>lumpa$ de la ciencia, por la guía, consejos y espacio de trabajo tan amablemente proporcionados en esta empresa. A Joan Guasch y Diego Muñoz, porque es importante hacer ameno el trabajo en los días poco fructíferos, que tan pesados son. 
+A la familia, la verdadera $Alma\>\>Mater$, por su apoyo,  soporte y paciencia en la convivencia durante mis peores momentos, que no han sido pocos. A Manel Velasco y Cecilio Angulo, tutores y mentores de este pobre $umpa\>\>lumpa$ de la ciencia, por la guía, consejos y espacio de trabajo tan amablemente proporcionados en esta empresa. A Joan Guasch y Diego Muñoz, porque es importante hacer ameno el trabajo en los días poco fructíferos, que tan pesados son. 
 
 \newpage
 
