@@ -99,7 +99,7 @@ Memoria}
 \end{center}
 
 
-En el presente proyecto se ha tenido como meta el control de un Quadcopter. Para tal propósito se ha linealizado  el modelo no lineal obtenido y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo está organizado en 8 capítulos y 4 anexos.\\
+En el presente proyecto se ha tenido como meta el control de un Quadcopter. Para tal propósito se ha linealizado  el modelo no lineal obtenido y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo está organizado en 9 capítulos y 4 anexos.\\
 
 En el capítulo \ref{prefacio} se presentan los motivos por los que se ha elegido este tema. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. 
 
@@ -107,21 +107,21 @@ En el capítulo \ref{intro}, como Introducción, se hace un estudio del arte, co
 
 Se obtiene el modelo a partir de los parámetros característicos del sistema físico en el capítulo \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
 
-El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $u=-k \cdot X$ por medio de un regulador LQR (Linear Quadratic Regulator) y se ataca al sistema con la ley obtenida.
+El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $\pmb{u}=-\pmb{k} \cdot \pmb{X}$ por medio de un regulador LQR (Linear Quadratic Regulator) y se ataca al sistema con la ley obtenida.
 
 %En el capítulo \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
 
-En el capítulo \ref{construc} se describen tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de otros elementos como el dimensionado mismo del Quadcopter. 
+En el capítulo \ref{construc} se describen tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de los otros elementos que lo componen como el dimensionado mismo del Quadcopter. 
 
 En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un  estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen brebemente los principales efectos en el medio ambiente de los componentes que se utilizan. En el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
 
-En el Anexo A se muestra mediante códigos Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica toda otra opción a la linealización, en estas circunstancias, inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
+En el Anexo A se muestra mediante códigos Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica que toda otra opción a la linealización en estas circunstancias es inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
 
-En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi tal según se ha requerido.
+En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi según se ha requerido.
  
 En el Anexo C se describe el filtro de Kalman y cómo se ha implementado. 
 
-En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo,además la masa, inercias y distancias características propias del aparato.
+En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo,además de la masa, inercias y distancias características propias del aparato.
 
 %\newpage
 %\begin{center}
@@ -157,13 +157,13 @@ Entender el funcionamiento y familiarizarse con el mecanismo es una inquietud qu
 
 \section{Requerimientos previos}
 
-Es necesario tener ciertos conocimientos mínimos en automática para poder controlar el quadcopter, así como la inquietud de aprender lo que sea necesario para cumplir, en la medida de lo posible, los objetivos iniciales del presente proyecto. \\
+Es necesario tener ciertos conocimientos mínimos en automática para poder controlar el quadcopter, así como la inquietud de aprender lo que sea necesario para cumplir, en la medida de lo posible, los objetivos iniciales. \\
 
-Nociones de mecánica son necesarias para elaborar e interpretar el sistema sobre el que se trabaje, así como sus resultados. Conocimientos del lenguaje $C$ son imprescindibles ya que el código del programa que realiza los cálculos está escrito en este mismo lenguaje. 
+Nociones de mecánica son necesarias para elaborar e interpretar el sistema sobre el que se trabaje, así como sus resultados. Conocimientos del lenguaje $C$ como $Matlab$ son imprescindibles ya que el código del programa que realiza los cálculos está escrito en este mismo lenguaje. Estar familiarizado con $Simulink$ ha sido de gran ayuda a la hora de implementar el modelo y simularlo. 
 
-Para adaptar los elementos que componen el aparato y afianzarlos a la estructura (Frame)  del Quadcopter ha sido de gran ayuda contar con el servicio de una impresora 3D de creación también propia. Finalmente, estar familiarizado con el argot y elementos de un Quadcopter, así como motores, emisoras de radio, entre otros es de ayuda. \\
+Para adaptar los elementos que componen el aparato y afianzarlos a la estructura (Frame)  del Quadcopter ha sido de gran ayuda contar con el servicio de una impresora 3D de creación también propia, así como estar familiarizado con el argot y elementos de un Quadcopter: motores, emisoras de radio, entre otros. \\
 
-Superar las dificultades que han surgido, teniendo en cuenta que el fin no justifica los medios, es la praxis que se ha aplicado a la hora de realizar este trabajo. Finalmente, recordar reminiscencias de la carrera es siempre útil e interesante, así que conceptos adquiridos pero no utilizados se esperan aplicar.
+Superar las dificultades que han surgido, teniendo en cuenta que el fin no justifica los medios, es la praxis que se ha aplicado a la hora de realizar este trabajo. Finalmente, recordar reminiscencias de la carrera es siempre útil e interesante: conceptos adquiridos pero no utilizados que se esperan aplicar.
  
 \newpage
 \chapter{Introducción} \label{intro}
@@ -224,7 +224,7 @@ No se analizan ni comparan los resultados con otros posibles controles a impleme
 \chapter{Definición del modelo} \label{def}
 %\section{Definición del modelo} \label{def}
 \section{Definición de las variables}
-Para caracterizar la planta con la que es trabajará, es necesario obtener un modelo del Quadcopter. Las constantes propias del modelo se dejaran en forma de parámetros a calibrar una vez se tenga el objeto físico. De esta manera el modelo será general para todo quadcopter que comparta la misma familia de parámetros.
+Para caracterizar la planta con la que es trabajará, es necesario obtener un modelo del Quadcopter. Las constantes propias del modelo se dejarán en forma de parámetros a calibrar una vez se tenga el objeto físico. De esta manera el modelo será general para todo Quadcopter que comparta la misma familia de parámetros.
 Es necesario considerar dos marcos de referencia: el inercial formado por los ejes $x,y,z$ y el del cuerpo (Body) formado por los ejes $x_B,y_B,z_B$. El primero tiene la perspectiva de el observador en tierra, estático, mientras que el segundo es solidario a la estructura. Según la orientación de los ejes del cuerpo con esta referencia se pueden dar los siguientes dos casos:
 \begin{itemize}
 \item \textbf{Cross type}: Los ejes de coordenadas coinciden con los brazos de la estructura ya que se tienen los actuadores en las puntas de cada brazo.
@@ -243,7 +243,7 @@ I_{xx} & 0 & 0 \\
 0 & I_{yy} & 0 \\
 0 & 0 & I_{zz} 
 \end{array} \right] \end{equation}
-Se define la posición lineal absoluta con las coordenadas $x,y,z$ con vector $\pmb{\xi}$ e igualmente para la posición angular a partir de $\pmb{\eta}$ según:
+Se define la posición lineal absoluta a partir de las coordenadas $x,y,z$ con el vector $\pmb{\xi}$ e igualmente para la posición angular a partir de $\pmb{\eta}$ según:
 \begin{equation} 
 \pmb{\xi}=\left[ \begin{array}{ccc}
 x\\
@@ -291,7 +291,7 @@ sin(\psi) & cos(\psi) & 0 \\
 0 & 0 & 1 \\ \end{array} \right] \end{array}
 \end{equation}
 
-Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representen con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
+Las velocidades lineales en el marco de referencia del cuerpo (Body Frame) se representan con el vector $v_B$ y las velocidades angulares con $\gamma$ según:
 \begin{equation}
 \pmb{v_B}=\left[\begin{array}{c}
 v_{x,b}\\
@@ -315,7 +315,7 @@ En cambio, las velocidades en el marco de referencia inercial (Inertial Frame)  
 \dot{\psi}
 \end{array} \right] 
 \end{equation}
-Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es igual al vector de velocidades angulares : $\pmb{\gamma} \neq \pmb{\dot{\eta}}$, es necesario tener un cambio de base para relacionar las velocidades en el marco de referencia inercial con las del cuerpo. Para ello se calcula la matriz de transformación de velocidades angulares entre las referencias Inercial y Body como:
+Ya que la derivada de los ángulos $\phi$, $\theta$ y $\psi$ no es igual al vector de velocidades angulares ($\pmb{\gamma} \neq \pmb{\dot{\eta}}$), es necesario tener un cambio de base para relacionar las velocidades en el marco de referencia inercial con las del cuerpo. Para ello se calcula la matriz de transformación de velocidades angulares entre las referencias Inercial y Body como:
 
 \begin{equation}
 \left[ \begin{array}{c}
@@ -377,6 +377,8 @@ l(f_3 - f_1) \\
 \end{array} \right]
 \end{equation}
 
+donde $l$ es la longitud de los brazos.
+
 \section{Obtención del modelo}
 Las ecuaciones que gobiernan el sistema se obtienen con el método de Euler-Lagrange, por lo que se empieza obteniendo el Lagrangiano del sistema:
 \begin{equation}
@@ -395,13 +397,13 @@ Es encuentra el vector de fuerzas y  momentos:
 \end{array} \right] = \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \pmb{\dot{q}}}\right)-\frac{\partial\mathcal{L}}{\partial \pmb{q}}
 \end{equation}
 
-amb $ \hspace{0.5cm} \pmb{q}=[\begin{array}{cccccc}
+con $ \hspace{0.5cm} \pmb{q}=[\begin{array}{cccccc}
 x & y & z & \phi & \theta & \psi
-\end{array} ]^{T} \hspace{0.5cm}$ i $ \hspace{0.5cm} \pmb{\dot{q}}=[\begin{array}{cccccc}
+\end{array} ]^{T} \hspace{0.5cm}$ y $ \hspace{0.5cm} \pmb{\dot{q}}=[\begin{array}{cccccc}
 \dot{x} & \dot{y} & \dot{z} & \dot{\phi} & \dot{\theta} & \dot{\psi}
 \end{array} ]^{T}$.\\
 
-En calcular $F$ es necesario hacer el cambio de variables de $\gamma$ a $\dot{\eta}$ con el cambio de base $\dot{\eta}=\left[ W_\eta \right]^{-1} \gamma$ para poder derivar el Lagrangiano respecto $\dot{q}$, que son las variables propias del marco de referencia inercial:
+En calcular $\pmb{F}$ es necesario hacer el cambio de variables de $\pmb{\gamma}$ a $\pmb{\dot{\eta}}$ con el cambio de base $\pmb{\dot{\eta}}=\left[ \pmb{W_\eta} \right]^{-1} \pmb{\gamma}$ para poder derivar el Lagrangiano respecto $\pmb{\dot{q}}$, que son las variables propias del marco de referencia inercial:
 
 \begin{equation}
 \frac{1}{2}\pmb{\gamma}^{T}\pmb{I}\pmb{\gamma} = \frac{1}{2}(\pmb{W_\eta} \pmb{\dot{\eta}})^{T}\pmb{I}(\pmb{W_\eta} \pmb{\dot{\eta}}) = \frac{1}{2}\pmb{\dot{\eta}}^{T}(\pmb{W_\eta} ^{T}\pmb{I}\pmb{W_\eta})\pmb{\dot{\eta}} = \frac{1}{2}\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}}
@@ -428,7 +430,7 @@ Entonces, calculando la derivada parcial respecto $\pmb{\dot{q}}$ se obtiene que
 \pmb{F}=\frac{d}{dt}\left(\frac{m}{2}(1\cdot \pmb{ \dot{\xi}}+\pmb{\dot{\xi}}\cdot 1)+\frac{1}{2}\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}}
 \end{equation}
 
-Como que $\pmb{J}$ es una matriz simétrica, se puede decir que  $\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})=2 \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} $. \\
+En ser $\pmb{J}$ una matriz simétrica, se puede decir que  $\frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J}\pmb{\dot{\eta}})=2 \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} $. \\
 
 \textbf{Demostración:} Para probar ésto se verá para el caso $\frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A}\pmb{x})=2 \frac{\partial}{\partial \pmb{x}}(\pmb{x}^{T}\pmb{A})\pmb{x} $ con 
 
@@ -494,7 +496,7 @@ x_1a_{13}+x_2a_{23}+x_3a_{23}
 \end{array} \right]
 \end{equation}
 \hfill $\blacksquare$ \\
-Como que $2 \frac{\partial}{\partial \dot{\eta}}(\dot{\eta}^{T}J)\dot{\eta}=2 J \dot{\eta}$ se tiene, aplicando la regla de la cadena en el producto $\pmb{J}\pmb{\dot{\eta}}$ que:
+Como $2 \frac{\partial}{\partial \pmb{\dot{\eta}}}(\pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}=2} \pmb{J} \pmb{\dot{\eta}}$, en aplicar la regla de la cadena en el producto $\pmb{J}\pmb{\dot{\eta}}$ se obtiene que:
 \begin{equation}
 \pmb{F}=\frac{d}{dt}\left(m \dot{\pmb{\xi}}+\pmb{J} \pmb{\dot{\eta}}\right)-\frac{\partial \mathcal{L}}{\partial \pmb{q}} =m\pmb{\ddot{\xi}} + \pmb{J}\pmb{\ddot{\eta}} + \pmb{\dot{J}}\pmb{\dot{\eta}}-\left( \frac{1}{2} 2 \frac{\partial}{\partial \pmb{\dot{\eta}}} ( \pmb{\dot{\eta}}^{T}\pmb{J})\pmb{\dot{\eta}} - mg\left[\begin{array}{c}
 0 \\
@@ -558,9 +560,9 @@ Reescribiendo estas ecuaciones de la forma $\pmb{\dot{x}}=\pmb{f(x,u)}$, donde $
 \label{eq:system2}
 \end{equation}
 
-Para realizar el control será útil representar el sistema \ref{eq:system}  en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. \\
+Para realizar el control será útil representar el sistema \ref{eq:system}  en forma de espacio de estados, y por tanto el vector de estados será de la forma $\enspace \pmb{X}=\left[ x \enspace \dot{x} \enspace y \enspace \dot{y} \enspace z \enspace \dot{z} \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$. El punto de equilibrio de este sistema es aquél que hace que las componentes angulares del vector de estados no varíe y no haya desplazamientos lineales. 
 
-Este caso se puede dar para toda posición $\xi$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y entre todos cuatro la misma al peso del Quadcopter, además de tener una cantidad de movimiento nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
+Este caso se puede dar para toda posición $\pmb{\xi}$ dada. Ésto se tiene si todos los motores hacen exactamente la misma fuerza y en total, sumando la de los cuatro, la misma al peso del Quadcopter, además de tener una cantidad de movimiento nulo y evitar que el ángulo  $\psi$ (yaw) varíe. Se trata de un punto de equilibrio forzado. El punto de equilibrio será entonces:
 
 \begin{equation}
 \begin{cases}
@@ -581,12 +583,12 @@ El modelo se expresa en forma lineal como
 
 \begin{equation}
 \begin{array}{l}
-\pmb{\dot{X}}=[\pmb{A}] \cdot \pmb{X} + \pmb{K} + [\pmb{B}] \cdot \pmb{U} \\
+\pmb{\dot{X}}=[\pmb{A}] \cdot \pmb{X} + \pmb{G} + [\pmb{B}] \cdot \pmb{U} \\
 \pmb{Y} = [\pmb{C}] \cdot \pmb{X} 
 \end{array}
 \end{equation} 
 
-donde $\pmb{K}$ es el término que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
+donde $\pmb{G}$ es el término que incluye a la constate de la gravedad, separada de la función $\pmb{f(x,u)}$. Se calculan las matrices $\pmb{A}$ y $\pmb{B}$ con los respectivos jacobianos en el punto de equilibrio:
 
 \begin{equation}
 \begin{array}{c}
@@ -634,10 +636,10 @@ Se ha mantenido el término independiente de la gravedad a fuera de la función 
 {}^{b}/_{Izz} & {}^{-b}/_{Izz} & {}^{b}/_{Izz} & {}^{-b}/_{Izz} \\ \end{array} \right]
 \end{equation}
 
-y las matrices $\pmb{K}$ i $\pmb{C}$ quedan como 
+y las matrices $\pmb{G}$ i $\pmb{C}$ quedan como 
 
 \begin{equation}
-\hspace*{0.5cm} \pmb{K}= \left[ \begin{array}{c}
+\hspace*{0.5cm} \pmb{G}= \left[ \begin{array}{c}
 0 \\
 0 \\
 0 \\
@@ -661,7 +663,7 @@ y las matrices $\pmb{K}$ i $\pmb{C}$ quedan como
 Éstos son los resultados obtenidos del código comentado en el $Anexo \>\>A$, en donde se detalla el procedimiento.
 
 Como se desea implantar un control sobre el equilibrio del Quadcopter en vez de la posición, se tendrán las variables pertinentes a la orientación, y por tanto el vector de estados estará formado por %$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \enspace \psi \enspace \dot{\psi} \right]$.
-$\enspace \left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \right]$. 
+$\pmb{X}=\left[ \enspace \phi \enspace \dot{\phi} \enspace \theta \enspace \dot{\theta} \right]$. 
 
 Queda entonces
 \iffalse
@@ -754,7 +756,7 @@ f_{4} \\ \end{array} \right]
 \dot{\theta} \\ \end{array} \right]
 \end{equation} 
 
-donde el vector $\pmb{K}$ se ha obviado porque las componentes que se hubieran considerado de éste son todas nulas. 
+donde el vector $\pmb{G}$ se ha obviado porque las componentes que se hubieran considerado de éste son todas nulas. 
 
 El eliminar estas componentes se hace porque no hay una referencia zero para el ángulo $\psi$, mientras que en el caso de los ángulos $\phi$ y $\theta$ la referencia siempre será la horizontal. No supone un infranqueable problema a la hora de hacer mover el Quadcopter, pues éste ya se puede desplazar en todo su plano horizontal, sin necesidad de girar en la dirección del $yaw$.\\
 
@@ -819,7 +821,7 @@ Obtenidas las ecuaciones del modelo, se quiere poder trabajar con éste para com
 \end{center}
 \end{figure}
 
-Como se ha visto en el apartado anterior, no se hayan tenido en cuenta  el modelo los respectivos coeficientes de fricción con el aire ya que la determinación de estos parámetros no es fácil y de incluirse podrían aportar un considerable error a los resul. \\
+Como se ha visto en el apartado anterior, no se han tenido en cuenta en el modelo los respectivos coeficientes de fricción con el aire ya que la determinación de estos parámetros no es fácil y de incluirse podrían aportar un considerable error en los resultados. \\
 
 Tal y como se explica a la hora de caracterizar los motores, no se pudo encontrar la relación existente entre la fuerza y momento ejercido por cada actuador, por lo que en este caso se ha supuesto que varía proporcionalmente con $b$.
 
@@ -839,7 +841,7 @@ T=[0; 0; (f1+f2+f3+f4)];
 ddXi = R*T/m+[0; 0; -g];
 \end{lstlisting}
 
-En ella se calcula la matriz de rotación $\mathbf{R}$ en función de la posición angular($\phi$,$\theta$ y $\psi$) y con el vector de fuerzas en la base móvil (del cuerpo $Body$) se calcula en vector de aceleraciones lineales, es decir, $\ddot{\xi}=\left[ \ddot{\phi} \quad \ddot{\theta} \quad \ddot{\psi} \right]^{T}$. \\
+En ella se calcula la matriz de rotación $\mathbf{R}$ en función de la posición angular($\phi$, $\theta$ y $\psi$) y con el vector de fuerzas en la base móvil (del cuerpo $Body$) se calcula en vector de aceleraciones lineales, es decir, $\pmb{\ddot{\xi}}=\left[ \ddot{\phi} \quad \ddot{\theta} \quad \ddot{\psi} \right]^{T}$. \\
 
 En la función $Dinámica \>\> de \>\> Eta$ se calculan las aceleraciones angulares. Su código corresponde a: 
 
@@ -874,7 +876,7 @@ y = inv(J)*(TauB-CdEta);
 \end{lstlisting}
 \onehalfspacing
 
-En esta función se calcula el vector de momentos ($\mathbf{TauB}$), se calcula la actual matriz de cambio de base de velocidad angular a derivadas de ángulos de Euler ($\mathbf{W_\eta}$), se actualiza el tensor de inercias según este cambio y se obtiene el producto $\pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}}$. Finalmente devuelve las aceleraciones según se obtienen en la ecuación \ref{eq:system2}.
+En esta función se calcula el vector de momentos ($\mathbf{TauB}$), se calcula la actual matriz de cambio de base de velocidad angular a derivadas de ángulos de Euler ($\pmb{W_\eta}$), se actualiza el tensor de inercias según este cambio y se obtiene el producto $\pmb{C(\eta,\dot{\eta})}\cdot\pmb{\dot{\eta}}$. Finalmente devuelve las aceleraciones según se obtienen en la ecuación \ref{eq:system2}.
 
 Los parámetros que se cargan en Matlab necesarios para definir este modelo son
 \begin{lstlisting}[language=Matlab]
@@ -924,7 +926,7 @@ se quiere operar este sistema mediante un coste mínimo según un criterio deter
 \mathbf{J} =\sum^{\infty}_{k=0} \left( \mathbf{X}^{T}_{k} \mathbf{Q}\pmb{X}_{k} + \mathbf{U}^{T}_{k} \mathbf{R}\mathbf{U}_{k} + 2\mathbf{X}^{T}_{k} \mathbf{N}\mathbf{U}_{k} \right)
 \end{equation}
 
-y se definen los pesos $\mathbf{Q}$, $\mathbf{R}$ y $\mathbf{N}$ como matrices definidas positivas y simétricas, según la penalización que se le quiera dar a los estados ($\mathbf{X}$), acciones ($\mathbf{U}$) o el efecto de ambos ($\mathbf{N}$) respectivamente, tal que se minimice el coste $\mathbf{J}$. Se obtiene la ley de control $\mathbf{U}_{k}=-\mathbf{K} \cdot \mathbf{X}_{k}$ de 
+y se definen los pesos $\mathbf{Q}$, $\mathbf{R}$ y $\mathbf{N}$ como matrices definidas positivas y simétricas, según la penalización que se le quiera dar a los estados ($\mathbf{X}$), acciones ($\mathbf{U}$) o el efecto de ambos ($\mathbf{N}$) respectivamente, tal que se minimice el coste $\mathbf{J}$. Se Supondrá que $\mathbf{N}=\pmb{0}$. Se obtiene la ley de control $\mathbf{U}_{k}=-\mathbf{K} \cdot \mathbf{X}_{k}$ de 
 
 %\begin{equation}
 %\mathbf{K}=\mathbf{R}^{-1} \left( \mathbf{B}^{T} \mathbf{S} + \mathbf{N}^{T} \right) 
@@ -1008,7 +1010,7 @@ por lo tanto
 Para el caso de $\mathbf{R}$ se consideran toda un mismo peso para todas las entradas $f_i$ y muy superior a los pesos de $\mathbf{Q}$: 
 
 \begin{equation}
-\mathbf{R}=100 \cdot I = \left[ \begin{array}{cccc}
+\mathbf{R}=100 \cdot \pmb{I} = \left[ \begin{array}{cccc}
 100 &   0 &   0 &   0 \\
 0   & 100 &   0 &   0 \\
 0   &   0 & 100 &   0 \\
@@ -1021,7 +1023,7 @@ Se hayan $\mathbf{K}$,$\mathbf{S}$ y $ \mathbf{E}$ mediante la toolbox de Matlab
             [K,S,E] = lqrd(A,B,Q,R,Ts)
 \end{verbatim}
 
-El tiempo de muestreo se tiene que es $T_{s}=20\>ms$ porque las acciones de control tienen una frecuencia de 50 Hz. Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo 4 son $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$, $I_{yy}=7.664\cdot 10^{-3}\>\> kg \cdot m^{2}$ y $l=16.5 \>\> cm$ se tiene que las constantes $K$ en la realimentación son:
+El tiempo de muestreo se tiene que es $T_{s}=20\>ms$ porque las acciones de control tienen una frecuencia de 50 Hz. Teniendo en cuenta que los parámetros del sistema físico obtenidos en el Anexo 4 son $I_{xx}=7.931\cdot 10^{-3} \>\> kg \cdot m^{2}$, $I_{yy}=7.664\cdot 10^{-3}\>\> kg \cdot m^{2}$ y $l=0.165 \>\> m$ se tiene que las constantes $\mathbf{K}$ en la realimentación son:
 
 \begin{equation}
 \mathbf{K}= \left[ \begin{array}{cccc}
@@ -1056,9 +1058,9 @@ y los polos del sistema, considerando que es un sistema discreto, son
 
 \section{Aplicación en el modelo}
 
-Como primera prueba para la ley de control extraída, se aplica ésta al modelo simulado en Matlab explicado anteriormente. Se encierra el modelo de la dinámica del sistema en un bloque ($Quadcopter$) y se usan sus salidas para realimentar la acción de control de control a través de los motores. \\
+Como prueba para la ley de control extraída, se aplica ésta al modelo simulado en Matlab explicado anteriormente. Se encierra el modelo de la dinámica del sistema en un bloque ($Quadcopter$) y se usan sus salidas para realimentar la acción de control de control a través de los motores. \\
 
-No se considera el control de la altura en el sistema real, pero se implementa un PID para evaluar la respuesta también en la estabilización mientras se alcanza una altura determinada. Ésta disposición de bloques permite implementar otros controles sobre el sistema también usados en el mundo físico tales como PID. El sistema que se tiene en Simulink es
+No se considera el control de la altura en el sistema real, pero se implementa un PID para evaluar la respuesta también en la estabilización mientras se alcanza una altura determinada. Esta disposición de bloques permite implementar otros controles sobre el sistema también usados en el mundo físico tales como PID. El sistema que se tiene en Simulink es
 
 \newpage
 
@@ -1069,8 +1071,8 @@ No se considera el control de la altura en el sistema real, pero se implementa u
 \end{figure}
 \end{center}
 
-La frecuencia de la señal con la que se controlan los motores es de 50 Hz, por lo que se disponen lo $Zero-Order-Holder$ en la entrada de la función de Matlab $Control$ para incluir en la simulación esta característica del sistema real.\\ 
-Mediante los tres $Scopes$ se pueden observar la posición, ángulos y acciones de los motores del Quadcopter. La $Function \>\> Matlab$ proporciona la acción de control según sea el estado del sistema. A ésta se importan las constantes de realimentación $\mathbf{K}$ desde el $Workspace$ de Matlab y su contenido es
+La frecuencia de la señal con la que se controlan los motores es de 50 Hz, por lo que se disponen los $Zero-Order-Holder$ en la entrada de la función de Matlab $Control$ para incluir en la simulación esta característica del sistema real.\\ 
+Mediante los tres $Scopes$ se pueden observar la posición, ángulos y acciones de los motores del Quadcopter. La $Function \>\> Matlab$ proporciona la acción de control según sea el estado del sistema. En ella se importan las constantes de realimentación $\mathbf{K}$ desde el $Workspace$ de Matlab y su contenido es
 
 \begin{lstlisting}[language=Matlab]
 function y = fcn(Phi,Theta,Psi,dPhi,dTheta,dPsi,z,dz,Constantes,II,K)
@@ -1119,7 +1121,7 @@ end
 y=[vector(1);vector(2);vector(3);vector(4)];
 \end{lstlisting}
 
-Se calcula la acción de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ en la línea 21 mediante los estados pero se añade un control para la altura para simular un caso más real. Se saturan las acciones de control para que no puedan ser negativas con los cuatro $if$ entre las líneas 23 y 34 porque los motores no pueden cambiar de sentido, ni tampoco superar la fuerza máxima que puedan aportar que se considera que es de $10\>\>N$. De esta manera se tiene una representación de la realidad más verosímil. 
+Se calcula la acción de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ en la línea 21 mediante los estados pero se añade un control para la altura para simular un caso más real. Se saturan las acciones de control para que no puedan ser negativas con los cuatro $if's$ entre las líneas 23 y 34 porque los motores no pueden ni cambiar de sentido ni superar la fuerza máxima que puedan aportar, que se considera que es de $10\>\>N$. De esta manera se tiene una representación de la realidad más verosímil. 
 
 A modo de ejemplo, para las $\mathbf{K}'s$ calculadas según los parámetros obtenidos del modelo,
 %\begin{equation}
@@ -1149,7 +1151,7 @@ y la acción de control que se ha aplicado por parte de los motores hasta llegar
 \caption{Acciones de los motores en la simulación}
 \end{figure}
 
-Se hace notar que las acciones de los actuadores estan saturadas con límites tanto inferior como superior y el control implementado no contempla tales no linealidades. Por ello el control no es óptimo y se tarda más aún siendo estable, en alcanzar la consigna. Se detecta también un comportamiento extraño en la evolución del mismo ángulo, que se atribuye a la no linealidad del modelo.
+Se hace notar que las acciones de los actuadores estan saturadas con límites tanto inferior como superior y el control implementado no contempla tales no linealidades. Por ello el control no es óptimo y se tarda más, aún seguir siendo estable, en alcanzar la consigna. Se detecta también un comportamiento extraño en la evolución del mismo ángulo, que se atribuye a la no linealidad del modelo.
 	
 \newpage
 \chapter{Implementación del control} \label{implement}
@@ -1157,7 +1159,7 @@ Se hace notar que las acciones de los actuadores estan saturadas con límites ta
 
 El implementar un control implica hacer capaz al sistema en cuestión de poder recibir la información necesaria para calcular las acciones de control apropiadas y atacar con éstas al sistema. \\
 
-Las funciones que debe realizar la Raspberry Pi en este caso son las de captar tanto la consigna como los sensores, así como calcular qué señal PWM se les debe enviar a los cuatro motores que se tienen, a partir del error entre estado y consigna: 
+Las funciones que debe realizar la Raspberry Pi en este caso son las de captar tanto la consigna como los sensores, y calcular qué señal PWM se les debe enviar a los cuatro motores que se tienen a partir del error entre estado y consigna: 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1171,7 +1173,7 @@ A los sensores giróscopo y acelerómetro se accede mediante el protocolo de com
 
 La consigna se obtiene de la Receptora. Ésta emite 5 señales PWM de iguales características que las que se envían a los motores, es decir, de 50 Hz con un ciclo de trabajo de entre el 5\% y 10\% y se leen del GPIO (General Purpose Input-Output) las 5 señales mediante interrupciones por cambio de flanco y flanco de bajada creadas con la librería $wiringPi.h$.
 
-Mediante la consigna y la lectura de las estimaciones de los estados $\hat{\pmb{x}}_{k|k}$, se calcula con la matriz $\pmb{K}$ obtenida mediante el regulador LQR, la señal a enviar a los motores. Ésta tiene dos componentes: una está influenciada por el error entre los estados  $\pmb{X}=[\phi \quad \dot{\phi} \quad \theta \quad \dot{\theta}]$ y la consigna, es decir, los valores que se desean que tomen. La otra componente viene dada por la persona que controla el aparato en cuestión: el $throttle$, es decir, cuánta fuerza se quiere que apliquen los actuadores (por igual) al sistema, que influirá en el impulso mecánico total del vehículo. 
+Mediante la consigna y la lectura de las estimaciones de los estados $\hat{\pmb{x}}_{k|k}$ se calcula con la matriz $\pmb{K}$, obtenida mediante el regulador LQR, la señal a enviar a los motores. Ésta tiene dos componentes: una está influenciada por la diferencia entre los estados  $\pmb{X}=[\phi \quad \dot{\phi} \quad \theta \quad \dot{\theta}]$ y la consigna, es decir, los valores que se desean que tomen. La otra componente viene dada por la persona que controla el aparato en cuestión: el $throttle$, es decir, cuánta fuerza se quiere que apliquen los actuadores (por igual) al sistema, que influirá en el impulso mecánico total del vehículo. 
 
 Entonces, si $K_{i,j}$ es cada constante de la matriz $\pmb{K}$ (\ref{Kmatrix}) y si $f_i$ es la fuerza que requiere ser ejercida por cada motor $i-\acute{e}simo$ en gramos (pondios), éstas se obtienen en el bloque $Acciones\>\>de\>\>control$ de la figura \ref{flowchart} como: 
 
@@ -1201,7 +1203,7 @@ El conjunto de piezas que forman este aparato están conectadas entre sí según
 % Descripción y explicación de cada componente del Quadcopter, con imágenes de cada
 Se describe seguidamente cada componente y el criterio de selección que se ha aplicado.
 \subsubsection*{Raspberry Pi} 
-Abreviado com a RPi, es un pequeño ordenador integrado en una sola placa (Single-Board Computer o SBC en inglés) del tamaño de una tarjeta de crédito, es dir, con unas dimensiones de 85.6cm x 53.98cm, desarrollada por la Fundación Raspberry Pi con la intención de promocionar las ciencias computacionales en las escuelas \cite{RPiWiki}. 
+Abreviado como RPi, es un pequeño ordenador integrado en una sola placa (Single-Board Computer o SBC en inglés) del tamaño de una tarjeta de crédito, es dir, con unas dimensiones de 85.6cm x 53.98cm, desarrollada por la Fundación Raspberry Pi con la intención de promocionar las ciencias computacionales en las escuelas: \cite{RPiWiki}. 
 
 %\begin{tabular}{cc}
 \begin{figure}[h!]
@@ -1230,17 +1232,17 @@ Se ha optado por esta opción por su económico precio, la velocidad de procesam
 
 Tiene un System-on-Chip (SoC) Broadcom BCM2835 con un ARM1176JZF-S a 700 Mhz, una GPU VideoCore IV y 512 MB de memoria RAM. Dispone de dos puertos USB, una salida mini-jack 3.5mm, salida de audio/vídeo HDMI, una salida RCA y un puerto  RJ45 10/100 de Ethernet. 
 
-La alimentación se realiza por medio de un mini USB a 5V/700mA, con un consumo de 3.5W. El sistema operativi es un Raspbian, grabado en una tarjeta SD de 4GB. Dispone de un conjunto de pines que permiten comunicación con periféricos de bajo nivel UART, I2C, SPI y 8 pines de propósito general (General Porpouse Input Output o GPIO).
+La alimentación se realiza por medio de un mini USB a 5V/700mA, con un consumo de 3.5W. El sistema operativo es un $Raspbian$, grabado en una tarjeta SD de 8GB. Dispone de un conjunto de pines que permiten comunicación con periféricos de bajo nivel UART, I2C, SPI y 8 pines de propósito general (General Porpouse Input Output o GPIO).
 
 \subsubsection*{GY-521 MPU-6050} 
-Se trata de una Unidad de Medida Inercial (IMU en inglés) que integra en un mismo encapsulado de $4x4x0.9mm$ un acelerómetro y un giróscopo, ambos de 3 ejes. Dispone de un conversor ADC de 16 bits para cada eje y se comunica mediante un protocolo de comunicación $I2C$. Se ha optado por utilizar este dispositivo por su bajo coste y la fácil implicada con la RPi.
+Utilizado a modo de Unidad de Medida Inercial (IMU en inglés) que integra en un mismo encapsulado de $4x4x0.9mm$ un acelerómetro y un giróscopo, ambos de 3 ejes. Dispone de un conversor ADC de 16 bits para cada eje y se comunica mediante un protocolo de comunicación $I2C$. Se ha optado por utilizar este dispositivo por su bajo coste y la fácil comunicación con la RPi.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.12,bb=0 0 366 480]{images/mpu-6050.png} 
 \caption{IMU MPU-6050}
 \end{center}
 \end{figure}\\
-Como características de los sensores: el giróscopo tiene un rango de  $\pm250,\pm500,\pm1000,\pm2000$ grados/segundo, y el acel·lerómetro de $\pm2g,\pm4g,\pm8g,16g$. La tensión de alimentación es del rango de $2.375V-3.46V$ y cabe la posibilidad de utilizar un módulo $DMP$ (Digital Motion Processor), pero se ha decidido implementar un filtro de Kalman para leer los datos en crudo (raw) de la cola $FIFO$ del sensor.
+Como características de los sensores: el giróscopo tiene un rango configurable de  $\pm250,\pm500,\pm1000,\pm2000$ grados/segundo, y el acel·lerómetro de $\pm2g,\pm4g,\pm8g,16g$. La tensión de alimentación es del rango de $2.375V-3.46V$ y cabe la posibilidad de utilizar un módulo $DMP$ (Digital Motion Processor), pero se ha decidido implementar un filtro de Kalman para leer los datos en crudo (raw) de la cola $FIFO$ del sensor.
 
 \subsubsection*{Emisor-Receptor}
 Con este aparato de se transmite la consigna generada des del transmisor hacia el receptor mediante ondas de radio. El modelo que se utiliza es el $Turnigy 5X 5Ch Mini$, porque es fácil de utilizar y además económico. Las especificaciones técnicas más relevantes son: 
@@ -1272,9 +1274,9 @@ Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$
 
 %viewport=0 400 2560 1250,clip
 
-Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pic de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$.
+Por tanto, es capaz de entregar 2.2A durante una hora, y como la capacidad es de 25C, la descarga puede ser de $2.2*25=55A$ con un pico de descarga de 35C, es dir, con un pico de $2.2*35=77A$ durante 10 segundos. Esta batería está formada por tres celdas que proporcionan un voltaje total de unos $11.1V$.
 
-El conector de carga es el $JST-XH$ y el de descarga el $XT60$. Para tener en cuenta respecto al Quadcopter es interesante saber que pesa $188g$ y respecto a la estructura (frame) que sus dimensiones son de $105x33x24mm$.
+El conector de carga es el $JST-XH$ y el de descarga el $XT60$. De cara al diseño del Quadcopter, es interesante saber que pesa $188g$ y respecto al dimensionado de la estructura (frame) que sus dimensiones son de $105x33x24mm$.
 
 \subsubsection*{Regulador Step-Down}
 Para adaptar la tensión de 11.1V de la batería LiPo a 5V para alimentar la Raspberry Pi, es necesario un regulador. En este caso se tiene el Interruptor-Modo Máximo BEC LM2576S, que proporciona hasta 3A de corriente.
@@ -1298,8 +1300,8 @@ El esquema del componente \cite{lm2576s}:
 
 \subsubsection*{Motores Brushless}
 Los actuadores que se utilizan son motores brushless (BL-DC). En particular el Turnigy 2213 20turn 1050kv 19A Outrunner.
-Se trata de máquinas síncronas de imanes permanentes, en vez de utilizar electroimanes, donde el campo magnético está uniformemente repartido  en el entrehierro. Se conocen también de fuerza electromotriz (FEM) trapezoidal porque a velocidad constante la FEM tiene esta forma. 
-Para controlarlo se utiliza un inversor (inverter), y como la conmutación deja de ser mecánica la armadura de la máquina puede ser el estátor. Ésto permite llegar a voltajes de uso y velocidades de funcionamiento más altas.
+Se trata de máquinas síncronas de imanes permanentes, con un campo magnético repartido uniformemente en el entrehierro. Se conocen también de fuerza electromotriz (FEM) trapezoidal porque a velocidad constante la FEM tiene esta forma. 
+Para controlarlo se utiliza un inversor (inverter), y como la conmutación deja de ser mecánica la armadura de la máquina puede ser el estátor. Ésto permite llegar a voltajes de uso y velocidades de funcionamiento más altos.
 Sus especificaciones más relevantes son:
 \begin{itemize}
 \item Kv: 1050rpm/V
@@ -1316,7 +1318,7 @@ El primer parámetro hace referencia a cuántas rpm's funcionará el motor por V
 Kv  \cdot V \cdot \%NLS = 1050 \cdot \frac{rpm}{V}\cdot V \cdot 0.70 = 8085 \>\> rpm
 \end{equation}
 
-Esta velocidad es teórica, y como que no hay un lazo de control sobre ésta, no se tendrá en cuenta. En cambio, se atacará al motor con la señal de PWM que se envía al Variador que le controla. La relación entre la señal de PWM y la fuerza, así como el consumo que se desarrolla se encuenta en los Anexos. 
+Esta velocidad es teórica, y como no hay un lazo de control sobre ésta no se tendrá en cuenta, siendo éste un valor orientativo. En cambio, se atacará al motor con la señal de PWM que se envía al Variador que lo controla. La relación entre la señal de PWM y la fuerza, así como el consumo que se desarrolla se encuenta en los Anexos. 
 
 \subsubsection*{Variador ESC}
 
@@ -1328,14 +1330,14 @@ Para controlar un motor brushless la etapa de potencia a utilitzar es un ESC (El
 \caption{Esquema de un Variador como inversor trifásico}
 \end{center}
 \end{figure}
-El modelo a utilitzar es el Turnigy AE-20A Brushless ESC. El uso de este tipo se justifica con el amperaje que soporta, en cuanto los motores consumen un pico de hasta 19A, que es menor al màximo de la corrente de este Variador (como límite se puede quemar el componente si se hacen circular 25A durante 10 segundos). 
+El modelo a utilitzar es el Turnigy AE-20A Brushless ESC. El uso de éste en particular se justifica con el amperaje que soporta, en cuanto los motores consumen un pico de hasta 19A, que es menor a la màxima corrente de este Variador (como límite se puede quemar el componente si se hacen circular 25A durante 10 segundos). 
 Se debe asegurar la compatibilidad con la batería también, ya que soporta tensiones de entrada correspondientes a Baterías LiPo de entre 2 y 4 celdas. 
 
 Incluye un circuito BEC (Battery Eliminator Circuit) para poder alimentar también el receptor de 2A de máxima corriente. 
 La máxima velocidad de funcionamiento del motor depende de sus polos: si es de 2 polos será de 210000 rpm, con 6 polos de 70000 rpm y de 12 polos a 35000 rpm.
 
 
-Tanto el peso de $19$g,  como las dimensiones de $50x26x12$mm son parámetros a tener en cuenta en el montaje, en parte a que se hubican en los brazos del Quadcopter, aumentando la inercia por eje e influyendo considerablemente en el modelo. Antes de usar cada Variador se ha tenido que programar para que éste responda con un mejor rendimiento al caso en cuestión.
+Tanto el peso de $19$g,  como las dimensiones de $50x26x12$mm son parámetros a tener en cuenta en el montaje, ya que se hubican en los brazos del Quadcopter, aumentando la inercia por eje e influyendo considerablemente en el modelo. Antes de usar cada Variador se ha tenido que programar para que éste responda con un mejor rendimiento al caso en cuestión.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1348,7 +1350,7 @@ Para los 5 parámetros a configurar hay tres opciones, y las marcadas con un pun
 
 \subsubsection*{Marco}
 
-Todos los elementos que componen el Quadcopter se sujetan en una estructura que mantiene la integridad y rigidez necesarias para el vuelo. Para el caso tiene el modelo $F330\>\>Wheelbase\>\>330mm$:
+Todos los elementos que componen el Quadcopter se sujetan en una estructura que mantiene la integridad y rigidez necesarias para el vuelo. Para el caso se tiene el modelo $F330\>\>Wheelbase\>\>330mm$:
 
 \begin{figure}[h!]
 \begin{center}
@@ -1357,8 +1359,7 @@ Todos los elementos que componen el Quadcopter se sujetan en una estructura que 
 \end{center}
 \end{figure}
 
-La mayor parte del peso se concentra en el centro de la estructura e interesa que sea lo más ligera posible sin comprometer su integridad, de tal manera que los motores, situados en las puntas de cada brazo, deban compensar el menor peso posible. En este caso, tiene un peso de 190g, y las piezas están hechas de fibra de vidrio las piezas centrales (de color negro en la imagen) y de Nylon los brazos (rojo y blanco en la imagen). La distancia entre dos motores de una diagonal es de 33cm.
-
+La mayor parte del peso se concentra en el centro de la estructura e interesa que sea lo más ligera posible sin comprometer su integridad, de tal manera que los motores, situados en las puntas de cada brazo, deban compensar el menor peso posible. En este caso tiene un peso de 190g y las piezas están hechas de fibra de vidrio las centrales (de color negro en la imagen) y de Nylon los brazos (rojo y blanco en la imagen). La distancia entre dos motores de una diagonal es de 33cm.
 
 \subsubsection*{Hélices}
 
@@ -1367,7 +1368,7 @@ En girar el motor, las aspas solidarias a su eje utilizan la energía cinética 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.65,bb=0 0 450 283]{images/propellers4.png}
-\caption{Par de hélices 8x4 simétricas}
+\caption{Hélices 8x4 simétricas}
 \end{center}
 \end{figure}
 
@@ -1477,7 +1478,7 @@ Y finalmente se fija el Regulador Step-Down a la estructura mediante bridas. En 
 
 Se han introducido conectores en las tomas positivas de cada ESC para poder programar cada uno por separado de ser necesario. \\
 
-A cada motor se le atornillan la hélice adecuada según su sentido de giro, que viene dado por el orden en que se han soldado las fases del actuador, según \ref{detalle_cable_motor}.\\
+A cada motor se le atornilla la hélice adecuada según su sentido de giro, que viene dado por el orden en que se han soldado las fases del actuador, según \ref{detalle_cable_motor}.\\
 
 El resultado final es:
 
@@ -1519,8 +1520,8 @@ Pack 4 hélices 8x4R & 2.28 & 1 & 2.28 \\
 Cargador LiPo iMAX B6 & 16.95 & 1 & 16.95 \\
 \hline \cmidrule{2-4}
 
-Cargador lipo & 16.95 & 1 & 16.95 \\
-\hline \cmidrule{3-4}
+%Cargador lipo & 16.95 & 1 & 16.95 \\
+%\hline \cmidrule{3-4}
 
 %\hline
 \multicolumn{1}{r}{} & \multicolumn{2}{|l|}{\textbf{Total del Coste material}} & 170.24 €\\ \cmidrule{2-4}
