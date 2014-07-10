@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.94"
+    ComputedModelVersion    "1.95"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gabriel"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 05 16:26:55 2014"
-  RTWModifiedTimeStamp	  326469170
-  ModelVersionFormat	  "1.%<AutoIncrement:94>"
+  LastModifiedDate	  "Thu Jul 10 02:33:42 2014"
+  RTWModifiedTimeStamp	  326855827
+  ModelVersionFormat	  "1.%<AutoIncrement:95>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,7 +78,6 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "simlag2"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -812,7 +811,7 @@ Model {
   }
   System {
     Name		    "simlag2"
-    Location		    [65, 53, 1920, 1080]
+    Location		    [66, 81, 1921, 1108]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1155,8 +1154,8 @@ Model {
       BlockMirror	      on
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [382, 81, 1484, 808]
-      Open		      off
+      Location		      [1962, 249, 3059, 961]
+      Open		      on
       NumInputPorts	      "1"
       TickLabels	      "on"
       List {
@@ -1174,7 +1173,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      TimeRange		      "15"
+      TimeRange		      "10"
       YMin		      "-1"
       YMax		      "11"
       SaveName		      "ScopeData2"

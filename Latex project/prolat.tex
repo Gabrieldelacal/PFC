@@ -73,7 +73,7 @@ Memoria}
 
 \begin{document}
 \onehalfspacing
-\maketitle
+%\maketitle
 %\begin{center}
 %\large{
 %$\begin{array}{ll}
@@ -101,27 +101,27 @@ Memoria}
 
 En el presente proyecto se ha tenido como meta el control de un Quadcopter. Para tal propósito se ha linealizado  el modelo no lineal obtenido y controlado mediante un Regulador Lineal Cuadrático (LQR). El contenido de este trabajo está organizado en 9 capítulos y 4 anexos.\\
 
-En el capítulo \ref{prefacio} se presentan los motivos por los que se ha elegido este tema. También se mencionan requerimientos previos que se han requerido para no tener insalvables dificultades. 
+En el capítulo \ref{prefacio} se presentan los motivos por los que se ha elegido este tema y requerimientos previos para no tener insalvables dificultades. 
 
 En el capítulo \ref{intro}, como Introducción, se hace un estudio del arte, con breves pinceladas del basto campo que hoy en día se encuentra sobre este tema. Además se describen los objetivos de este proyecto. Éstos no son más que el resolver todo problema que haya surgido durante esta aventura.
 
 Se obtiene el modelo a partir de los parámetros característicos del sistema físico en el capítulo \ref{def}. En linealizar el sistema en el punto de equilibrio se llega a la conclusión de que las variables que lo forman se desacoplan y se comportan como un conjunto de dobles integradores. Ésto permite que la ley de control sea sencilla y justifica el que se hayan usado controladores PID tan asiduamente. También se presenta el modelo implementado en Simulink, con el que se probará el control obtenido posteriormente para verificar su eficiencia.
 
-El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $\pmb{u}=-\pmb{k} \cdot \pmb{X}$ por medio de un regulador LQR (Linear Quadratic Regulator) y se ataca al sistema con la ley obtenida.
+El capítulo anterior permite que en el \ref{control} se obtengan las acciones de control $\pmb{u}=-\pmb{k} \cdot \pmb{X}$ por medio de un regulador LQR (Linear Quadratic Regulator) y así atacar al sistema.
 
 %En el capítulo \ref{implement} se explica cómo y qué se ha implementado respecto al control. Se comenta el código C que se está continuamente ejecutando.
 
 En el capítulo \ref{construc} se describen tanto los componentes que se utilizan como el proceso de montaje paso a paso. Se justifica la elección de cada elemento tomando como criterio tanto las características de los otros elementos que lo componen como el dimensionado mismo del Quadcopter. 
 
-En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un  estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas, considerando que el trabajo lo realiza un estudiante. En el estudio del impacto ambiental se describen brebemente los principales efectos en el medio ambiente de los componentes que se utilizan. En el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y cómo se espera continuar para futuros desarrollos.\\
+En los capítulos \ref{economics}, \ref{impacto} y \ref{conclusiones} se tiene un análisis económico, un  estudio de impacto ambiental y las conclusiones respectivamente. En el primero se desglosan los costes materiales y se valoran las horas invertidas. Sobre el impacto ambiental se describen brevemente los principales efectos en el medio ambiente de los componentes que se utilizan y en el último capítulo se relata con qué se queda uno en limpio tras acabar esta empresa y sobre la continuad del proyecto.\\
 
-En el Anexo A se muestra mediante códigos Matlab de dónde se ha extraído el vector de fuerzas del modelo. De esta manera se justifica que toda otra opción a la linealización en estas circunstancias es inviable. También en este código se linealiza el sistema y se obtienen las constantes $K$ de la realimentación.
+En el Anexo A se muestra mediante códigos Matlab de dónde se ha extraído el vector de fuerzas del modelo y se obtienen las constantes $K$ de la realimentación.
 
-En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas en el sistema operativo utilizado (Raspbian), para condicionar la Raspberry Pi según se ha requerido.
+En el Anexo B se detalla el proceso de grabado y posteriores modificaciones realizadas a la Raspberry Pi según se ha requerido.
  
 En el Anexo C se describe el filtro de Kalman y cómo se ha implementado. 
 
-En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores con sus curvas de fuerza y consumo,además de la masa, inercias y distancias características propias del aparato.
+En el Anexo D se describe cómo se han encontrado los parámetros que representan al sistema físico que se tiene. Para ello se han caracterizado los motores, además de la masa, inercias y distancias características propias del aparato.
 
 %\newpage
 %\begin{center}
@@ -135,6 +135,7 @@ En el Anexo D se describe cómo se han encontrado los parámetros que representa
 \addcontentsline{toc}{section}{Resumen}
 \fancyhead[LE,RO]{3}
 \fancyfoot[C]{}
+%\setcounter{page}{1}
 \newpage
 \fancyhead[LE,RO]{\thepage}
 \setcounter{page}{4}
@@ -1123,7 +1124,7 @@ y=[vector(1);vector(2);vector(3);vector(4)];
 
 Se calcula la acción de control $\mathbf{U}=-\mathbf{K} \cdot \mathbf{X}$ en la línea 21 mediante los estados pero se añade un control para la altura para simular un caso más real. Se saturan las acciones de control para que no puedan ser negativas con los cuatro $if's$ entre las líneas 23 y 34 porque los motores no pueden ni cambiar de sentido ni superar la fuerza máxima que puedan aportar, que se considera que es de $10\>\>N$. De esta manera se tiene una representación de la realidad más verosímil. 
 
-A modo de ejemplo, para las $\mathbf{K}'s$ calculadas según los parámetros obtenidos del modelo,
+A modo de ejemplo, para las $\mathbf{K}2$ calculadas según los parámetros obtenidos del modelo,
 %\begin{equation}
 %\mathbf{K}=\left[ \begin{array}{cccc}
 %         0 &         0 &  -0.0224 &  -0.0322 \\
@@ -1136,13 +1137,13 @@ y partiendo de unas condiciones iniciales de $\mathbf{q}=[\xi \quad \eta]^{T}=[0
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4,bb=0 0 625 400]{images/simulation_2_2.png}
+\includegraphics[scale=0.4,bb=0 0 625 425]{images/simulation_2_2.png}
 \end{center}
 \caption{Respuesta del ángulo $\phi$ en la simulación}
 \end{figure}
 
 
-y la acción de control que se ha aplicado por parte de los motores hasta llegar a la posición de equilibrio es
+representado en grados $(^{o})$ por considerarse más gráfico. La acción de control que se ha aplicado por parte de los motores hasta llegar a la posición de equilibrio es
 
 \begin{figure}[h!]				
 \begin{center}
@@ -1242,10 +1243,10 @@ Utilizado a modo de Unidad de Medida Inercial (IMU en inglés) que integra en un
 \caption{IMU MPU-6050}
 \end{center}
 \end{figure}\\
-Como características de los sensores: el giróscopo tiene un rango configurable de  $\pm250,\pm500,\pm1000,\pm2000$ grados/segundo, y el acel·lerómetro de $\pm2g,\pm4g,\pm8g,16g$. La tensión de alimentación es del rango de $2.375V-3.46V$ y cabe la posibilidad de utilizar un módulo $DMP$ (Digital Motion Processor), pero se ha decidido implementar un filtro de Kalman para leer los datos en crudo (raw) de la cola $FIFO$ del sensor.
+Como características de los sensores: el giróscopo tiene un rango configurable de  $\pm250^{o}/s$, $\pm500^{o}/s$, $\pm1000^{o}/s$, $\pm2000^{o}/s$ y el acelerómetro de $\pm2g,\pm4g,\pm8g,16g$. La tensión de alimentación es del rango de $2.375V-3.46V$ y cabe la posibilidad de utilizar un módulo $DMP$ (Digital Motion Processor), pero se ha decidido implementar un filtro de Kalman para leer los datos en crudo (raw) de la cola $FIFO$ del sensor.
 
 \subsubsection*{Emisor-Receptor}
-Con este aparato de se transmite la consigna generada des del transmisor hacia el receptor mediante ondas de radio. El modelo que se utiliza es el $Turnigy 5X 5Ch Mini$, porque es fácil de utilizar y además económico. Las especificaciones técnicas más relevantes son: 
+Con este aparato de se transmite la consigna generada des del transmisor hacia el receptor mediante ondas de radio. El modelo que se utiliza es el $Turnigy\>\>5X\>\>5Ch\>\>Mini$, porque es fácil de utilizar y además económico. Las especificaciones técnicas más relevantes son: 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1263,7 +1264,7 @@ La señal que se recibe en cada canal en el receptor es un $PWM$ de $50Hz$ con u
 %% Mirar con osciloscopio la señal
 
 \subsubsection*{Batería LiPo}
-Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy 2200mAh 3S1P 25C$: 
+Para alimentar a todo el conjunto se utiliza una LiPo $Turnigy\>\>2200mAh\>\>3S1P\>\>25C$: 
 
 \begin{figure}[h!]
 \begin{center}
@@ -2367,7 +2368,7 @@ En el experimento se tiene que $g=9.81\>\>m/s^{2}$, $d=0.13\>\>m$ y $m=0.96\>\>k
 y por tanto se tiene que el tensor de inercia del Quadcopter es
 
 \begin{equation}
-I=\left[ \begin{array}{ccc}
+\mathbf{I}=\left[ \begin{array}{ccc}
 7.932 & 0 & 0 \\
 0 & 7.664 & 0 \\
 0 & 0 & 9.741 \\
@@ -2433,7 +2434,8 @@ int main(void){
 }
 \end{lstlisting}
 \onehalfspacing 
-Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\% del PWM enviado al Variador. Las lecturas que se obtienen son: 
+Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\% del PWM enviado al Variador. Las lecturas que se obtienen 
+se representan en pondios($p$) siendo conocedores de la no pertenencia al Sistema Internacional de Unidades (sino al Sistema Técnico de Unidades) debido a que guarda una equivalencia directa con la masa medida en la bancada. Las lecturas obtenidas son: 
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -2473,7 +2475,7 @@ Se obtiene una lectura de fuerza y  de intensidad por cada incremento del 0.25\%
 \hline
 \end{tabular}
 \end{center}
-El PWM(\%) que se envía está comprendido entre el 5\% y el 10\% del ciclo de trabajo, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza se considera demasiado grande y al no preverse que se haga funcionar al sistema en semejantes condiciones, no se estudia. Se detecta una relación proporcional del PWM con la fuerza generada.
+El PWM(\%) que se envía está comprendido entre el 5\% y el 10\% del ciclo de trabajo, que corresponden al mínimo y máximo del motor. Para un PWM elevado la fuerza se considera demasiado grande y al no preverse que se haga funcionar al sistema en semejantes condiciones, no se estudia. Se detecta una relación proporcional del PWM con la fuerza $f$ generada.
 
 Graficado: 
 
@@ -2487,7 +2489,7 @@ Graficado:
 \begin{center}
 \begin{tikzpicture}[domain=5:9]
 \path[draw] (11,-0.8) node {PWM(\%)};
-\path[draw] (-0.6,4.4) node {M(g)};
+\path[draw] (-0.6,4.4) node {f(p)};
 \begin{axis}[width=12cm,height=6cm,xmin=5,ymin=0,xmax=8.5,ymax=475]
 \addplot [color=black,solid,thick,mark=*, mark options={fill=white}] coordinates {
 			(5,0)
